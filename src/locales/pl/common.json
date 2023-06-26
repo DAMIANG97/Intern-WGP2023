@@ -1,0 +1,17 @@
+{
+  "hello": "świat",
+  "pages": {
+    "404": {
+      "button": "Wróć do strony głównej",
+      "title": "Oops! Wygląda na to, że ta strona nie istnieje"
+    },
+    "500": {
+      "button": "Wróć do strony głównej",
+      "title": "Oops! Wygląda na to, że ta strona potrzebuje naprawy"
+    },
+    "_error": {
+      "button": "Wróć do strony głównej",
+      "title": "Oops! Coś poszło nie tak. Naprawimy to!"
+    }
+  }
+}

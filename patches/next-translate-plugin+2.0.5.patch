@@ -1,0 +1,36 @@
+diff --git a/node_modules/next-translate-plugin/lib/cjs/loader.js b/node_modules/next-translate-plugin/lib/cjs/loader.js
+index 686d7b1..f87ebb7 100644
+--- a/node_modules/next-translate-plugin/lib/cjs/loader.js
++++ b/node_modules/next-translate-plugin/lib/cjs/loader.js
+@@ -31,11 +31,11 @@ function loader(rawCode) {
+         return rawCode;
+     }
+     if (hasGetInitialPropsOnAppJs) {
+-        return pageNoExt === '/_app'
++        return pageNoExt.startsWith('/_app')
+             ? (0, templateWithHoc_1.default)(pagePkg, { hasLoadLocaleFrom: hasLoadLocaleFrom })
+             : rawCode;
+     }
+-    if (pageNoExt === '/_app') {
++    if (pageNoExt.startsWith('/_app')) {
+         return (0, templateWithHoc_1.default)(pagePkg, {
+             skipInitialProps: true,
+             hasLoadLocaleFrom: hasLoadLocaleFrom,
+diff --git a/node_modules/next-translate-plugin/lib/esm/loader.js b/node_modules/next-translate-plugin/lib/esm/loader.js
+index 4950f3a..6137ff7 100644
+--- a/node_modules/next-translate-plugin/lib/esm/loader.js
++++ b/node_modules/next-translate-plugin/lib/esm/loader.js
+@@ -26,11 +26,11 @@ export default function loader(rawCode) {
+         return rawCode;
+     }
+     if (hasGetInitialPropsOnAppJs) {
+-        return pageNoExt === '/_app'
++        return pageNoExt.startsWith('/_app')
+             ? templateWithHoc(pagePkg, { hasLoadLocaleFrom: hasLoadLocaleFrom })
+             : rawCode;
+     }
+-    if (pageNoExt === '/_app') {
++    if (pageNoExt.startsWith('/_app')) {
+         return templateWithHoc(pagePkg, {
+             skipInitialProps: true,
+             hasLoadLocaleFrom: hasLoadLocaleFrom,

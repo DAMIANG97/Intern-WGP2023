@@ -1,0 +1,17 @@
+{
+  "hello": "world",
+  "pages": {
+    "404": {
+      "button": "Go to homepage",
+      "title": "Oops! Looks like this page does not exist"
+    },
+    "500": {
+      "button": "Go to homepage",
+      "title": "Oops! Looks like this page needs some repairing"
+    },
+    "_error": {
+      "button": "Go to homepage",
+      "title": "Oops! Something went wrong. We will fix it!"
+    }
+  }
+}
