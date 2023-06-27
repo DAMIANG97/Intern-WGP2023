@@ -1,0 +1,30 @@
+.button {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  border-radius: 0.25rem;
+  color: var(--color-black);
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0.5rem 0.75rem;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &:where(:hover, :focus-visible) {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  &:disabled {
+    background-color: var(--color-gray);
+    border-color: var(--color-gray);
+    color: var(--color-white);
+    cursor: not-allowed;
+  }
+}

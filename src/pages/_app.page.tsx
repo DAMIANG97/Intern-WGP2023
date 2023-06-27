@@ -3,7 +3,7 @@ import { AppProps, NextWebVitalsMetric } from 'next/app';
 import LanguageInit from 'modules/Language/Init';
 import { getComponentLayout } from 'utils/layouts';
 
-import 'styles/globals.scss';
+import 'styles/global.scss';
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   const getLayout = getComponentLayout(router.route);
