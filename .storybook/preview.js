@@ -1,6 +1,6 @@
 import { withThemeByClassName } from '@storybook/addon-styling';
 
-import 'styles/globals.scss';
+import 'styles/global.scss';
 
 const preview = {
   parameters: {
