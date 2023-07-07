@@ -1,0 +1,18 @@
+@use 'sass-mq/_mq';
+.logo {
+  &__link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: currentColor;
+  }
+  &__wrapper {
+    display: block;
+    max-width: 6rem;
+    max-height: 1.5rem;
+    @include mq.mq($from: tablet) {
+      max-width: 11.1rem;
+      max-height: 2.75rem;
+    }
+  }
+}
