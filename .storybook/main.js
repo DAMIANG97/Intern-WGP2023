@@ -1,33 +1,24 @@
 const config = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
-  addons: [
-    '@storybook/addon-links',
-    '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
-    '@storybook/addon-styling',
-    {
-      name: '@storybook/addon-styling',
-      options: {
-        // Check out https://github.com/storybookjs/addon-styling/blob/main/docs/api.md
-        // For more details on this addon's options.
-        postCss: true,
-      },
-    },
-  ],
+  addons: ['@storybook/addon-links', '@storybook/addon-essentials', '@storybook/addon-interactions', '@storybook/addon-styling', {
+    name: '@storybook/addon-styling',
+    options: {
+      // Check out https://github.com/storybookjs/addon-styling/blob/main/docs/api.md
+      // For more details on this addon's options.
+      postCss: true
+    }
+  }],
   framework: {
     name: '@storybook/nextjs',
-    options: {},
+    options: {}
   },
   docs: {
-    autodocs: 'tag',
+    autodocs: 'tag'
   },
-  core: {
-    builder: '@storybook/builder-webpack5',
-  },
-  webpackFinal: (webpackConfig) => {
+  webpackFinal: webpackConfig => {
     // This modifies the existing image rule to exclude `.svg` files
     // since we handle those with `@svgr/webpack`.
-    const imageRule = webpackConfig.module.rules.find((rule) => {
+    const imageRule = webpackConfig.module.rules.find(rule => {
       if (typeof rule !== 'string' && rule.test instanceof RegExp) {
         return rule.test.test('.svg')
       }
