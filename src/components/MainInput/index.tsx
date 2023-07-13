@@ -1,6 +1,8 @@
 import React, { ChangeEvent } from 'react';
-import styles from './MainInput.module.scss';
+
 import clsx from 'clsx';
+
+import styles from './MainInput.module.scss';
 
 interface SearchInputProps {
   value: string;

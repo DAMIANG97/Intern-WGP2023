@@ -4,6 +4,11 @@ import SearchBox from 'components/SearchBox';
 const meta: Meta<typeof SearchBox> = {
   title: 'components/SearchBox',
   component: SearchBox,
+  args: {
+    searchHandler: (e, inputValue) => {
+      console.log(inputValue);
+    },
+  },
 };
 
 export default meta;

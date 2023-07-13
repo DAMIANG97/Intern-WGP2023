@@ -1,12 +1,14 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
-import clsx from 'clsx';
 
+import clsx from 'clsx';
 import MainInput from 'components/MainInput';
 import SearchButton from 'components/SearchButton';
 
 import styles from './SearchBox.module.scss';
 
-const SearchBox = () => {
+type searchHandler = (e: FormEvent, input: string) => void;
+
+const SearchBox: React.FC<{ searchHandler: searchHandler }> = ({ searchHandler }) => {
   const [inputValue, setInputValue] = useState('');
   const [canSubmit, setCanSubmit] = useState(false);
 
@@ -19,7 +21,7 @@ const SearchBox = () => {
   const submitHandler = (e: FormEvent) => {
     e.preventDefault();
     if (canSubmit) {
-      //search service
+      searchHandler(e, inputValue);
       setInputValue('');
     }
   };
