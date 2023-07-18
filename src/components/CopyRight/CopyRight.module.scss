@@ -1,0 +1,16 @@
+.copyright {
+  &__wrapper {
+    padding: 0 0.5rem;
+    display: flex;
+    justify-content: center;
+    font-weight: 400;
+    font-size: var(--font-size-xs);
+    width: fit-content;
+    &--black {
+      color: var(--color-medium);
+    }
+    &--white {
+      color: var(--color-dark);
+    }
+  }
+}
