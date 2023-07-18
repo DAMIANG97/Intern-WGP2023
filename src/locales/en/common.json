@@ -1,5 +1,10 @@
 {
   "hello": "world",
+  "components": {
+    "social": {
+      "followUs": "Follow Us on Social"
+    }
+  },
   "pages": {
     "404": {
       "button": "Go to homepage",

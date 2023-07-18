@@ -1,5 +1,10 @@
 {
   "hello": "świat",
+  "components": {
+    "social": {
+      "followUs": "Śledź nas w portalach społecznościowych"
+    }
+  },
   "pages": {
     "404": {
       "button": "Wróć do strony głównej",
