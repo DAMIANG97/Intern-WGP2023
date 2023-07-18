@@ -23,9 +23,29 @@
     "jest": true,
     "es6": true
   },
+  "rules": {
+    "no-console": ["warn", { "allow": ["debug", "error"] }],
+    "no-unused-vars": "off",
+    "no-extra-boolean-cast": "warn",
+    "no-empty-pattern": "warn",
+    "no-useless-escape": "warn",
+    "no-use-before-define": [0],
+    "curly": "warn",
+    "eqeqeq": ["error", "always"],
+    "react/jsx-curly-brace-presence": "warn",
+    "react/jsx-key": ["warn", { "checkFragmentShorthand": true, "warnOnDuplicates": true }],
+    "unused-imports/no-unused-imports": "warn",
+    "react/jsx-no-target-blank": ["warn", { "enforceDynamicLinks": "always", "warnOnSpreadAttributes": true }],
+    "unused-imports/no-unused-vars": [
+      "warn",
+      { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
+    ],
+    "max-lines": ["warn", 300],
+    "import/newline-after-import": ["warn", { "count": 1 }]
+  },
   "overrides": [
     {
-      "files": ["**/*.ts", "**/*.tsx"],
+      "files": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
       "rules": {
         "simple-import-sort/imports": [
           "error",
@@ -70,7 +90,7 @@
   ],
   "parserOptions": {
     "ecmaVersion": 6,
-    "project": ["tsconfig.json"],
+    "project": ["tsconfig.eslint.json"],
     "sourceType": "module",
     "extraFileExtensions": [".json", ".d.ts"],
     "ecmaFeatures": {
@@ -82,7 +102,8 @@
   "settings": {
     "react": {
       "version": "18"
-    }
+    },
+    "linkComponents": ["Hyperlink", { "name": "Link", "linkAttribute": "href" }]
   },
   "ignorePatterns": ["node_modules", "next.config.js", "jest.config.js", "coverage"],
   "parser": "@typescript-eslint/parser"

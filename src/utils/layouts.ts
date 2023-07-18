@@ -1,7 +1,7 @@
 import getLayoutMain from 'layouts/Main';
 import { RoutePaths, ROUTES_TITLES } from 'utils/routes';
 
-const LAYOUTS = {
+const LAYOUTS: Record<string, GetLayout> = {
   [RoutePaths.home]: getLayoutMain({ title: ROUTES_TITLES[RoutePaths.home] }),
   [RoutePaths.login]: getLayoutMain({ title: ROUTES_TITLES[RoutePaths.login] }),
   // ... more routes to come

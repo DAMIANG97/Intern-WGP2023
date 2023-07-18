@@ -16,7 +16,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "plugins": [{ "name": "next" },  { "name": "typescript-plugin-css-modules" }],
+    "plugins": [{ "name": "next" }, { "name": "typescript-plugin-css-modules" }],
     "strictNullChecks": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,

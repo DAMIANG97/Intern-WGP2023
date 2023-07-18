@@ -16,9 +16,7 @@ const LayoutMain: FunctionComponent<LayoutProps> = ({ title }, page) => {
   );
 };
 
-type LayoutReturn = (page: React.ReactNode) => React.ReactNode;
-
-function getLayoutMain(props: LayoutProps): LayoutReturn {
+function getLayoutMain(props: LayoutProps): GetLayout {
   return (page) => LayoutMain(props, page);
 }
 

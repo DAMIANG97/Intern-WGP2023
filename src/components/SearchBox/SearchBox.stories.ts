@@ -5,8 +5,8 @@ const meta: Meta<typeof SearchBox> = {
   title: 'components/SearchBox',
   component: SearchBox,
   args: {
-    searchHandler: (e, inputValue) => {
-      console.log(inputValue);
+    searchHandler: (_, inputValue) => {
+      console.debug('Storybook', inputValue);
     },
   },
 };
