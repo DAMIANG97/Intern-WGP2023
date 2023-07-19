@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Copyright from 'components/CopyRight';
+import CurrencySelect from 'components/CurrencySelect';
 
-const meta: Meta<typeof Copyright> = {
-  title: 'Components/Copyright',
-  component: Copyright,
+const meta: Meta<typeof CurrencySelect> = {
+  title: 'Components/CurrencySelect',
+  component: CurrencySelect,
   tags: ['autodocs'],
   parameters: {
     backgrounds: {
@@ -17,24 +17,22 @@ const meta: Meta<typeof Copyright> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Copyright>;
+type Story = StoryObj<typeof CurrencySelect>;
 
-export const CopyrightBlack: Story = {
+export const SelectLanguageBlack: Story = {
   parameters: {
     backgrounds: { default: 'dark' },
   },
   args: {
     theme: 'dark',
-    children: 'Copyring © Viachas Kul. All right reserved.',
   },
 };
 
-export const CopyrightWhite: Story = {
+export const SelectLanguageWhite: Story = {
   parameters: {
     backgrounds: { default: 'white' },
   },
   args: {
     theme: 'light',
-    children: 'Copyring © Viachas Kul. All right reserved.',
   },
 };

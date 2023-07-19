@@ -3,64 +3,87 @@
     font-weight: 300;
     border: none;
     font-size: 0.875rem;
-    width: 8rem;
+    max-width: 8rem;
     color: var(--color-white);
     display: flex;
     flex-direction: row;
     align-items: center;
+    position: relative;
+    margin-right: 1.375rem;
+    padding: 0.25rem 0;
+    border-top: solid 4px transparent;
+    border-bottom: solid 4px transparent;
+    transition: border 0.15s, color 0.15s;
+
     &:hover {
       cursor: pointer;
+      color: var(--color-primary);
+      border-bottom: solid 4px var(--color-primary);
     }
+
     &--black {
       color: var(--color-white);
       background-color: var(--color-dark);
     }
+
     &--white {
       color: var(--color-black);
       background-color: var(--color-white);
+    }
+
+    &--open {
+      color: var(--color-primary);
+      border-bottom: solid 4px var(--color-primary);
     }
   }
 
   &__list {
     padding-left: 0.25rem;
     margin: 0;
+    position: absolute;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    padding-top: 0.8rem;
+
     &--black {
       color: var(--color-white);
     }
+
     &--white {
       color: var(--color-black);
     }
-    box-sizing: border-box;
 
-    &:first-child {
-      padding-top: 0.8rem;
+    &--open {
+      max-height: 10rem;
     }
+
+    box-sizing: border-box;
   }
+
   &__listItem {
     list-style: none;
     margin-bottom: 0.2em;
     font-weight: 300;
     font-size: 0.875rem;
+
     &:hover {
       cursor: pointer;
+      color: var(--color-primary);
     }
   }
 
   &__iconStyle {
-    margin-left: 1rem;
-    width: 1rem;
-    transition: all 0.4s ease;
-    &--black {
-      path {
-        stroke: var(--color-white);
-      }
-    }
+    margin-left: 0.5rem;
+    transition: transform 0.4s ease;
+
     &--white {
       path {
         stroke: var(--color-black);
       }
     }
   }
+
   &--rotateIconUp {
     transform: rotateX(-180deg);
   }

@@ -1,14 +1,18 @@
 @use 'sass-mq/_mq';
+
 .social-links {
   display: flex;
   color: var(--color-social-icons);
+
   &__text {
     display: none;
     margin-right: 2.25rem;
+
     @include mq.mq($from: tablet) {
       display: block;
     }
   }
+
   &__list {
     margin: 0;
     padding: 0;
@@ -17,6 +21,7 @@
     align-items: center;
     justify-content: space-between;
   }
+
   &__list-item {
     display: block;
   }

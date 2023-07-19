@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
+import Header from 'components/Header';
 import Seo from 'components/Seo';
 
 interface LayoutProps {
@@ -9,6 +10,7 @@ interface LayoutProps {
 const LayoutMain: FunctionComponent<LayoutProps> = ({ title }, page) => {
   return (
     <div>
+      <Header />
       <Seo title={title} />
       <h1>{title}</h1>
       {page}

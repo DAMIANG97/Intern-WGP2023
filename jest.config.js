@@ -9,7 +9,16 @@ const createJestConfig = nextJest({
 
 console.debug('process.env.NODE_ENV', process.env.NODE_ENV);
 
-const IGNORE_PATTERS = ['/@jest/', '/coverage/', '/.swc/', '/node_modules/', '/out/', '/.next/', '\\.snap'];
+const IGNORE_PATTERS = [
+  '/@jest/',
+  '/coverage/',
+  '/.swc/',
+  '/node_modules/',
+  '/out/',
+  '/.next/',
+  '\\.snap',
+  '\\.stories\\.tsx',
+];
 
 /**
  * @type {import('ts-jest/dist/types').JestConfigWithTsJest}
@@ -27,8 +36,9 @@ const customJestConfig = {
   setupFilesAfterEnv: [resolve(__dirname, 'src', '@jest', 'setupTests.ts')],
   testEnvironment: 'jest-environment-jsdom',
   moduleNameMapper: {
+    '^.+\\.(svg)$': '<rootDir>/@jest/__mocks__/svgComponent.mock.ts',
     '.+\\.(css|styl|less|sass|scss)$': 'identity-obj-proxy',
-    '.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+    '.+\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
       '<rootDir>/@jest/__mocks__/file.mock.ts',
   },
   reporters: [

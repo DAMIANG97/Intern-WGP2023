@@ -1,0 +1,58 @@
+@use 'sass-mq/_mq';
+
+.sidemenu {
+  display: flex;
+  margin-left: auto;
+  justify-content: flex-end;
+  align-items: center;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  margin-right: 1rem;
+  color: var(--color-medium);
+  max-width: 18.75rem;
+
+  @include mq.mq($from: tablet) {
+    justify-content: space-between;
+    justify-self: flex-end;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    justify-self: right;
+    color: var(--color-white);
+    margin-right: 0;
+  }
+
+  &__link {
+    color: currentColor;
+    padding: 0.375rem;
+    display: inline-flex;
+
+    &:is(:hover, :focus-visible) {
+      transform: scale(1.4);
+      color: var(--color-primary);
+    }
+  }
+
+  &__currency-selector,
+  &__language-selector {
+    display: none;
+
+    @include mq.mq($from: tablet) {
+      display: block;
+    }
+  }
+
+  &__profile,
+  &__heart {
+    display: none;
+
+    @include mq.mq($from: tablet) {
+      display: inline-flex;
+    }
+  }
+
+  &__search {
+    @include mq.mq($from: tablet) {
+      display: none;
+    }
+  }
+}

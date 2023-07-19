@@ -1,16 +1,20 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, FunctionComponent, useState } from 'react';
+import useTranslation from 'next-translate/useTranslation';
 
 import clsx from 'clsx';
-import MainInput from 'components/MainInput';
-import SearchButton from 'components/SearchButton';
+import MainInput from 'components/Header/MainInput';
+import SearchButton from 'components/Header/SearchButton';
 
 import styles from './SearchBox.module.scss';
 
-type searchHandler = (e: FormEvent, input: string) => void;
+interface SearchBoxProps {
+  toggleSearchVisible: () => void;
+}
 
-const SearchBox: React.FC<{ searchHandler: searchHandler }> = ({ searchHandler }) => {
+const SearchBox: FunctionComponent<SearchBoxProps> = ({ toggleSearchVisible }) => {
   const [inputValue, setInputValue] = useState('');
   const [canSubmit, setCanSubmit] = useState(false);
+  const { t } = useTranslation();
 
   const inputChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -21,7 +25,7 @@ const SearchBox: React.FC<{ searchHandler: searchHandler }> = ({ searchHandler }
   const submitHandler = (e: FormEvent) => {
     e.preventDefault();
     if (canSubmit) {
-      searchHandler(e, inputValue);
+      toggleSearchVisible();
       setInputValue('');
     }
   };
@@ -31,7 +35,7 @@ const SearchBox: React.FC<{ searchHandler: searchHandler }> = ({ searchHandler }
       <MainInput
         value={inputValue}
         onChange={inputChangeHandler}
-        placeholder="Search"
+        placeholder={t('components.search.placeholder')}
         className={clsx(styles['search-input'])}
       />
       <SearchButton />

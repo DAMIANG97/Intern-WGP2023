@@ -5,7 +5,7 @@ import Select from 'components/Select';
 const options = ['English', 'German', 'Chinese', 'Japanese'];
 
 interface LanguageSelectProps {
-  theme: string;
+  theme?: string;
 }
 const LanguageSelect: FunctionComponent<LanguageSelectProps> = ({ theme }) => {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);

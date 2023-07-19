@@ -3,6 +3,10 @@
   "components": {
     "social": {
       "followUs": "Follow Us on Social"
+    },
+    "search": {
+      "label": "Search",
+      "placeholder": "Search"
     }
   },
   "pages": {

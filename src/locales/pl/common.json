@@ -3,6 +3,10 @@
   "components": {
     "social": {
       "followUs": "Śledź nas w portalach społecznościowych"
+    },
+    "search": {
+      "label": "Szukaj",
+      "placeholder": "Szukaj"
     }
   },
   "pages": {

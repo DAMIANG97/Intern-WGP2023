@@ -1,13 +1,12 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
 
+import ArrowDown from 'assets/icons/arrowDown.svg';
 import { clsx } from 'clsx';
 
 import styles from './Select.module.scss';
 
-import ArrowDown from '/assets/icons/arrowDown.svg';
-
 export interface SelectProps {
-  theme: string;
+  theme?: string;
   options: Array<string>;
   selectedOption: string | null;
   setSelectedOption: Dispatch<SetStateAction<string | null>>;
@@ -31,6 +30,7 @@ const Select = ({ theme, options, setSelectedOption, selectedOption }: SelectPro
             styles.select__header,
             styles['select__header--black'],
             theme !== 'dark' && styles['select__header--white'],
+            isOpen && styles['select__header--open'],
           )}
           onClick={handleToggle}>
           {selectedOption || 'English'}
@@ -39,18 +39,15 @@ const Select = ({ theme, options, setSelectedOption, selectedOption }: SelectPro
             ${clsx('', isOpen && styles['select--rotateIconUp'])}
             ${clsx(
               styles['select__iconStyle'],
-              styles['select__iconStyle--black'],
-              theme !== 'dark' && styles['select__iconStyle--white'],
             )}`}
           />
         </button>
-        {isOpen && (
-          <div>
             <ul
               className={clsx(
                 styles['select__list'],
                 styles['select__list--black'],
                 theme !== 'dark' && styles['select__list--white'],
+                isOpen && styles['select__list--open'],
               )}>
               {options.map((option) => (
                 <li className={styles['select__listItem']} onClick={onOptionClicked(option)} key={option}>
@@ -58,8 +55,6 @@ const Select = ({ theme, options, setSelectedOption, selectedOption }: SelectPro
                 </li>
               ))}
             </ul>
-          </div>
-        )}
       </div>
     </>
   );
