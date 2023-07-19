@@ -1,0 +1,23 @@
+@mixin themeDark() {
+  @media (prefers-color-scheme: dark) {
+    [data-theme='auto']:root & {
+      @content;
+    }
+  }
+
+  [data-theme='dark']:root & {
+    @content;
+  }
+}
+
+@mixin themeLight() {
+  @media (prefers-color-scheme: light) {
+    [data-theme='auto']:root & {
+      @content;
+    }
+  }
+
+  [data-theme='light']:root & {
+    @content;
+  }
+}

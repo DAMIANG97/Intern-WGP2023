@@ -4,6 +4,14 @@
     "social": {
       "followUs": "Śledź nas w portalach społecznościowych"
     },
+    "themeSwitcher": {
+      "switchToDarkMode": "Przełącz na tryb ciemny",
+      "switchToLightMode": "Przełącz na tryb jasny"
+    },
+    "themeLabel": {
+      "darkMode": "Tryb ciemny",
+      "lightMode": "Tryb jasny"
+    },
     "search": {
       "label": "Szukaj",
       "placeholder": "Szukaj"

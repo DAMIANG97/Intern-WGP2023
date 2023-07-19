@@ -4,6 +4,14 @@
     "social": {
       "followUs": "Follow Us on Social"
     },
+    "themeSwitcher": {
+      "switchToDarkMode": "Switch to dark mode",
+      "switchToLightMode": "Switch to light mode"
+    },
+    "themeLabel": {
+      "darkMode": "Dark mode",
+      "lightMode": "Light mode"
+    },
     "search": {
       "label": "Search",
       "placeholder": "Search"

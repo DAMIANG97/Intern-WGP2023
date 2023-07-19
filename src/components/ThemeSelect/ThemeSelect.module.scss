@@ -1,0 +1,28 @@
+.toggle {
+  &__container {
+    display: flex;
+    flex-direction: row;
+  }
+  &__button {
+    padding: 0.25rem 0.75rem;
+    border-radius: 4rem;
+    cursor: pointer;
+    border: none;
+    margin-right: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &--selected {
+      border: 2px solid var(--color-dark);
+    }
+
+    &--none {
+      border: none;
+    }
+  }
+
+  &__text {
+    margin-right: 0.5rem;
+  }
+}

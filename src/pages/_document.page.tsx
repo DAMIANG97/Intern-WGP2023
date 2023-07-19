@@ -11,7 +11,7 @@ class MyDocument extends Document {
   render() {
     const locale = this.props.__NEXT_DATA__.locale || DEFAULT_LANGUAGE;
     return (
-      <Html lang={locale} translate="no" dir="ltr">
+      <Html lang={locale} translate="no" dir="ltr" data-theme="auto">
         <Head>
           <meta property="og:locale" content={locale} />
 
