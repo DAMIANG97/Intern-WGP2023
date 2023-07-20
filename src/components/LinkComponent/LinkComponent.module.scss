@@ -1,0 +1,30 @@
+@use 'sass-mq/_mq';
+
+.link {
+  font-size: var(--font-size-xs);
+  text-decoration: underline 1px;
+  padding: 1rem;
+  border: none;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+
+  &[aria-current='true'] {
+    text-decoration: none;
+    color: var(--color-medium);
+    background-color: var(--color-white);
+  }
+
+  @include mq.mq($from: tablet) {
+    background-color: transparent;
+    font-size: var(--font-size-s);
+    text-decoration: none;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    &:is(:hover, :focus-visible, :active, [aria-current='true']) {
+      cursor: pointer;
+      color: var(--color-primary);
+      border-bottom: 2px solid var(--color-primary);
+      background-color: transparent;
+    }
+  }
+}

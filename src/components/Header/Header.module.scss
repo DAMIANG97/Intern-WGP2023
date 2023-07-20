@@ -31,11 +31,8 @@
     display: none;
 
     @include mq.mq($from: tablet) {
-      grid-row-start: 2;
-      margin-top: 2rem;
       display: block;
-      width: 100%;
-      text-align: center;
+      justify-self: center;
     }
   }
 
