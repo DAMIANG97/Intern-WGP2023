@@ -26,7 +26,7 @@ const Header = () => {
         </Button>
       </div>
       <div className={styles.header__search}>
-        <SearchBox toggleSearchVisible={toggleSearchVisible} />
+        <SearchBox />
       </div>
       <Logo />
       <Sidemenu clickHandler={clickHandler} searchVisible={searchVisible} />

@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, FunctionComponent, useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import useTranslation from 'next-translate/useTranslation';
 
 import clsx from 'clsx';
@@ -7,11 +7,7 @@ import SearchButton from 'components/Header/SearchButton';
 
 import styles from './SearchBox.module.scss';
 
-interface SearchBoxProps {
-  toggleSearchVisible: () => void;
-}
-
-const SearchBox: FunctionComponent<SearchBoxProps> = ({ toggleSearchVisible }) => {
+const SearchBox = () => {
   const [inputValue, setInputValue] = useState('');
   const [canSubmit, setCanSubmit] = useState(false);
   const { t } = useTranslation();
@@ -25,8 +21,7 @@ const SearchBox: FunctionComponent<SearchBoxProps> = ({ toggleSearchVisible }) =
   const submitHandler = (e: FormEvent) => {
     e.preventDefault();
     if (canSubmit) {
-      toggleSearchVisible();
-      setInputValue('');
+      //TO DO: search handling
     }
   };
 
