@@ -1,5 +1,5 @@
 @use 'sass-mq/_mq';
-@import "/src/styles/utils/_theme.scss";
+@import '/src/styles/use';
 
 .link {
   font-size: var(--font-size-xs);
