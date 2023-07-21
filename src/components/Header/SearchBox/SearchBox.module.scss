@@ -10,7 +10,7 @@
   color: var(--color-hurricane);
 
   @include mq.mq($from: tablet) {
-    width: 17.3125rem;
+    max-width: 17.3125rem;
   }
 }
 
