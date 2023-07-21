@@ -1,17 +1,37 @@
 @use 'sass-mq/_mq';
+@import "/src/styles/utils/_theme.scss";
 
 .header {
   width: 100%;
   max-height: 3.5rem;
   display: grid;
   grid-template-rows: 3.5rem auto;
-  background-color: var(--color-white);
   font-weight: 300;
+
+
+  @include themeDark {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+  }
+
+  @include themeLight {
+    background-color: var(--color-white);
+    color: var(--color-dark);
+  }
 
   @include mq.mq($from: tablet) {
     max-height: none;
-    background-color: var(--color-dark);
-    color: var(--color-white);
+
+    @include themeDark {
+      background-color: var(--color-dark);
+      color: var(--color-white);
+    }
+
+    @include themeLight {
+      background-color: var(--color-white);
+      color: var(--color-dark);
+    }
+
     height: 10.625rem;
     padding-top: 1.5rem;
     align-content: start;

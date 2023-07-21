@@ -1,3 +1,5 @@
+@import "/src/styles/utils/_theme.scss";
+
 .copyright {
   &__wrapper {
     padding: 0 0.5rem;
@@ -5,14 +7,15 @@
     justify-content: center;
     font-weight: 400;
     font-size: var(--font-size-xs);
+    width: -moz-fit-content;
     width: fit-content;
 
-    &--black {
+    @include themeDark {
       color: var(--color-medium);
     }
 
-    &--white {
-      color: var(--color-dark);
+    @include themeLight {
+      color: var(--color-dark)
     }
   }
 }

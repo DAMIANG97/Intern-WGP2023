@@ -12,6 +12,7 @@ import styles from './Header.module.scss';
 
 const Header = () => {
   const [searchVisible, setSearchVisible] = useState(false);
+
   const toggleSearchVisible = () => setSearchVisible((is) => !is);
   const clickHandler = () => {
     toggleSearchVisible();

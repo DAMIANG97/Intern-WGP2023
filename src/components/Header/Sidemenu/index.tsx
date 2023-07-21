@@ -23,10 +23,10 @@ const Sidemenu: FunctionComponent<SidemenuProps> = ({ clickHandler, searchVisibl
   return (
     <div className={styles.sidemenu}>
       <div className={styles['sidemenu__language-selector']}>
-        <LanguageSelect theme="dark" />
+        <LanguageSelect />
       </div>
       <div className={styles['sidemenu__currency-selector']}>
-        <CurrencySelect theme="dark" />
+        <CurrencySelect />
       </div>
       <div className={styles.sidemenu__search}>
         <Button type="button" className={styles['sidemenu__search']} withIcon>

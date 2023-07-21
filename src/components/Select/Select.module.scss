@@ -1,19 +1,27 @@
+@import "/src/styles/utils/_theme.scss";
+
 .select {
+  &__container {
+    min-width: 6.25rem;
+  }
+
   &__header {
+    min-width: 3.25rem;
     font-weight: 300;
     border: none;
     font-size: 0.875rem;
     max-width: 8rem;
-    color: var(--color-white);
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     position: relative;
     margin-right: 1.375rem;
     padding: 0.25rem 0;
     border-top: solid 4px transparent;
     border-bottom: solid 4px transparent;
-    transition: border 0.15s, color 0.15s;
+    transition: border 0.15s,
+      color 0.15s;
 
     &:hover {
       cursor: pointer;
@@ -21,14 +29,14 @@
       border-bottom: solid 4px var(--color-primary);
     }
 
-    &--black {
+    @include themeDark {
       color: var(--color-white);
-      background-color: var(--color-dark);
+      background-color: var(--color-dark)
     }
 
-    &--white {
+    @include themeLight {
       color: var(--color-black);
-      background-color: var(--color-white);
+      background-color: var(--color-white)
     }
 
     &--open {
@@ -45,12 +53,14 @@
     overflow: hidden;
     transition: max-height 0.4s ease;
     padding-top: 0.8rem;
+    list-style-type: none;
+    text-align: left;
 
-    &--black {
+    @include themeDark {
       color: var(--color-white);
     }
 
-    &--white {
+    @include themeLight {
       color: var(--color-black);
     }
 
@@ -66,6 +76,16 @@
     margin-bottom: 0.2em;
     font-weight: 300;
     font-size: 0.875rem;
+    border: none;
+    padding: 0;
+
+    @include themeDark {
+      background-color: var(--color-dark);
+    }
+
+    @include themeLight {
+      background-color: var(--color-white);
+    }
 
     &:hover {
       cursor: pointer;
@@ -77,8 +97,8 @@
     margin-left: 0.5rem;
     transition: transform 0.4s ease;
 
-    &--white {
-      path {
+    path {
+      @include themeLight {
         stroke: var(--color-black);
       }
     }

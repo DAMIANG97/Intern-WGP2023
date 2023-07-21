@@ -23,16 +23,10 @@ export const SelectLanguageBlack: Story = {
   parameters: {
     backgrounds: { default: 'dark' },
   },
-  args: {
-    theme: 'dark',
-  },
 };
 
 export const SelectLanguageWhite: Story = {
   parameters: {
     backgrounds: { default: 'white' },
-  },
-  args: {
-    theme: 'light',
   },
 };

@@ -24,7 +24,6 @@ export const CopyrightBlack: Story = {
     backgrounds: { default: 'dark' },
   },
   args: {
-    theme: 'dark',
     children: 'Copyring © Viachas Kul. All right reserved.',
   },
 };
@@ -34,7 +33,6 @@ export const CopyrightWhite: Story = {
     backgrounds: { default: 'white' },
   },
   args: {
-    theme: 'light',
     children: 'Copyring © Viachas Kul. All right reserved.',
   },
 };

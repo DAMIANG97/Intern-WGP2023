@@ -1,6 +1,7 @@
 .list-links {
   display: flex;
   justify-self: center;
+  width: -moz-fit-content;
   width: fit-content;
   padding-top: 1rem;
 }

@@ -32,7 +32,6 @@ export const SelectBlack: Story = {
     backgrounds: { default: 'dark' },
   },
   args: {
-    theme: 'dark',
     options: ['English', 'Japanese', 'German', 'Chinese'],
   },
 };
@@ -42,7 +41,6 @@ export const SelectWhite: Story = {
     backgrounds: { default: 'white' },
   },
   args: {
-    theme: 'light',
     options: ['English', 'Japanese', 'German', 'Chinese'],
   },
 };

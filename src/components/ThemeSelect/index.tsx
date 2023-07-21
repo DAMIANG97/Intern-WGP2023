@@ -12,30 +12,17 @@ const ThemeSelect: FunctionComponent = () => {
   const { theme, setTheme } = useContext(ThemeContext);
   const { t } = useTranslation();
   return (
-    <div className={styles.toggle__container}>
-      <button
-        onClick={() => setTheme('dark')}
-        aria-label={t('components.themeSwitcher.switchToDarkMode')}
-        type="button"
-        className={clsx(
-          styles.toggle__button,
-          styles['toggle__button--selected'],
-          theme !== 'dark' && styles['toggle__button--none'],
-        )}>
-        <span className={styles.toggle__text}>{t('components.themeLabel.darkMode')}</span> <MoonIcon />
-      </button>
-      <button
-        onClick={() => setTheme('light')}
-        aria-label={t('components.themeSwitcher.switchToLightMode')}
-        type="button"
-        className={clsx(
-          styles.toggle__button,
-          styles['toggle__button--selected'],
-          theme === 'dark' && styles['toggle__button--none'],
-        )}>
-        <span className={styles.toggle__text}>{t('components.themeLabel.lightMode')}</span> <SunIcon />
-      </button>
-    </div>
+    <button
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      aria-label={
+        theme === 'dark'
+          ? t('components.themeSwitcher.switchToLightMode')
+          : t('components.themeSwitcher.switchToDarkMode')
+      }
+      type="button"
+      className={clsx(styles.toggle__button)}>
+      {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
+    </button>
   );
 };
 

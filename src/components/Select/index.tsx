@@ -6,13 +6,12 @@ import { clsx } from 'clsx';
 import styles from './Select.module.scss';
 
 export interface SelectProps {
-  theme?: string;
   options: Array<string>;
   selectedOption: string | null;
   setSelectedOption: Dispatch<SetStateAction<string | null>>;
 }
 
-const Select = ({ theme, options, setSelectedOption, selectedOption }: SelectProps) => {
+const Select = ({ options, setSelectedOption, selectedOption }: SelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = () => setIsOpen(!isOpen);
@@ -23,38 +22,27 @@ const Select = ({ theme, options, setSelectedOption, selectedOption }: SelectPro
   };
   return (
     <>
-      <div>
+      <div className={styles.select__container}>
         <button
           type="button"
-          className={clsx(
-            styles.select__header,
-            styles['select__header--black'],
-            theme !== 'dark' && styles['select__header--white'],
-            isOpen && styles['select__header--open'],
-          )}
+          className={clsx(styles.select__header, isOpen && styles['select__header--open'])}
           onClick={handleToggle}>
           {selectedOption || 'English'}
           <ArrowDown
             className={`
             ${clsx('', isOpen && styles['select--rotateIconUp'])}
-            ${clsx(
-              styles['select__iconStyle'],
-            )}`}
+            ${clsx(styles['select__iconStyle'])}`}
           />
         </button>
-            <ul
-              className={clsx(
-                styles['select__list'],
-                styles['select__list--black'],
-                theme !== 'dark' && styles['select__list--white'],
-                isOpen && styles['select__list--open'],
-              )}>
-              {options.map((option) => (
-                <li className={styles['select__listItem']} onClick={onOptionClicked(option)} key={option}>
-                  {option}
-                </li>
-              ))}
-            </ul>
+        <ul className={clsx(styles['select__list'], isOpen && styles['select__list--open'])}>
+          {options.map((option) => (
+            <li key={option}>
+              <button className={styles['select__listItem']} onClick={onOptionClicked(option)} type="button">
+                {option}
+              </button>
+            </li>
+          ))}
+        </ul>
       </div>
     </>
   );
