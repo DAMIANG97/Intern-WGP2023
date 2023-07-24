@@ -10,6 +10,7 @@ import clsx from 'clsx';
 import Button from 'components/Button';
 import CurrencySelect from 'components/CurrencySelect';
 import LanguageSelect from 'components/LanguageSelect';
+import ThemeSelect from 'components/ThemeSelect';
 import { RoutePaths } from 'utils/routes';
 
 import styles from './Sidemenu.module.scss';
@@ -22,6 +23,9 @@ interface SidemenuProps {
 const Sidemenu: FunctionComponent<SidemenuProps> = ({ clickHandler, searchVisible }) => {
   return (
     <div className={styles.sidemenu}>
+      <div className={styles['sidemenu__theme-selector']}>
+        <ThemeSelect />
+      </div>
       <div className={styles['sidemenu__language-selector']}>
         <LanguageSelect />
       </div>

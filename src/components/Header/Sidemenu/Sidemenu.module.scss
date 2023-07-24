@@ -33,7 +33,8 @@
   }
 
   &__currency-selector,
-  &__language-selector {
+  &__language-selector,
+  &__theme-selector {
     display: none;
 
     @include mq.mq($from: tablet) {
