@@ -1,4 +1,6 @@
+@use 'sass-mq/_mq';
 @import '/src/styles/use';
+
 
 .copyright {
   &__wrapper {
@@ -6,9 +8,12 @@
     display: flex;
     justify-content: center;
     font-weight: 400;
-    font-size: var(--font-size-xs);
-    width: -moz-fit-content;
+    font-size: var(--font-size-xxxs);
     width: fit-content;
+
+    @include mq.mq($from: tablet) {
+      font-size: var(--font-size-xs);
+    }
 
     @include themeDark {
       color: var(--color-medium);

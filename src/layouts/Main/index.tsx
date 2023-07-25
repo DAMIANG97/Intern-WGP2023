@@ -1,5 +1,6 @@
 import React, { FunctionComponent, Suspense } from 'react';
 
+import Footer from 'components/Footer';
 import Header from 'components/Header';
 import Seo from 'components/Seo';
 import ThemeProvider from 'utils/Providers/ThemeProvider';
@@ -14,6 +15,7 @@ const LayoutMain: FunctionComponent<LayoutProps> = ({ title }, page) => (
     <Seo title={title} />
     <h1>{title}</h1>
     <Suspense>{page}</Suspense>
+    <Footer></Footer>
   </ThemeProvider>
 );
 

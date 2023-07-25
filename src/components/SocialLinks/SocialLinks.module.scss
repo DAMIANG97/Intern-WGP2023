@@ -1,19 +1,31 @@
 @use 'sass-mq/_mq';
+@import '/src/styles/use';
 
 .social-links {
   display: flex;
-  color: var(--color-social-icons);
+
 
   &__text {
+    color: var(--color-white);
     display: none;
     margin-right: 2.25rem;
 
     @include mq.mq($from: tablet) {
       display: block;
     }
+
+    @include themeDark {
+      color: var(--color-white);
+    }
+
+    @include themeLight {
+      color: var(--color-dark)
+    }
+
   }
 
   &__list {
+    color: var(--color-social-icons);
     margin: 0;
     padding: 0;
     max-width: 7.875rem;
