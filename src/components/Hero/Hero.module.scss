@@ -1,0 +1,29 @@
+@use 'sass-mq/_mq';
+
+.hero {
+  &__container {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--color-dark); // added for visibility purposes
+    color: var(--color-white) //adding for visibility purposees, will be removed when text and desc component is added
+  }
+
+  &__banner {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__socialBar {
+    width: 10rem;
+    margin-right: 10rem;
+    display: none;
+
+    @include mq.mq($from: tablet) {
+      display: block;
+    }
+  }
+
+  &__textContainer {
+    width: 25rem;
+  }
+}
