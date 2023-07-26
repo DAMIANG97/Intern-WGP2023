@@ -5,6 +5,7 @@ import FacebookIcon from 'assets/icons/facebook.svg';
 import GoogleIcon from 'assets/icons/google.svg';
 import TwitterIcon from 'assets/icons/twitter.svg';
 import YoutubeIcon from 'assets/icons/youtube.svg';
+import clsx from 'clsx';
 import ExternalLinkWithIcon from 'components/ExternalLinkWithIcon';
 
 import styles from './SocialLinks.module.scss';
@@ -16,12 +17,16 @@ const SOCIALS = [
   { name: 'Google', icon: GoogleIcon, href: 'https://www.google.com/' },
 ] as const;
 
-const SocialLinks: FunctionComponent = () => {
+interface SocialLinksProps {
+  vertical?: boolean;
+}
+
+const SocialLinks: FunctionComponent<SocialLinksProps> = ({ vertical }) => {
   const { t } = useTranslation();
 
   return (
-    <div className={styles['social-links']}>
-      <p className={styles['social-links__text']}>{t('components.social.followUs')}</p>
+    <div className={clsx(styles['social-links'], vertical && styles['social-links--vertical'])}>
+      <p className={styles[`social-links__text`]}>{t('components.social.followUs')}</p>
       <ul className={styles['social-links__list']}>
         {SOCIALS.map((item) => (
           <li className={styles['social-links__list-item']} key={item.name}>

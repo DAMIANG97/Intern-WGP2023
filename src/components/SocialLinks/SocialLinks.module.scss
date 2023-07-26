@@ -4,6 +4,18 @@
 .social-links {
   display: flex;
 
+  &--vertical .social-links__text {
+    display: none;
+  }
+
+  &--vertical .social-links__list {
+    display: none;
+
+    @include mq.mq($from: tablet) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 
   &__text {
     color: var(--color-white);
@@ -21,14 +33,12 @@
     @include themeLight {
       color: var(--color-dark)
     }
-
   }
 
   &__list {
     color: var(--color-social-icons);
     margin: 0;
     padding: 0;
-    max-width: 7.875rem;
     display: flex;
     align-items: center;
     justify-content: space-between;

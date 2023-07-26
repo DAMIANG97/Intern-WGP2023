@@ -1,7 +1,9 @@
 @use 'sass-mq/_mq';
 @import '/src/styles/use';
 
-.footerbackground {
+
+.footer {
+  box-shadow: 0px -2px 7px 0px rgba(0, 0, 0, 0.14);
 
   @include themeDark {
     color: var(--color-white);
@@ -12,23 +14,25 @@
     color: var(--color-dark);
     background-color: var(--color-white);
   }
-}
 
-.footer {
-  justify-items: center;
-  width: 100%;
-  display: grid;
-  max-height: 15.125rem;
-  align-items: start;
 
-  @include mq.mq($from: tablet) {
-    height: 13.125rem;
-    grid-template-columns: 1fr 1fr 1fr;
+  &__container {
+
+    justify-items: center;
+    width: 100%;
+    display: grid;
+    max-height: 15.125rem;
+    align-items: start;
+
+    @include mq.mq($from: tablet) {
+      height: 13.125rem;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
   }
 
   &__logo {
     margin-top: 1.375rem;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
     width: 11.1rem;
     height: 2.75rem;
 
@@ -43,17 +47,20 @@
     margin-bottom: 1.625rem;
 
     @include mq.mq($from: tablet) {
+      justify-self: start;
       margin-top: 3.875rem;
     }
   }
 
   &__social {
-    margin-right: 2rem;
     margin-bottom: 1.5rem;
 
     @include mq.mq($from: tablet) {
+      justify-self: end;
       margin-top: 3.125rem;
+
     }
+
   }
 
   &__copyright {

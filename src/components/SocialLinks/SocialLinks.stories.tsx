@@ -15,3 +15,10 @@ export const SocialLinksDefault: Story = {
     backgrounds: { default: 'Mine Shaft' },
   },
 };
+
+export const SocialLinksVertical: Story = {
+  render: () => <SocialLinks vertical />,
+  parameters: {
+    backgrounds: { default: 'Mine Shaft' },
+  },
+};

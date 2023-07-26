@@ -8,8 +8,8 @@ import styles from './Footer.module.scss';
 
 const Footer = () => {
   return (
-    <footer className={styles.footerbackground}>
-      <Container className={styles.footer}>
+    <footer className={styles.footer}>
+      <Container className={styles.footer__container}>
         <Logo className={styles['footer__logo']} />
         <span className={styles['footer__policy']}>
           <PolicyLinksList />
