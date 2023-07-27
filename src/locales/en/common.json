@@ -15,6 +15,10 @@
     "search": {
       "label": "Search",
       "placeholder": "Search"
+    },
+    "heroActionLink": {
+      "label": "Shop Now",
+      "ariaLabel": "See product details"
     }
   },
   "pages": {
