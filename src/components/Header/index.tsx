@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 
 import MenuIcon from 'assets/icons/menu.svg';
 import clsx from 'clsx';
@@ -11,14 +11,14 @@ import ListOfLinks from 'components/ListOfLinks';
 
 import styles from './Header.module.scss';
 
-const Header = () => {
-  const [searchVisible, setSearchVisible] = useState(false);
+interface HeaderProps extends Hybris.PageContent {}
 
+const Header: FunctionComponent<HeaderProps> = () => {
+  const [searchVisible, setSearchVisible] = useState(false);
   const toggleSearchVisible = () => setSearchVisible((is) => !is);
   const clickHandler = () => {
     toggleSearchVisible();
   };
-
   return (
     <header className={clsx(styles.header, searchVisible && styles['header--search-visible'])}>
       <Container className={styles.header__container}>

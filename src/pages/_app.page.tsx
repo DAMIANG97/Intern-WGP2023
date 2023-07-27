@@ -6,8 +6,7 @@ import { getComponentLayout } from 'utils/layouts';
 import 'styles/global.scss';
 
 function MyApp({ Component, pageProps, router }: AppProps) {
-  const getLayout = getComponentLayout(router.route);
-
+  const getLayout = getComponentLayout(pageProps, router.route);
   return (
     <>
       {getLayout(<Component {...pageProps} />)}

@@ -7,11 +7,12 @@ import ThemeProvider from 'utils/Providers/ThemeProvider';
 
 interface LayoutProps {
   title: string;
+  pageContent: Hybris.PageContent;
 }
 
-const LayoutMain: FunctionComponent<LayoutProps> = ({ title }, page) => (
+const LayoutMain: FunctionComponent<LayoutProps> = ({ title, ...pageProps }, page) => (
   <ThemeProvider>
-    <Header />
+    <Header {...pageProps.pageContent} />
     <Seo title={title} />
     <h1>{title}</h1>
     <Suspense>{page}</Suspense>
