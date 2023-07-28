@@ -1,18 +1,22 @@
+import { ComponentProps } from 'react';
 import { GetStaticProps, NextPage } from 'next';
 
 import Home from 'modules/Home';
 import apiFetch from 'utils/apiFetch';
+import { BASE_URL, HOMEPAGE_ENDPOINT } from 'utils/Hybris/endpoints';
+import getHeroContent from 'utils/Hybris/getHeroContent';
 
-const ComponentsPage: NextPage = Home;
+interface HomePageProps extends ComponentProps<typeof Home> {}
 
-export const getStaticProps: GetStaticProps = async () => {
-  const data = await apiFetch<Hybris.PageContent>(
-    'https://wgp2023.mooo.com:9002/occ/v2/electronics-spa/cms/pages/homepage',
-  );
+const HomePage: NextPage<HomePageProps> = Home;
+
+export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
+  const data = await apiFetch<Hybris.PageContent>(`${BASE_URL}${HOMEPAGE_ENDPOINT}`);
+  const heroContent = await getHeroContent(data);
   return {
     props: {
-      pageContent: data,
+      heroContent: heroContent,
     },
   };
 };
-export default ComponentsPage;
+export default HomePage;

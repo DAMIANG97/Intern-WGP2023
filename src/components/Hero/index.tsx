@@ -3,11 +3,14 @@ import React from 'react';
 import Container from 'components/Container';
 import TitleAndDescription from 'components/Hero/TitleAndDescription';
 import SocialLinks from 'components/SocialLinks';
-import tempArray from 'mocks/mocks';
 
 import styles from './Hero.module.scss';
 
-const Hero = () => {
+interface HeroProps {
+  heroContent: ReadonlyArray<HeroComponentProps>;
+}
+
+const Hero: React.FC<HeroProps> = ({ heroContent }) => {
   return (
     <div className={styles.hero__container}>
       <Container className={styles.hero__banner}>
@@ -16,7 +19,7 @@ const Hero = () => {
         </div>
         <div className={styles.hero__textContainer}>
           {/* SLIDER HERE -> map over the list list of hero banners here */}
-          <TitleAndDescription title={tempArray[0].headline} description={tempArray[0].content} />
+          <TitleAndDescription title={heroContent[0].headline} description={heroContent[0].content} />
         </div>
       </Container>
     </div>

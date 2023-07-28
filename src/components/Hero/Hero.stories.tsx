@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Hero from 'components/Hero';
+import tempArray from 'mocks/mocks';
 
 const meta: Meta<typeof Hero> = {
   title: 'Components/Hero',
@@ -24,8 +25,7 @@ export const HeroBlack: Story = {
     backgrounds: { default: 'dark' },
   },
   args: {
-    title: 'Cameras store collection',
-    desc: 'Find the best camaras you need in your amatour and professional photography',
+    heroContent: tempArray,
   },
 };
 
@@ -34,7 +34,6 @@ export const HeroWhite: Story = {
     backgrounds: { default: 'white' },
   },
   args: {
-    title: 'Cameras store collection',
-    desc: 'Find the best camaras you need in your amatour and professional photography',
+    heroContent: tempArray,
   },
 };

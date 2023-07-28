@@ -123,3 +123,15 @@ declare namespace Hybris {
     url: string;
   }
 }
+
+interface HeroComponentProps {
+  media: {
+    code: string;
+    mime: string;
+    altText: string;
+    url: string;
+  };
+  headline: string;
+  content: string;
+  urlLink: string;
+}
