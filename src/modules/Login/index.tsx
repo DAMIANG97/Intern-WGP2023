@@ -2,7 +2,9 @@ import React from 'react';
 
 import Button from 'components/Button';
 
-const Home = () => {
+interface LoginProps {}
+
+const Login: React.FC<LoginProps> = () => {
   return (
     <div>
       <Button>Log In</Button>
@@ -11,4 +13,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Login;

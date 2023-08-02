@@ -5,7 +5,7 @@ import Button from 'components/Button';
 import Hero from 'components/Hero';
 
 interface HomeProps {
-  heroContent: ReadonlyArray<HeroComponentProps>;
+  heroContent: ReadonlyArray<Hybris.HeroComponentProps>;
 }
 
 const Home: React.FC<HomeProps> = ({ heroContent }) => {

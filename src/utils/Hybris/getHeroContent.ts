@@ -1,5 +1,5 @@
 import apiFetch from 'utils/apiFetch';
-import { BASE_URL } from 'utils/Hybris/endpoints';
+import { BASE_URL, BASESITE_ID } from 'utils/Hybris/endpoints';
 
 //Types for fetched content
 
@@ -30,7 +30,12 @@ interface HeroComponent {
 /**
  * Gets banner names from homepage content data and fetches required images and decriptions.
  */
-const getHeroContent = async (data: Hybris.PageContent): Promise<HeroComponentProps[] | []> => {
+async function getHeroContent(
+  data: Hybris.PageContent,
+  locale: string | undefined,
+  currency: string,
+): Promise<Hybris.HeroComponentProps[] | []> {
+  const localeSuffix = `lang=${locale}&curr=${currency}`;
   const banners = data.contentSlots.contentSlot
     .find((slot) => slot.slotId === 'HeroContentSlot-Homepage')
     ?.components.component.find((component) => component.uid === 'Hero AL')?.banners;
@@ -42,16 +47,18 @@ const getHeroContent = async (data: Hybris.PageContent): Promise<HeroComponentPr
         return prefix.concat(string).concat('&');
       })
       .join('');
-    const url = `${BASE_URL}cms/components?`;
-    const content = await apiFetch<HeroContent>(url.concat(queryString));
-    const filteredContent: HeroComponentProps[] = content.component.map(({ media, headline, content, urlLink }) => ({
-      media,
-      headline,
-      content,
-      urlLink,
-    }));
+    const url = `${BASE_URL}${BASESITE_ID}/cms/components?`;
+    const content = await apiFetch<HeroContent>(`${url}${queryString}${localeSuffix}`);
+    const filteredContent: Hybris.HeroComponentProps[] = content.component.map(
+      ({ media, headline, content, urlLink }) => ({
+        media,
+        headline,
+        content,
+        urlLink,
+      }),
+    );
     return filteredContent;
   }
   return [];
-};
+}
 export default getHeroContent;

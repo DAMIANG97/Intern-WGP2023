@@ -15,7 +15,7 @@ const preview = {
     },
     backgrounds: {
       values: [
-        { name: 'Mine Shaft', value: '#212121' },
+        { name: 'dark', value: '#212121' },
         { name: 'white', value: '#fff' },
       ],
     },

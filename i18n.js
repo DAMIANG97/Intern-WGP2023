@@ -5,8 +5,10 @@ const hoistNonReactStatics = require('hoist-non-react-statics');
  * @constant
  */
 const LOCALES = [
-  'pl', // Global, Polish
   'en', // English
+  'ja', // Japanese
+  'de', // German
+  'zh', // Chinese
 ];
 const DEFAULT_LANGUAGE = LOCALES[0];
 

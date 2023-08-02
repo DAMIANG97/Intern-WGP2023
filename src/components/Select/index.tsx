@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useState } from 'react';
+import React, { useState } from 'react';
 
 import ArrowDown from 'assets/icons/arrowDown.svg';
 import { clsx } from 'clsx';
@@ -8,16 +8,16 @@ import styles from './Select.module.scss';
 export interface SelectProps {
   options: Array<string>;
   selectedOption: string | null;
-  setSelectedOption: Dispatch<SetStateAction<string | null>>;
+  submitHandler: (value: string) => void;
 }
 
-const Select = ({ options, setSelectedOption, selectedOption }: SelectProps) => {
+const Select = ({ options, submitHandler, selectedOption }: SelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = () => setIsOpen(!isOpen);
 
   const onOptionClicked = (value: string) => () => {
-    setSelectedOption(value);
+    submitHandler(value);
     setIsOpen(false);
   };
   return (
@@ -27,7 +27,7 @@ const Select = ({ options, setSelectedOption, selectedOption }: SelectProps) => 
           type="button"
           className={clsx(styles.select__header, isOpen && styles['select__header--open'])}
           onClick={handleToggle}>
-          {selectedOption || 'English'}
+          {selectedOption || ''}
           <ArrowDown
             className={`
             ${clsx('', isOpen && styles['select--rotateIconUp'])}

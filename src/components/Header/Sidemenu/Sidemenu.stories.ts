@@ -1,17 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Sidemenu from 'components/Header/Sidemenu';
+import { localeOptionsMock } from 'mocks/mocks';
 
 const meta: Meta<typeof Sidemenu> = {
   title: 'Components/Sidemenu',
   component: Sidemenu,
   tags: ['autodocs'],
-  parameters: {
-    backgrounds: {
-      values: [
-        { name: 'Mine Shaft', value: '#212121' },
-        { name: 'white', value: '#fff' },
-      ],
-    },
+  args: {
+    localeOptions: localeOptionsMock,
   },
 };
 
@@ -20,7 +16,7 @@ type Story = StoryObj<typeof Sidemenu>;
 
 export const SidemenuDesktop: Story = {
   parameters: {
-    backgrounds: { default: 'Mine Shaft' },
+    backgrounds: { default: 'dark' },
   },
 };
 

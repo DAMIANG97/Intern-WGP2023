@@ -18,19 +18,23 @@ import styles from './Sidemenu.module.scss';
 interface SidemenuProps {
   clickHandler: () => void;
   searchVisible: boolean;
+  localeOptions: Hybris.LocaleOptions;
 }
 
-const Sidemenu: FunctionComponent<SidemenuProps> = ({ clickHandler, searchVisible }) => {
+const Sidemenu: FunctionComponent<SidemenuProps> = ({ clickHandler, searchVisible, localeOptions }) => {
   return (
     <div className={styles.sidemenu}>
       <div className={styles['sidemenu__theme-selector']}>
         <ThemeSelect />
       </div>
       <div className={styles['sidemenu__language-selector']}>
-        <LanguageSelect />
+        <LanguageSelect
+          defaultLanguage={localeOptions.defaultLanguage}
+          languageOptions={localeOptions.languageOptions}
+        />
       </div>
       <div className={styles['sidemenu__currency-selector']}>
-        <CurrencySelect />
+        <CurrencySelect currencyOptions={localeOptions.currencyOptions} />
       </div>
       <div className={styles.sidemenu__search}>
         <Button type="button" className={styles['sidemenu__search']} withIcon>

@@ -1,13 +1,33 @@
-import { FunctionComponent, useState } from 'react';
+import { FunctionComponent, useEffect, useState } from 'react';
 
 import Select from 'components/Select';
+import { getCookies, setCookie } from 'cookies-next';
 
-const options = ['USD', 'EUR', 'CNY', 'JPY'];
+interface CurrencySelectProps {
+  currencyOptions: Hybris.Currency[];
+}
 
-const CurrencySelect: FunctionComponent = () => {
-  const [selectedOption, setSelectedOption] = useState<string | null>('USD');
+const CurrencySelect: FunctionComponent<CurrencySelectProps> = ({ currencyOptions }) => {
+  const currencyIsocodes = currencyOptions.map((currency) => currency.isocode);
+  const activeCurrency = currencyOptions.find((currency) => currency.active === true)?.isocode;
+  const [selectedOption, setSelectedOption] = useState<string | null>(null);
 
-  return <Select options={options} selectedOption={selectedOption} setSelectedOption={setSelectedOption} />;
+  useEffect(() => {
+    const cookies = getCookies();
+    if (!cookies.NEXT_CURRENCY && activeCurrency) {
+      setSelectedOption(activeCurrency);
+      setCookie('NEXT_CURRENCY', activeCurrency);
+    } else if (cookies.NEXT_CURRENCY) {
+      setSelectedOption(cookies.NEXT_CURRENCY);
+    }
+  }, [activeCurrency]);
+
+  const submitHandler = async (value: string) => {
+    setSelectedOption(value);
+    setCookie('NEXT_CURRENCY', value);
+  };
+
+  return <Select options={currencyIsocodes} selectedOption={selectedOption} submitHandler={submitHandler} />;
 };
 
 export default CurrencySelect;

@@ -122,16 +122,35 @@ declare namespace Hybris {
     altText: string;
     url: string;
   }
-}
+  interface HeroComponentProps {
+    media: {
+      code: string;
+      mime: string;
+      altText: string;
+      url: string;
+    };
+    headline: string;
+    content: string;
+    urlLink: string;
+  }
 
-interface HeroComponentProps {
-  media: {
-    code: string;
-    mime: string;
-    altText: string;
-    url: string;
-  };
-  headline: string;
-  content: string;
-  urlLink: string;
+  interface LocaleOptions {
+    defaultLanguage: Language;
+    languageOptions: Language[];
+    currencyOptions: Currency[];
+  }
+
+  interface Language {
+    active: boolean;
+    isocode: string;
+    name: string;
+    nativeName: string;
+  }
+
+  interface Currency {
+    active: boolean;
+    isocode: string;
+    name: string;
+    symbol: string;
+  }
 }

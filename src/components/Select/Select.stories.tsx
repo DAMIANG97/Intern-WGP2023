@@ -6,7 +6,7 @@ import Select, { SelectProps } from 'components/Select';
 const Wrapper = (props: SelectProps) => {
   const defaultState = props.options ? props.options[0] : '';
   const [selectedOption, setSelectedOption] = useState<string | null>(defaultState);
-  return <Select {...props} setSelectedOption={setSelectedOption} selectedOption={selectedOption} />;
+  return <Select {...props} submitHandler={setSelectedOption} selectedOption={selectedOption} />;
 };
 
 const meta: Meta<typeof Select> = {

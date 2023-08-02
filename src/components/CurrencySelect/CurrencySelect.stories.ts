@@ -1,19 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import CurrencySelect from 'components/CurrencySelect';
+import { currencyMock } from 'mocks/mocks';
 
 const meta: Meta<typeof CurrencySelect> = {
   title: 'Components/CurrencySelect',
   component: CurrencySelect,
   tags: ['autodocs'],
-  parameters: {
-    backgrounds: {
-      default: 'black',
-      values: [
-        { name: 'dark', value: '#212121' },
-        { name: 'white', value: '#fff' },
-      ],
-    },
-  },
+  args: { currencyOptions: currencyMock },
 };
 
 export default meta;

@@ -8,7 +8,7 @@ import { RoutePaths, ROUTES_TITLES } from 'utils/routes';
  */
 
 interface PageProps {
-  pageContent: Hybris.PageContent;
+  localeOptions: Hybris.LocaleOptions;
 }
 
 export function getComponentLayout(pageProps: PageProps, pathname: string) {

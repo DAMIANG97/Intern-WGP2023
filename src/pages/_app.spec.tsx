@@ -3,6 +3,7 @@ import type { Router } from 'next/router';
 
 import TestWrapper from '@jest/TestWrapper';
 import { render, screen } from '@testing-library/react';
+import { localeOptionsMock } from 'mocks/mocks';
 import App, { reportWebVitals } from 'pages/_app.page';
 
 const Component: FunctionComponent = (props) => <div data-testid="result">{JSON.stringify(props)}</div>;
@@ -28,7 +29,9 @@ describe('_app', () => {
       const router = {
         route: '/',
       } as Router;
-      const pageProps: PageProps = {};
+      const pageProps: PageProps = {
+        localeOptions: localeOptionsMock,
+      };
 
       // When
       render(<App Component={Component} pageProps={pageProps} router={router} />, { wrapper: TestWrapper });

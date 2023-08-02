@@ -11,9 +11,11 @@ import ListOfLinks from 'components/ListOfLinks';
 
 import styles from './Header.module.scss';
 
-interface HeaderProps extends Hybris.PageContent {}
+interface HeaderProps {
+  localeOptions: Hybris.LocaleOptions;
+}
 
-const Header: FunctionComponent<HeaderProps> = () => {
+const Header: FunctionComponent<HeaderProps> = ({ localeOptions }) => {
   const [searchVisible, setSearchVisible] = useState(false);
   const toggleSearchVisible = () => setSearchVisible((is) => !is);
   const clickHandler = () => {
@@ -31,7 +33,7 @@ const Header: FunctionComponent<HeaderProps> = () => {
           <SearchBox />
         </div>
         <Logo />
-        <Sidemenu clickHandler={clickHandler} searchVisible={searchVisible} />
+        <Sidemenu clickHandler={clickHandler} searchVisible={searchVisible} localeOptions={localeOptions} />
         <div className={styles.header__menu}>
           <ListOfLinks />
         </div>

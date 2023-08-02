@@ -7,16 +7,16 @@ import ThemeProvider from 'utils/Providers/ThemeProvider';
 
 interface LayoutProps {
   title: string;
-  pageContent: Hybris.PageContent;
+  localeOptions: Hybris.LocaleOptions;
 }
 
 const LayoutMain: FunctionComponent<LayoutProps> = ({ title, ...pageProps }, page) => (
   <ThemeProvider>
-    <Header {...pageProps.pageContent} />
+    <Header localeOptions={pageProps.localeOptions} />
     <Seo title={title} />
     <h1>{title}</h1>
     <Suspense>{page}</Suspense>
-    <Footer></Footer>
+    <Footer />
   </ThemeProvider>
 );
 

@@ -7,7 +7,7 @@ import SocialLinks from 'components/SocialLinks';
 import styles from './Hero.module.scss';
 
 interface HeroProps {
-  heroContent: ReadonlyArray<HeroComponentProps>;
+  heroContent: ReadonlyArray<Hybris.HeroComponentProps>;
 }
 
 const Hero: React.FC<HeroProps> = ({ heroContent }) => {
