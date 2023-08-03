@@ -69,6 +69,7 @@ declare namespace Hybris {
     waitTimeBeforeRequest?: string;
     minCharactersBeforeRequest?: string;
     context?: string;
+    categories?: string;
   }
 
   interface Media {

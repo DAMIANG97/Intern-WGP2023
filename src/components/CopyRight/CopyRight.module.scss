@@ -1,6 +1,5 @@
 @use 'sass-mq/_mq';
-@import '/src/styles/use';
-
+@import 'src/styles/use.scss';
 
 .copyright {
   &__wrapper {

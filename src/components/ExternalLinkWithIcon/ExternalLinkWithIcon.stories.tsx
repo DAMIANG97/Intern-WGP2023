@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Icon from 'assets/icons/Vector.svg';
 import ExternalLinkWithIcon from 'components/ExternalLinkWithIcon';
+
 const meta: Meta<typeof ExternalLinkWithIcon> = {
   title: 'Components/ExternalLinkWithIcon',
   component: ExternalLinkWithIcon,

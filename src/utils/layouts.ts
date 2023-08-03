@@ -1,3 +1,4 @@
+import { CategoryComponentProps } from 'components/ProductCategories';
 import getLayoutMain from 'layouts/Main';
 import { RoutePaths, ROUTES_TITLES } from 'utils/routes';
 
@@ -9,6 +10,7 @@ import { RoutePaths, ROUTES_TITLES } from 'utils/routes';
 
 interface PageProps {
   localeOptions: Hybris.LocaleOptions;
+  categoriesContent: CategoryComponentProps[];
 }
 
 export function getComponentLayout(pageProps: PageProps, pathname: string) {

@@ -56,7 +56,7 @@
               // Packages. Things that start with a letter (or digit or underscore).
               ["^@?\\w"],
               // Internal Aliases
-              ["^(@/components|@/utils)(/.*|$)"],
+              ["^(@/components|@/utils|@/styles)(/.*|$)"],
               // Our own Aliases
               ["^\\/public"],
               // Side effect imports.

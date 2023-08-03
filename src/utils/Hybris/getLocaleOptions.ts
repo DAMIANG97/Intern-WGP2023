@@ -1,5 +1,12 @@
 import apiFetch from 'utils/apiFetch';
-import { BASE_URL, BASESITE_ID, CURRENCY_ENDPOINT, LANGUAGE_ENDPOINT } from 'utils/Hybris/endpoints';
+import {
+  BASE_URL,
+  BASESITE_ID,
+  BASESITE_URL,
+  CURRENCY_ENDPOINT,
+  LANGUAGE_ENDPOINT,
+  VERSION_ID,
+} from 'utils/Hybris/endpoints';
 
 interface BaseSitesObject {
   baseSites: {
@@ -28,14 +35,10 @@ export const getLocaleOptions = async (
   currency: string,
 ): Promise<Hybris.LocaleOptions | []> => {
   const localeSuffix = `?lang=${locale}&curr=${currency}`;
-  const baseSitesObject: BaseSitesObject = await apiFetch(`${BASE_URL}basesites`);
+  const baseSitesObject: BaseSitesObject = await apiFetch(`${BASE_URL}${VERSION_ID}basesites`);
   const defaultLanguage = baseSitesObject.baseSites.find((site) => site.uid === BASESITE_ID)?.defaultLanguage;
-  const languageOptions: LanguageObject = await apiFetch(
-    `${BASE_URL}${BASESITE_ID}/${LANGUAGE_ENDPOINT}${localeSuffix}`,
-  );
-  const currencyOptions: CurrencyObject = await apiFetch(
-    `${BASE_URL}${BASESITE_ID}/${CURRENCY_ENDPOINT}${localeSuffix}`,
-  );
+  const languageOptions: LanguageObject = await apiFetch(`${BASESITE_URL}/${LANGUAGE_ENDPOINT}${localeSuffix}`);
+  const currencyOptions: CurrencyObject = await apiFetch(`${BASESITE_URL}/${CURRENCY_ENDPOINT}${localeSuffix}`);
   if (defaultLanguage)
     return {
       defaultLanguage: defaultLanguage,

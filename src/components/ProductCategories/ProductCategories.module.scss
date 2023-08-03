@@ -1,0 +1,6 @@
+@import '/src/styles/use';
+
+:export {
+  breakpointTablet: map-get($breakpoints, tablet);
+  breakpointDesktop: map-get($breakpoints, desktop);
+}

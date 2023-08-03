@@ -22,7 +22,7 @@
     display: none;
     margin-right: 2.25rem;
 
-    @include mq.mq($from: tablet) {
+    @include mq.mq($from: desktop) {
       display: block;
     }
 

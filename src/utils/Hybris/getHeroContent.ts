@@ -1,5 +1,5 @@
 import apiFetch from 'utils/apiFetch';
-import { BASE_URL, BASESITE_ID } from 'utils/Hybris/endpoints';
+import { BASESITE_URL } from 'utils/Hybris/endpoints';
 
 //Types for fetched content
 
@@ -47,7 +47,7 @@ async function getHeroContent(
         return prefix.concat(string).concat('&');
       })
       .join('');
-    const url = `${BASE_URL}${BASESITE_ID}/cms/components?`;
+    const url = `${BASESITE_URL}/cms/components?`;
     const content = await apiFetch<HeroContent>(`${url}${queryString}${localeSuffix}`);
     const filteredContent: Hybris.HeroComponentProps[] = content.component.map(
       ({ media, headline, content, urlLink }) => ({

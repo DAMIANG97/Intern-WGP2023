@@ -19,6 +19,9 @@
     "heroActionLink": {
       "label": "Kup teraz",
       "ariaLabel": "Zobacz szczegóły produktu"
+    },
+    "fallbackImage": {
+      "ariaLabel": "Zdjęcie alternatywne"
     }
   },
   "pages": {

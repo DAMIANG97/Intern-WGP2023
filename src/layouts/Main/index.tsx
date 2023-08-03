@@ -5,9 +5,11 @@ import Header from 'components/Header';
 import Seo from 'components/Seo';
 import ThemeProvider from 'utils/Providers/ThemeProvider';
 
+
 interface LayoutProps {
   title: string;
   localeOptions: Hybris.LocaleOptions;
+
 }
 
 const LayoutMain: FunctionComponent<LayoutProps> = ({ title, ...pageProps }, page) => (

@@ -19,6 +19,10 @@
     "heroActionLink": {
       "label": "Shop Now",
       "ariaLabel": "See product details"
+    },
+
+    "fallbackImage": {
+      "ariaLabel": "Fallback Image"
     }
   },
   "pages": {

@@ -1,0 +1,61 @@
+@use 'sass-mq/_mq';
+@import '/src/styles/use';
+
+.container {
+  max-width: 37.875rem;
+  text-align: center;
+  background-color: var(--color-product-background);
+  padding: 2rem;
+  margin: 0 auto 0.625rem auto;
+
+  @include mq.mq($from: tablet) {
+    margin-bottom: 0.9375rem;
+    padding: 3rem;
+  }
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+
+  @include mq.mq($from: tablet) {
+    width: 23px;
+    height: 23px;
+  }
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  height: 1.3125rem;
+  margin: 0 auto 1rem auto;
+  max-width: 37.875rem;
+
+  @include mq.mq($from: tablet) {
+    margin: 0 auto 1.5rem auto;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.picture {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.title {
+  font-size: var(--font-size-xs);
+  font-weight: 300;
+  line-height: 1.45;
+  margin-left: 0.3125rem;
+
+  @include mq.mq($from: tablet) {
+    font-size: var(--font-size-l);
+    line-height: 1.475;
+    margin-left: 0.625rem;
+  }
+}

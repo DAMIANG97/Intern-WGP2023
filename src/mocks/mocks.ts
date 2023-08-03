@@ -84,7 +84,6 @@ const tempArray = [
     urlLink: '/Open-Catalogue/Cameras/Digital-Cameras/Digital-Compacts/DSC-H20/p/1978440',
   },
 ];
-
 export default tempArray;
 
 export const languageMock: Hybris.Language[] = [
@@ -122,3 +121,45 @@ export const localeOptionsMock: Hybris.LocaleOptions = {
   languageOptions: languageMock,
   currencyOptions: currencyMock,
 };
+export const categoriesMock = [
+  {
+    key: '1',
+    name: 'Cameras',
+    image: {
+      url: 'https://fotoforma.pl/environment/cache/images/500_500_productGfx_21838/Aparat-cyfrowy-Sony-A6600---obiektyw-18-135mm-czarny-ILCE6600MB-SEL18135.jpg',
+      altText: 'Obrazek',
+    },
+    url: '/',
+    alt: 'obrazek',
+  },
+  {
+    key: '2',
+    name: 'Tripods',
+    image: {
+      url: 'https://avalonoptics.co.uk/wp-content/uploads/2017/11/Avalon-Universal-PRO-Tripod.jpg',
+      altText: 'Obrazek',
+    },
+    url: '/',
+    alt: 'obrazek',
+  },
+  {
+    key: '3',
+    name: 'Lenses',
+    image: {
+      url: 'https://image.ceneostatic.pl/data/products/88776224/i-sigma-24-70mm-f-2-8-dg-dn-art-sony-e.jpg',
+      altText: 'Obrazek',
+    },
+    url: '/',
+    alt: 'obrazek',
+  },
+  {
+    key: '4',
+    name: 'Accessories',
+    image: {
+      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAzv8j1ZTvjpcXG2iSc_7Ve87NI75SYD4hAjeEAYzGPBXdyn-ojuSbZWzc7LZNj_gjz9c&usqp=CAU',
+      altText: 'Obrazek',
+    },
+    url: '/',
+    alt: 'obrazek',
+  },
+];
