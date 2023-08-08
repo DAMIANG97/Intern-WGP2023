@@ -13,9 +13,10 @@ import styles from './Header.module.scss';
 
 interface HeaderProps {
   localeOptions: Hybris.LocaleOptions;
+  menuContent: Hybris.MenuElements[];
 }
 
-const Header: FunctionComponent<HeaderProps> = ({ localeOptions }) => {
+const Header: FunctionComponent<HeaderProps> = ({ localeOptions, menuContent }) => {
   const [searchVisible, setSearchVisible] = useState(false);
   const toggleSearchVisible = () => setSearchVisible((is) => !is);
   const clickHandler = () => {
@@ -35,7 +36,7 @@ const Header: FunctionComponent<HeaderProps> = ({ localeOptions }) => {
         <Logo />
         <Sidemenu clickHandler={clickHandler} searchVisible={searchVisible} localeOptions={localeOptions} />
         <div className={styles.header__menu}>
-          <ListOfLinks />
+          <ListOfLinks menuContent={menuContent} />
         </div>
       </Container>
     </header>

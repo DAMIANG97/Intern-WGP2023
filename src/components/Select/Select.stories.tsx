@@ -13,15 +13,6 @@ const meta: Meta<typeof Select> = {
   title: 'Components/Select',
   component: Wrapper,
   tags: ['autodocs'],
-  parameters: {
-    backgrounds: {
-      default: 'black',
-      values: [
-        { name: 'dark', value: '#212121' },
-        { name: 'white', value: '#fff' },
-      ],
-    },
-  },
 };
 
 export default meta;

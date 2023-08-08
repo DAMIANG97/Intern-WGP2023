@@ -41,15 +41,17 @@ const Sidemenu: FunctionComponent<SidemenuProps> = ({ clickHandler, searchVisibl
           {searchVisible === true ? <CloseIcon onClick={clickHandler} /> : <SearchIcon onClick={clickHandler} />}
         </Button>
       </div>
-      <Link href={RoutePaths.home} className={clsx(styles.sidemenu__heart, styles.sidemenu__link)}>
-        <HeartIcon />
-      </Link>
-      <Link href={RoutePaths.home} className={clsx(styles.sidemenu__profile, styles.sidemenu__link)}>
-        <ProfileIcon />
-      </Link>
-      <Link href={RoutePaths.home} className={styles.sidemenu__link}>
-        <CartIcon />
-      </Link>
+      <div>
+        <Link href={RoutePaths.home} className={clsx(styles.sidemenu__heart, styles.sidemenu__link)}>
+          <HeartIcon />
+        </Link>
+        <Link href={RoutePaths.home} className={clsx(styles.sidemenu__profile, styles.sidemenu__link)}>
+          <ProfileIcon />
+        </Link>
+        <Link href={RoutePaths.home} className={styles.sidemenu__link}>
+          <CartIcon />
+        </Link>
+      </div>
     </div>
   );
 };

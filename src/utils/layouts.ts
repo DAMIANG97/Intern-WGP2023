@@ -11,6 +11,7 @@ import { RoutePaths, ROUTES_TITLES } from 'utils/routes';
 interface PageProps {
   localeOptions: Hybris.LocaleOptions;
   categoriesContent: CategoryComponentProps[];
+  menuContent: Hybris.MenuElements[];
 }
 
 export function getComponentLayout(pageProps: PageProps, pathname: string) {

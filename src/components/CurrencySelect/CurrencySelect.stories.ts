@@ -12,13 +12,13 @@ const meta: Meta<typeof CurrencySelect> = {
 export default meta;
 type Story = StoryObj<typeof CurrencySelect>;
 
-export const SelectLanguageBlack: Story = {
+export const SelectCurrencyBlack: Story = {
   parameters: {
     backgrounds: { default: 'dark' },
   },
 };
 
-export const SelectLanguageWhite: Story = {
+export const SelectCurrencyWhite: Story = {
   parameters: {
     backgrounds: { default: 'white' },
   },

@@ -27,7 +27,7 @@ const LanguageSelect: FunctionComponent<LanguageSelectProps> = ({ defaultLanguag
   useEffect(() => {
     const localeLanguage = languageOptions.find((language) => language.isocode === router.locale);
     if (localeLanguage) {
-      setSelectedOption(localeLanguage.name);
+      setSelectedOption(localeLanguage.nativeName);
     } else {
       setSelectedOption(defaultLanguage.nativeName);
     }

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Header from 'components/Header';
-import { localeOptionsMock } from 'mocks/mocks';
+import { localeOptionsMock, menuContentMock } from 'mocks/mocks';
 
 const meta: Meta<typeof Header> = {
   title: 'Components/Header',
@@ -8,6 +8,7 @@ const meta: Meta<typeof Header> = {
   tags: ['autodocs'],
   args: {
     localeOptions: localeOptionsMock,
+    menuContent: menuContentMock,
   },
 };
 

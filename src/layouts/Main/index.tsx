@@ -5,18 +5,16 @@ import Header from 'components/Header';
 import Seo from 'components/Seo';
 import ThemeProvider from 'utils/Providers/ThemeProvider';
 
-
 interface LayoutProps {
   title: string;
   localeOptions: Hybris.LocaleOptions;
-
+  menuContent: Hybris.MenuElements[];
 }
 
 const LayoutMain: FunctionComponent<LayoutProps> = ({ title, ...pageProps }, page) => (
   <ThemeProvider>
-    <Header localeOptions={pageProps.localeOptions} />
+    <Header localeOptions={pageProps.localeOptions} menuContent={pageProps.menuContent} />
     <Seo title={title} />
-    <h1>{title}</h1>
     <Suspense>{page}</Suspense>
     <Footer />
   </ThemeProvider>

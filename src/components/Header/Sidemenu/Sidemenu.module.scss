@@ -11,6 +11,13 @@
   @include mq.mq($from: tablet) {
     color: var(--color-white);
     margin-right: 0;
+    flex-wrap: wrap;
+    max-width: 80%;
+    justify-self: end;
+  }
+
+  @include mq.mq($from: desktop) {
+    max-width: 100%;
   }
 
   &__link {
@@ -39,7 +46,15 @@
 
     @include mq.mq($from: tablet) {
       display: block;
+      min-width: 5.5rem;
+      max-width: 6.5rem;
     }
+  }
+
+  &__currency-selector,
+  &__theme-selector {
+    min-width: 3.5rem;
+    max-width: 4rem;
   }
 
   &__profile,
@@ -54,6 +69,10 @@
   &__search {
     @include mq.mq($from: tablet) {
       display: none;
+    }
+
+    @include themeDark {
+      color: var(--color-white);
     }
   }
 }

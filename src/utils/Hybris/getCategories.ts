@@ -21,14 +21,17 @@ interface CategoryImage {
   width: number;
 }
 
-const getCategories = async (data: Hybris.PageContent): Promise<CategoryComponentProps[] | []> => {
+const getCategories = async (
+  data: Hybris.PageContent,
+  localeSuffix: string,
+): Promise<CategoryComponentProps[] | []> => {
   const categories = data.contentSlots.contentSlot
     .find((slot) => slot.slotId === 'PageContentSlot-Homepage')
     ?.components.component.find((component) => component.uid === 'Categories_homepage_AL')?.categories;
 
   if (categories) {
     const queryString = categories.replace(/\s+/g, ',');
-    const url = `${BASESITE_URL}/categories/electronicsProductCatalog/Online/multiple/${queryString}`;
+    const url = `${BASESITE_URL}/categories/electronicsProductCatalog/Online/multiple/${queryString}?${localeSuffix}`;
     const content = await apiFetch<Category[]>(url);
 
     const filteredContent: CategoryComponentProps[] = content.map(({ code, name, url, image }) => ({

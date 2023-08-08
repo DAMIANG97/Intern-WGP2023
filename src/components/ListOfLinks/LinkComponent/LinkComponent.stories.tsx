@@ -1,63 +1,47 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import LinkComponent from 'components/LinkComponent';
+import LinkComponent from 'components/ListOfLinks/LinkComponent';
+import { menuContentMock } from 'mocks/mocks';
 
 const meta: Meta<typeof LinkComponent> = {
   title: 'Components/Link',
   component: LinkComponent,
   tags: ['autodocs'],
-  parameters: {
-    backgrounds: {
-      values: [
-        { name: 'dark', value: '#212121' },
-        { name: 'green', value: '#7db800' },
-        { name: 'white', value: '#fff' },
-      ],
-    },
-  },
 };
 export default meta;
 type Story = StoryObj<typeof LinkComponent>;
 
 export const Desktop: Story = {
-  render: () => <LinkComponent href="#">Home</LinkComponent>,
   parameters: {
     backgrounds: { default: 'dark' },
   },
   args: {
-    children: 'Home',
+    title: 'Home',
+    href: '/',
   },
 };
 
 export const DesktopActive: Story = {
-  render: () => (
-    <LinkComponent aria-current="true" href="#">
-      Home
-    </LinkComponent>
-  ),
+  render: () => <LinkComponent aria-current="true" href="#" link={menuContentMock[0]} linkPrefix="/" />,
   parameters: {
     backgrounds: { default: 'dark' },
-  },
-  args: {
-    children: 'Home',
   },
 };
 
 export const Mobile: Story = {
-  render: () => <LinkComponent href="#">Home</LinkComponent>,
   parameters: {
     backgrounds: { default: 'white' },
     viewport: {
       defaultViewport: 'mobile1',
     },
   },
+  args: {
+    title: 'Home',
+    href: '/',
+  },
 };
 
 export const MobileActive: Story = {
-  render: () => (
-    <LinkComponent aria-current="true" href="#">
-      Home
-    </LinkComponent>
-  ),
+  render: () => <LinkComponent aria-current="true" href="#" link={menuContentMock[0]} linkPrefix="/" />,
   parameters: {
     backgrounds: { default: 'white' },
     viewport: {

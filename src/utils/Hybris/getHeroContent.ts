@@ -32,10 +32,8 @@ interface HeroComponent {
  */
 async function getHeroContent(
   data: Hybris.PageContent,
-  locale: string | undefined,
-  currency: string,
+  localeSuffix: string,
 ): Promise<Hybris.HeroComponentProps[] | []> {
-  const localeSuffix = `lang=${locale}&curr=${currency}`;
   const banners = data.contentSlots.contentSlot
     .find((slot) => slot.slotId === 'HeroContentSlot-Homepage')
     ?.components.component.find((component) => component.uid === 'Hero AL')?.banners;

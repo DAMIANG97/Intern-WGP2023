@@ -2,6 +2,7 @@
 @import '/src/styles/use';
 
 .link {
+  display: block;
   font-size: var(--font-size-xs);
   text-decoration: underline 1px;
   padding: 1rem;
@@ -28,13 +29,24 @@
     font-size: var(--font-size-s);
     text-decoration: none;
     padding: 0.5rem;
-    margin: 0.5rem;
+    margin: 0 0.5rem;
+    border-bottom: 2px solid transparent;
+
 
     &:is(:hover, :focus-visible, :active, [aria-current='true']) {
       cursor: pointer;
       color: var(--color-primary);
       border-bottom: 2px solid var(--color-primary);
       background-color: transparent;
+
+      @include themeDark {
+        color: var(--color-primary);
+      }
+
+      @include themeLight {
+        color: var(--color-primary);
+
+      }
     }
   }
 }

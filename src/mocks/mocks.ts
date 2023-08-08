@@ -115,7 +115,6 @@ export const currencyMock: Hybris.Currency[] = [
     symbol: '$',
   },
 ];
-
 export const localeOptionsMock: Hybris.LocaleOptions = {
   defaultLanguage: languageMock[0],
   languageOptions: languageMock,
@@ -161,5 +160,141 @@ export const categoriesMock = [
     },
     url: '/',
     alt: 'obrazek',
+  },
+];
+
+export const menuContentMock: Hybris.MenuElements[] = [
+  { categoryCode: null, children: [], itemId: null, title: 'Startseite', uid: 'HomepageNavLink' },
+  {
+    categoryCode: 'brands',
+    children: [
+      {
+        categoryCode: null,
+        children: [
+          {
+            categoryCode: 'brand_10',
+            itemId: 'CanonBrandCategoryLink',
+            title: 'Canon',
+            uid: 'CanonBrandNavNode',
+            children: [],
+          },
+          {
+            categoryCode: 'brand_5',
+            itemId: 'SonyBrandCategoryLink',
+            title: 'Sony',
+            uid: 'SonyBrandNavNode',
+            children: [],
+          },
+          {
+            categoryCode: 'brand_88',
+            itemId: 'KodakBrandCategoryLink',
+            title: 'Kodak',
+            uid: 'KodakBrandNavNode',
+            children: [],
+          },
+        ],
+        itemId: null,
+        title: 'Kameras',
+        uid: 'BrandLinksNavNode',
+      },
+      {
+        categoryCode: null,
+        children: [
+          {
+            categoryCode: 'brand_18',
+            itemId: 'KingstonBrandCategoryLink',
+            title: 'Kingston',
+            uid: 'KingstonBrandNavNode',
+            children: [],
+          },
+          {
+            categoryCode: 'brand_2171',
+            itemId: 'IciduBrandCategoryLink',
+            title: 'Icidu',
+            uid: 'IciduBrandNavNode',
+            children: [],
+          },
+        ],
+        itemId: null,
+        title: 'Zubehör',
+        uid: 'AccessoryBrandLinksNavNode',
+      },
+    ],
+    itemId: 'AllBrandsCategoryLink',
+    title: 'Marken',
+    uid: 'BrandsNavNode',
+  },
+  {
+    categoryCode: '574',
+    children: [],
+    itemId: 'FilmCamerasCategoryLink',
+    title: 'Filmkameras',
+    uid: 'FilmCamerasNavNode',
+  },
+  {
+    categoryCode: 'brands',
+    children: [
+      {
+        categoryCode: null,
+        children: [
+          {
+            categoryCode: 'brand_10',
+            itemId: 'CanonBrandCategoryLink',
+            title: 'Canon',
+            uid: 'CanonBrandNavNode1',
+            children: [],
+          },
+          {
+            categoryCode: 'brand_5',
+            itemId: 'SonyBrandCategoryLink',
+            title: 'Sony',
+            uid: 'SonyBrandNavNode1',
+            children: [],
+          },
+          {
+            categoryCode: 'brand_88',
+            itemId: 'KodakBrandCategoryLink',
+            title: 'Kodak',
+            uid: 'KodakBrandNavNode1',
+            children: [],
+          },
+        ],
+        itemId: null,
+        title: 'Kameras',
+        uid: 'BrandLinksNavNode1',
+      },
+      {
+        categoryCode: null,
+        children: [
+          {
+            categoryCode: 'brand_18',
+            itemId: 'KingstonBrandCategoryLink',
+            title: 'Kingston',
+            uid: 'KingstonBrandNavNode1',
+            children: [],
+          },
+          {
+            categoryCode: 'brand_2171',
+            itemId: 'IciduBrandCategoryLink',
+            title: 'Icidu',
+            uid: 'IciduBrandNavNode1',
+            children: [],
+          },
+        ],
+        itemId: null,
+        title: 'Zubehör',
+        uid: 'AccessoryBrandLinksNavNode1',
+      },
+    ],
+    itemId: 'AllBrandsCategoryLink',
+    title: 'Marken',
+    uid: 'BrandsNavNode1',
+  },
+  {
+    categoryCode: '574',
+    children: [],
+    itemId: 'FilmCamerasCategoryLink',
+    title: 'Filmkameras',
+    uid: 'FilmCamerasNavNode1',
   },
 ];

@@ -30,15 +30,11 @@ interface LanguageObject {
 /**
  * Gets available languages and currencies
  */
-export const getLocaleOptions = async (
-  locale: string | undefined,
-  currency: string,
-): Promise<Hybris.LocaleOptions | []> => {
-  const localeSuffix = `?lang=${locale}&curr=${currency}`;
-  const baseSitesObject: BaseSitesObject = await apiFetch(`${BASE_URL}${VERSION_ID}basesites`);
+const getLocaleOptions = async (localeSuffix: string): Promise<Hybris.LocaleOptions | []> => {
+  const baseSitesObject: BaseSitesObject = await apiFetch(`${BASE_URL}${VERSION_ID}basesites?${localeSuffix}`);
   const defaultLanguage = baseSitesObject.baseSites.find((site) => site.uid === BASESITE_ID)?.defaultLanguage;
-  const languageOptions: LanguageObject = await apiFetch(`${BASESITE_URL}/${LANGUAGE_ENDPOINT}${localeSuffix}`);
-  const currencyOptions: CurrencyObject = await apiFetch(`${BASESITE_URL}/${CURRENCY_ENDPOINT}${localeSuffix}`);
+  const languageOptions: LanguageObject = await apiFetch(`${BASESITE_URL}/${LANGUAGE_ENDPOINT}`);
+  const currencyOptions: CurrencyObject = await apiFetch(`${BASESITE_URL}/${CURRENCY_ENDPOINT}`);
   if (defaultLanguage)
     return {
       defaultLanguage: defaultLanguage,
@@ -47,3 +43,5 @@ export const getLocaleOptions = async (
     };
   return [];
 };
+
+export default getLocaleOptions;

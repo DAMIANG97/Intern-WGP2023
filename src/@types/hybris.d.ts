@@ -154,4 +154,11 @@ declare namespace Hybris {
     name: string;
     symbol: string;
   }
+  interface MenuElements {
+    itemId: string | null;
+    uid: string;
+    title: string;
+    categoryCode: string | null;
+    children: MenuElements[] | [];
+  }
 }

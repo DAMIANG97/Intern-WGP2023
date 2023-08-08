@@ -1,4 +1,4 @@
-import { withThemeByClassName } from '@storybook/addon-styling';
+import { withThemeByDataAttribute } from '@storybook/addon-styling';
 import I18nProvider from 'next-translate/I18nProvider';
 import config from '../i18n';
 import commonEN from '../src/locales/en/common.json';
@@ -22,14 +22,13 @@ const preview = {
   },
 
   decorators: [
-    // Adds theme switching support.
-    // NOTE: requires setting "darkMode" to "class" in your tailwind config
-    withThemeByClassName({
+    withThemeByDataAttribute({
       themes: {
         light: 'light',
         dark: 'dark',
       },
       defaultTheme: 'light',
+      attributeName: 'data-theme',
     }),
     (Story) => (
       <I18nProvider lang="en" namespaces={{ common: commonEN }} config={config}>

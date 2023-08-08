@@ -1,7 +1,6 @@
 .search-icon {
   width: 12px;
   height: 12px;
-  top: 42px;
   background: var(--color-nobel);
 }
 
@@ -11,7 +10,7 @@
   color: var(--color-nobel);
   cursor: pointer;
   position: absolute;
-  right: 1.25rem;
+  right: 1rem;
 
   &:is(:hover, :focus-visible) {
     transform: scale(1.4);
