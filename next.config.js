@@ -3,6 +3,15 @@ const path = require('path');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'wgp2023.mooo.com',
+        port: '9002',
+      },
+    ],
+  },
   reactStrictMode: true,
   /**
    * We want to have source maps when started local or dev built version.

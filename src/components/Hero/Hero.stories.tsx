@@ -20,18 +20,17 @@ const meta: Meta<typeof Hero> = {
 export default meta;
 type Story = StoryObj<typeof Hero>;
 
-export const HeroBlack: Story = {
-  parameters: {
-    backgrounds: { default: 'dark' },
-  },
+export const HeroDesktop: Story = {
   args: {
     heroContent: tempArray,
   },
 };
 
-export const HeroWhite: Story = {
+export const HeroMobile: Story = {
   parameters: {
-    backgrounds: { default: 'white' },
+    viewport: {
+      defaultViewport: 'mobile2',
+    },
   },
   args: {
     heroContent: tempArray,
