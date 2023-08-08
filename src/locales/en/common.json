@@ -20,9 +20,11 @@
       "label": "Shop Now",
       "ariaLabel": "See product details"
     },
-
     "fallbackImage": {
       "ariaLabel": "Fallback Image"
+    },
+    "breadcrumb": {
+      "label": "Breadcrumb"
     }
   },
   "pages": {

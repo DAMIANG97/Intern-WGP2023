@@ -9,7 +9,6 @@ interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = ({ heroContent, categoriesContent }) => {
-
   return (
     <div>
       <Hero heroContent={heroContent} />

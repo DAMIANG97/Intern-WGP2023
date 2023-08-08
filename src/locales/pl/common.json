@@ -22,6 +22,9 @@
     },
     "fallbackImage": {
       "ariaLabel": "Zdjęcie alternatywne"
+    },
+    "breadcrumb": {
+      "label": "Breadcrumb"
     }
   },
   "pages": {

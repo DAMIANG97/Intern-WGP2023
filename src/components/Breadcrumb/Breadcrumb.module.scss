@@ -1,0 +1,28 @@
+@import 'src/styles/use.scss';
+
+.breadcrumbs {
+  &__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style-type: none;
+    padding: 1rem 0.5rem;
+    background-color: transparent;
+
+    & li:last-child {
+      a {
+        @include themeDark {
+          color: var(--color-current-page);
+        }
+
+        @include themeLight {
+          color: var(--color-current-page);
+        }
+      }
+
+      span {
+        display: none;
+      }
+    }
+  }
+}

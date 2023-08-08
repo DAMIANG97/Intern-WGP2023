@@ -8,6 +8,7 @@
     justify-content: center;
     font-weight: 400;
     font-size: var(--font-size-xxxs);
+    width: -moz-fit-content;
     width: fit-content;
 
     @include mq.mq($from: tablet) {

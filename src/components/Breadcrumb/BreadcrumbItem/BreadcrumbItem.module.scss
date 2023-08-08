@@ -1,0 +1,59 @@
+@use 'sass-mq/_mq';
+@import '/src/styles/use';
+
+.breadcrumbs {
+  &__linkItem {
+
+    font-size: var(--font-size-xs);
+    font-weight: 400;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    a {
+      text-decoration: none;
+
+      @include themeDark {
+        color: var(--color-white);
+      }
+
+      @include themeLight {
+        color: var(--color-dark);
+      }
+    }
+  }
+
+  &__arrowRight {
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs, 1));
+    width: 1.375rem;
+    height: 1.375rem;
+    margin-right: 1rem;
+
+    &::after,
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 0.1875rem;
+    }
+
+    &::after {
+      width: 0.5rem;
+      height: 0.5rem;
+      transform: rotate(45deg);
+      bottom: 0.3125rem;
+
+      @include themeDark {
+        border-top: 0.125rem solid var(--color-white);
+        border-right: 0.125rem solid var(--color-white);
+      }
+
+      @include themeLight {
+        border-top: 0.125rem solid var(--color-current-page);
+        border-right: 0.125rem solid var(--color-current-page);
+      }
+    }
+  }
+}
