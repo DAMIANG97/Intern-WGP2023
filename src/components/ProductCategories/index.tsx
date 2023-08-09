@@ -27,7 +27,7 @@ const masonryBreakPoints = {
 
 const ProductCategories: React.FC<CategoryProps> = ({ categoriesContent }) => {
   return (
-    <Container>
+    <Container className={styles.container}>
       <ResponsiveMasonry columnsCountBreakPoints={masonryBreakPoints}>
         <Masonry gutter="15px">
           {categoriesContent?.map((category) => (

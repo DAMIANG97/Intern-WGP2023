@@ -4,3 +4,7 @@
   breakpointTablet: map-get($breakpoints, tablet);
   breakpointDesktop: map-get($breakpoints, desktop);
 }
+
+.container {
+  padding: 0.5rem;
+}
