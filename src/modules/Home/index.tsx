@@ -6,12 +6,13 @@ import ProductCategories, { CategoryComponentProps } from 'components/ProductCat
 interface HomeProps {
   heroContent: ReadonlyArray<Hybris.HeroComponentProps>;
   categoriesContent: CategoryComponentProps[];
+  footerContent: Hybris.FooterComponentProps;
 }
 
-const Home: React.FC<HomeProps> = ({ heroContent, categoriesContent }) => {
+const Home: React.FC<HomeProps> = ({ heroContent, categoriesContent, footerContent }) => {
   return (
     <div>
-      <Hero heroContent={heroContent} />
+      <Hero heroContent={heroContent} footerContent={footerContent} />
       <ProductCategories categoriesContent={categoriesContent} />
     </div>
   );

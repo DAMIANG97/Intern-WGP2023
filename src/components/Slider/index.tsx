@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 import Container from 'components/Container';
+import SocialLinks from 'components/Footer/SocialLinks';
 import TitleAndDescription from 'components/Hero/TitleAndDescription';
-import SocialLinks from 'components/SocialLinks';
 import debounce from 'lodash.debounce';
 import Carousel from 'nuka-carousel';
 
@@ -11,6 +11,7 @@ import styles from './Slider.module.scss';
 
 export interface SliderProps {
   heroContent: ReadonlyArray<Hybris.HeroComponentProps>;
+  footerContent: Readonly<Hybris.FooterComponentProps>;
 }
 const CAROUSEL_OPTIONS = {
   defaultControlsConfig: {
@@ -30,7 +31,7 @@ const CAROUSEL_OPTIONS = {
   autoplayInterval: 5000,
   speed: 1000,
 };
-const Slider: React.FC<SliderProps> = ({ heroContent }) => {
+const Slider: React.FC<SliderProps> = ({ heroContent, footerContent }) => {
   const [isDesktop, setIsDesktop] = useState(true);
 
   useEffect(() => {
@@ -54,7 +55,7 @@ const Slider: React.FC<SliderProps> = ({ heroContent }) => {
         <div className={styles.slider__container} key={index}>
           <Container className={styles.slider__banner}>
             <div className={styles.slider__socialBar}>
-              <SocialLinks vertical />
+              <SocialLinks vertical socialLinks={footerContent.socialLinks} socialText={footerContent.socialText} />
             </div>
             <div className={styles.slider__textContainer}>
               <TitleAndDescription title={content.headline} description={content.content} />

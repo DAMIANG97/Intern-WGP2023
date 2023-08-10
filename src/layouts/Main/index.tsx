@@ -9,6 +9,7 @@ interface LayoutProps {
   title: string;
   localeOptions: Hybris.LocaleOptions;
   menuContent: Hybris.MenuElements[];
+  footerContent: Hybris.FooterComponentProps;
 }
 
 const LayoutMain: FunctionComponent<LayoutProps> = ({ title, ...pageProps }, page) => (
@@ -16,7 +17,7 @@ const LayoutMain: FunctionComponent<LayoutProps> = ({ title, ...pageProps }, pag
     <Header localeOptions={pageProps.localeOptions} menuContent={pageProps.menuContent} />
     <Seo title={title} />
     <Suspense>{page}</Suspense>
-    <Footer />
+    <Footer footerContent={pageProps.footerContent} localeOptions={pageProps.localeOptions} />
   </ThemeProvider>
 );
 

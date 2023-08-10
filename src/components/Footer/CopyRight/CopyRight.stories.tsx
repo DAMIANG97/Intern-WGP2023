@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Copyright from 'components/CopyRight';
+import Copyright from 'components/Footer/CopyRight';
 
 const meta: Meta<typeof Copyright> = {
   title: 'Components/Copyright',

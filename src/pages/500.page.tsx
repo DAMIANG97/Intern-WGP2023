@@ -5,6 +5,7 @@ import useTranslation from 'next-translate/useTranslation';
 import Error from 'modules/Error';
 import apiFetch from 'utils/apiFetch';
 import { BASESITE_URL, HOMEPAGE_ENDPOINT } from 'utils/Hybris/endpoints';
+import getFooterContent from 'utils/Hybris/getFooterContent';
 import getLangCurrSuffix from 'utils/Hybris/getLangCurrSuffix';
 import getLocaleOptions from 'utils/Hybris/getLocaleOptions';
 import getMenuContent from 'utils/Hybris/getMenuContent';
@@ -26,11 +27,13 @@ export const getStaticProps: GetStaticProps<Error500PageProps> = async ({ locale
   const localeOptions = await getLocaleOptions(localeSuffix);
   const data = await apiFetch<Hybris.PageContent>(`${BASESITE_URL}/${HOMEPAGE_ENDPOINT}?${localeSuffix}`);
   const menuContent = await getMenuContent(data, localeSuffix);
+  const footerContent = await getFooterContent(data, localeSuffix);
 
   return {
     props: {
       localeOptions: localeOptions,
       menuContent: menuContent,
+      footerContent: footerContent,
     },
   };
 };

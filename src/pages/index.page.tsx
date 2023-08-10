@@ -5,6 +5,7 @@ import Home from 'modules/Home';
 import apiFetch from 'utils/apiFetch';
 import { BASESITE_URL, HOMEPAGE_ENDPOINT } from 'utils/Hybris/endpoints';
 import getCategories from 'utils/Hybris/getCategories';
+import getFooterContent from 'utils/Hybris/getFooterContent';
 import getHeroContent from 'utils/Hybris/getHeroContent';
 import getLangCurrSuffix from 'utils/Hybris/getLangCurrSuffix';
 import getLocaleOptions from 'utils/Hybris/getLocaleOptions';
@@ -21,6 +22,7 @@ export const getServerSideProps: GetServerSideProps<HomePageProps> = async ({ lo
   const menuContent = await getMenuContent(data, localeSuffix);
   const heroContent = await getHeroContent(data, localeSuffix);
   const categoriesContent = await getCategories(data, localeSuffix);
+  const footerContent = await getFooterContent(data, localeSuffix);
 
   return {
     props: {
@@ -28,6 +30,7 @@ export const getServerSideProps: GetServerSideProps<HomePageProps> = async ({ lo
       localeOptions: localeOptions,
       categoriesContent: categoriesContent,
       menuContent: menuContent,
+      footerContent: footerContent,
     },
   };
 };

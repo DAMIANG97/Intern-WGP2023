@@ -3,6 +3,7 @@ import type { Router } from 'next/router';
 
 import TestWrapper from '@jest/TestWrapper';
 import { render, screen } from '@testing-library/react';
+import { footerContentMock } from 'mocks/footerContentMock';
 import { localeOptionsMock } from 'mocks/mocks';
 import App, { reportWebVitals } from 'pages/_app.page';
 
@@ -31,6 +32,7 @@ describe('_app', () => {
       } as Router;
       const pageProps: PageProps = {
         localeOptions: localeOptionsMock,
+        footerContent: footerContentMock,
       };
 
       // When

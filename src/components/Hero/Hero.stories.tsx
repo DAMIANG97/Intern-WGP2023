@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Hero from 'components/Hero';
+import { footerContentMock } from 'mocks/footerContentMock';
 import tempArray from 'mocks/mocks';
 
 const meta: Meta<typeof Hero> = {
@@ -23,6 +24,7 @@ type Story = StoryObj<typeof Hero>;
 export const HeroDesktop: Story = {
   args: {
     heroContent: tempArray,
+    footerContent: footerContentMock,
   },
 };
 
@@ -34,5 +36,6 @@ export const HeroMobile: Story = {
   },
   args: {
     heroContent: tempArray,
+    footerContent: footerContentMock,
   },
 };

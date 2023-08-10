@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import SocialLinks from 'components/SocialLinks';
+import SocialLinks from 'components/Footer/SocialLinks';
+import { footerContentMock } from 'mocks/footerContentMock';
 
 const meta: Meta<typeof SocialLinks> = {
   title: 'Components/SocialLinks',
@@ -17,7 +18,9 @@ export const SocialLinksDefault: Story = {
 };
 
 export const SocialLinksVertical: Story = {
-  render: () => <SocialLinks vertical />,
+  render: () => (
+    <SocialLinks vertical socialLinks={footerContentMock.socialLinks} socialText={footerContentMock.socialText} />
+  ),
   parameters: {
     backgrounds: { default: 'Mine Shaft' },
   },

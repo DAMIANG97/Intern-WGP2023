@@ -161,4 +161,17 @@ declare namespace Hybris {
     categoryCode: string | null;
     children: MenuElements[] | [];
   }
+
+  interface FooterComponentProps {
+    copyrightText: string | undefined;
+    socialText: string | undefined;
+    policyLinks: FooterLink[];
+    socialLinks: FooterLink[];
+  }
+
+  interface FooterLink {
+    key: string;
+    name: string;
+    url: string;
+  }
 }

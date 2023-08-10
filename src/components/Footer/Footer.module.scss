@@ -19,14 +19,15 @@
   &__container {
 
     justify-items: center;
-    width: 100%;
+    align-items: center;
     display: grid;
+    width: 100%;
     max-height: 15.125rem;
-    align-items: start;
 
     @include mq.mq($from: tablet) {
       height: 13.125rem;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
+
     }
   }
 
@@ -44,21 +45,20 @@
   }
 
   &__policy {
-    margin-bottom: 1.625rem;
+    margin-bottom: 0 0.5rem 1.625rem 0.5rem;
+    text-align: center;
 
     @include mq.mq($from: tablet) {
       justify-self: start;
-      margin-top: 3.875rem;
     }
   }
 
   &__social {
-    margin-bottom: 1.5rem;
+    margin: 1.5rem 0 1.5rem 0;
+
 
     @include mq.mq($from: tablet) {
       justify-self: end;
-      margin-top: 3.125rem;
-
     }
 
   }
@@ -67,9 +67,9 @@
     margin-bottom: 1.75rem;
 
     @include mq.mq($from: tablet) {
+      grid-column: span 3;
       align-self: end;
-      margin-bottom: 1.5rem;
-      grid-column-start: 2;
+      margin: 3rem auto 1.5rem auto;
       grid-row-start: 2;
     }
   }

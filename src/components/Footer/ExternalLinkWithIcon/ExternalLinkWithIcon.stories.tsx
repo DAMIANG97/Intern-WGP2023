@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Icon from 'assets/icons/Vector.svg';
-import ExternalLinkWithIcon from 'components/ExternalLinkWithIcon';
+import ExternalLinkWithIcon from 'components/Footer/ExternalLinkWithIcon';
 
 const meta: Meta<typeof ExternalLinkWithIcon> = {
   title: 'Components/ExternalLinkWithIcon',
@@ -12,7 +12,7 @@ type Story = StoryObj<typeof ExternalLinkWithIcon>;
 export const ExternalLinkWithIconDefault: Story = {
   render: () => (
     <div style={{ color: '#bbbbbb', textAlign: 'center' }}>
-      <ExternalLinkWithIcon href='/#'>
+      <ExternalLinkWithIcon href="/#">
         <Icon />
       </ExternalLinkWithIcon>
     </div>

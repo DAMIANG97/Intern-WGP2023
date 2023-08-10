@@ -1,0 +1,76 @@
+@use 'sass-mq/_mq';
+@import '/src/styles/use';
+
+.policy-links-list {
+  width: fit-content;
+  height: 1.3125rem;
+  list-style-type: none;
+  margin: 0;
+  padding: 0 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  align-items: center;
+  grid-gap: 0.5rem;
+
+  @include mq.mq($from: tablet) {
+
+    grid-template-columns: repeat(2, 1fr);
+    width: 21rem;
+    height: 1.5rem;
+
+  }
+
+  .policy-links-list-item {
+    width: 100%;
+
+    @include mq.mq($from: tablet) {
+      width: 50%;
+    }
+  }
+
+  li {
+    a {
+      text-decoration: none;
+      font-family: 'Poppins', sans-serif;
+      font-size: var(--font-size-xs);
+      line-height: 1.5;
+      font-weight: 400;
+
+      @include mq.mq($from: tablet) {
+        font-weight: 400;
+        font-size: var(--font-size-s);
+        line-height: 1.5;
+      }
+
+      @include themeDark {
+        color: var(--color-white);
+
+        &:is(:hover, :focus-visible) {
+          color: var(--color-primary);
+          text-decoration: underline 1px;
+        }
+      }
+
+      @include themeLight {
+        color: var(--color-dark);
+
+        &:is(:hover, :focus-visible) {
+          color: var(--color-primary);
+          text-decoration: underline 1px;
+        }
+      }
+    }
+  }
+}
+
+
+.link-text {
+  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
