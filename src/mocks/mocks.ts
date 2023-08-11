@@ -86,40 +86,6 @@ const tempArray = [
 ];
 export default tempArray;
 
-export const languageMock: Hybris.Language[] = [
-  {
-    active: true,
-    isocode: 'ja',
-    name: 'Japanese',
-    nativeName: '日本語',
-  },
-  {
-    active: true,
-    isocode: 'en',
-    name: 'English',
-    nativeName: 'English',
-  },
-];
-
-export const currencyMock: Hybris.Currency[] = [
-  {
-    active: false,
-    isocode: 'JPY',
-    name: 'Japanese Yen',
-    symbol: '¥',
-  },
-  {
-    active: true,
-    isocode: 'USD',
-    name: 'US Dollar',
-    symbol: '$',
-  },
-];
-export const localeOptionsMock: Hybris.LocaleOptions = {
-  defaultLanguage: languageMock[0],
-  languageOptions: languageMock,
-  currencyOptions: currencyMock,
-};
 export const categoriesMock = [
   {
     key: '1',

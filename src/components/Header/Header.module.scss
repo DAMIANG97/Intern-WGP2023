@@ -3,13 +3,13 @@
 
 .header {
   width: 100%;
-  max-height: 3.5rem;
+  max-height: 7.5rem;
   background-color: var(--color-white);
   font-weight: 300;
-  transition: max-height 0.3s;
+  transition: all 0.5s;
   box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.14);
   box-sizing: border-box;
-
+  position: relative;
 
   @include themeDark {
     background-color: var(--color-dark);
@@ -23,46 +23,30 @@
 
   @include mq.mq($from: tablet) {
     max-height: none;
-
-    @include themeDark {
-      background-color: var(--color-dark);
-      color: var(--color-white);
-    }
-
-    @include themeLight {
-      background-color: var(--color-white);
-      color: var(--color-dark);
-    }
-
+    height: auto;
     padding-top: 1.5rem;
   }
 
   &__container {
     display: grid;
     height: 100%;
-    grid-template-rows: auto;
-    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    @include mq.mq($from: tablet) {
+      grid-template-columns: 2fr 1fr 2fr;
+      grid-template-rows: 1fr 2fr;
+      padding: 0;
+    }
   }
 
   &--search-visible {
     & .header__search {
-      max-height: 2.75rem;
+      max-height: 3.75rem;
     }
 
     @include mq.mq($from: tablet) {
       max-height: none;
-    }
-
-    max-height: 7rem;
-  }
-
-  &__menu {
-    display: none;
-
-    @include mq.mq($from: tablet) {
-      display: block;
-      justify-self: center;
-      grid-column: span 3;
     }
   }
 
@@ -79,9 +63,18 @@
     padding: 0 0.5rem;
     overflow: hidden;
     box-sizing: border-box;
-    transition: max-height 0.3s;
+    transition: all 0.5s;
     grid-row-start: 2;
     grid-column: span 3;
+    width: 100dvw;
+
+    @include themeDark {
+      background-color: var(--color-dark);
+    }
+
+    @include themeLight {
+      background-color: var(--color-white);
+    }
 
     @include mq.mq($from: tablet) {
       width: 100%;

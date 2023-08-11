@@ -6,7 +6,7 @@ function getHomeLink(data: Hybris.PageContent) {
     );
     if (homeLinkComponent) {
       return {
-        itemId: null,
+        itemId: 'Home',
         uid: homeLinkComponent.uid,
         title: homeLinkComponent.linkName,
         categoryCode: null,

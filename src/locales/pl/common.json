@@ -1,6 +1,9 @@
 {
   "hello": "świat",
   "components": {
+    "menu": {
+      "label": "Menu"
+    },
     "social": {
       "followUs": "Śledź nas w portalach społecznościowych"
     },

@@ -15,7 +15,7 @@ const LoginPage: NextPage<LoginPageProps> = Login;
 export const getServerSideProps: GetServerSideProps<LoginPageProps> = async ({ locale, req }) => {
   const localeSuffix = getLangCurrSuffix(locale, req.cookies['NEXT_CURRENCY']);
   const localeOptions = await getLocaleOptions(localeSuffix);
-  const data = await apiFetch<Hybris.PageContent>(`${BASESITE_URL}/${HOMEPAGE_ENDPOINT}${localeSuffix}`);
+  const data = await apiFetch<Hybris.PageContent>(`${BASESITE_URL}/${HOMEPAGE_ENDPOINT}?${localeSuffix}`);
   const menuContent = await getMenuContent(data, localeSuffix);
 
   return {

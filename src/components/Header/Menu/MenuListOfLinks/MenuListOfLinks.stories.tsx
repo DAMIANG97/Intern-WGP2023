@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import ListOfLinks from 'components/ListOfLinks';
+import MenuListOfLinks from 'components/Header/Menu/MenuListOfLinks';
 import { menuContentMock } from 'mocks/mocks';
 
-const meta: Meta<typeof ListOfLinks> = {
-  title: 'Components/ListOfLinks',
-  component: ListOfLinks,
+const meta: Meta<typeof MenuListOfLinks> = {
+  title: 'Components/MenuListOfLinks',
+  component: MenuListOfLinks,
   tags: ['autodocs'],
   args: { menuContent: menuContentMock },
 };
 
 export default meta;
-type Story = StoryObj<typeof ListOfLinks>;
+type Story = StoryObj<typeof MenuListOfLinks>;
 
 export const Primary: Story = {
   parameters: {
@@ -21,5 +21,9 @@ export const Primary: Story = {
 export const Mobile: Story = {
   parameters: {
     backgrounds: { default: 'white' },
+    viewport: {
+      defaultViewport: 'mobile2',
+    },
+    layout: 'fullscreen',
   },
 };

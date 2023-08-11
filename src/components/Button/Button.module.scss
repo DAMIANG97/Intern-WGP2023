@@ -1,3 +1,5 @@
+@use 'sass-mq/_mq';
+
 .button {
   background-color: var(--color-white);
   border: 1px solid var(--color-black);
@@ -36,10 +38,13 @@
     color: currentColor;
     padding: .5rem;
     display: inline-flex;
+    transition: transform 0.3s ease;
 
-    &:is(:hover, :focus-visible) {
-      transform: scale(1.4);
-      color: var(--color-primary);
+    @include mq.mq($from: tablet) {
+      &:is(:hover, :focus-visible) {
+        transform: scale(1.4);
+        color: var(--color-primary);
+      }
     }
   }
 }

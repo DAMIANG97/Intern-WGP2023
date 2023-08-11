@@ -1,0 +1,16 @@
+@use 'sass-mq/_mq';
+
+.menu {
+  &--mobile {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 9;
+  }
+
+  @include mq.mq($from: tablet) {
+    height: 7.125rem;
+    justify-self: center;
+    grid-column: span 3;
+  }
+}

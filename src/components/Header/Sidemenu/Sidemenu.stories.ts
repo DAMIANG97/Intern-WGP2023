@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Sidemenu from 'components/Header/Sidemenu';
-import { localeOptionsMock } from 'mocks/mocks';
+import { localeOptionsMock } from 'mocks/localeOptionsMock';
 
 const meta: Meta<typeof Sidemenu> = {
   title: 'Components/Sidemenu',

@@ -4,7 +4,7 @@ import type { Router } from 'next/router';
 import TestWrapper from '@jest/TestWrapper';
 import { render, screen } from '@testing-library/react';
 import { footerContentMock } from 'mocks/footerContentMock';
-import { localeOptionsMock } from 'mocks/mocks';
+import { localeOptionsMock } from 'mocks/localeOptionsMock';
 import App, { reportWebVitals } from 'pages/_app.page';
 
 const Component: FunctionComponent = (props) => <div data-testid="result">{JSON.stringify(props)}</div>;
@@ -20,6 +20,11 @@ jest.mock('next/router', () => ({
     events: { on: jest.fn(), off: jest.fn() },
     replace: jest.fn(),
   })),
+}));
+global.ResizeObserver = jest.fn().mockImplementation(() => ({
+  observe: jest.fn(),
+  unobserve: jest.fn(),
+  disconnect: jest.fn(),
 }));
 
 describe('_app', () => {

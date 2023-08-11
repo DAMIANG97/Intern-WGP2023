@@ -7,8 +7,10 @@
   align-items: center;
   margin-right: .5rem;
   color: var(--color-medium);
+  height: 3.5rem;
 
   @include mq.mq($from: tablet) {
+    height: auto;
     color: var(--color-white);
     margin-right: 0;
     flex-wrap: wrap;

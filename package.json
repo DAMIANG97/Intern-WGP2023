@@ -39,6 +39,7 @@
     "nuka-carousel": "^6.0.3",
     "patch-package": "^7.0.0",
     "react": "^18.2.0",
+    "react-animate-height": "^3.2.2",
     "react-dom": "^18.2.0",
     "react-responsive-masonry": "^2.1.7",
     "sass": "^1.63.5",

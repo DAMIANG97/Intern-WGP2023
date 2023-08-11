@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Footer from 'components/Footer';
 import { footerContentMock } from 'mocks/footerContentMock';
-import { localeOptionsMock } from 'mocks/mocks';
+import { localeOptionsMock } from 'mocks/localeOptionsMock';
 
 const meta: Meta<typeof Footer> = {
   title: 'Components/Footer',

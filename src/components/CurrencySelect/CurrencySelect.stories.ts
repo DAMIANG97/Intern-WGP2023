@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import CurrencySelect from 'components/CurrencySelect';
-import { currencyMock } from 'mocks/mocks';
+import { currencyMock } from 'mocks/localeOptionsMock';
 
 const meta: Meta<typeof CurrencySelect> = {
   title: 'Components/CurrencySelect',

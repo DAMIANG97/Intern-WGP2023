@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import LanguageSelect from 'components/LanguageSelect';
-import { languageMock } from 'mocks/mocks';
+import { languageMock } from 'mocks/localeOptionsMock';
 
 const meta: Meta<typeof LanguageSelect> = {
   title: 'Components/LanguageSelect',

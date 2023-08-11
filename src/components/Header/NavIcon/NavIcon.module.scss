@@ -1,0 +1,62 @@
+.icon {
+  width: 2rem;
+  height: 2rem;
+  position: relative;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+
+  .line1,
+  .line2,
+  .line3,
+  .line4 {
+    display: block;
+    position: absolute;
+    height: 0.1875rem;
+    width: 100%;
+    background: var(--color-medium);
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+  }
+
+  .line1 {
+    top: 0.25rem;
+  }
+
+  .line2,
+  .line3 {
+    top: 0.875rem;
+    width: 66%;
+  }
+
+  .line4 {
+    top: 1.5625rem;
+    width: 33%;
+  }
+
+  &--open {
+    .line1 {
+      top: 1.125rem;
+      width: 0%;
+      left: 50%;
+    }
+
+    .line2 {
+      transform: rotate(45deg);
+      width: 100%;
+    }
+
+    .line3 {
+      transform: rotate(-45deg);
+      width: 100%;
+    }
+
+    .line4 {
+      top: 1.125rem;
+      width: 0%;
+      left: 50%;
+    }
+  }
+}

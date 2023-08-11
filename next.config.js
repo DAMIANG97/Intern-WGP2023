@@ -11,6 +11,7 @@ const nextConfig = {
         port: '9002',
       },
     ],
+    domains: ['wgp2023.mooo.com'],
   },
   reactStrictMode: true,
   /**
@@ -27,9 +28,6 @@ const nextConfig = {
   },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
-  },
-  images: {
-    domains: ['wgp2023.mooo.com'],
   },
   webpack(config) {
     // Grab the existing rule that handles SVG imports

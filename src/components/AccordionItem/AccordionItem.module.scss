@@ -1,0 +1,58 @@
+@use 'sass-mq/_mq';
+@import '/src/styles/use';
+
+.accordion {
+  &__container {
+    width: 100%;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color-secondary);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    height: 3.125rem;
+
+    .accordion__container .accordion__container & {
+      padding-left: 1rem;
+    }
+
+    @include themeDark {
+      color: var(--color-white)
+    }
+
+    @include themeLight {
+      color: var(--color-dark)
+    }
+
+    & .accordion__button svg {
+      transition: transform .3s ease;
+    }
+
+    &--open {
+
+      & .accordion__link,
+      .accordion__name {
+        color: var(--color-primary);
+      }
+
+      & .accordion__button svg {
+        transform: rotate(180deg)
+      }
+    }
+  }
+
+  &__link,
+  &__name {
+    display: block;
+    padding: 0 1.25rem;
+    color: currentColor;
+    text-decoration: none;
+  }
+
+  &__button {
+    padding: 1rem;
+  }
+}

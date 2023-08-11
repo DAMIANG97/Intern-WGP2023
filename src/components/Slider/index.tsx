@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 
 import Container from 'components/Container';
 import SocialLinks from 'components/Footer/SocialLinks';
 import TitleAndDescription from 'components/Hero/TitleAndDescription';
-import debounce from 'lodash.debounce';
 import Carousel from 'nuka-carousel';
+import useBreakpointCheck from 'utils/Hooks/useBreakpointCheck';
 
 import styles from './Slider.module.scss';
 
@@ -32,23 +32,7 @@ const CAROUSEL_OPTIONS = {
   speed: 1000,
 };
 const Slider: React.FC<SliderProps> = ({ heroContent, footerContent }) => {
-  const [isDesktop, setIsDesktop] = useState(true);
-
-  useEffect(() => {
-    const handleResize = debounce(() => {
-      const isDesktop = window.matchMedia('(min-width: 740px)').matches;
-      setIsDesktop(isDesktop);
-    }, 500);
-    const resizeObserver = new ResizeObserver(handleResize);
-
-    resizeObserver.observe(window.document.body);
-
-    return () => {
-      resizeObserver.disconnect();
-      handleResize.cancel();
-    };
-  }, []);
-
+  const isDesktop = useBreakpointCheck();
   return (
     <Carousel {...CAROUSEL_OPTIONS} autoplay={isDesktop}>
       {heroContent.map((content, index) => (
