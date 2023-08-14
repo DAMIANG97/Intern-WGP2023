@@ -1,8 +1,8 @@
 import React, { FunctionComponent, Suspense } from 'react';
 
-import Footer from 'components/Footer';
-import Header from 'components/Header';
-import Seo from 'components/Seo';
+import Seo from 'components/Atoms/Seo';
+import Footer from 'components/Organisms/Footer';
+import Header from 'components/Organisms/Header';
 import ThemeProvider from 'utils/Providers/ThemeProvider';
 
 interface LayoutProps {

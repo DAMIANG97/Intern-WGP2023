@@ -1,4 +1,4 @@
-import { CategoryComponentProps } from 'components/ProductCategories';
+import { CategoryComponentProps } from 'components/Organisms/ProductCategories';
 import apiFetch from 'utils/apiFetch';
 import { BASE_URL, BASESITE_URL } from 'utils/Hybris/endpoints';
 

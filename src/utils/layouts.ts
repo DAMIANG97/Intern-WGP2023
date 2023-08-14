@@ -1,4 +1,4 @@
-import { CategoryComponentProps } from 'components/ProductCategories';
+import { CategoryComponentProps } from 'components/Organisms/ProductCategories';
 import getLayoutMain from 'layouts/Main';
 import { RoutePaths, ROUTES_TITLES } from 'utils/routes';
 
