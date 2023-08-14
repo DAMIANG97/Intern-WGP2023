@@ -25,6 +25,10 @@ export function getComponentLayout(pageProps: PageProps, pathname: string) {
       title: ROUTES_TITLES[RoutePaths.login],
       ...pageProps,
     }),
+    [RoutePaths.searchResult]: getLayoutMain({
+      title: ROUTES_TITLES[RoutePaths.searchResult],
+      ...pageProps,
+    }),
     // ... more routes to come
   };
   for (const route in LAYOUTS) {

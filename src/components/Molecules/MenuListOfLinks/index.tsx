@@ -12,7 +12,7 @@ interface MenuListOfLinksProps {
 }
 
 const MenuListOfLinks: FunctionComponent<MenuListOfLinksProps> = ({ menuContent, menuVisible }) => {
-  const LINK_PREFIX = '/search/';
+  const LINK_PREFIX = '/search-result/';
   const { t } = useTranslation();
 
   return (

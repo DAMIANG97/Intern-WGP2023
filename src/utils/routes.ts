@@ -10,6 +10,7 @@ export const NOT_LOGGED_IN_ROUTES = {
  */
 const LOGGED_IN_ROUTES = {
   home: '/',
+  searchResult: '/search-result',
 } as const satisfies Record<string, string>;
 
 /**
@@ -29,4 +30,5 @@ export type RoutePathsValues = (typeof RoutePaths)[RoutePathsKeys];
 export const ROUTES_TITLES = {
   [RoutePaths.home]: 'Home Page',
   [RoutePaths.login]: 'Login Page',
+  [RoutePaths.searchResult]: 'Search Result Page',
 } as const satisfies Partial<Record<RoutePathsValues, string>>;

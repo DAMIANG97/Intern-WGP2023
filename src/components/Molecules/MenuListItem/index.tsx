@@ -40,7 +40,7 @@ const MenuListItem: FunctionComponent<MenuListItemProps> = ({ link, linkPrefix, 
           <LinkComponent
             className={styles.menu__link}
             href={link.itemId === 'Home' ? '/' : `${linkPrefix}${link.categoryCode}`}
-            aria-current={(link.itemId === 'Home' ? '/' : `${linkPrefix}${link.categoryCode}`) === currentPath}>
+            aria-current={(link.itemId === 'Home' ? '/' : `${linkPrefix}${link.categoryCode}/`) === currentPath}>
             {link.title}
           </LinkComponent>
           {link.children.length > 0 && (
