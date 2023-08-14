@@ -2,6 +2,8 @@ import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/do
 
 import { DEFAULT_LANGUAGE } from 'config/i18n';
 
+const FONTS = ['/fonts/Poppins-Regular.woff2', '/fonts/Poppins-Light.woff2', '/fonts/Poppins-Bold.woff2'] as const;
+
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
@@ -18,17 +20,9 @@ class MyDocument extends Document {
           <meta name="author" content="Columbus Global" />
           <meta name="version" content={`${process.env.NEXT_PUBLIC_ENV || ''}-${process.env.REACT_APP_VERSION}`} />
 
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
-            rel="stylesheet"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;700&display=swap"
-            rel="stylesheet"
-          />
-          <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-          <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet" />
+          {FONTS.map((font) => (
+            <link key={font} rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" href={font} />
+          ))}
         </Head>
         <body>
           <Main />
