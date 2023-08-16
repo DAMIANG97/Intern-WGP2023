@@ -17,13 +17,15 @@ const Footer: React.FC<FooterProps> = ({ footerContent }) => {
       <Container className={styles.footer__container}>
         <Logo className={styles['footer__logo']} />
         <div className={styles['footer__policy']}>
-          <PolicyLinksList policyLinks={footerContent.policyLinks} />
+          {footerContent && <PolicyLinksList policyLinks={footerContent.policyLinks} />}
         </div>
         <div className={styles['footer__social']}>
-          <SocialLinks socialLinks={footerContent.socialLinks} socialText={footerContent.socialText} />
+          {footerContent && (
+            <SocialLinks socialLinks={footerContent.socialLinks} socialText={footerContent.socialText} />
+          )}
         </div>
         <div className={styles['footer__copyright']}>
-          <Copyright>{footerContent.copyrightText}</Copyright>
+          {footerContent && <Copyright>{footerContent.copyrightText}</Copyright>}
         </div>
       </Container>
     </footer>

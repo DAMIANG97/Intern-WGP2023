@@ -28,13 +28,15 @@ const Sidemenu: FunctionComponent<SidemenuProps> = ({ clickHandler, searchVisibl
         <ThemeSelect />
       </div>
       <div className={styles['sidemenu__language-selector']}>
-        <LanguageSelect
-          defaultLanguage={localeOptions.defaultLanguage}
-          languageOptions={localeOptions.languageOptions}
-        />
+        {localeOptions && (
+          <LanguageSelect
+            defaultLanguage={localeOptions.defaultLanguage}
+            languageOptions={localeOptions.languageOptions}
+          />
+        )}
       </div>
       <div className={styles['sidemenu__currency-selector']}>
-        <CurrencySelect currencyOptions={localeOptions.currencyOptions} />
+        {localeOptions && <CurrencySelect currencyOptions={localeOptions.currencyOptions} />}
       </div>
       <div className={styles.sidemenu__search}>
         <Button type="button" className={styles['sidemenu__search']} withIcon>
