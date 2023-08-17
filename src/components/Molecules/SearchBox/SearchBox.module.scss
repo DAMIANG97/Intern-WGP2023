@@ -4,13 +4,16 @@
   position: relative;
   display: flex;
   align-items: center;
-  width: 100%;
+  width: calc(100% - 1rem);
   height: 2.75rem;
   margin: 0;
   color: var(--color-hurricane);
+  padding: 1rem 0.5rem;
+  z-index: 9;
 
   @include mq.mq($from: tablet) {
     max-width: 17.3125rem;
+    padding: 0;
   }
 }
 
@@ -25,9 +28,21 @@
   box-shadow: 0rem 0.25rem 1.5rem 0rem rgba(0, 0, 0, 0.05);
   font-weight: 300;
   box-sizing: border-box;
+  z-index: 9;
+
+  &--no-shadow {
+    box-shadow: none;
+  }
 }
 
-.search-button {
+.search-suggestions {
   position: absolute;
-  right: 1.25rem;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 8;
+
+  @include mq.mq($from: tablet) {
+    top: calc(100% - 1.1rem);
+  }
 }

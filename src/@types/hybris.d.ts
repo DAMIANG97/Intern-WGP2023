@@ -174,4 +174,20 @@ declare namespace Hybris {
     name: string;
     url: string;
   }
+  interface Pagination {
+    count: number;
+    hasNext: boolean;
+    hasPrevious: boolean;
+    page: number;
+    totalCount: number;
+    totalPages: number;
+  }
+  interface SearchResultProduct {
+    availableForPickup: boolean;
+    code: string;
+    name: string;
+    price: { currencyIso: string; value: number };
+    stock: { isValueRounded: boolean };
+    url: string;
+  }
 }

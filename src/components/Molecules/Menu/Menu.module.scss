@@ -9,7 +9,6 @@
   }
 
   @include mq.mq($from: tablet) {
-    height: 7.125rem;
     justify-self: center;
     grid-column: span 3;
   }

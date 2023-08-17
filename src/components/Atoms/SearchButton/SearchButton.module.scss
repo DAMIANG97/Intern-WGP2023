@@ -11,6 +11,7 @@
   cursor: pointer;
   position: absolute;
   right: 1rem;
+  z-index: 9;
 
   &:is(:hover, :focus-visible) {
     transform: scale(1.4);

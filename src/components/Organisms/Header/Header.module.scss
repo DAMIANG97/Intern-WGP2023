@@ -24,7 +24,7 @@
   @include mq.mq($from: tablet) {
     max-height: none;
     height: auto;
-    padding-top: 1.5rem;
+    padding-top: 1rem;
   }
 
   &__container {
@@ -35,18 +35,7 @@
 
     @include mq.mq($from: tablet) {
       grid-template-columns: 2fr 1fr 2fr;
-      grid-template-rows: 1fr 2fr;
       padding: 0;
-    }
-  }
-
-  &--search-visible {
-    & .header__search {
-      max-height: 3.75rem;
-    }
-
-    @include mq.mq($from: tablet) {
-      max-height: none;
     }
   }
 
@@ -59,14 +48,11 @@
   }
 
   &__search {
-    max-height: 0rem;
-    padding: 0 0.5rem;
-    overflow: hidden;
-    box-sizing: border-box;
-    transition: all 0.5s;
-    grid-row-start: 2;
-    grid-column: span 3;
-    width: 100dvw;
+    width: 100%;
+    display: block;
+    grid-row-start: 1;
+    grid-column: span 1;
+    justify-self: left;
 
     @include themeDark {
       background-color: var(--color-dark);
@@ -75,15 +61,14 @@
     @include themeLight {
       background-color: var(--color-white);
     }
+  }
 
-    @include mq.mq($from: tablet) {
-      width: 100%;
-      overflow: visible;
-      max-height: none;
-      display: block;
-      grid-row-start: 1;
-      grid-column: span 1;
-      justify-self: left;
-    }
+  &__mobile-search {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100dvw;
+    background-color: white;
+    z-index: 9;
   }
 }

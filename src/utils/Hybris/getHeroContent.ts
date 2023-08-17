@@ -16,14 +16,7 @@ interface HeroComponent {
   headline: string;
   content: string;
   urlLink: string;
-  pagination: {
-    count: number;
-    hasNext: boolean;
-    hasPrevious: boolean;
-    page: number;
-    totalCount: number;
-    totalPages: number;
-  };
+  pagination: Hybris.Pagination;
   sorts: [];
 }
 

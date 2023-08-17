@@ -1,4 +1,5 @@
 import React, { FunctionComponent, useState } from 'react';
+import AnimateHeight from 'react-animate-height';
 
 import clsx from 'clsx';
 import Button from 'components/Atoms/Button';
@@ -8,6 +9,7 @@ import NavIcon from 'components/Atoms/NavIcon';
 import Menu from 'components/Molecules/Menu';
 import SearchBox from 'components/Molecules/SearchBox';
 import Sidemenu from 'components/Molecules/Sidemenu';
+import useBreakpointCheck from 'utils/Hooks/useBreakpointCheck';
 
 import styles from './Header.module.scss';
 
@@ -19,8 +21,15 @@ interface HeaderProps {
 const Header: FunctionComponent<HeaderProps> = ({ localeOptions, menuContent }) => {
   const [searchVisible, setSearchVisible] = useState(false);
   const [menuVisible, setMenuVisible] = useState(false);
-  const toggleSearchVisible = () => setSearchVisible((is) => !is);
-  const toggleMenuVisible = () => setMenuVisible((is) => !is);
+  const toggleSearchVisible = () => {
+    setSearchVisible((is) => !is);
+    setMenuVisible(false);
+  };
+  const toggleMenuVisible = () => {
+    setMenuVisible((is) => !is);
+    setSearchVisible(false);
+  };
+  const isDesktop = useBreakpointCheck();
 
   return (
     <header className={clsx(styles.header, searchVisible && styles['header--search-visible'])}>
@@ -35,9 +44,15 @@ const Header: FunctionComponent<HeaderProps> = ({ localeOptions, menuContent }) 
             <NavIcon open={menuVisible} />
           </Button>
         </div>
-        <div className={styles.header__search}>
-          <SearchBox />
-        </div>
+        {isDesktop ? (
+          <div className={styles.header__search}>
+            <SearchBox />
+          </div>
+        ) : (
+          <AnimateHeight height={searchVisible ? 'auto' : 0} className={styles['header__mobile-search']}>
+            <SearchBox />
+          </AnimateHeight>
+        )}
         <Logo />
         <Sidemenu clickHandler={toggleSearchVisible} searchVisible={searchVisible} localeOptions={localeOptions} />
         <Menu content={menuContent} visible={menuVisible} />
