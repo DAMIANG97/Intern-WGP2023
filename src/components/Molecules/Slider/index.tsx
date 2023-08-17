@@ -6,6 +6,7 @@ import SocialLinks from 'components/Molecules/SocialLinks';
 import TitleAndDescription from 'components/Molecules/TitleAndDescription';
 import Carousel from 'nuka-carousel';
 import useBreakpointCheck from 'utils/Hooks/useBreakpointCheck';
+import { BASE_URL } from 'utils/Hybris/endpoints';
 
 import styles from './Slider.module.scss';
 
@@ -47,7 +48,7 @@ const Slider: React.FC<SliderProps> = ({ heroContent, footerContent }) => {
           </Container>
           <Image
             className={styles.slider__background}
-            src={`https://wgp2023.mooo.com:9002${content.media.url}`}
+            src={`${BASE_URL}${content.media.url}`}
             alt={content.media.altText}
             width={2000}
             height={2000}

@@ -34,10 +34,10 @@ const getCategories = async (
     const url = `${BASESITE_URL}/categories/electronicsProductCatalog/Online/multiple/${queryString}?${localeSuffix}`;
     const content = await apiFetch<Category[]>(url);
 
-    const filteredContent: CategoryComponentProps[] = content.map(({ code, name, url, image }) => ({
+    const filteredContent: CategoryComponentProps[] = content.map(({ code, name, image }) => ({
       key: code,
       name,
-      url,
+      url: `/search-result/${code}`,
       image:
         image === null
           ? {
