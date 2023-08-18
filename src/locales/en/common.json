@@ -28,6 +28,12 @@
     },
     "breadcrumb": {
       "label": "Breadcrumb"
+    },
+    "starsRating": {
+      "rating": "Product Rating",
+      "fullStar": "Full star",
+      "partialStar": "Partial Star",
+      "emptyStar": "Empty Star"
     }
   },
   "pages": {

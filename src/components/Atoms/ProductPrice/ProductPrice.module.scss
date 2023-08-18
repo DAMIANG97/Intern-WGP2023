@@ -1,0 +1,12 @@
+@use 'sass-mq/_mq';
+
+.price {
+  font-size: var(--font-size-xxs);
+  font-weight: 600;
+  line-height: 1.5;
+
+  @include mq.mq($from: tablet) {
+    font-size: var(--font-size-s);
+    line-height: 1.383;
+  }
+}

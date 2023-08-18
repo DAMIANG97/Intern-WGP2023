@@ -28,6 +28,12 @@
     },
     "breadcrumb": {
       "label": "Breadcrumb"
+    },
+    "starsRating": {
+      "rating": "Ocena produktu",
+      "fullStar": "Pełna gwiazdka",
+      "partialStar": "Częściowa gwiazdka",
+      "emptyStar": "Pusta gwiazdka"
     }
   },
   "pages": {
