@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import useTranslation from 'next-translate/useTranslation';
 
 import clsx from 'clsx';
-import MainInput from 'components/Atoms/MainInput';
+import Input from 'components/Atoms/Input';
 import SearchButton from 'components/Atoms/SearchButton';
 import SearchSuggestions from 'components/Molecules/SearchSuggestions';
 import debounce from 'lodash.debounce';
@@ -63,7 +63,7 @@ const SearchBox = () => {
 
   return (
     <form onSubmit={submitHandler} className={clsx(styles['search-form'])} onBlur={blurHandler} onFocus={focusHandler}>
-      <MainInput
+      <Input
         value={inputValue}
         onChange={inputChangeHandler}
         placeholder={t('components.search.placeholder')}

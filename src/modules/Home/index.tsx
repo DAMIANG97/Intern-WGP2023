@@ -1,5 +1,6 @@
 import React from 'react';
 
+import CreateAccount from 'components/Organisms/CreateAccountAdvertisment';
 import Hero from 'components/Organisms/Hero';
 import ProductCategories, { CategoryComponentProps } from 'components/Organisms/ProductCategories';
 
@@ -14,6 +15,7 @@ const Home: React.FC<HomeProps> = ({ heroContent, categoriesContent, footerConte
     <div>
       <Hero heroContent={heroContent} footerContent={footerContent} />
       <ProductCategories categoriesContent={categoriesContent} />
+      <CreateAccount />
     </div>
   );
 };

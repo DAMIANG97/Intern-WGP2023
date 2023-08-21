@@ -27,7 +27,17 @@
       "ariaLabel": "Fallback Image"
     },
     "breadcrumb": {
-      "label": "Breadcrumb"
+      "label": "Breadcrumb",
+      "home": "Home"
+    },
+    "createAccount": {
+      "title": "Create account for £10 off",
+      "description": "We'll email you a voucher worth £10 off your first order over £50. By subscribing you agree to our Terms & Conditions and Privacy & Cookies Policy.",
+      "emailPlaceholder": "Enter your email address",
+      "invalidEmailAddress": "Email is invalid",
+      "requiredFieldError": "The field is required",
+      "label": "Enter your email address",
+      "ariaLabel": "Go to create account form page"
     },
     "starsRating": {
       "rating": "Product Rating",

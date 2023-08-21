@@ -27,7 +27,17 @@
       "ariaLabel": "Zdjęcie alternatywne"
     },
     "breadcrumb": {
-      "label": "Breadcrumb"
+      "label": "Breadcrumb",
+      "home": "Home"
+    },
+    "createAccount": {
+      "title": "Załóż konto by zyskać zniżkę £10",
+      "description": "Wyślemy Ci mailem kupon o wartości 10 GBP na pierwsze zamówienie powyżej 50 GBP. Subskrybując, zgadzasz się z naszym Regulaminem oraz Polityką prywatności i plików cookie.",
+      "emailPlaceholder": "Wpisz swój adres e-mail",
+      "invalidEmailAddress": "Niepoprawny adres email",
+      "requiredFieldError": "Pole jest wymagane",
+      "label": "Wpisz swój adres e-mail",
+      "ariaLabel": "Przejdź do strony z formualrzem utworzneia konta"
     },
     "starsRating": {
       "rating": "Ocena produktu",

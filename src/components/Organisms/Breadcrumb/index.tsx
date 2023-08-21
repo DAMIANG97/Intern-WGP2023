@@ -34,7 +34,7 @@ const Breadcrumb = () => {
   return (
     <nav aria-label={t('components.breadcrumb.label')}>
       <ol className={styles.breadcrumbs__container}>
-        <BreadcrumbItem href="/">Home</BreadcrumbItem>
+        <BreadcrumbItem href="/">{t('components.breadcrumb.home')}</BreadcrumbItem>
         {breadcrumbs &&
           breadcrumbs.map((breadcrumb) => {
             return (

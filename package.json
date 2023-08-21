@@ -27,6 +27,7 @@
     ]
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.2.0",
     "@next/font": "^13.4.6",
     "clsx": "^1.2.1",
     "cookies-next": "^2.1.2",
@@ -41,12 +42,15 @@
     "react": "^18.2.0",
     "react-animate-height": "^3.2.2",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.45.4",
     "react-responsive-masonry": "^2.1.7",
     "sass": "^1.63.5",
     "sass-mq": "^6.0.0",
-    "typescript-plugin-css-modules": "^5.0.1"
+    "typescript-plugin-css-modules": "^5.0.1",
+    "yup": "^1.2.0"
   },
   "devDependencies": {
+    "@hookform/devtools": "^4.3.1",
     "@storybook/addon-essentials": "^7.0.26",
     "@storybook/addon-interactions": "^7.0.26",
     "@storybook/addon-links": "^7.0.26",

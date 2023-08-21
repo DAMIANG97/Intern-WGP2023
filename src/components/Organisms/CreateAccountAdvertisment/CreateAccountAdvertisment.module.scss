@@ -1,0 +1,22 @@
+@use 'sass-mq/_mq';
+
+.createAccount {
+  &__container {
+    display: flex;
+    background-color: var(--color-newsletter-background);
+    margin-bottom: 4rem;
+
+    @include mq.mq($from: tablet) {
+      padding: 2.5rem 7rem;
+      flex-direction: row;
+    }
+
+    @include mq.mq($until: tablet) {
+      flex-direction: column;
+      padding: 3rem 2rem;
+      margin-left: 0.625rem;
+      margin-right: 0.625rem;
+      margin-bottom: 2rem;
+    }
+  }
+}

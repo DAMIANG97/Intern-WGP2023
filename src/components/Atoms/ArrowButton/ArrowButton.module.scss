@@ -1,0 +1,13 @@
+.arrowButton {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: absolute;
+  right: 1rem;
+  color: var(--color-primary);
+
+  &:is(:hover, :focus-visible) {
+    transform: scale(1.4);
+    color: var(--color-primary);
+  }
+}
