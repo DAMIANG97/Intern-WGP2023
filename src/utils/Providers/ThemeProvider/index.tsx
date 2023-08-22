@@ -20,7 +20,6 @@ const ThemeProvider: FunctionComponent<ThemeProviderProps> = ({ children }) => {
       document.documentElement.setAttribute('data-theme', theme);
     }
   }, [theme]);
-
   return <ThemeContext.Provider value={context}>{children}</ThemeContext.Provider>;
 };
 
