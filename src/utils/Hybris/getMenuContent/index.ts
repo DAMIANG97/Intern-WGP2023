@@ -18,14 +18,7 @@ export interface CategoryComponents {
     url: string;
     target: boolean;
   }[];
-  pagination: {
-    count: number;
-    hasNext: boolean;
-    hasPrevious: boolean;
-    page: number;
-    totalCount: number;
-    totalPages: number;
-  };
+  pagination: Hybris.Pagination;
 }
 /**
  * Fetches and filters required data to create menu.

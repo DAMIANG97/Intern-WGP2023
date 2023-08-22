@@ -174,6 +174,17 @@ declare namespace Hybris {
     name: string;
     url: string;
   }
+
+  interface SearchResultResponse {
+    type: string;
+    freeTextSearch: string;
+    pagination: Hybris.Pagination;
+    products: Hybris.SearchResultProduct[];
+    sorts: Hybris.Sorts;
+    facets: Hybris.Facets;
+    breadcrumbs: Breadcrumbs;
+  }
+
   interface Pagination {
     count: number;
     hasNext: boolean;
@@ -182,12 +193,50 @@ declare namespace Hybris {
     totalCount: number;
     totalPages: number;
   }
+
   interface SearchResultProduct {
     availableForPickup: boolean;
     code: string;
     name: string;
     price: { currencyIso: string; value: number };
     stock: { isValueRounded: boolean };
+    url: string;
+  }
+
+  interface Sorts {
+    code: string;
+    name: string;
+    selected: boolean;
+  }
+
+  interface Facet {
+    category: boolean;
+    multiSelect: true;
+    name: string;
+    priority: number;
+    visible: true;
+    values: FacetValue[];
+  }
+
+  interface FacetValue {
+    count: number;
+    name: string;
+    query: Query;
+    selected: boolean;
+  }
+
+  interface Breadcrumb {
+    facetCode: string;
+    facetName: string;
+    facetValueCode: string;
+    facetValueName: string;
+    removeQuery: Query;
+  }
+
+  interface Query {
+    query: {
+      value: string;
+    };
     url: string;
   }
 }

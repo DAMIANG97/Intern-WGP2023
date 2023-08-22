@@ -22,11 +22,9 @@ export const getServerSideProps: GetServerSideProps<SearchResultPageProps> = asy
 }) => {
   const hybrisQuery = resolvedUrl.slice(15, resolvedUrl.length);
   const categoryId = query.categoryId ?? '';
-  let searchResults: Hybris.SearchResultProduct[] = [];
-  if (categoryId === 'search') {
-    searchResults = (await getSearchResults(hybrisQuery)).products;
-  }
   const localeSuffix = getLangCurrSuffix(locale, req.cookies['NEXT_CURRENCY']);
+  const searchResults: Hybris.SearchResultResponse | null =
+    categoryId === 'search' ? await getSearchResults(hybrisQuery, localeSuffix) : null;
   const localeOptions = await getLocaleOptions(localeSuffix);
   const data = await apiFetch<Hybris.PageContent>(`${BASESITE_URL}/${HOMEPAGE_ENDPOINT}?${localeSuffix}`);
   const menuContent = await getMenuContent(data, localeSuffix);
@@ -38,7 +36,7 @@ export const getServerSideProps: GetServerSideProps<SearchResultPageProps> = asy
       menuContent: menuContent,
       footerContent: footerContent,
       categoryId: categoryId,
-      products: searchResults, // TODO, get products from categoryID
+      results: searchResults,
     },
   };
 };

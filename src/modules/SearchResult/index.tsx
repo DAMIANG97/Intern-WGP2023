@@ -1,25 +1,34 @@
 import React, { FunctionComponent } from 'react';
 
+import Container from 'components/Atoms/Container';
+import ProductFilters from 'components/Organisms/ProductFilters';
+
+import styles from './SearchResult.module.scss';
+
 const TAG = 'SearchResult';
 
 interface SearchResultPageProps {
   categoryId: string | string[];
-  products: Hybris.SearchResultProduct[];
+  results: Hybris.SearchResultResponse | null;
 }
 
-const SearchResult: FunctionComponent<SearchResultPageProps> = ({ categoryId, products }) => (
+const SearchResult: FunctionComponent<SearchResultPageProps> = ({ categoryId, results }) => (
   <div>
     <h2>Search Result Page</h2>
     <span>Category Id: {categoryId}</span>
-    {products.length > 0 ? (
-      <ul>
-        {products.map((product) => {
-          return <li key={product.code}>{product.name}</li>;
-        })}
-      </ul>
+    {results ? (
+      <Container className={styles['search-result__container']}>
+        <ProductFilters facets={results.facets} breadcrumbs={results.breadcrumbs} />
+        <ul>
+          {results.products.map((product) => {
+            return <li key={product.code}>{product.name}</li>;
+          })}
+        </ul>
+      </Container>
     ) : (
       <div>No results found</div>
     )}
+    {/* TODO: Replace with proper list component from task WGP2023-57*/}
   </div>
 );
 

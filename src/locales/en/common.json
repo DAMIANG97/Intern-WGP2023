@@ -1,6 +1,9 @@
 {
   "hello": "world",
   "components": {
+    "productFilters": {
+      "label": "Product Filters"
+    },
     "menu": {
       "label": "Menu"
     },
