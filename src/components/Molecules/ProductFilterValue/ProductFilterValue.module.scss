@@ -1,0 +1,51 @@
+@use 'sass-mq/_mq';
+@import '/src/styles/use';
+
+.link {
+  font-size: var(--font-size-xs);
+  padding: 0 1.25rem;
+  margin: 0;
+  border: 2px solid transparent;
+  white-space: nowrap;
+  overflow: hidden;
+
+  @include themeDark {
+    color: var(--color-light);
+  }
+
+  @include themeLight {
+    color: var(--color-filter-text);
+  }
+
+  &:hover {
+    border: 2px solid var(--color-primary);
+  }
+
+  &--active {
+    border: 2px solid var(--color-primary);
+    color: var(--color-white);
+  }
+
+  @include mq.mq($from: tablet) {
+    padding: 0 1rem;
+    white-space: break-spaces;
+
+    @include themeDark {
+      color: var(--color-filter-text);
+    }
+
+    @include themeLight {
+      color: var(--color-filter-text);
+    }
+  }
+}
+
+.item {
+  &:not(:first-child) {
+    border-top: 1px solid var(--color-secondary)
+  }
+
+  &:last-child {
+    border-bottom: 1px solid var(--color-secondary)
+  }
+}

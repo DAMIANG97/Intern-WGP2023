@@ -2,15 +2,14 @@
 @import '/src/styles/use';
 
 .link {
-  display: block;
+  display: flex;
+  align-items: center;
   font-size: var(--font-size-xs);
   font-weight: 500;
   padding: 0 1.25rem;
   text-decoration: none;
   border-bottom: 1px solid var(--color-secondary);
   height: 3.125rem;
-  display: flex;
-  align-items: center;
   box-sizing: border-box;
 
   @include themeDark {

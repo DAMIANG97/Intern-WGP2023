@@ -1,0 +1,35 @@
+@use 'sass-mq/_mq';
+@import '/src/styles/use';
+
+.product-filters {
+  &__topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-hurricane);
+
+    @include themeDark {
+      color: var(--color-white)
+    }
+  }
+
+  &__heading {
+    font-weight: 300;
+    font-size: var(--font-size-l);
+    padding-left: 1.25rem;
+    margin: 1rem 0;
+
+    @include mq.mq($from: tablet) {
+      padding: 0;
+      font-weight: 600;
+      font-size: var(--font-size-m);
+      color: var(--color-dark);
+    }
+  }
+
+  &__close-button {
+    @include mq.mq($from: tablet) {
+      display: none;
+    }
+  }
+}

@@ -13,11 +13,12 @@ interface AccordionItemProps {
   name: string;
   href?: string;
   parentOpen?: boolean;
+  filter?: boolean;
 }
 
 const TAG = 'AccordionItem';
 
-const AccordionItem: FunctionComponent<AccordionItemProps> = ({ children, name, href, parentOpen }) => {
+const AccordionItem: FunctionComponent<AccordionItemProps> = ({ children, name, href, parentOpen, filter }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const clickHandler = () => setIsOpen((is) => !is);
   useEffect(() => {
@@ -27,7 +28,7 @@ const AccordionItem: FunctionComponent<AccordionItemProps> = ({ children, name, 
   }, [setIsOpen, parentOpen]);
 
   return (
-    <div className={styles.accordion__container}>
+    <div className={clsx(styles.accordion, filter && styles['accordion--filter'])}>
       <div className={clsx(styles.accordion__header, isOpen && styles['accordion__header--open'])}>
         {href ? (
           <Link className={styles.accordion__link} href={href}>

@@ -1,0 +1,44 @@
+@use 'sass-mq/_mq';
+@import '/src/styles/use';
+
+.product-filters {
+  width: 0;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 10;
+  overflow: hidden;
+  transition: width 0.4s ease;
+  white-space: nowrap;
+  background-color: var(--color-white);
+  color: var(--color-dark);
+
+  @include themeDark {
+    background-color: var(--color-dark);
+    color: var(--color-white)
+  }
+
+  @include mq.mq($from: tablet) {
+    position: static;
+    width: 18rem;
+
+    @include themeDark {
+      background-color: var(--color-white);
+    }
+  }
+
+  &--visible {
+    width: 100dvw;
+
+    @include mq.mq($from: tablet) {
+      width: 18rem;
+    }
+  }
+
+  &__list {
+    list-style-type: none;
+    border-top: 1px solid var(--color-secondary);
+    padding: 0;
+    margin: 0;
+  }
+}

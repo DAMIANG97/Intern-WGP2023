@@ -7,6 +7,10 @@
   border: 1px solid var(--color-secondary);
   border-bottom: none;
 
+  @include themeDark {
+    background-color: var(--color-dark);
+  }
+
   @include mq.mq($from: tablet) {
     position: unset;
     background-color: transparent;

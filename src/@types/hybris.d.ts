@@ -220,10 +220,10 @@ declare namespace Hybris {
 
   interface Facet {
     category: boolean;
-    multiSelect: true;
+    multiSelect: boolean;
     name: string;
     priority: number;
-    visible: true;
+    visible: boolean;
     values: FacetValue[];
   }
 

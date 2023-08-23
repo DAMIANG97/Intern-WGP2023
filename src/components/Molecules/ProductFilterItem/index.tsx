@@ -1,44 +1,36 @@
-import React, { FunctionComponent, useEffect, useMemo, useState } from 'react';
+import React, { FunctionComponent, useMemo } from 'react';
 
-import clsx from 'clsx';
-import LinkComponent from 'components/Atoms/LinkComponent';
-import { getSearchQuery } from 'utils/Hybris/endpoints';
+import AccordionItem from 'components/Molecules/AccordionItem';
+import ProductFilterValue from 'components/Molecules/ProductFilterValue';
 
 import styles from './ProductFilterItem.module.scss';
 
 interface ProductFilterItemProps {
-  value: Hybris.FacetValue;
-  filterName: string;
   breadcrumbs: ReadonlyArray<Hybris.Breadcrumb>;
+  facet: Readonly<Hybris.Facet>;
 }
 
 const TAG = 'ProductFilterItem';
 
-const ProductFilterItem: FunctionComponent<ProductFilterItemProps> = ({ value, filterName, breadcrumbs }) => {
-  const [active, setActive] = useState(false);
+const ProductFilterItem: FunctionComponent<ProductFilterItemProps> = ({ facet, breadcrumbs }) => {
+  const selectedValues = useMemo(() => {
+    let number = 0;
+    facet.values.map((value) => {
+      value.selected === true ? number++ : '';
+    });
+    return number;
+  }, [facet.values]);
 
-  useEffect(() => {
-    setActive(value.selected);
-  }, [value.selected]);
-
-  const query = useMemo(() => {
-    const getRemoveQuery = () => {
-      const query =
-        breadcrumbs.find(
-          (breadcrumb) => breadcrumb.facetName === filterName && breadcrumb.facetValueName === value.name,
-        )?.removeQuery.query.value ?? '';
-      return getSearchQuery(query);
-    };
-
-    const href = value.selected ? getRemoveQuery() : getSearchQuery(value.query.query.value);
-    return href;
-  }, [breadcrumbs, value, filterName]);
-
+  const nameWithSelectedValues = `${facet.name}\u00A0(${selectedValues})`;
   return (
-    <li>
-      <LinkComponent href={query} className={clsx(active && styles['link--active'])}>
-        {value.name}
-      </LinkComponent>
+    <li key={facet.name} className={styles['product-filter__list-item']}>
+      <AccordionItem name={selectedValues > 0 ? nameWithSelectedValues : facet.name} filter>
+        <ul className={styles['product-filter__values']}>
+          {facet.values.map((value) => (
+            <ProductFilterValue key={value.name} value={value} filterName={facet.name} breadcrumbs={breadcrumbs} />
+          ))}
+        </ul>
+      </AccordionItem>
     </li>
   );
 };

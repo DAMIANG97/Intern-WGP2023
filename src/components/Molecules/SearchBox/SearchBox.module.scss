@@ -28,6 +28,7 @@
   box-shadow: 0rem 0.25rem 1.5rem 0rem rgba(0, 0, 0, 0.05);
   font-weight: 300;
   box-sizing: border-box;
+  outline: none;
 
   &--no-shadow {
     box-shadow: none;
@@ -42,6 +43,6 @@
   z-index: 8;
 
   @include mq.mq($from: tablet) {
-    top: calc(100% - 1.1rem);
+    top: calc(100% - 1rem);
   }
 }

@@ -2,9 +2,7 @@
 @import '/src/styles/use';
 
 .accordion {
-  &__container {
-    width: 100%;
-  }
+  width: 100%;
 
   &__header {
     display: flex;
@@ -15,7 +13,7 @@
     font-weight: 500;
     height: 3.125rem;
 
-    .accordion__container .accordion__container & {
+    .accordion .accordion & {
       padding-left: 1rem;
     }
 
@@ -54,5 +52,40 @@
 
   &__button {
     padding: 1rem;
+  }
+
+  &--filter {
+    .accordion__name {
+      padding: 0 1.25rem;
+
+      @include mq.mq($from: tablet) {
+        padding: 0 0.625rem;
+      }
+    }
+
+    .accordion__header {
+      font-size: var(--font-size-m);
+
+      @include themeDark {
+        color: var(--color-white);
+      }
+
+      @include themeLight {
+        color: var(--color-dark);
+      }
+
+      @include mq.mq($from: tablet) {
+        font-size: var(--font-size-s);
+
+        @include themeDark {
+          color: var(--color-filter-text);
+        }
+
+        @include themeLight {
+          color: var(--color-filter-text);
+        }
+      }
+
+    }
   }
 }

@@ -2,7 +2,9 @@
   "hello": "świat",
   "components": {
     "productFilters": {
-      "label": "Filtry Produktów"
+      "label": "Filtry Produktów",
+      "heading": "Opcje wyszukiwania",
+      "button-text": "Filtry"
     },
     "menu": {
       "label": "Menu"
