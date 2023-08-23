@@ -134,6 +134,15 @@ declare namespace Hybris {
     content: string;
     urlLink: string;
   }
+  interface HeroComponentSearchProps {
+    media: {
+      code: string;
+      mime: string;
+      altText: string;
+      url: string;
+    };
+    name: string;
+  }
 
   interface LocaleOptions {
     defaultLanguage: Language;

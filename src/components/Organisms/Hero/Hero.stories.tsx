@@ -1,41 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Hero from 'components/Organisms/Hero';
-import { footerContentMock } from 'mocks/footerContentMock';
-import tempArray from 'mocks/mocks';
+import { CATEGORY_ID, HERO_MOCKS } from 'mocks/heroMocks';
 
 const meta: Meta<typeof Hero> = {
   title: 'Components/Hero',
   component: Hero,
   tags: ['autodocs'],
-  parameters: {
-    backgrounds: {
-      default: 'black',
-      values: [
-        { name: 'dark', value: '#212121' },
-        { name: 'white', value: '#fff' },
-      ],
-    },
+  args: {
+    heroContent: HERO_MOCKS,
+    categoryId: CATEGORY_ID,
   },
 };
 
 export default meta;
 type Story = StoryObj<typeof Hero>;
 
-export const HeroDesktop: Story = {
-  args: {
-    heroContent: tempArray,
-    footerContent: footerContentMock,
-  },
-};
-
-export const HeroMobile: Story = {
-  parameters: {
-    viewport: {
-      defaultViewport: 'mobile2',
-    },
-  },
-  args: {
-    heroContent: tempArray,
-    footerContent: footerContentMock,
-  },
-};
+export const HeroDesktop: Story = {};

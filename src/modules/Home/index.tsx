@@ -1,7 +1,7 @@
 import React from 'react';
 
 import CreateAccount from 'components/Organisms/CreateAccountAdvertisment';
-import Hero from 'components/Organisms/Hero';
+import HeroHomePage from 'components/Organisms/HeroHomePage';
 import ProductCategories, { CategoryComponentProps } from 'components/Organisms/ProductCategories';
 
 interface HomeProps {
@@ -13,7 +13,7 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = ({ heroContent, categoriesContent, footerContent }) => {
   return (
     <div>
-      <Hero heroContent={heroContent} footerContent={footerContent} />
+      <HeroHomePage heroContent={heroContent} footerContent={footerContent} />
       <ProductCategories categoriesContent={categoriesContent} />
       <CreateAccount />
     </div>

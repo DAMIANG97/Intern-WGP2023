@@ -1,0 +1,53 @@
+@use 'sass-mq/_mq';
+@import '/src/styles/use';
+
+.hero {
+  display: none;
+
+  @include mq.mq($from: tablet) {
+    min-height: 11.25rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+
+
+    &__container {
+      width: 77.5rem;
+      display: flex;
+      flex-direction: column;
+      z-index: 1;
+      justify-content: flex-start;
+    }
+
+    &__breadcrumb {
+      height: 5.625rem;
+      margin: 0 .5rem;
+    }
+
+    &__h1 {
+      height: 5.625rem;
+      margin: 0 .5rem;
+    }
+
+    &__background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

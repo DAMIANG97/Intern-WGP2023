@@ -50,8 +50,8 @@ const Slider: React.FC<SliderProps> = ({ heroContent, footerContent }) => {
             className={styles.slider__background}
             src={`${BASE_URL}${content.media.url}`}
             alt={content.media.altText}
-            width={2000}
-            height={2000}
+            width={1920}
+            height={694}
             priority={true}
           />
         </div>
