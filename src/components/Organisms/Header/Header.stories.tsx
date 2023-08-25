@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Header from 'components/Organisms/Header';
 import { localeOptionsMock } from 'mocks/localeOptionsMock';
-import { menuContentMock } from 'mocks/mocks';
+import { menuContentMock } from 'mocks/menuContentMock';
 
 const meta: Meta<typeof Header> = {
   title: 'Components/Header',

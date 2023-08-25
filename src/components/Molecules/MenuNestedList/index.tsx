@@ -9,7 +9,6 @@ interface MenuNestedListProps {
   list: Hybris.MenuElements[];
   currentPath: string;
   grandchild?: boolean;
-  linkPrefix: string;
   menuVisible: boolean;
   isDesktop: boolean;
 }
@@ -20,7 +19,6 @@ const MenuNestedList: FunctionComponent<MenuNestedListProps> = ({
   list,
   currentPath,
   grandchild,
-  linkPrefix,
   menuVisible,
   isDesktop,
 }) => {
@@ -37,7 +35,6 @@ const MenuNestedList: FunctionComponent<MenuNestedListProps> = ({
                     list={child.children}
                     currentPath={currentPath}
                     grandchild
-                    linkPrefix={linkPrefix}
                     menuVisible={menuVisible}
                     isDesktop={isDesktop}
                   />
@@ -48,7 +45,6 @@ const MenuNestedList: FunctionComponent<MenuNestedListProps> = ({
                     list={child.children}
                     currentPath={currentPath}
                     grandchild
-                    linkPrefix={linkPrefix}
                     menuVisible={menuVisible}
                     isDesktop={isDesktop}
                   />
@@ -59,9 +55,7 @@ const MenuNestedList: FunctionComponent<MenuNestedListProps> = ({
         }
         return (
           <li key={child.uid}>
-            <LinkComponent
-              href={child.itemId === 'Home' ? '/' : `${linkPrefix}${child.categoryCode}`}
-              aria-current={(child.itemId === 'Home' ? '/' : `${linkPrefix}${child.categoryCode}`) === currentPath}>
+            <LinkComponent href={child.url} aria-current={child.url === currentPath}>
               {child.title}
             </LinkComponent>
           </li>

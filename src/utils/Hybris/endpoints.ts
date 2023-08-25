@@ -16,3 +16,8 @@ export function getSuggestionEndpoint(limit: number, term: string): string {
 export function getSearchQuery(text: string): string {
   return `/search-result/search?currentPage=0&fields=FULL&pageSize=20&query=${text}`;
 }
+
+export const LINK_PREFIX = {
+  brand: '/search-result/search/?currentPage=0&fields=FULL&pageSize=20&query=:relevance:brand:',
+  category: '/search-result/search/?currentPage=0&fields=FULL&pageSize=20&query=:relevance:category:',
+};

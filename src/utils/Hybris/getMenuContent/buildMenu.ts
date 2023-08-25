@@ -1,3 +1,4 @@
+import { LINK_PREFIX } from 'utils/Hybris/endpoints';
 import { CategoryComponents } from 'utils/Hybris/getMenuContent';
 import { ItemId } from 'utils/Hybris/getMenuContent/getItemId';
 
@@ -16,6 +17,13 @@ function createMenuNesting(elem: Hybris.NavigationNodeElement, menuElements: Hyb
   return array;
 }
 
+function createMenuElementURL(categoryCode: string | null) {
+  const url = !categoryCode
+    ? ''
+    : `${categoryCode.includes('brand') ? LINK_PREFIX.brand : LINK_PREFIX.category}${categoryCode}`;
+  return url;
+}
+
 function createMenuElements(itemIdArray: ItemId[], categoryComponents: CategoryComponents): Hybris.MenuElements[] {
   return itemIdArray.map((elem) => {
     const component = categoryComponents.component.find((component) => component.uid === elem.itemId);
@@ -26,6 +34,7 @@ function createMenuElements(itemIdArray: ItemId[], categoryComponents: CategoryC
         uid: elem.uid,
         itemId: elem.itemId,
         children: [],
+        url: createMenuElementURL(component.categoryCode),
       };
     } else {
       return {
@@ -34,6 +43,7 @@ function createMenuElements(itemIdArray: ItemId[], categoryComponents: CategoryC
         uid: elem.uid,
         itemId: elem.itemId,
         children: [],
+        url: createMenuElementURL(null),
       };
     }
   });
@@ -58,6 +68,7 @@ function buildMenu(
       title: elem.title ? elem.title : '',
       categoryCode: null,
       children: [],
+      url: '',
     };
   });
   return menu;

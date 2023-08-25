@@ -1,6 +1,6 @@
 import { CategoryComponentProps } from 'components/Organisms/ProductCategories';
 import apiFetch from 'utils/apiFetch';
-import { BASE_URL, BASESITE_URL } from 'utils/Hybris/endpoints';
+import { BASE_URL, BASESITE_URL, LINK_PREFIX } from 'utils/Hybris/endpoints';
 
 interface Category {
   code: string;
@@ -37,7 +37,7 @@ const getCategories = async (
     const filteredContent: CategoryComponentProps[] = content.map(({ code, name, image }) => ({
       key: code,
       name,
-      url: `/search-result/${code}`,
+      url: `${LINK_PREFIX.category}${code}`,
       image:
         image === null
           ? {

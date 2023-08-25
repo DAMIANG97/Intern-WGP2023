@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import MenuListOfLinks from 'components/Molecules/MenuListOfLinks';
-import { menuContentMock } from 'mocks/mocks';
+import { menuContentMock } from 'mocks/menuContentMock';
 
 const meta: Meta<typeof MenuListOfLinks> = {
   title: 'Components/MenuListOfLinks',

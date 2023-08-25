@@ -155,6 +155,7 @@ declare namespace Hybris {
     title: string;
     categoryCode: string | null;
     children: MenuElements[] | [];
+    url: string;
   }
   interface FooterComponentProps {
     copyrightText: string | undefined;

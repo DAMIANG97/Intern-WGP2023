@@ -1,3 +1,5 @@
+import { RoutePaths } from 'utils/routes';
+
 function getHomeLink(data: Hybris.PageContent) {
   const homeLinkSlot = data.contentSlots.contentSlot.find((slot) => slot.slotId === 'HomepageNavLinkSlot');
   if (homeLinkSlot) {
@@ -11,6 +13,7 @@ function getHomeLink(data: Hybris.PageContent) {
         title: homeLinkComponent.linkName,
         categoryCode: null,
         children: [],
+        url: RoutePaths.home,
       } as Hybris.MenuElements;
     }
   }
