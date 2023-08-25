@@ -6,7 +6,10 @@ export const HOMEPAGE_ENDPOINT = 'cms/pages/homepage';
 export const SEARCH_ENDPOINT = 'cms/pages/search';
 export const LANGUAGE_ENDPOINT = 'languages';
 export const CURRENCY_ENDPOINT = 'currencies';
+export const PAGES_ENDPOINT = 'cms/pages/productDetails';
+export const PRODUCT_ENDPOINT = 'products';
 
+// /{baseSiteId}/products/{productCode}
 export function getSuggestionEndpoint(limit: number, term: string): string {
   return `${BASESITE_URL}/products/suggestions?fields=DEFAULT&max=${limit}&term=${term}`;
 }

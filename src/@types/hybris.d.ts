@@ -10,11 +10,9 @@ declare namespace Hybris {
     contentSlots: ContentSlots;
     label: string;
   }
-
   interface ContentSlots {
     contentSlot: ContentSlot[];
   }
-
   interface ContentSlot {
     slotId: string;
     slotUuid: string;
@@ -23,11 +21,9 @@ declare namespace Hybris {
     slotShared: boolean;
     components: Components;
   }
-
   interface Components {
     component: Component[];
   }
-
   interface Component {
     uid: string;
     uuid: string;
@@ -71,7 +67,6 @@ declare namespace Hybris {
     context?: string;
     categories?: string;
   }
-
   interface Media {
     code?: string;
     mime?: string;
@@ -82,31 +77,26 @@ declare namespace Hybris {
     mobile?: MediaDescription;
     widescreen?: MediaDescription;
   }
-
   interface MediaDescription {
     code: string;
     mime: string;
     altText: string;
     url: string;
   }
-
   interface NavigationNode {
     uid: string;
     uuid: string;
     entries: Entry[];
     children: NavigationNodeElement[];
   }
-
   interface NavigationNodeElement extends NavigationNode {
     title?: string;
   }
-
   interface Entry {
     itemId: string;
     itemSuperinterface: string;
     iteminterface: string;
   }
-
   interface LightboxBannerComponent {
     container: string;
     uid: string;
@@ -116,7 +106,6 @@ declare namespace Hybris {
     uuid: string;
     interfaceCode: string;
   }
-
   interface LightboxMedia {
     code: string;
     mime: string;
@@ -143,20 +132,17 @@ declare namespace Hybris {
     };
     name: string;
   }
-
   interface LocaleOptions {
     defaultLanguage: Language;
     languageOptions: Language[];
     currencyOptions: Currency[];
   }
-
   interface Language {
     active: boolean;
     isocode: string;
     name: string;
     nativeName: string;
   }
-
   interface Currency {
     active: boolean;
     isocode: string;
@@ -170,20 +156,17 @@ declare namespace Hybris {
     categoryCode: string | null;
     children: MenuElements[] | [];
   }
-
   interface FooterComponentProps {
     copyrightText: string | undefined;
     socialText: string | undefined;
     policyLinks: FooterLink[];
     socialLinks: FooterLink[];
   }
-
   interface FooterLink {
     key: string;
     name: string;
     url: string;
   }
-
   interface SearchResultResponse {
     type: string;
     freeTextSearch: string;
@@ -193,7 +176,6 @@ declare namespace Hybris {
     facets: Hybris.Facets;
     breadcrumbs: Breadcrumbs;
   }
-
   interface Pagination {
     count: number;
     hasNext: boolean;
@@ -202,7 +184,6 @@ declare namespace Hybris {
     totalCount: number;
     totalPages: number;
   }
-
   interface SearchResultProduct {
     availableForPickup: boolean;
     code: string;
@@ -211,13 +192,11 @@ declare namespace Hybris {
     stock: { isValueRounded: boolean };
     url: string;
   }
-
   interface Sorts {
     code: string;
     name: string;
     selected: boolean;
   }
-
   interface Facet {
     category: boolean;
     multiSelect: boolean;
@@ -226,14 +205,12 @@ declare namespace Hybris {
     visible: boolean;
     values: FacetValue[];
   }
-
   interface FacetValue {
     count: number;
     name: string;
     query: Query;
     selected: boolean;
   }
-
   interface Breadcrumb {
     facetCode: string;
     facetName: string;
@@ -241,7 +218,6 @@ declare namespace Hybris {
     facetValueName: string;
     removeQuery: Query;
   }
-
   interface Query {
     query: {
       value: string;
