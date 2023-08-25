@@ -5,16 +5,43 @@
     width: 50%;
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
+    position: relative;
+    padding-left: 2rem;
 
     @include mq.mq($until: tablet) {
       width: 100%;
+      align-items: center;
+      padding-left: 0;
     }
   }
 
-  &__errorMessage {
-    color: var(--color-danger)
+  &__input {
+    @include mq.mq($until: tablet) {
+      padding: 0.5rem;
+      font-size: var(--font-size-xxs);
+    }
+  }
+
+  &__errorMessageContainer {
+    display: flex;
+    justify-content: flex-start;
+
+    @include mq.mq($until: tablet) {
+      justify-content: center;
+    }
+  }
+
+  &__errorMessageText {
+    color: var(--color-danger);
+    position: absolute;
+    width: 100%;
+    font-size: var(--font-size-xs);
+    text-overflow: ellipsis;
+
+    @include mq.mq($until: tablet) {
+      font-size: var(--font-size-xxs);
+    }
   }
 
   &__label {

@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import useTranslation from 'next-translate/useTranslation';
 
 import { yupResolver } from '@hookform/resolvers/yup';
+import clsx from 'clsx';
 import ArrowButton from 'components/Atoms/ArrowButton';
 import Input from 'components/Atoms/Input';
 import validationSchema from 'utils/Validation/newsletterValidation';
@@ -33,26 +34,25 @@ const EmailBox = () => {
     reset();
   };
 
-  // TODO:
-  // export TranslationKeys interface
   return (
     <div className={boxStyles.emailBox__container}>
       <form noValidate onSubmit={handleSubmit(onSubmit)} className={styles['search-form']}>
         <Input
           placeholder={t('components.createAccount.emailPlaceholder')}
-          className={styles['search-input']}
+          className={clsx(styles['search-input'], boxStyles.emailBox__input)}
           aria-label={t('components.createAccount.label')}
           type="email"
           id="email"
           {...register('email', {
             required: true,
           })}
+          autoComplete="email"
         />
         <ArrowButton />
       </form>
-      <div>
-        <p className={boxStyles.emailBox__errorMessage}>
-          {errors.email?.message && t(errors.email.message as Paths<typeof import('locales/pl/common.json')>)}
+      <div className={boxStyles.emailBox__errorMessageContainer}>
+        <p className={boxStyles.emailBox__errorMessageText}>
+          {errors.email?.message && t(errors.email.message as TranslationKeys['common'])}
         </p>
       </div>
     </div>
