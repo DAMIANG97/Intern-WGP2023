@@ -10,17 +10,6 @@
     flex-direction: row;
     align-items: center;
 
-    a {
-      text-decoration: none;
-
-      @include themeDark {
-        color: var(--color-white);
-      }
-
-      @include themeLight {
-        color: var(--color-dark);
-      }
-    }
   }
 
   &__arrowRight {
@@ -44,16 +33,20 @@
       height: 0.5rem;
       transform: rotate(45deg);
       bottom: 0.3125rem;
+      border-top: 0.125rem solid var(--color-current-page);
+      border-right: 0.125rem solid var(--color-current-page);
 
-      @include themeDark {
-        border-top: 0.125rem solid var(--color-white);
-        border-right: 0.125rem solid var(--color-white);
-      }
-
-      @include themeLight {
-        border-top: 0.125rem solid var(--color-current-page);
-        border-right: 0.125rem solid var(--color-current-page);
-      }
     }
+
   }
+}
+
+.light {
+  text-decoration: none;
+  color: var(--color-white);
+}
+
+.dark {
+  text-decoration: none;
+  color: var(--color-dark);
 }

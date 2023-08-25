@@ -6,10 +6,12 @@ import BreadcrumbItem from 'components/Molecules/BreadcrumbItem';
 
 import styles from './Breadcrumb.module.scss';
 
+type BreadcrumbVariant = 'light' | 'dark';
 export interface BreadcrumbProps {
-  children: React.ReactNode;
+  variant?: BreadcrumbVariant;
 }
-const Breadcrumb = () => {
+
+const Breadcrumb: React.FC<BreadcrumbProps> = ({ variant }) => {
   const { t } = useTranslation();
   const router = useRouter();
 
@@ -34,11 +36,13 @@ const Breadcrumb = () => {
   return (
     <nav aria-label={t('components.breadcrumb.label')}>
       <ol className={styles.breadcrumbs__container}>
-        <BreadcrumbItem href="/">{t('components.breadcrumb.home')}</BreadcrumbItem>
+        <BreadcrumbItem variant={variant} href="/">
+          {t('components.breadcrumb.home')}
+        </BreadcrumbItem>
         {breadcrumbs &&
           breadcrumbs.map((breadcrumb) => {
             return (
-              <BreadcrumbItem key={breadcrumb.href} href={breadcrumb.href} aria-current>
+              <BreadcrumbItem variant={variant} key={breadcrumb.href} href={breadcrumb.href} aria-current>
                 {breadcrumb.label}
               </BreadcrumbItem>
             );
