@@ -1,0 +1,124 @@
+@use 'sass-mq/_mq';
+@import "/src/styles/utils/_theme.scss";
+
+.icon-container {
+  width: 2.125rem;
+  height: 2.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  margin: 0.5rem;
+  color: var(--color-medium);
+
+  @include mq.mq($from: tablet) {
+    margin: 0;
+  }
+
+}
+
+.dark {
+  background-color: var(--color-button-layout-dark);
+}
+
+.light {
+  background-color: var(--color-button-layout-light);
+}
+
+.text {
+  color: var(--color-medium);
+  font-size: var(--font-size-xs);
+  font-weight: 400;
+  line-height: 1.429;
+  margin: 0 1rem;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  @include mq.mq($from: tablet) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  width: 100%;
+  flex-direction: column-reverse;
+
+  @include mq.mq($from: tablet) {
+    flex-direction: row;
+  }
+}
+
+.custom-select {
+  width: 9rem;
+  height: fit-content;
+  padding: 0;
+
+  @include mq.mq($until: tablet) {
+    background-color: var(--color-white);
+  }
+
+
+  & button {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+
+    @include mq.mq($until: tablet) {
+      background-color: var(--color-white);
+      border: 1px solid var(--color-black);
+      border-radius: 0.25rem;
+    }
+  }
+
+  @include themeDark {
+    background-color: var(--color-white);
+    color: var(--color-black);
+
+    @include mq.mq($from: tablet) {
+      background-color: var(--color-button-layout-light);
+    }
+  }
+
+  @include themeLight {
+    background-color: var(--color-white);
+    color: var(--color-black);
+
+    @include mq.mq($from: tablet) {
+      background-color: var(--color-button-layout-light);
+    }
+  }
+}
+
+.arrow {
+  margin-left: 0.5rem;
+  color: var(--color-medium);
+
+  @include mq.mq($from: tablet) {
+    flex-direction: row;
+    color: var(--color-black);
+
+  }
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+.filter-open-button {
+  font-size: var(--font-size-xxs);
+  padding: .25rem 0.5rem;
+
+  @include mq.mq($from: tablet) {
+    display: none;
+  }
+}

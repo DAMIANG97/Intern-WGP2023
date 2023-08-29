@@ -3,6 +3,7 @@
 .main-container {
   padding: 1rem 0 2rem;
 
+
   @include mq.mq($from: tablet) {
     padding: 0 0 4rem;
   }
@@ -10,15 +11,11 @@
 
 .search-result {
   &__container {
-    display: flex;
-  }
-}
+    display: grid;
 
-.filter-open-button {
-  font-size: var(--font-size-xxs);
-  padding: .25rem 0.5rem;
+    @include mq.mq($from: tablet) {
+      grid-template-columns: auto auto;
+    }
 
-  @include mq.mq($from: tablet) {
-    display: none;
   }
 }

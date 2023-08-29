@@ -15,9 +15,11 @@ const TAG = 'ProductFilterItem';
 const ProductFilterItem: FunctionComponent<ProductFilterItemProps> = ({ facet, breadcrumbs }) => {
   const selectedValues = useMemo(() => {
     let number = 0;
+
     facet.values.map((value) => {
       value.selected === true ? number++ : '';
     });
+
     return number;
   }, [facet.values]);
 

@@ -171,7 +171,7 @@ declare namespace Hybris {
   interface SearchResultResponse {
     type: string;
     freeTextSearch: string;
-    pagination: Hybris.Pagination;
+    pagination: Hybris.ComponentPagination;
     products: Hybris.SearchResultProduct[];
     sorts: Hybris.Sorts;
     facets: Hybris.Facets;
@@ -187,11 +187,82 @@ declare namespace Hybris {
   }
   interface SearchResultProduct {
     availableForPickup: boolean;
+    averageRating: number;
+    classifications: {
+      code: string;
+      features: {
+        code: string;
+        comparable: boolean;
+        featureUnit: {
+          name: string;
+          symbol: string;
+          unitType: string;
+        };
+        featureValues: {
+          value: string;
+        }[];
+        name: string;
+        range: boolean;
+      }[];
+      name: string;
+    }[];
+    code: string;
+    configurable: boolean;
+    configuratorType: string;
+    description: string;
+    firstVariantImage: string;
+    images: {
+      format: string;
+      imageType: string;
+      url: string;
+    }[];
+    manufacturer: string;
+    multidimensional: boolean;
+    name: string;
+    price: {
+      currencyIso: string;
+      formattedValue: string;
+      priceType: string;
+      value: number;
+    };
+    priceRange: Record<string, never>;
+    stock: {
+      isValueRounded: boolean;
+      stockLevelStatus: string;
+    };
+    summary: string;
+    url: string;
+    volumePricesFlag: boolean;
+  }
+
+  interface SortOption {
     code: string;
     name: string;
-    price: { currencyIso: string; value: number };
-    stock: { isValueRounded: boolean };
+    selected: boolean;
+  }
+  interface ProductPagination {
+    currentPage: number;
+    pageSize: number;
+    sort: string;
+    totalPages: number;
+    totalResults: number;
+  }
+
+  interface FilteredProduct {
+    name: string;
     url: string;
+    image: string | undefined;
+    rating: number;
+    code: string;
+    price: string;
+  }
+
+  interface ProductsListProps {
+    breadcrumbs: readonly Breadcrumb[];
+    pagination: Hybris.ProductPagination;
+    products: FilteredProduct[];
+    sorts: Hybris.SortOption[];
+    facets: Hybris.Facet[];
   }
   interface Sorts {
     code: string;

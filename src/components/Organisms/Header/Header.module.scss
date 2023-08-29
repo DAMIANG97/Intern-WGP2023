@@ -53,6 +53,7 @@
     grid-row-start: 1;
     grid-column: span 1;
     justify-self: left;
+    transition: all 0.5s;
 
     @include themeDark {
       background-color: var(--color-dark);

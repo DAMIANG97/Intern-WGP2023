@@ -1,32 +1,32 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import useTranslation from 'next-translate/useTranslation';
 
+import FallbackImage from 'components/Atoms/FallbackImage';
 import ProductPrice from 'components/Atoms/ProductPrice';
 import StarsRating from 'components/Molecules/StarsRating';
 
 import styles from './ProductItem.module.scss';
 
-interface Product {
-  key: string;
-  img: string;
-  url: string;
-  name: string;
-  price: string;
-  rating: number;
-  reviews: number;
-}
+interface ProductItemProps extends Hybris.FilteredProduct {}
 
-const ProductItem = (product: Product) => {
+const ProductItem: React.FC<ProductItemProps> = ({ url, name, image, price, rating }) => {
+  const { t } = useTranslation();
   return (
     <div className={styles.content}>
-      <Link href={product.url} className={styles.link} aria-label={product.name}>
+      <Link href={url} className={styles.link} aria-label={name}>
         <div className={styles.container}>
-          <Image src={product.img} className={styles.picture} width={100} height={100} alt={product.name} />
+          {image ? (
+            <Image src={image} className={styles.picture} width={100} height={100} alt={name} />
+          ) : (
+            <FallbackImage imgAltText={t('components.fallbackImage.ariaLabel')} className="" />
+          )}
         </div>
-        <div className={styles.title}> {product.name} </div>
+        <div className={styles.title}> {name} </div>
+
+        <ProductPrice>{price}</ProductPrice>
+        {rating && <StarsRating rating={rating} />}
       </Link>
-      <ProductPrice>{product.price}</ProductPrice>
-      <StarsRating rating={product.rating} />
     </div>
   );
 };

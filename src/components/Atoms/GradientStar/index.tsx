@@ -5,7 +5,7 @@ interface GradientIconProps {
 }
 
 const GradientStar: React.FC<GradientIconProps> = ({ decimalPercentage }) => (
-  <svg width="100%" height="100%" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M7 0L9.05725 4.16844L13.6574 4.83688L10.3287 8.08156L11.1145 12.6631L7 10.5L2.8855 12.6631L3.6713 8.08156L0.342604 4.83688L4.94275 4.16844L7 0Z"
       fill="url(#gradient)"

@@ -1,28 +1,23 @@
 @use 'sass-mq/_mq';
 
 .content {
-  width: 9.0625rem;
-  height: 15.0625rem;
-
-  @include mq.mq($from: tablet) {
-    width: 18rem;
-    height: 28.125rem;
-  }
+  width: 100%;
+  height: auto;
 }
 
 .container {
   height: 11rem;
-  width: 100%;
+  width: auto;
   background-color: var(--color-product-background);
-  padding: 1.375rem 1.1563rem;
+  padding: 1rem 1rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-bottom: 0.1rem;
 
   @include mq.mq($from: tablet) {
-    width: 18rem;
-    height: 21.875rem;
-    padding: 2.75rem 2.3438rem;
+    width: auto;
+    height: 17rem;
     margin-bottom: 1rem;
   }
 }
@@ -33,18 +28,26 @@
 }
 
 .picture {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
   display: block;
+
+
+  @include mq.mq($from: tablet) {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .title {
   font-size: var(--font-size-xxs);
   font-weight: 600;
   line-height: 1.125rem;
+  margin: 0.5rem 0;
 
   @include mq.mq($from: tablet) {
     font-size: var(--font-size-s);
     line-height: 1.5rem;
+    margin: 0.75rem 0;
   }
 }

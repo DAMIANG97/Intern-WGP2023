@@ -49,6 +49,11 @@
       "fullStar": "Pełna gwiazdka",
       "partialStar": "Częściowa gwiazdka",
       "emptyStar": "Pusta gwiazdka"
+    },
+    "productListControls": {
+      "items": "Produkty",
+      "of": "z",
+      "sort": "Sortuj według"
     }
   },
   "pages": {

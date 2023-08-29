@@ -49,6 +49,11 @@
       "fullStar": "Full star",
       "partialStar": "Partial Star",
       "emptyStar": "Empty Star"
+    },
+    "productListControls": {
+      "items": "Items",
+      "of": "of",
+      "sort": "Sort by"
     }
   },
   "pages": {

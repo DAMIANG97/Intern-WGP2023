@@ -9,9 +9,10 @@ export interface SelectProps {
   options: Array<string>;
   selectedOption: string | null;
   submitHandler: (value: string) => void;
+  className?: string;
 }
 
-const Select = ({ options, submitHandler, selectedOption }: SelectProps) => {
+const Select = ({ options, submitHandler, selectedOption, className }: SelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = () => setIsOpen(!isOpen);
@@ -21,7 +22,7 @@ const Select = ({ options, submitHandler, selectedOption }: SelectProps) => {
     setIsOpen(false);
   };
   return (
-    <div className={styles.select__container}>
+    <div className={clsx(styles.select__container, className)}>
       <button
         type="button"
         className={clsx(styles.select__header, isOpen && styles['select__header--open'])}
