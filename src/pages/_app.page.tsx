@@ -1,7 +1,9 @@
+import React from 'react';
 import { AppProps, NextWebVitalsMetric } from 'next/app';
 
 import LanguageInit from 'modules/Language/Init';
 import { getComponentLayout } from 'utils/layouts';
+import QueryClient from 'utils/Providers/QueryClient';
 
 import 'styles/global.scss';
 
@@ -9,10 +11,10 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   const getLayout = getComponentLayout(pageProps, router.route);
 
   return (
-    <>
+    <QueryClient>
       {getLayout(<Component {...pageProps} />)}
       <LanguageInit />
-    </>
+    </QueryClient>
   );
 }
 

@@ -23,7 +23,7 @@ interface SidemenuProps {
 }
 
 const Sidemenu: FunctionComponent<SidemenuProps> = ({ clickHandler, searchVisible, localeOptions }) => {
-  const { itemsCount } = useContext(CartItemsContext);
+  const { itemsCount, status } = useContext(CartItemsContext);
   return (
     <div className={styles.sidemenu}>
       <div className={styles['sidemenu__theme-selector']}>
@@ -54,7 +54,11 @@ const Sidemenu: FunctionComponent<SidemenuProps> = ({ clickHandler, searchVisibl
         </Link>
         <Link
           href={RoutePaths.home}
-          className={clsx(styles.sidemenu__cart, styles.sidemenu__link)}
+          className={clsx(
+            styles.sidemenu__cart,
+            styles.sidemenu__link,
+            status === 'loading' && styles['sidemenu__cart--hiddden'],
+          )}
           data-count={itemsCount}>
           <CartIcon />
         </Link>

@@ -1,5 +1,8 @@
 import { FunctionComponent, ReactNode, useMemo, useState } from 'react';
 
+import { useQuery } from '@tanstack/react-query';
+import getCartItemsCount from 'utils/Hybris/getCartItemsCount';
+
 import { CartItemsContext, CartItemsCountContextValue, initialValue, ItemsCount } from './context';
 
 interface ItemsCartProviderProps {
@@ -8,9 +11,16 @@ interface ItemsCartProviderProps {
 
 const CartItemsProvider: FunctionComponent<ItemsCartProviderProps> = ({ children }) => {
   const [itemsCount, setItemsCount] = useState<ItemsCount>(initialValue.itemsCount);
+
+  const response = useQuery(['getCartItemsCount', 'anonymous', 'en'], getCartItemsCount, {
+    onSuccess: (data) => {
+      setItemsCount(data.count);
+    },
+  });
+
   const context = useMemo<CartItemsCountContextValue>(
-    () => ({ itemsCount, setItemsCount }),
-    [setItemsCount, itemsCount],
+    () => ({ itemsCount, setItemsCount, status: response.status }),
+    [itemsCount, response.status],
   );
 
   return <CartItemsContext.Provider value={context}>{children}</CartItemsContext.Provider>;
