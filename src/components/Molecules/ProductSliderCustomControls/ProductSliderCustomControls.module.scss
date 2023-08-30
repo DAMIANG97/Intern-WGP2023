@@ -1,0 +1,52 @@
+@use 'sass-mq/_mq';
+
+.container {
+  display: none;
+
+  @include mq.mq($from: tablet) {
+    display: flex;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &>div {
+      width: 100%;
+
+      & :global(.slider-frame) {
+        width: 80% !important;
+        left: 10%;
+      }
+    }
+  }
+}
+
+.carousel-button,
+.carousel-button--left {
+  margin: .5rem;
+  width: 2.8125rem;
+  height: 2.8125rem;
+  transition: all 0.2s ease;
+  color: var(--color-medium);
+
+  & circle {
+    transition: all 0.2s ease;
+  }
+
+  & svg {
+    transform: scale(1.45)
+  }
+
+  &:is(:hover, :focus-visible) {
+    color: var(--color-white);
+
+    & circle {
+      fill: var(--color-primary);
+    }
+  }
+
+  &--left {
+    transform: rotate(180deg);
+  }
+}

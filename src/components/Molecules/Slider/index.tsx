@@ -5,7 +5,7 @@ import Container from 'components/Atoms/Container';
 import SocialLinks from 'components/Molecules/SocialLinks';
 import TitleAndDescription from 'components/Molecules/TitleAndDescription';
 import Carousel from 'nuka-carousel';
-import useBreakpointCheck from 'utils/Hooks/useBreakpointCheck';
+import useIsDesktop from 'utils/Hooks/useIsDesktop';
 import { BASE_URL } from 'utils/Hybris/endpoints';
 
 import styles from './Slider.module.scss';
@@ -19,7 +19,6 @@ const CAROUSEL_OPTIONS = {
     prevButtonClassName: styles['slider__next-button--left'],
     prevButtonStyle: { color: undefined, background: undefined, border: undefined, padding: undefined },
     prevButtonText: ' ',
-
     nextButtonClassName: styles['slider__next-button'],
     nextButtonStyle: { color: undefined, background: undefined, border: undefined, padding: undefined },
     nextButtonText: ' ',
@@ -27,13 +26,12 @@ const CAROUSEL_OPTIONS = {
     pagingDotsStyle: { fill: undefined, opacity: 1 },
     pagingDotsContainerClassName: styles['slider__paging-container'],
   },
-
   wrapAround: true,
   autoplayInterval: 5000,
   speed: 1000,
 };
 const Slider: React.FC<SliderProps> = ({ heroContent, footerContent }) => {
-  const isDesktop = useBreakpointCheck();
+  const isDesktop = useIsDesktop();
   return (
     <Carousel {...CAROUSEL_OPTIONS} autoplay={isDesktop}>
       {heroContent.map((content, index) => (

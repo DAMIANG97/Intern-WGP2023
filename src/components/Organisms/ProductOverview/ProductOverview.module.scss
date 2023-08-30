@@ -1,0 +1,128 @@
+@use 'sass-mq/_mq';
+
+.product-overview {
+  width: 100%;
+  padding: .625rem .625rem 1.875rem .625rem;
+  box-sizing: border-box;
+
+  @include mq.mq($from: tablet) {
+    max-height: 43.75rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__carousel {
+    margin-bottom: 3.125rem;
+    max-width: 44.5rem;
+    flex: 7;
+
+    @include mq.mq($from: tablet) {
+      margin-bottom: 11.25rem;
+    }
+  }
+
+  &__informations {
+    flex: 5;
+
+    @include mq.mq($from: tablet) {
+      margin-left: 2rem;
+    }
+  }
+
+  &__name {
+    color: var(--color-dark);
+    font-size: var(--font-size-xl);
+    text-align: center;
+
+    @include mq.mq($from: tablet) {
+      font-size: var(--font-size-xxxxl);
+      text-align: left;
+    }
+  }
+
+  &__reviews {
+    display: flex;
+    margin-bottom: 1rem;
+  }
+
+  &__stars {
+    margin-right: 0.5rem;
+  }
+
+  &__link {
+    color: var(--color-medium);
+    font-size: var(--font-size-xxs);
+
+    &:last-child {
+      margin-left: 1.25rem;
+    }
+  }
+
+  &__price-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__text-before-price {
+    font-size: var(--font-size-xs);
+    color: var(--color-medium);
+    margin-bottom: 0.5rem;
+  }
+
+  &__bottom-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2.5rem;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: calc(100% + 1.25rem);
+      left: 0;
+      width: 100%;
+      height: 0.0625rem;
+      background-color: var(--color-medium);
+    }
+  }
+
+  &__bottom-panel-right {
+    color: var(--color-dark);
+    font-size: var(--font-size-xs);
+    text-align: end;
+  }
+
+  &__stock-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  &__stock {
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  &__dot--red,
+  &__dot--green,
+  &__dot--orange {
+    display: block;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+  }
+
+  &__dot--red {
+    background-color: var(--color-danger);
+  }
+
+  &__dot--green {
+    background-color: var(--color-green);
+  }
+
+  &__dot--orange {
+    background-color: var(--color-star-filled);
+  }
+}

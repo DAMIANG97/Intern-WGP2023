@@ -1,6 +1,14 @@
 {
   "hello": "świat",
   "components": {
+    "productOverview": {
+      "reviews": "recenzji",
+      "addReview": "Dodaj recenzję",
+      "textBeforePrice": "Nawet za",
+      "inStock": "dostępny",
+      "lowStock": "niski stan",
+      "outOfStock": "chwilowo brak"
+    },
     "productFilters": {
       "label": "Filtry Produktów",
       "heading": "Opcje wyszukiwania",

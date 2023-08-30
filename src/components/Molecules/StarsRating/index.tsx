@@ -2,6 +2,7 @@ import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 
 import StarIcon from 'assets/icons/star.svg';
+import clsx from 'clsx';
 import GradientStar from 'components/Atoms/GradientStar';
 import { range } from 'lodash';
 
@@ -9,9 +10,10 @@ import styles from './StarsRating.module.scss';
 
 interface RatingStarsProps {
   rating: number;
+  className?: string;
 }
 
-const StarsRating: React.FC<RatingStarsProps> = ({ rating }) => {
+const StarsRating: React.FC<RatingStarsProps> = ({ rating, className }) => {
   const fullStars = Math.floor(rating);
   const decimalPart = Number((rating - fullStars).toFixed(2));
   const decimalPercentage = decimalPart * 100;
@@ -22,7 +24,7 @@ const StarsRating: React.FC<RatingStarsProps> = ({ rating }) => {
 
   return (
     <div
-      className={styles['rating-stars']}
+      className={clsx(styles['rating-stars'], className)}
       aria-label={`${t('components.starsRating.rating')} : ${rating}/${starIndices.length}`}>
       {starIndices.map((index) => (
         <span

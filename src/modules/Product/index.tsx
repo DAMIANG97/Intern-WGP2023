@@ -1,19 +1,21 @@
 import React, { FunctionComponent } from 'react';
 
+import Container from 'components/Atoms/Container';
+import ProductOverview from 'components/Organisms/ProductOverview';
+
 interface ProductProps {
-  productId: string | string[] | undefined;
   product: Hybris.Product;
 }
 
 const TAG = 'Product';
 
-const Product: FunctionComponent<ProductProps> = ({ productId, product }) => {
+const Product: FunctionComponent<ProductProps> = ({ product }) => {
   return (
-    <>
-      {/* TO AVOID PIPELINE FAIL - TEMPORARY, TO BE REMOVED  */}
-      <span>Product {productId}</span>
-      <span>Product {product.description}</span>;
-    </>
+    <main>
+      <Container>
+        <ProductOverview product={product} />
+      </Container>
+    </main>
   );
 };
 

@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import LinkComponent from 'components/Atoms/LinkComponent';
 import AccordionItem from 'components/Molecules/AccordionItem';
 import MenuNestedList from 'components/Molecules/MenuNestedList';
-import useBreakpointCheck from 'utils/Hooks/useBreakpointCheck';
+import useIsDesktop from 'utils/Hooks/useIsDesktop';
 
 import styles from '../MenuListOfLinks/MenuListOfLinks.module.scss';
 
@@ -16,8 +16,8 @@ interface MenuListItemProps {
 const TAG = 'ListItem';
 
 const MenuListItem: FunctionComponent<MenuListItemProps> = ({ link, menuVisible }) => {
-  const isDesktop = useBreakpointCheck();
   const router = useRouter();
+  const isDesktop = useIsDesktop();
   return (
     <li className={styles['menu__link-wrapper']}>
       {!isDesktop && link.children.length > 0 ? (

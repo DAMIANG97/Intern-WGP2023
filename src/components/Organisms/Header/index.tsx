@@ -9,7 +9,7 @@ import NavIcon from 'components/Atoms/NavIcon';
 import Menu from 'components/Molecules/Menu';
 import SearchBox from 'components/Molecules/SearchBox';
 import Sidemenu from 'components/Molecules/Sidemenu';
-import useBreakpointCheck from 'utils/Hooks/useBreakpointCheck';
+import useIsDesktop from 'utils/Hooks/useIsDesktop';
 
 import styles from './Header.module.scss';
 
@@ -29,7 +29,7 @@ const Header: FunctionComponent<HeaderProps> = ({ localeOptions, menuContent }) 
     setMenuVisible((is) => !is);
     setSearchVisible(false);
   };
-  const isDesktop = useBreakpointCheck();
+  const isDesktop = useIsDesktop();
 
   return (
     <header className={clsx(styles.header, searchVisible && styles['header--search-visible'])}>

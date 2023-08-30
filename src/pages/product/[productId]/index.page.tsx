@@ -20,7 +20,7 @@ export const getServerSideProps: GetServerSideProps<ProductPageProps> = async ({
   const menuContent = await getMenuContent(data, localeSuffix);
   const footerContent = await getFooterContent(data, localeSuffix);
   const productDetails = await apiFetch<Hybris.Product>(
-    `${BASESITE_URL}/${PRODUCT_ENDPOINT}/${query.productId}?${localeSuffix}`,
+    `${BASESITE_URL}/${PRODUCT_ENDPOINT}/${query.productId}?${localeSuffix}&fields=FULL`,
   );
 
   return {
@@ -28,7 +28,6 @@ export const getServerSideProps: GetServerSideProps<ProductPageProps> = async ({
       localeOptions: localeOptions,
       menuContent: menuContent,
       footerContent: footerContent,
-      productId: query.productId,
       product: productDetails,
     },
   };

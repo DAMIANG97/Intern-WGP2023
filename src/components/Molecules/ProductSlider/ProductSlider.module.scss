@@ -1,0 +1,81 @@
+@use 'sass-mq/_mq';
+
+.carousel {
+  width: 100%;
+  max-width: 44.375rem;
+  margin-bottom: 6.25rem;
+
+
+  &__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    background-color: var(--color-light);
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-height: 13.125rem;
+
+    @include mq.mq($from: tablet) {
+      max-height: 31.25rem;
+    }
+  }
+
+  &__button,
+  &__button--left {
+    margin: .5rem;
+    width: 2.8125rem;
+    height: 2.8125rem;
+    transition: all 0.2s ease;
+    color: var(--color-medium);
+
+    & circle {
+      transition: all 0.2s ease;
+    }
+
+    & svg {
+      transform: scale(1.45)
+    }
+
+    &:hover {
+      color: var(--color-white);
+
+      & circle {
+        fill: var(--color-primary);
+      }
+    }
+
+    &--left {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__dots {
+    padding: .375rem;
+
+    svg {
+      width: .78rem;
+      height: .78rem;
+    }
+
+    &[aria-selected="false"] {
+      fill: var(--color-slider-dots);
+    }
+
+    &[aria-selected="true"] {
+      fill: var(--color-primary);
+    }
+  }
+
+  &__dots-container {
+    top: 2.5rem !important;
+
+    @include mq.mq($from: tablet) {
+      display: none !important;
+    }
+  }
+}

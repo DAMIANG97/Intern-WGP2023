@@ -3,7 +3,7 @@ import AnimateHeight from 'react-animate-height';
 
 import clsx from 'clsx';
 import ListOfLinks from 'components/Molecules/MenuListOfLinks';
-import useBreakpointCheck from 'utils/Hooks/useBreakpointCheck';
+import useIsDesktop from 'utils/Hooks/useIsDesktop';
 
 import styles from './Menu.module.scss';
 
@@ -15,7 +15,7 @@ interface MenuProps {
 const TAG = 'Menu';
 
 const Menu: FunctionComponent<MenuProps> = ({ content, visible }) => {
-  const isDesktop = useBreakpointCheck();
+  const isDesktop = useIsDesktop();
 
   if (isDesktop) {
     return (
