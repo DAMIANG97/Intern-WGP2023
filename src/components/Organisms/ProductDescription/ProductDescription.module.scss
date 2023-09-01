@@ -1,0 +1,12 @@
+@use 'sass-mq/_mq';
+
+.product {
+  &__descriptionContainer {
+    padding: 1.25rem;
+    font-size: var(--font-size-xs);
+
+    @include mq.mq($until: tablet) {
+      font-size: var(--font-size-xxs);
+    }
+  }
+}

@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from 'react';
 
 import Container from 'components/Atoms/Container';
+import ProductDescription from 'components/Organisms/ProductDescription';
+import ProductDetails from 'components/Organisms/ProductDetails';
 import ProductOverview from 'components/Organisms/ProductOverview';
 
 interface ProductProps {
@@ -14,6 +16,8 @@ const Product: FunctionComponent<ProductProps> = ({ product }) => {
     <main>
       <Container>
         <ProductOverview product={product} />
+        <ProductDescription product={product} />
+        <ProductDetails product={product} />
       </Container>
     </main>
   );

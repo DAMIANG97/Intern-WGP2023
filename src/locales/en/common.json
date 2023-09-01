@@ -62,6 +62,10 @@
       "items": "Items",
       "of": "of",
       "sort": "Sort by"
+    },
+    "productDetails": {
+      "details": "Specifications",
+      "description": "Overview"
     }
   },
   "pages": {

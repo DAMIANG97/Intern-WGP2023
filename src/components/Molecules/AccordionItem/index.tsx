@@ -14,11 +14,21 @@ interface AccordionItemProps {
   href?: string;
   parentOpen?: boolean;
   filter?: boolean;
+  modiferclassName?: string;
+  className?: string;
 }
 
 const TAG = 'AccordionItem';
 
-const AccordionItem: FunctionComponent<AccordionItemProps> = ({ children, name, href, parentOpen, filter }) => {
+const AccordionItem: FunctionComponent<AccordionItemProps> = ({
+  children,
+  name,
+  href,
+  parentOpen,
+  filter,
+  modiferclassName,
+  className,
+}) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const clickHandler = () => setIsOpen((is) => !is);
   useEffect(() => {
@@ -29,13 +39,13 @@ const AccordionItem: FunctionComponent<AccordionItemProps> = ({ children, name, 
 
   return (
     <div className={clsx(styles.accordion, filter && styles['accordion--filter'])}>
-      <div className={clsx(styles.accordion__header, isOpen && styles['accordion__header--open'])}>
+      <div className={clsx(styles.accordion__header, isOpen && [styles['accordion__header--open'], modiferclassName])}>
         {href ? (
           <Link className={styles.accordion__link} href={href}>
             {name}
           </Link>
         ) : (
-          <span className={styles.accordion__name}>{name}</span>
+          <span className={clsx(styles.accordion__name, className)}>{name}</span>
         )}
         <Button
           className={styles['accordion__button']}

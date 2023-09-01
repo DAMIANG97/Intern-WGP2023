@@ -62,6 +62,10 @@
       "items": "Produkty",
       "of": "z",
       "sort": "Sortuj według"
+    },
+    "productDetails": {
+      "details": "Szczegóły produktu",
+      "description": "Opis"
     }
   },
   "pages": {

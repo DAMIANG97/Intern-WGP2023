@@ -1,0 +1,55 @@
+@use 'sass-mq/_mq';
+
+.product {
+  &__accordionDetails {
+    &__container {
+      padding: 1.25rem;
+    }
+
+    &__contentContainer {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 0.5rem;
+      font-size: var(--font-size-xs);
+
+      @include mq.mq($until: tablet) {
+        font-size: var(--font-size-xxs);
+      }
+    }
+
+    &__title {
+      font-weight: 600;
+      width: 50%;
+    }
+
+    &__content {
+      margin-left: 2rem;
+      width: 50%;
+      font-weight: 400;
+
+      @include mq.mq($until: tablet) {
+        overflow-wrap: break-word;
+      }
+    }
+
+    &__classificationName {
+      font-size: var(--font-size-m);
+    }
+  }
+
+  &__accordionItem {
+    &__title {
+      font-size: var(--font-size-m);
+      font-weight: 600;
+
+      @include mq.mq($until: tablet) {
+        color: var(--color-medium);
+        font-size: var(--font-size-xs);
+      }
+    }
+
+    &--open {
+      background-color: var(--bg-product-details-title);
+    }
+  }
+}
