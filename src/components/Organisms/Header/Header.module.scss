@@ -49,11 +49,15 @@
 
   &__search {
     width: 100%;
-    display: block;
+    display: none;
     grid-row-start: 1;
     grid-column: span 1;
     justify-self: left;
     transition: all 0.5s;
+
+    @include mq.mq($from: desktop) {
+      display: block;
+    }
 
     @include themeDark {
       background-color: var(--color-dark);
@@ -71,5 +75,9 @@
     width: 100dvw;
     background-color: white;
     z-index: 9;
+
+    @include mq.mq($from: desktop) {
+      display: none;
+    }
   }
 }

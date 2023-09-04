@@ -11,6 +11,7 @@ import styles from './ThemeSelect.module.scss';
 const ThemeSelect: FunctionComponent = () => {
   const { theme, setTheme } = useContext(ThemeContext);
   const { t } = useTranslation();
+
   return (
     <button
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}

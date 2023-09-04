@@ -23,6 +23,15 @@ class MyDocument extends Document {
           {FONTS.map((font) => (
             <link key={font} rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" href={font} />
           ))}
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              try {
+                const theme = JSON.parse(localStorage.getItem('wgp2023.anonymous.theme')) || 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+              } catch {}`,
+            }}
+          />
         </Head>
         <body>
           <Main />

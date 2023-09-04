@@ -8,13 +8,9 @@ interface ExternalLinkWithIconProps extends React.AnchorHTMLAttributes<HTMLAncho
   children: React.ReactNode;
 }
 
-const ExternalLinkWithIcon: FunctionComponent<ExternalLinkWithIconProps> = ({
-  children,
-  className,
-  ...props
-}) => {
+const ExternalLinkWithIcon: FunctionComponent<ExternalLinkWithIconProps> = ({ children, className, ...props }) => {
   return (
-    <a className={clsx(styles.link, className)} target="_blank" rel="noopener noreferrer" {...props}>
+    <a className={clsx(styles.link, className)} target="_blank" {...props} rel="noopener noreferrer">
       {children}
     </a>
   );

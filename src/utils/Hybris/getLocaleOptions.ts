@@ -31,10 +31,13 @@ interface LanguageObject {
  * Gets available languages and currencies
  */
 const getLocaleOptions = async (localeSuffix: string): Promise<Hybris.LocaleOptions | []> => {
-  const baseSitesObject: BaseSitesObject = await apiFetch(`${BASE_URL}${VERSION_ID}basesites?${localeSuffix}`);
+  const [baseSitesObject, languageOptions, currencyOptions] = await Promise.all([
+    apiFetch<BaseSitesObject>(`${BASE_URL}${VERSION_ID}basesites?${localeSuffix}`),
+    apiFetch<LanguageObject>(`${BASESITE_URL}/${LANGUAGE_ENDPOINT}`),
+    apiFetch<CurrencyObject>(`${BASESITE_URL}/${CURRENCY_ENDPOINT}`),
+  ]);
+
   const defaultLanguage = baseSitesObject.baseSites.find((site) => site.uid === BASESITE_ID)?.defaultLanguage;
-  const languageOptions: LanguageObject = await apiFetch(`${BASESITE_URL}/${LANGUAGE_ENDPOINT}`);
-  const currencyOptions: CurrencyObject = await apiFetch(`${BASESITE_URL}/${CURRENCY_ENDPOINT}`);
   if (defaultLanguage)
     return {
       defaultLanguage: defaultLanguage,

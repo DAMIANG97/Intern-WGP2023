@@ -1,4 +1,5 @@
 import React, { FunctionComponent, useContext } from 'react';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 
 import CartIcon from 'assets/icons/cart.svg';
@@ -10,11 +11,12 @@ import clsx from 'clsx';
 import Button from 'components/Atoms/Button';
 import CurrencySelect from 'components/Molecules/CurrencySelect';
 import LanguageSelect from 'components/Molecules/LanguageSelect';
-import ThemeSelect from 'components/Organisms/ThemeSelect';
 import { CartItemsContext } from 'utils/Providers/CartItemsProvider/context';
 import { RoutePaths } from 'utils/routes';
 
 import styles from './Sidemenu.module.scss';
+
+const ThemeSelect = dynamic(() => import('components/Organisms/ThemeSelect'), { ssr: false });
 
 interface SidemenuProps {
   clickHandler: () => void;

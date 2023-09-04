@@ -26,7 +26,7 @@ const ProductThumbnailButton: FunctionComponent<ProductThumbnailButtonProps> = (
     onClick={changeSlide}
     className={clsx(styles.button, currentSlide === index && styles['button--active'])}
     data-slide={index}>
-    <Image src={`${BASE_URL}${image.url}`} alt={image.altText} width={284} height={284} className={styles.image} />
+    <Image src={`${BASE_URL}${image.url}`} alt={image.altText} width={76} height={76} className={styles.image} />
   </Button>
 );
 

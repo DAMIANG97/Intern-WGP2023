@@ -1,4 +1,6 @@
-import { FunctionComponent, ReactNode, useEffect, useMemo, useState } from 'react';
+import { FunctionComponent, ReactNode, useEffect, useMemo } from 'react';
+
+import useStateCache from 'utils/Hooks/useStateCache';
 
 import { initialValue, Theme, ThemeContext, ThemeContextValue } from './context';
 
@@ -11,7 +13,7 @@ const ThemeProvider: FunctionComponent<ThemeProviderProps> = ({ children }) => {
   // - Store value in the localStorage
   // - If localStorage is empty, we should check the browser theme
   // - Set user theme inside `_document.page.tsx` to avoid flashing with default theme
-  const [theme, setTheme] = useState<Theme>(initialValue.theme);
+  const [theme, setTheme] = useStateCache<Theme>('theme', initialValue.theme);
 
   const context = useMemo<ThemeContextValue>(() => ({ theme, setTheme }), [setTheme, theme]);
 

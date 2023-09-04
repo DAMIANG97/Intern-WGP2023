@@ -9,7 +9,6 @@ import NavIcon from 'components/Atoms/NavIcon';
 import Menu from 'components/Molecules/Menu';
 import SearchBox from 'components/Molecules/SearchBox';
 import Sidemenu from 'components/Molecules/Sidemenu';
-import useIsDesktop from 'utils/Hooks/useIsDesktop';
 
 import styles from './Header.module.scss';
 
@@ -29,7 +28,6 @@ const Header: FunctionComponent<HeaderProps> = ({ localeOptions, menuContent }) 
     setMenuVisible((is) => !is);
     setSearchVisible(false);
   };
-  const isDesktop = useIsDesktop();
 
   return (
     <header className={clsx(styles.header, searchVisible && styles['header--search-visible'])}>
@@ -44,15 +42,15 @@ const Header: FunctionComponent<HeaderProps> = ({ localeOptions, menuContent }) 
             <NavIcon open={menuVisible} />
           </Button>
         </div>
-        {isDesktop ? (
-          <div className={styles.header__search}>
-            <SearchBox />
-          </div>
-        ) : (
-          <AnimateHeight height={searchVisible ? 'auto' : 0} className={styles['header__mobile-search']}>
-            <SearchBox />
-          </AnimateHeight>
-        )}
+
+        <div className={styles.header__search}>
+          <SearchBox />
+        </div>
+
+        <AnimateHeight height={searchVisible ? 'auto' : 0} className={styles['header__mobile-search']}>
+          <SearchBox />
+        </AnimateHeight>
+
         <Logo />
         <Sidemenu clickHandler={toggleSearchVisible} searchVisible={searchVisible} localeOptions={localeOptions} />
         <Menu content={menuContent} visible={menuVisible} />

@@ -1,4 +1,4 @@
-async function getFooterText(data: Hybris.PageContent): Promise<string[]> {
+function getFooterText(data: Hybris.PageContent): string[] {
   const footerNav = data.contentSlots.contentSlot
     .find((slot) => slot.slotId === 'FooterSlot')
     ?.components.component.find((component) => component.uid === 'FooterNavigationComponent');

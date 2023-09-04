@@ -4,7 +4,7 @@ import getFooterText from 'utils/Hybris/getFooterContent/getFooterText';
 async function getFooterContent(data: Hybris.PageContent, localeSuffix: string): Promise<Hybris.FooterComponentProps> {
   try {
     const footerLinks = await getFooterLinks(data, localeSuffix);
-    const footerText = await getFooterText(data);
+    const footerText = getFooterText(data);
 
     const filteredContent: Hybris.FooterComponentProps = {
       copyrightText: footerText[0] || '',
