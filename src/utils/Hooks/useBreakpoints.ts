@@ -30,7 +30,7 @@ function useBreakpoints() {
       case width > breakpoints.laptop.minWidth && width < breakpoints.laptop.maxWidth:
         setActiveBreakpoint('laptop');
         break;
-      case width > breakpoints.desktop.minWidth && width < breakpoints.desktop.minWidth:
+      case width > breakpoints.desktop.minWidth && width < breakpoints.desktop.maxWidth:
         setActiveBreakpoint('desktop');
         break;
       case width > breakpoints.wide.minWidth:

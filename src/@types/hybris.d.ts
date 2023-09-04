@@ -296,7 +296,4 @@ declare namespace Hybris {
     };
     url: string;
   }
-  interface CartItemsCountResponse {
-    count: number;
-  }
 }

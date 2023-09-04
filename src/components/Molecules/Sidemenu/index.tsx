@@ -11,7 +11,7 @@ import clsx from 'clsx';
 import Button from 'components/Atoms/Button';
 import CurrencySelect from 'components/Molecules/CurrencySelect';
 import LanguageSelect from 'components/Molecules/LanguageSelect';
-import { CartItemsContext } from 'utils/Providers/CartItemsProvider/context';
+import { CartContext } from 'utils/Providers/CartProvider/context';
 import { RoutePaths } from 'utils/routes';
 
 import styles from './Sidemenu.module.scss';
@@ -25,7 +25,7 @@ interface SidemenuProps {
 }
 
 const Sidemenu: FunctionComponent<SidemenuProps> = ({ clickHandler, searchVisible, localeOptions }) => {
-  const { itemsCount, status } = useContext(CartItemsContext);
+  const { itemsCount, status } = useContext(CartContext);
   return (
     <div className={styles.sidemenu}>
       <div className={styles['sidemenu__theme-selector']}>
@@ -59,7 +59,7 @@ const Sidemenu: FunctionComponent<SidemenuProps> = ({ clickHandler, searchVisibl
           className={clsx(
             styles.sidemenu__cart,
             styles.sidemenu__link,
-            status === 'loading' && styles['sidemenu__cart--hiddden'],
+            status === 'loading' && styles['sidemenu__cart--hidden'],
           )}
           data-count={itemsCount}>
           <CartIcon />
