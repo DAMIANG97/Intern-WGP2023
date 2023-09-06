@@ -34,7 +34,7 @@ const Header: FunctionComponent<HeaderProps> = ({ localeOptions, menuContent }) 
       <Container className={styles.header__container}>
         <div className={styles['header__menu-button']}>
           <Button
-            withIcon
+            variant="button--with-icon"
             type="button"
             onClick={toggleMenuVisible}
             aria-expanded={menuVisible}

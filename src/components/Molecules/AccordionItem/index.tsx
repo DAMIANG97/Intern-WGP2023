@@ -49,7 +49,7 @@ const AccordionItem: FunctionComponent<AccordionItemProps> = ({
         )}
         <Button
           className={styles['accordion__button']}
-          withIcon
+          variant="button--with-icon"
           type="button"
           aria-expanded={isOpen}
           aria-controls="accordion-item"

@@ -18,7 +18,7 @@ const ProductFilterTopBar: FunctionComponent<ProductFilterTopBarProps> = ({ togg
   return (
     <div className={styles['product-filters__topbar']}>
       <HeadingH3 className={styles['product-filters__heading']}>{t('components.productFilters.heading')}</HeadingH3>
-      <Button className={styles['product-filters__close-button']} withIcon onClick={toggleVisible}>
+      <Button className={styles['product-filters__close-button']} variant="button--with-icon" onClick={toggleVisible}>
         <CloseIcon />
       </Button>
     </div>

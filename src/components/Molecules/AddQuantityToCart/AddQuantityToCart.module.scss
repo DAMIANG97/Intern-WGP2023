@@ -1,0 +1,44 @@
+@use 'sass-mq/_mq';
+
+.addQuantityToCart {
+  margin-top: 1rem;
+
+  @include mq.mq($from: tablet) {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__error {
+    color: red;
+    font-size: var(--font-size-xxs);
+    padding: .5rem 0;
+  }
+}
+
+.quantitySection {
+  display: flex;
+  margin-bottom: 1.125rem;
+
+  @include mq.mq($from: tablet) {
+    margin-bottom: 1.5rem;
+  }
+
+  &__text {
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size-xs);
+    margin-right: 1.5rem;
+  }
+
+  &__plus-minus {
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family-inherit);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: solid 1px var(--color-secondary);
+    width: 7rem;
+    height: 2.5rem;
+  }
+}

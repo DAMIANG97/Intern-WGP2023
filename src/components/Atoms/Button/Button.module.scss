@@ -45,6 +45,36 @@
         transform: scale(1.4);
         color: var(--color-primary);
       }
+
+      &:disabled {
+        transform: none;
+        color: currentColor;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+.green {
+  cursor: pointer;
+  background-color: var(--color-primary);
+  border: none;
+  font-size: var(--font-size-xxs);
+  color: var(--color-white);
+  font-weight: 700;
+  border-radius: 2px;
+  width: 8.25rem;
+  height: 2.75rem;
+
+  @include mq.mq($from: tablet) {
+    font-size: var(--font-size-s);
+    color: var(--color-white);
+    width: 11rem;
+    height: 3.25rem;
+
+    &:disabled {
+      transform: none;
+      cursor: not-allowed;
     }
   }
 }

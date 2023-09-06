@@ -4,14 +4,15 @@ import clsx from 'clsx';
 
 import styles from './Button.module.scss';
 
+type ButtonVariant = 'green' | 'button' | 'button--with-icon';
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode;
-  withIcon?: boolean;
+  variant?: ButtonVariant;
 }
 
-const Button: FunctionComponent<ButtonProps> = ({ children, withIcon, className, ...props }) => {
+const Button: FunctionComponent<ButtonProps> = ({ children, className, variant = 'button', ...props }) => {
   return (
-    <button className={clsx(styles.button, withIcon && styles['button--with-icon'], className)} {...props}>
+    <button type="button" className={clsx(styles[variant], className)} {...props}>
       {children}
     </button>
   );

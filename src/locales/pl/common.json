@@ -66,6 +66,15 @@
     "productDetails": {
       "details": "Szczegóły produktu",
       "description": "Opis"
+    },
+
+    "addQuantityToCart": {
+      "quantity": "Liczba sztuk",
+      "addToCart": "Dodaj do koszyka",
+      "adding": "Trwa dodawanie",
+      "error": "Wystąpił błąd podczas dodawania do koszyka.",
+      "increment": "Zwiększ",
+      "decrement": "Zmniejsz"
     }
   },
   "pages": {

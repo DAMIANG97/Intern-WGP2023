@@ -43,7 +43,7 @@ const Sidemenu: FunctionComponent<SidemenuProps> = ({ clickHandler, searchVisibl
         {localeOptions && <CurrencySelect currencyOptions={localeOptions.currencyOptions} />}
       </div>
       <div className={styles.sidemenu__search}>
-        <Button type="button" className={styles['sidemenu__search']} withIcon>
+        <Button type="button" className={styles['sidemenu__search']} variant="button--with-icon">
           {searchVisible === true ? <CloseIcon onClick={clickHandler} /> : <SearchIcon onClick={clickHandler} />}
         </Button>
       </div>

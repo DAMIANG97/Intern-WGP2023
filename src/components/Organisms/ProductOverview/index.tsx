@@ -4,6 +4,7 @@ import useTranslation from 'next-translate/useTranslation';
 
 import H1 from 'components/Atoms/H1';
 import ProductPrice from 'components/Atoms/ProductPrice';
+import AddQuantityToCart from 'components/Molecules/AddQuantityToCart';
 import ProductSlider from 'components/Molecules/ProductSlider';
 import StarsRating from 'components/Molecules/StarsRating';
 import { DotColors, StockStatus } from 'components/Organisms/ProductOverview/enums';
@@ -63,6 +64,7 @@ const ProductOverview: FunctionComponent<ProductOverviewProps> = ({ product }) =
             <span className={styles['product-overview__code']}>ID: {product.code}</span>
           </div>
         </div>
+        <AddQuantityToCart product={product} />
       </div>
     </section>
   );

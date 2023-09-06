@@ -66,6 +66,15 @@
     "productDetails": {
       "details": "Specifications",
       "description": "Overview"
+    },
+
+    "addQuantityToCart": {
+      "quantity": "Quantity",
+      "addToCart": "Add to Cart",
+      "adding": "Adding",
+      "error": "An error occurred while adding to cart.",
+      "increment": "Increment",
+      "decrement": "Decrement"
     }
   },
   "pages": {
