@@ -55,7 +55,7 @@ const Sidemenu: FunctionComponent<SidemenuProps> = ({ clickHandler, searchVisibl
           <ProfileIcon />
         </Link>
         <Link
-          href={RoutePaths.home}
+          href={RoutePaths.cart}
           className={clsx(
             styles.sidemenu__cart,
             styles.sidemenu__link,

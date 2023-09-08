@@ -37,6 +37,10 @@ export function getComponentLayout(pageProps: PageProps, pathname: string) {
       title: ROUTES_TITLES[RoutePaths.product],
       ...pageProps,
     }),
+    [RoutePaths.cart]: getLayoutMain({
+      title: ROUTES_TITLES[RoutePaths.cart],
+      ...pageProps,
+    }),
     // ... more routes to come
   };
   for (const route in LAYOUTS) {

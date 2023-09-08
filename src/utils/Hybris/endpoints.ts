@@ -13,6 +13,7 @@ export const USERS_ENDPOINT = 'users';
 export const ANONYMOUS_ENDPOINT = 'anonymous';
 export const ENTRIES_ENDPOINT = 'entries';
 export const CHECKOUT_ENDPOINT = 'cms/pages/Checkout';
+export const CARTPAGE_ENDPOINT = 'cms/pages/cartPage';
 
 export function getSuggestionEndpoint(limit: number, term: string): string {
   return `${BASESITE_URL}/products/suggestions?fields=DEFAULT&max=${limit}&term=${term}`;
