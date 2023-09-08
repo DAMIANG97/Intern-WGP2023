@@ -12,6 +12,7 @@ const LOGGED_IN_ROUTES = {
   home: '/',
   searchResult: '/search-result',
   product: '/product',
+  checkout: '/checkout',
 } as const satisfies Record<string, string>;
 
 /**
@@ -33,4 +34,5 @@ export const ROUTES_TITLES = {
   [RoutePaths.login]: 'Login Page',
   [RoutePaths.searchResult]: 'Search Result Page',
   [RoutePaths.product]: 'Product Page',
+  [RoutePaths.checkout]: 'Checkout Page',
 } as const satisfies Partial<Record<RoutePathsValues, string>>;
