@@ -1,0 +1,107 @@
+@use 'sass-mq/_mq';
+
+.container {
+  padding: 2rem;
+  border: 1px solid var(--color-light);
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.reviews-btn {
+  width: 10rem;
+  height: 2.5rem;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.rotatedArrow {
+  transform: rotate(180deg);
+}
+
+.border-btn {
+  height: fit-content;
+  width: fit-content;
+  padding: 0.2rem;
+  margin: 2rem 0;
+
+  &:is(:hover, :focus-visible) {
+    border: 1px solid;
+    color: var(--color-primary);
+  }
+}
+
+.name {
+  font-size: var(--font-size-l);
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--color-medium);
+  padding-left: 2rem;
+
+  @include mq.mq($from: tablet) {
+    font-size: var(--font-size-xxl);
+  }
+}
+
+.product__accordionDetails__container {
+  padding: 1.25rem;
+}
+
+.product__accordionDetails__contentContainer {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0.5rem;
+  font-size: var(--font-size-xs);
+
+  @include mq.mq($until: tablet) {
+    font-size: var(--font-size-xxs);
+  }
+}
+
+.product__accordionDetails__contentContainer__title {
+  font-weight: 600;
+  width: 50%;
+}
+
+.product__accordionDetails__content {
+  margin-left: 2rem;
+  width: 50%;
+  font-weight: 400;
+
+  @include mq.mq($until: tablet) {
+    overflow-wrap: break-word;
+  }
+}
+
+.product__accordionDetails__classificationName {
+  font-size: var(--font-size-m);
+}
+
+.product__accordionItem__title {
+  font-size: var(--font-size-m);
+  font-weight: 600;
+
+  @include mq.mq($until: tablet) {
+    color: var(--color-medium);
+    font-size: var(--font-size-xs);
+  }
+}
+
+.product__accordionItem--open {
+  background-color: var(--bg-product-details-title);
+}
+
+.animated-height {
+  flex-shrink: 0;
+}

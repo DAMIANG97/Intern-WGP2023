@@ -3,7 +3,7 @@
 .button {
   background-color: var(--color-white);
   border: 1px solid var(--color-black);
-  border-radius: 0.25rem;
+
   color: var(--color-black);
   cursor: pointer;
   display: inline-block;
@@ -25,8 +25,8 @@
   }
 
   &:disabled {
-    background-color: var(--color-gray);
-    border-color: var(--color-gray);
+    background-color: var(--color-medium);
+    border-color: var(--color-medium);
     color: var(--color-white);
     cursor: not-allowed;
   }

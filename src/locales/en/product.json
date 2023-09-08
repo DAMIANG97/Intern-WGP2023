@@ -1,0 +1,39 @@
+{
+  "components": {
+    "productOverview": {
+      "reviews": "reviews",
+      "addReview": "Add Your Review",
+      "textBeforePrice": "As low as",
+      "inStock": "in stock",
+      "lowStock": "low stock",
+      "outOfStock": "out of stock"
+    },
+
+    "productDetails": {
+      "details": "Specifications",
+      "description": "Overview"
+    },
+    "reviewCard": {
+      "rating": "Rating",
+      "reviewOwner": "Review by"
+    },
+    "reviewForm": {
+      "introduction": "You're reviewing:",
+      "your-rating": "Your Rating",
+      "nickname": "Nickname",
+      "summary": "Summary",
+      "review": "Review",
+      "submit": "Submit Review",
+      "required": "Required Field"
+    },
+    "productReview": {
+      "sectionTitle": "Customer Reviews",
+      "less": "Show Less",
+      "more": "Show More",
+      "sectionName": "Reviews"
+    },
+    "reviewModal": {
+      "message": "Your review has been successfully sent"
+    }
+  }
+}

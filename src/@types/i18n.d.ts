@@ -18,8 +18,8 @@
  */
 interface TranslationKeys {
   common: Paths<typeof import('locales/pl/common.json')>;
+  product: Path<typeof import('locales/pl/product.json')>;
 }
-
 /**
  * For hook: `useTranslation`
  */

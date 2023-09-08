@@ -25,7 +25,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ url, name, image, price, rati
         <div className={styles.title}> {name} </div>
 
         <ProductPrice>{price}</ProductPrice>
-        {rating && <StarsRating rating={rating} />}
+        <div className={styles.stars}>{rating && <StarsRating rating={rating} className={styles.price} />}</div>
       </Link>
     </div>
   );

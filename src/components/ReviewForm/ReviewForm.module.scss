@@ -1,0 +1,114 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.introduction {
+  font-size: var(--font-size-s);
+  font-weight: 400;
+  line-height: 1.375;
+  color: var(--color-medium);
+  margin: 0.5rem 0;
+}
+
+.text {
+  margin: 1.5rem 0 0.5rem 0;
+  color: var(--color-pagination-number);
+  font-family: Poppins;
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.rating {
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--color-black);
+  margin: 0.5rem 0 0.5rem 0;
+}
+
+.input {
+  max-width: 30.8125rem;
+  height: 2.5rem;
+  border: 1px solid var(--color-secondary);
+}
+
+.input-big {
+  height: 7rem;
+}
+
+.product-name {
+  margin: 0.25rem 0 1.5rem 0;
+}
+
+.form-btn {
+  width: 10rem;
+  height: 2.5rem;
+  border: none;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  margin: 2rem 0;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+@keyframes removeInvalid {
+  0% {
+    fill: var(--color-attention);
+    transform: scale(1.15);
+  }
+
+  100% {
+    color: initial;
+    transform: initial;
+  }
+}
+
+.stars-invalid {
+  & svg {
+    animation: removeInvalid 1.5s ease;
+    transform: scale(1.15);
+    transition: color 1.5s, transform 1.5s;
+    border: none;
+  }
+}
+
+.loader {
+  display: block;
+  position: relative;
+  height: 1.25rem;
+  width: 8.75rem;
+  background-image:
+    linear-gradient(var(--color-light) 1.25rem, transparent 0),
+    linear-gradient(var(--color-light)1.25rem, transparent 0),
+    linear-gradient(var(--color-light) 1.25rem, transparent 0),
+    linear-gradient(var(--color-light) 1.25rem, transparent 0);
+  background-repeat: no-repeat;
+  background-size: 1.25rem auto;
+  background-position: 0 0, 2.5rem 0, 5rem 0, 7.5rem 0;
+  animation: pgfill 1s linear infinite;
+}
+
+@keyframes pgfill {
+  0% {
+    background-image: linear-gradient(var(--color-light) 1.25rem, transparent 0), linear-gradient(var(--color-light) 1.25rem, transparent 0), linear-gradient(var(--color-light) 1.25rem, transparent 0), linear-gradient(var(--color-light) 1.25rem, transparent 0);
+  }
+
+  25% {
+    background-image: linear-gradient(var(--color-primary) 1.25rem, transparent 0), linear-gradient(var(--color-light) 1.25rem, transparent 0), linear-gradient(var(--color-light) 1.25rem, transparent 0), linear-gradient(var(--color-light) 1.25rem, transparent 0);
+  }
+
+  50% {
+    background-image: linear-gradient(var(--color-light) 1.25rem, transparent 0), linear-gradient(var(--color-primary) 1.25rem, transparent 0), linear-gradient(var(--color-light) 1.25rem, transparent 0), linear-gradient(var(--color-light) 1.25rem, transparent 0);
+  }
+
+  75% {
+    background-image: linear-gradient(var(--color-light) 1.25rem, transparent 0), linear-gradient(var(--color-light) 1.25rem, transparent 0), linear-gradient(var(--color-primary) 1.25rem, transparent 0), linear-gradient(var(--color-light) 1.25rem, transparent 0);
+  }
+
+  100% {
+    background-image: linear-gradient(var(--color-light) 1.25rem, transparent 0), linear-gradient(var(--color-light) 1.25rem, transparent 0), linear-gradient(var(--color-light) 1.25rem, transparent 0), linear-gradient(var(--color-primary) 1.25rem, transparent 0);
+  }
+}

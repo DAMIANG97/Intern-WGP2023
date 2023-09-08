@@ -1,0 +1,28 @@
+.stars-container {
+  display: flex;
+}
+
+.star {
+  cursor: pointer;
+  transition: fill 0.2s;
+
+  &:is(:hover, :focus-visible, :active) {
+    color: var(--color-star-filled);
+    transition-delay: 0.1s;
+  }
+}
+
+.filled-star {
+  fill: var(--color-star-filled);
+  color: var(--color-star-filled);
+  transition-delay: 0.1s;
+}
+
+.star-btn {
+  border: none;
+  background-color: transparent;
+  color: var(--color-secondary);
+  margin-right: 0.5rem;
+  padding: 0;
+  transition: color 0.2s;
+}

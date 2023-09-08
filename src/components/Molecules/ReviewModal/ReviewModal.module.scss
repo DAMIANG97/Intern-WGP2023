@@ -1,0 +1,45 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0rem 0rem 0.625rem rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  max-width: 25rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  cursor: pointer;
+
+  &:is(:hover, :focus-visible) {
+    transform: scale(1.4);
+    color: var(--color-primary);
+  }
+}
+
+.content {
+  padding: 1rem;
+}
+
+.modal-btn {
+  background-color: transparent;
+  border: none;
+
+}

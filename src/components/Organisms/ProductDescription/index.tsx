@@ -13,7 +13,7 @@ interface ProductDescriptionProps {
 const TAG = 'Product Description';
 
 const ProductDescription: FunctionComponent<ProductDescriptionProps> = ({ product }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('product');
 
   // Sanitizer could be used for more safety
   // https://developer.mozilla.org/en-US/docs/Web/API/HTML_Sanitizer_API#examples

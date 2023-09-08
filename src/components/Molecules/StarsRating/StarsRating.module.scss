@@ -2,19 +2,11 @@
 
 .rating-stars {
   display: flex;
-  margin-top: 0.75rem;
 }
 
 .star {
   align-items: center;
-  width: 0.875rem;
-  height: 0.875rem;
   margin-right: 0.1rem;
-
-  @include mq.mq($from: tablet) {
-    width: 1.125rem;
-    height: 1.125rem;
-  }
 }
 
 .full {

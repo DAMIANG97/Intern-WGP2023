@@ -16,6 +16,8 @@ interface AccordionItemProps {
   filter?: boolean;
   modiferclassName?: string;
   className?: string;
+  linkStatus?: boolean;
+  linkHandler?: (is: boolean) => void;
 }
 
 const TAG = 'AccordionItem';
@@ -28,14 +30,24 @@ const AccordionItem: FunctionComponent<AccordionItemProps> = ({
   filter,
   modiferclassName,
   className,
+  linkStatus,
+  linkHandler,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const clickHandler = () => setIsOpen((is) => !is);
+  const clickHandler = () => {
+    setIsOpen((is) => !is);
+    if (linkHandler) {
+      linkHandler(!linkStatus);
+    }
+  };
   useEffect(() => {
     if (parentOpen === false) {
       setIsOpen(false);
     }
-  }, [setIsOpen, parentOpen]);
+    if (linkStatus) {
+      setIsOpen(true);
+    }
+  }, [setIsOpen, parentOpen, linkStatus]);
 
   return (
     <div className={clsx(styles.accordion, filter && styles['accordion--filter'])}>

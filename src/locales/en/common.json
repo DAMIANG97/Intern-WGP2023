@@ -1,14 +1,6 @@
 {
   "hello": "world",
   "components": {
-    "productOverview": {
-      "reviews": "reviews",
-      "addReview": "Add Your Review",
-      "textBeforePrice": "As low as",
-      "inStock": "in stock",
-      "lowStock": "low stock",
-      "outOfStock": "out of stock"
-    },
     "productFilters": {
       "label": "Product Filters",
       "heading": "Shoping Options",

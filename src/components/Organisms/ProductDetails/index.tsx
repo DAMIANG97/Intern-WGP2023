@@ -12,7 +12,7 @@ interface ProductDetailsProps {
 const TAG = 'Product Details';
 
 const ProductDetails: FunctionComponent<ProductDetailsProps> = ({ product }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('product');
   return (
     <section>
       <AccordionItem

@@ -23,6 +23,7 @@ const CONFIG = {
   defaultNS: 'common',
   pages: {
     '*': ['common'],
+    '/product/[productId]/index.page': ['product'],
   },
   // To make layouts work:
   staticsHoc: hoistNonReactStatics,

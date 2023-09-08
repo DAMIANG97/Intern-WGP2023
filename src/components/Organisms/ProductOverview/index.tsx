@@ -13,11 +13,13 @@ import styles from './ProductOverview.module.scss';
 
 interface ProductOverviewProps {
   product: Hybris.Product;
+  linkHandler: () => void;
 }
 const TAG = 'ProductOverview';
 
-const ProductOverview: FunctionComponent<ProductOverviewProps> = ({ product }) => {
-  const { t } = useTranslation();
+const ProductOverview: FunctionComponent<ProductOverviewProps> = ({ product, linkHandler }) => {
+  const { t } = useTranslation('product');
+
   const stock = useMemo(() => {
     switch (product.stock.stockLevelStatus) {
       case StockStatus.INSTOCK:
@@ -42,10 +44,10 @@ const ProductOverview: FunctionComponent<ProductOverviewProps> = ({ product }) =
         </H1>
         <div className={styles['product-overview__reviews']}>
           <StarsRating className={styles['product-overview__stars']} rating={product.averageRating} />
-          <Link className={styles['product-overview__link']} href="#reviews">
+          <Link className={styles['product-overview__link']} href="#reviews" onClick={linkHandler}>
             {product.reviews.length}&nbsp;{t('components.productOverview.reviews')}
           </Link>
-          <Link className={styles['product-overview__link']} href="#addReview">
+          <Link className={styles['product-overview__link']} href="#addReview" onClick={linkHandler}>
             {t('components.productOverview.addReview')}
           </Link>
         </div>
