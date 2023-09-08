@@ -1,7 +1,9 @@
 import { withThemeByDataAttribute } from '@storybook/addon-styling';
 import I18nProvider from 'next-translate/I18nProvider';
+import QueryClient from '../src/utils/Providers/QueryClient';
 import config from '../i18n';
 import commonEN from '../src/locales/en/common.json';
+import cartEN from '../src/locales/en/cart.json';
 import 'styles/global.scss';
 
 const preview = {
@@ -31,9 +33,11 @@ const preview = {
       attributeName: 'data-theme',
     }),
     (Story) => (
-      <I18nProvider lang="en" namespaces={{ common: commonEN }} config={config}>
-        <Story />
-      </I18nProvider>
+      <QueryClient>
+        <I18nProvider lang="en" namespaces={{ common: commonEN, cart: cartEN }} config={config}>
+          <Story />
+        </I18nProvider>
+      </QueryClient>
     ),
   ],
 };

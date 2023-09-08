@@ -55,7 +55,7 @@
     justify-self: left;
     transition: all 0.5s;
 
-    @include mq.mq($from: desktop) {
+    @include mq.mq($from: tablet) {
       display: block;
     }
 

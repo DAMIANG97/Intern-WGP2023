@@ -15,4 +15,10 @@
     font-size: var(--font-size-xxl);
     font-weight: 500;
   }
+
+  &--cart {
+    color: var(--color-filter-text);
+    font-size: var(--font-size-s);
+    font-weight: 500;
+  }
 }

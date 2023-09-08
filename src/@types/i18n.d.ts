@@ -19,6 +19,7 @@
 interface TranslationKeys {
   common: Paths<typeof import('locales/pl/common.json')>;
   product: Path<typeof import('locales/pl/product.json')>;
+  cart: Paths<typeof import('locales/pl/cart.json')>;
 }
 /**
  * For hook: `useTranslation`

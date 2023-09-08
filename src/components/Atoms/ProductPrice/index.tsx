@@ -6,7 +6,7 @@ import styles from './ProductPrice.module.scss';
 
 interface ProductPriceProps {
   children: string;
-  variant?: 'large';
+  variant?: 'large' | 'cart';
 }
 
 const ProductPrice: FunctionComponent<ProductPriceProps> = ({ children, variant }) => {

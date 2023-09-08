@@ -20,10 +20,24 @@ const CartProvider: FunctionComponent<CartProviderProps> = ({ children }) => {
     enabled: !!cartGUID,
   });
   const context = useMemo<CartContextValue>(() => {
-    if (cart.isSuccess) {
-      return { itemsCount: cart.data.totalItems, status: cart.status, cartGUID: cartGUID };
+    if (cart.isSuccess && cartGUID) {
+      return {
+        itemsCount: cart.data.totalItems,
+        status: cart.status,
+        cartGUID: cartGUID,
+        entries: cart.data.entries,
+        cartRefresh: cart.refetch,
+        isRefetching: cart.isRefetching,
+      };
     }
-    return { itemsCount: initialValue.itemsCount, status: initialValue.status, cartGUID: initialValue.cartGUID };
+    return {
+      itemsCount: initialValue.itemsCount,
+      status: initialValue.status,
+      cartGUID: initialValue.cartGUID,
+      entries: null,
+      cartRefresh: cart.refetch,
+      isRefetching: cart.isRefetching,
+    };
   }, [cart, cartGUID]);
 
   return <CartContext.Provider value={context}>{children}</CartContext.Provider>;

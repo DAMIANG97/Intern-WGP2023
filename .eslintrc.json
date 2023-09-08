@@ -41,7 +41,11 @@
       { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
     ],
     "max-lines": ["warn", 300],
-    "import/newline-after-import": ["warn", { "count": 1 }]
+    "import/newline-after-import": ["warn", { "count": 1 }],
+    "no-restricted-imports": [
+      "error",
+      { "paths": [{ "name": "lodash", "message": "Import [module] from lodash/[module] instead" }] }
+    ]
   },
   "overrides": [
     {

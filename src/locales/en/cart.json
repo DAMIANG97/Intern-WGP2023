@@ -1,0 +1,11 @@
+{
+  "components": {
+    "product": {
+      "brand": "Brand",
+      "category": "Category",
+      "price": "Price",
+      "subtotal": "Subtotal",
+      "quantityShort": "Qty"
+    }
+  }
+}

@@ -67,6 +67,9 @@
       "error": "An error occurred while adding to cart.",
       "increment": "Increment",
       "decrement": "Decrement"
+    },
+    "loader": {
+      "loadingLabel": "Loading"
     }
   },
   "pages": {

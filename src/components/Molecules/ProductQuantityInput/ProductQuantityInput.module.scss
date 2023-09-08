@@ -1,0 +1,83 @@
+@use 'sass-mq/_mq';
+
+.container {
+  grid-row: 2;
+
+  @include mq.mq($from: tablet) {
+    grid-row: 1;
+    grid-column: 2;
+  }
+}
+
+.label {
+  font-size: 0.75rem;
+  color: var(--color-medium);
+  text-align: center;
+  margin-bottom: 0.5rem;
+
+  @include mq.mq($from: tablet) {
+    display: none;
+  }
+}
+
+.wrapper {
+  display: flex;
+  border: 1px solid var(--color-medium);
+}
+
+.input {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  height: 2.375rem;
+  width: 2.625rem;
+  outline: none;
+  box-sizing: border-box;
+  text-align: center;
+  border: none;
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
+}
+
+.loader {
+  height: 2.375rem;
+  width: 2.625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.button {
+  height: 2.375rem;
+  width: 2.375rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0;
+
+  &:is(:hover, :focus-visible) {
+    transform: none;
+    color: var(--color-white);
+    background-color: var(--color-primary);
+
+    svg {
+      transform: scale(1.5);
+    }
+  }
+
+  &:disabled {
+    background-color: var(--color-product-background);
+    color: var(--color-medium);
+
+    &:hover {
+      color: var(--color-medium);
+
+      & svg {
+        transform: none;
+      }
+    }
+  }
+}

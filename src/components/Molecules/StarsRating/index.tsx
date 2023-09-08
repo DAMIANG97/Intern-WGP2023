@@ -4,7 +4,7 @@ import useTranslation from 'next-translate/useTranslation';
 import StarIcon from 'assets/icons/star.svg';
 import clsx from 'clsx';
 import GradientStar from 'components/Atoms/GradientStar';
-import { range } from 'lodash';
+import range from 'lodash/range';
 
 import styles from './StarsRating.module.scss';
 

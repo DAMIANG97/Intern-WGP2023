@@ -67,6 +67,9 @@
       "error": "Wystąpił błąd podczas dodawania do koszyka.",
       "increment": "Zwiększ",
       "decrement": "Zmniejsz"
+    },
+    "loader": {
+      "loadingLabel": "Ładowanie"
     }
   },
   "pages": {

@@ -49,11 +49,11 @@ declare namespace Hybris {
     value: number;
     priceType: string;
     formattedValue: string;
-    minQuantity: number;
-    maxQuantity: number;
+    minQuantity?: number;
+    maxQuantity?: number;
   }
   interface CartCategories extends Hybris.Category {
-    image: Hybris.Image;
+    image?: Hybris.Image;
   }
   interface Address {
     id: string;
@@ -101,37 +101,40 @@ declare namespace Hybris {
     emailLanguage: string;
   }
   interface CartReviews extends Hybris.Review {
-    alias: string;
+    alias?: string;
     principal: CartPrincipal;
   }
   interface CartProduct extends Hybris.Product {
-    futureStocks: [
+    futureStocks?: [
       {
         stock: Hybris.Stock;
         date: string;
         formattedDate: string;
       },
     ];
-    variantType: string;
-    baseProduct: string;
+    variantType?: string;
+    baseProduct?: string;
     categories: CartCategories[];
-    reviews: CartReviews[];
-    classification: CartClassification;
-    potentialPromotions: PromotionElement[];
-    variantOptions: VariantOption[];
+    reviews?: CartReviews[];
+    classifications?: CartClassification;
+    potentialPromotions?: PromotionElement[];
+    variantOptions?: VariantOption[];
     baseOptions: BaseOption[];
-    volumePricesFlag: true;
-    volumePrices: CartPrice[];
-    productReferences: ProductReference[];
-    variantMatrix: VariantMatrix[];
-    priceRange: CartPriceRange;
-    multidimensional: boolean;
-    configuratorType: string;
-    tags: string[];
-    firstVariantCode: string;
-    firstVariantImage: string;
-    bundleTemplates: BundleTemplate[];
-    timedAccePromotion: PromotionElement;
+    volumePricesFlag?: true;
+    volumePrices?: CartPrice[];
+    productReferences?: ProductReference[];
+    variantMatrix?: VariantMatrix[];
+    priceRange?: CartPriceRange;
+    multidimensional?: boolean;
+    configuratorType?: string;
+    tags?: string[];
+    firstVariantCode?: string;
+    firstVariantImage?: string;
+    bundleTemplates?: BundleTemplate[];
+    timedAccePromotion?: PromotionElement;
+    price?: CartPrice;
+    numberOfReviews?: number;
+    summary?: string;
   }
   interface PromotionElement {
     code: string;
@@ -225,22 +228,22 @@ declare namespace Hybris {
     totalPrice: CartPrice;
     product: CartProduct;
     updateable: boolean;
-    deliveryMode: DeliveryMode;
+    deliveryMode?: DeliveryMode;
     configurationInfos: ConfigurationInfo[];
     statusSummaryList: StatusSummaryList[];
-    deliveryPointOfService: DeliveryPointOfService;
-    cancelledItemsPrice: CartPrice;
+    deliveryPointOfService?: DeliveryPointOfService;
+    cancelledItemsPrice?: CartPrice;
     cancellableQuantity: number;
-    returnedItemsPrice: CartPrice;
+    returnedItemsPrice?: CartPrice;
     returnableQuantity: number;
-    comments: EntryComment[];
-    url: string;
-    quantityAllocated: number;
-    quantityUnallocated: number;
-    quantityCancelled: number;
-    quantityPending: number;
-    quantityShipped: number;
-    quantityReturned: number;
+    comments?: EntryComment[];
+    url?: string;
+    quantityAllocated?: number;
+    quantityUnallocated?: number;
+    quantityCancelled?: number;
+    quantityPending?: number;
+    quantityShipped?: number;
+    quantityReturned?: number;
   }
   interface EntryComment {
     text: string;

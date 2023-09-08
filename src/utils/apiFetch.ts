@@ -1,7 +1,6 @@
 import jsonOrEmptyTextMapper from 'utils/jsonOrEmptyTextMapper';
 
 const DEFAULT_INIT = {
-  credentials: 'include',
   method: 'GET',
   headers: {
     'Content-Type': 'application/json',

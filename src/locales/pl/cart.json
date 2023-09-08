@@ -1,0 +1,11 @@
+{
+  "components": {
+    "product": {
+      "brand": "Marka",
+      "category": "Kategoria",
+      "price": "Cena",
+      "subtotal": "Suma",
+      "quantityShort": "Ilość"
+    }
+  }
+}

@@ -6,7 +6,7 @@
   left: 0;
   z-index: 9;
 
-  @include mq.mq($from: desktop) {
+  @include mq.mq($from: tablet) {
     position: relative;
     overflow: unset !important;
     height: unset !important;
