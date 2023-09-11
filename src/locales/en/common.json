@@ -59,7 +59,6 @@
       "details": "Specifications",
       "description": "Overview"
     },
-
     "addQuantityToCart": {
       "quantity": "Quantity",
       "addToCart": "Add to Cart",
@@ -67,6 +66,17 @@
       "error": "An error occurred while adding to cart.",
       "increment": "Increment",
       "decrement": "Decrement"
+    },
+    "cart": {
+      "accordionItemName": "Apply Discount Code",
+      "applyDiscountButton": "Apply Discount",
+      "summaryAccordionTitle": "Estimate shipping and tax",
+      "summaryTitle": "Summary",
+      "formName": "Apply Discount",
+      "countryLabel": "Country",
+      "stateLabel": "State/Province",
+      "zipCodeLabel": "Zip/Postal Code",
+      "proceedToCheckout": "Proceed to Checkout"
     },
     "loader": {
       "loadingLabel": "Loading"

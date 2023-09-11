@@ -51,7 +51,12 @@ const AccordionItem: FunctionComponent<AccordionItemProps> = ({
 
   return (
     <div className={clsx(styles.accordion, filter && styles['accordion--filter'])}>
-      <div className={clsx(styles.accordion__header, isOpen && [styles['accordion__header--open'], modiferclassName])}>
+      <div
+        className={clsx(
+          styles.accordion__header,
+          isOpen && [styles['accordion__header--open'], modiferclassName],
+          modiferclassName,
+        )}>
         {href ? (
           <Link className={styles.accordion__link} href={href}>
             {name}

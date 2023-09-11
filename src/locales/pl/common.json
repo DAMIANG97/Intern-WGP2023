@@ -59,7 +59,6 @@
       "details": "Szczegóły produktu",
       "description": "Opis"
     },
-
     "addQuantityToCart": {
       "quantity": "Liczba sztuk",
       "addToCart": "Dodaj do koszyka",
@@ -67,6 +66,17 @@
       "error": "Wystąpił błąd podczas dodawania do koszyka.",
       "increment": "Zwiększ",
       "decrement": "Zmniejsz"
+    },
+    "cart": {
+      "accordionItemName": "Zastosój kod zniżkowy",
+      "applyDiscountButton": "Zastosój zniżkę",
+      "summaryAccordionTitle": "Koszty dostawy i podatek",
+      "summaryTitle": "Podsumowanie",
+      "formName": "Zastosój zniżkę",
+      "countryLabel": "Kraj",
+      "stateLabel": "Województwo",
+      "zipCodeLabel": "Kod pocztowy",
+      "proceedToCheckout": "Przejdź do kasy"
     },
     "loader": {
       "loadingLabel": "Ładowanie"
