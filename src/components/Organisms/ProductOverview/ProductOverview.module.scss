@@ -19,6 +19,10 @@
     @include mq.mq($from: tablet) {
       margin-bottom: 11.25rem;
     }
+
+    &> :global(.slider-container) {
+      background-color: var(--color-light);
+    }
   }
 
   &__informations {

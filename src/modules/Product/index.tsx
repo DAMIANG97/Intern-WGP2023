@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useState } from 'react';
 
 import Container from 'components/Atoms/Container';
+import Breadcrumb from 'components/Organisms/Breadcrumb';
 import ProductDescription from 'components/Organisms/ProductDescription';
 import ProductDetails from 'components/Organisms/ProductDetails';
 import ProductOverview from 'components/Organisms/ProductOverview';
@@ -24,6 +25,7 @@ const Product: FunctionComponent<ProductProps> = ({ product }) => {
   return (
     <main>
       <Container className={styles.container}>
+        <Breadcrumb variant="dark" />
         <ProductOverview product={product} linkHandler={linkHandler} />
         <ProductDescription product={product} />
         <ProductDetails product={product} />

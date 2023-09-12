@@ -5,13 +5,11 @@
   max-width: 44.375rem;
   margin-bottom: 6.25rem;
 
-
   &__container {
     width: 100%;
     display: flex;
     justify-content: center;
     position: relative;
-    background-color: var(--color-light);
   }
 
   &__image {
@@ -19,9 +17,11 @@
     height: auto;
     object-fit: contain;
     max-height: 13.125rem;
+    padding: 1rem;
 
     @include mq.mq($from: tablet) {
-      max-height: 31.25rem;
+      max-height: 27.25rem;
+      padding: 2rem;
     }
   }
 
