@@ -35,16 +35,15 @@ async function getFooterLinks(data: Hybris.PageContent, localeSuffix: string): P
       return [];
     });
 
-    const footerLinks: Hybris.FooterLink[][] = [];
-
     const queryLinks = [queryPolicyLinks, querySocialLinks];
-    await Promise.all(
+
+    const [policyLinks, socialLinks] = await Promise.all(
       queryLinks.map(async (element) => {
         try {
           const contentLinks = await fetchLinksData(element?.flat(Infinity).join(',') || '', localeSuffix);
 
           if (contentLinks && contentLinks.component) {
-            footerLinks.push(mapLinkEntriesToFooterLinks(contentLinks.component));
+            return mapLinkEntriesToFooterLinks(contentLinks.component);
           }
         } catch (error) {
           console.error('cannot fetch', error);
@@ -52,10 +51,7 @@ async function getFooterLinks(data: Hybris.PageContent, localeSuffix: string): P
       }),
     );
 
-    const policyLinks = footerLinks[0] ?? [];
-    const socialLinks = footerLinks[1] ?? [];
-
-    return [policyLinks, socialLinks];
+    return [policyLinks ?? [], socialLinks ?? []];
   }
   return [];
 }
