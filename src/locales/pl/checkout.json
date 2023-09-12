@@ -1,0 +1,26 @@
+{
+  "components": {
+    "form": {
+      "shipping-address": "Adres wysyłki",
+      "delivery-method": "Sposób dostawy",
+      "next": "Dalej",
+      "form-error": "Zepsuło się",
+      "fields": {
+        "country": "Kraj",
+        "title": "Zwrot",
+        "first-name": "Imię",
+        "last-name": "Nazwisko",
+        "address1": "Adres linia 1",
+        "address2": "Adres linia 2",
+        "city": "Miasto"
+      },
+      "placeholders": {
+        "select": "Wybierz",
+        "country": "państwo",
+        "title": "zwrot"
+      },
+      "required-alert": "Pole jest wymagane",
+      "field-error": "błąd"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@use 'sass-mq/_mq';
+
+.label {
+  color: var(--color-filter-text);
+  font-size: var(--font-size-xs);
+  margin-bottom: 0.25rem;
+
+  @include mq.mq($from: tablet) {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 3fr;
+    font-size: var(--font-size-s);
+    margin-bottom: 1rem;
+  }
+}
+
+.star {
+  color: var(--color-danger);
+}

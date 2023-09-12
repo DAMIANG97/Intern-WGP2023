@@ -28,6 +28,7 @@ const CartProvider: FunctionComponent<CartProviderProps> = ({ children }) => {
         entries: cart.data.entries,
         cartRefresh: cart.refetch,
         isRefetching: cart.isRefetching,
+        cartCode: cart.data.code,
       };
     }
     return {
@@ -37,6 +38,7 @@ const CartProvider: FunctionComponent<CartProviderProps> = ({ children }) => {
       entries: null,
       cartRefresh: cart.refetch,
       isRefetching: cart.isRefetching,
+      cartCode: initialValue.cartCode,
     };
   }, [cart, cartGUID]);
 

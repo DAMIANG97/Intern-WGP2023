@@ -6,7 +6,7 @@ import ArrowSort from 'assets/icons/arrowSort.svg';
 import Container from 'components/Atoms/Container';
 import AccordionItem from 'components/Molecules/AccordionItem';
 import ReviewCard, { ReviewProps } from 'components/Molecules/ReviewCard';
-import ReviewForm from 'components/ReviewForm';
+import ReviewForm from 'components/Molecules/ReviewForm';
 
 import styles from './ProductReview.module.scss';
 

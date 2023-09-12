@@ -3,7 +3,6 @@
 .button {
   background-color: var(--color-white);
   border: 1px solid var(--color-black);
-
   color: var(--color-black);
   cursor: pointer;
   display: inline-block;
@@ -75,6 +74,10 @@
     &:disabled {
       transform: none;
       cursor: not-allowed;
+    }
+
+    &:is(:hover, :focus-visible) {
+      background-color: #70a500;
     }
   }
 }

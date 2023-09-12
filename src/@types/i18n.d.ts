@@ -18,8 +18,9 @@
  */
 interface TranslationKeys {
   common: Paths<typeof import('locales/pl/common.json')>;
-  product: Path<typeof import('locales/pl/product.json')>;
+  product: Paths<typeof import('locales/pl/product.json')>;
   cart: Paths<typeof import('locales/pl/cart.json')>;
+  checkout: Paths<typeof import('locals/pl/checkout')>;
 }
 /**
  * For hook: `useTranslation`
@@ -47,7 +48,7 @@ declare module 'next-translate/useTranslation' {
     lang: string;
   }
 
-  export default function useTranslation<NS extends keyof TranslationKeys = 'common'>(defaultNS?: NS): I18n<NS>;
+  export default function useTranslation<NS extends keyof TranslationKeys>(defaultNS?: NS): I18n<NS>;
 }
 
 /**

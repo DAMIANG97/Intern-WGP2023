@@ -1,0 +1,26 @@
+{
+  "components": {
+    "form": {
+      "shipping-address": "Shipping Address",
+      "delivery-method": "Delivery method",
+      "next": "Next",
+      "form-error": "Something went wrong",
+      "fields": {
+        "country": "Country",
+        "title": "Title",
+        "first-name": "First Name",
+        "last-name": "Last Name",
+        "address1": "Address Line 1",
+        "address2": "Address Line 2",
+        "city": "City"
+      },
+      "placeholders": {
+        "select": "Select",
+        "country": "country",
+        "title": "title"
+      },
+      "required-alert": "Field is required",
+      "field-error": "error"
+    }
+  }
+}

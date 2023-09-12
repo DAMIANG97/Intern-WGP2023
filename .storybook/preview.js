@@ -4,6 +4,7 @@ import QueryClient from '../src/utils/Providers/QueryClient';
 import config from '../i18n';
 import commonEN from '../src/locales/en/common.json';
 import cartEN from '../src/locales/en/cart.json';
+import checkoutEN from '../src/locales/en/checkout.json';
 import 'styles/global.scss';
 
 const preview = {
@@ -34,7 +35,7 @@ const preview = {
     }),
     (Story) => (
       <QueryClient>
-        <I18nProvider lang="en" namespaces={{ common: commonEN, cart: cartEN }} config={config}>
+        <I18nProvider lang="en" namespaces={{ common: commonEN, cart: cartEN, checkout: checkoutEN }} config={config}>
           <Story />
         </I18nProvider>
       </QueryClient>

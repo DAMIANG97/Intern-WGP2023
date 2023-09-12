@@ -1,0 +1,10 @@
+@use 'sass-mq/_mq';
+
+.error {
+  color: var(--color-danger);
+  font-size: var(--font-size-xs);
+
+  @include mq.mq($from: tablet) {
+    margin-bottom: 1.5rem;
+  }
+}

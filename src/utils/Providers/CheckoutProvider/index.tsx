@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode, useState } from 'react';
+import React, { FunctionComponent, ReactNode, useMemo, useState } from 'react';
 
 import { useQuery } from '@tanstack/react-query';
 import { getCookie } from 'cookies-next';
@@ -6,7 +6,7 @@ import getCountries from 'utils/Hybris/Checkout/getCountries';
 import getDeliveryMode from 'utils/Hybris/Checkout/getDeliveryModes';
 import getRegions from 'utils/Hybris/Checkout/getRegions';
 import getTitles from 'utils/Hybris/Checkout/getTitles';
-import { CheckoutContext, CheckoutContextValue } from 'utils/Providers/CheckoutProvider/context';
+import { CheckoutContext } from 'utils/Providers/CheckoutProvider/context';
 
 interface CheckoutProviderProps {
   children: ReactNode;
@@ -14,7 +14,7 @@ interface CheckoutProviderProps {
 
 const CheckoutProvider: FunctionComponent<CheckoutProviderProps> = ({ children }) => {
   //TO DO CHANGE STATE WHEN FORM IS OPEN
-  const [isCheckoutOpen] = useState(false);
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const lang = getCookie('NEXT_LOCALE');
   const curr = getCookie('NEXT_CURRENCY');
   const localeSuffix = `lang=${lang}&curr=${curr}`;
@@ -24,6 +24,7 @@ const CheckoutProvider: FunctionComponent<CheckoutProviderProps> = ({ children }
   const user = 'current';
   const orderNumber = '00002301';
 
+  const openCheckout = () => setIsCheckoutOpen(true);
   const countriesQuery = useQuery({
     queryKey: ['getCountries'],
     queryFn: getCountries,
@@ -56,13 +57,10 @@ const CheckoutProvider: FunctionComponent<CheckoutProviderProps> = ({ children }
 
   const deliveryModes = deliveryModesQuery.data || null;
 
-  const checkoutData: CheckoutContextValue = {
-    countries,
-    titles,
-    regions,
-    deliveryModes,
-  };
-
+  const checkoutData = useMemo(
+    () => ({ countries: countries, titles: titles, regions: regions, deliveryModes: deliveryModes, openCheckout }),
+    [countries, titles, regions, deliveryModes],
+  );
   return <CheckoutContext.Provider value={checkoutData}>{children}</CheckoutContext.Provider>;
 };
 

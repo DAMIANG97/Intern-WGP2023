@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import ReviewForm from 'components/ReviewForm';
+import ReviewForm from 'components/Molecules/ReviewForm';
 
 const meta: Meta<typeof ReviewForm> = {
   title: 'Components/ReviewForm',
