@@ -40,10 +40,9 @@ const ProductReview: React.FC<ReviewListProps> = ({
     <section id="reviews">
       <AccordionItem
         name={t('components.productReview.sectionName')}
-        modiferclassName={styles['product__accordionItem--open']}
-        className={styles.product__accordionItem__title}
         linkStatus={linkStatus}
-        linkHandler={linkHandler}>
+        linkHandler={linkHandler}
+        variant="productInfo">
         <Container>
           <h2 className={styles.name}> {t('components.productReview.sectionTitle')}</h2>
           <div className={styles.container}>

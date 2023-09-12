@@ -36,20 +36,4 @@
       font-size: var(--font-size-m);
     }
   }
-
-  &__accordionItem {
-    &__title {
-      font-size: var(--font-size-m);
-      font-weight: 600;
-
-      @include mq.mq($until: tablet) {
-        color: var(--color-medium);
-        font-size: var(--font-size-xs);
-      }
-    }
-
-    &--open {
-      background-color: var(--bg-product-details-title);
-    }
-  }
 }

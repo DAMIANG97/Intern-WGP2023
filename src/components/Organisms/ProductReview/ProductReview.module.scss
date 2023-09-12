@@ -88,20 +88,6 @@
   font-size: var(--font-size-m);
 }
 
-.product__accordionItem__title {
-  font-size: var(--font-size-m);
-  font-weight: 600;
-
-  @include mq.mq($until: tablet) {
-    color: var(--color-medium);
-    font-size: var(--font-size-xs);
-  }
-}
-
-.product__accordionItem--open {
-  background-color: var(--bg-product-details-title);
-}
-
 .animated-height {
   flex-shrink: 0;
 }

@@ -3,7 +3,6 @@ import useTranslation from 'next-translate/useTranslation';
 
 import AccordionItem from 'components/Molecules/AccordionItem';
 
-import styles from '../ProductDetails/ProductDetails.module.scss';
 import descStyles from './ProductDescription.module.scss';
 
 interface ProductDescriptionProps {
@@ -21,10 +20,7 @@ const ProductDescription: FunctionComponent<ProductDescriptionProps> = ({ produc
 
   return (
     <section>
-      <AccordionItem
-        name={t('components.productDetails.description')}
-        modiferclassName={styles['product__accordionItem--open']}
-        className={styles.product__accordionItem__title}>
+      <AccordionItem name={t('components.productDetails.description')} variant="productInfo">
         <div className={descStyles.product__descriptionContainer}>
           <p dangerouslySetInnerHTML={descriptionMarkup}></p>
         </div>

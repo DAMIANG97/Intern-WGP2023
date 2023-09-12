@@ -26,7 +26,7 @@ const ProductFilterItem: FunctionComponent<ProductFilterItemProps> = ({ facet, b
   const nameWithSelectedValues = `${facet.name}\u00A0(${selectedValues})`;
   return (
     <li key={facet.name} className={styles['product-filter__list-item']}>
-      <AccordionItem name={selectedValues > 0 ? nameWithSelectedValues : facet.name} filter>
+      <AccordionItem name={selectedValues > 0 ? nameWithSelectedValues : facet.name} variant="filter">
         <ul className={styles['product-filter__values']}>
           {facet.values.map((value) => (
             <ProductFilterValue key={value.name} value={value} filterName={facet.name} breadcrumbs={breadcrumbs} />

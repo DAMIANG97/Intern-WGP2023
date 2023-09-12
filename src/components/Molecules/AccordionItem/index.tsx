@@ -13,11 +13,9 @@ interface AccordionItemProps {
   name: string;
   href?: string;
   parentOpen?: boolean;
-  filter?: boolean;
-  modiferclassName?: string;
-  className?: string;
   linkStatus?: boolean;
   linkHandler?: (is: boolean) => void;
+  variant?: 'filter' | 'productInfo' | 'discount';
 }
 
 const TAG = 'AccordionItem';
@@ -27,11 +25,9 @@ const AccordionItem: FunctionComponent<AccordionItemProps> = ({
   name,
   href,
   parentOpen,
-  filter,
-  modiferclassName,
-  className,
   linkStatus,
   linkHandler,
+  variant,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const clickHandler = () => {
@@ -50,19 +46,14 @@ const AccordionItem: FunctionComponent<AccordionItemProps> = ({
   }, [setIsOpen, parentOpen, linkStatus]);
 
   return (
-    <div className={clsx(styles.accordion, filter && styles['accordion--filter'])}>
-      <div
-        className={clsx(
-          styles.accordion__header,
-          isOpen && [styles['accordion__header--open'], modiferclassName],
-          modiferclassName,
-        )}>
+    <div className={clsx(styles.accordion, styles[`accordion--${variant}`])}>
+      <div className={clsx(styles.accordion__header, isOpen && styles['accordion__header--open'])}>
         {href ? (
           <Link className={styles.accordion__link} href={href}>
             {name}
           </Link>
         ) : (
-          <span className={clsx(styles.accordion__name, className)}>{name}</span>
+          <span className={styles.accordion__name}>{name}</span>
         )}
         <Button
           className={styles['accordion__button']}

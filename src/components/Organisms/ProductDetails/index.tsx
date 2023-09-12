@@ -15,10 +15,7 @@ const ProductDetails: FunctionComponent<ProductDetailsProps> = ({ product }) => 
   const { t } = useTranslation('product');
   return (
     <section>
-      <AccordionItem
-        name={t('components.productDetails.details')}
-        modiferclassName={styles['product__accordionItem--open']}
-        className={styles.product__accordionItem__title}>
+      <AccordionItem name={t('components.productDetails.details')} variant="productInfo">
         <div>
           {product.classifications.map((classification) => {
             const { code, features, name } = classification;

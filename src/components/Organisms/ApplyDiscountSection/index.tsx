@@ -22,10 +22,7 @@ const ApplyDiscountSection: FunctionComponent = () => {
   };
   return (
     <section className={styles.applyDiscount__accordionItemContent}>
-      <AccordionItem
-        name={t('components.cart.accordionItemName')}
-        modiferclassName={styles.applyDiscount__accordionItem}
-        className={styles.applyDiscount__accordionItem}>
+      <AccordionItem name={t('components.cart.accordionItemName')} variant="discount">
         <form name={t('components.cart.formName')} onSubmit={submitHandler}>
           <div className={styles.applyDiscount__accordionItemContainer}>
             <Input className={styles.applyDiscount__input} value={inputValue} onChange={inputChangeHandler} />
