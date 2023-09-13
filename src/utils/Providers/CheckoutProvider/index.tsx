@@ -59,8 +59,10 @@ const CheckoutProvider: FunctionComponent<CheckoutProviderProps> = ({ children }
 
   const checkoutData = useMemo(
     () => ({ countries: countries, titles: titles, regions: regions, deliveryModes: deliveryModes, openCheckout }),
+
     [countries, titles, regions, deliveryModes],
   );
+
   return <CheckoutContext.Provider value={checkoutData}>{children}</CheckoutContext.Provider>;
 };
 
