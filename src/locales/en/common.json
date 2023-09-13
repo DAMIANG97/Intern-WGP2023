@@ -80,6 +80,17 @@
     },
     "loader": {
       "loadingLabel": "Loading"
+    },
+    "createAccountForm": {
+      "personalInformation": "Personal Information",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "security": "Email & Password",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "submit": "Create Account",
+      "error": "Error"
     }
   },
   "pages": {

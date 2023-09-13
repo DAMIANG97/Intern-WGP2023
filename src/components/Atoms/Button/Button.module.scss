@@ -65,6 +65,13 @@
   width: 8.25rem;
   height: 2.75rem;
 
+  &:disabled {
+    transform: none;
+    cursor: not-allowed;
+    background-color: var(--color-medium);
+    border-color: var(--color-medium);
+  }
+
   @include mq.mq($from: tablet) {
     font-size: var(--font-size-s);
     color: var(--color-white);
@@ -74,10 +81,19 @@
     &:disabled {
       transform: none;
       cursor: not-allowed;
+      background-color: var(--color-medium);
+      border-color: var(--color-medium);
     }
 
     &:is(:hover, :focus-visible) {
       background-color: #70a500;
+
+      &:disabled {
+        transform: none;
+        cursor: not-allowed;
+        background-color: var(--color-medium);
+        border-color: var(--color-medium);
+      }
     }
   }
 }

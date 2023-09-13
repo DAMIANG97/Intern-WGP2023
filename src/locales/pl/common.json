@@ -80,6 +80,17 @@
     },
     "loader": {
       "loadingLabel": "Ładowanie"
+    },
+    "createAccountForm": {
+      "personalInformation": "Dane użytkownika",
+      "firstName": "Imię",
+      "lastName": "Nazwisko",
+      "security": "Email i Hasło",
+      "email": "Email",
+      "password": "Hasło",
+      "confirmPassword": "Potwierdź hasło",
+      "submit": "Utwórz konto",
+      "error": "Wystąpił Błąd"
     }
   },
   "pages": {

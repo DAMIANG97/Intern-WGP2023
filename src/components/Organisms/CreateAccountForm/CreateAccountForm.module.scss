@@ -1,0 +1,46 @@
+@use 'sass-mq/_mq';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 4rem;
+  padding: 0.5rem;
+  background-color: var(--color-form-background);
+
+  @include mq.mq($from: tablet) {
+    background-color: var(--color-white);
+  }
+}
+
+.title {
+  color: var(--color-filter-text);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  line-height: 1.5;
+  display: block;
+  margin-bottom: 0.5rem;
+
+  @include mq.mq($from: tablet) {
+    color: var(--color-dark);
+    font-size: var(--font-size-m);
+    margin-bottom: 2rem;
+  }
+}
+
+.title--last {
+  margin-top: 2rem;
+
+  @include mq.mq($from: tablet) {
+    margin-top: 3rem;
+  }
+}
+
+.button {
+  margin: 4rem 0;
+
+  @include mq.mq($until: tablet) {
+    width: 100%;
+    margin: 2rem 0;
+  }
+}
