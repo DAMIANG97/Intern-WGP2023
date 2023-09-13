@@ -6,6 +6,11 @@
       "price": "Price",
       "subtotal": "Subtotal",
       "quantityShort": "Qty"
+    },
+    "cartItemsList": {
+      "item": "Item",
+      "quantity": "Quantity",
+      "empty": "Cart is empty"
     }
   }
 }

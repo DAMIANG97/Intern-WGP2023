@@ -5,7 +5,7 @@ import { BASESITE_URL, CART_ENDPOINT, USERS_ENDPOINT } from 'utils/Hybris/endpoi
 type Arguments = QueryFunctionContext<[queryFnName: 'getCart', userId: string, cartId: string | null]>;
 
 function getCart({ signal, queryKey: [, userId, cartId] }: Arguments): Promise<Hybris.Cart> {
-  return apiFetch<Hybris.Cart>(`${BASESITE_URL}/${USERS_ENDPOINT}/${userId}/${CART_ENDPOINT}/${cartId}`, {
+  return apiFetch<Hybris.Cart>(`${BASESITE_URL}/${USERS_ENDPOINT}/${userId}/${CART_ENDPOINT}/${cartId}?fields=FULL`, {
     signal,
     credentials: 'same-origin',
   });

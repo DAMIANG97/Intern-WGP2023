@@ -12,6 +12,7 @@
 
     @include mq.mq($until: tablet) {
       margin: 0.625rem;
+      margin-top: 4rem;
     }
   }
 

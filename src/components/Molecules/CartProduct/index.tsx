@@ -12,12 +12,11 @@ import styles from './CartProduct.module.scss';
 
 interface CartProductProps {
   entry: Hybris.CartEntry;
-  cartGUID: string;
 }
 
 const TAG = 'CartProduct';
 
-const CartProduct: FunctionComponent<CartProductProps> = ({ entry, cartGUID }) => {
+const CartProduct: FunctionComponent<CartProductProps> = ({ entry }) => {
   const userId = 'anonymous'; //TODO CHANGE WHEN WE GET AUTHENTICATION
   const { t } = useTranslation('cart');
 
@@ -53,7 +52,7 @@ const CartProduct: FunctionComponent<CartProductProps> = ({ entry, cartGUID }) =
           <span className={styles['product-price__description']}>{t('components.product.price')}</span>
           <ProductPrice variant="cart">{entry.basePrice.formattedValue}</ProductPrice>
         </div>
-        <ProductQuantityInput entry={entry} cartGUID={cartGUID} userId={userId} />
+        <ProductQuantityInput entry={entry} userId={userId} />
         <div className={styles['product-price__wrapper']}>
           <span className={styles['product-price__description']}>{t('components.product.subtotal')}</span>
           <ProductPrice variant="cart">{entry.totalPrice.formattedValue}</ProductPrice>

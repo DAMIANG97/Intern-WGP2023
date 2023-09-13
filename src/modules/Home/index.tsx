@@ -14,7 +14,9 @@ const Home: React.FC<HomeProps> = ({ heroContent, categoriesContent, footerConte
   return (
     <div>
       <HeroHomePage heroContent={heroContent} footerContent={footerContent} />
+
       <ProductCategories categoriesContent={categoriesContent} />
+
       <CreateAccount />
     </div>
   );

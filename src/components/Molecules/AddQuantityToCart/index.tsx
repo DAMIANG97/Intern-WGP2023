@@ -22,7 +22,7 @@ const AddQuantityToCart: FunctionComponent<AddQuantityToCartProps> = ({ product 
   const handleIncrement = () => setQuantity(quantity + 1);
   const disableAddToCart = product.stock.stockLevelStatus === 'outOfStock';
 
-  const { cartGUID } = useContext(CartContext);
+  const { cartRefresh, cartGUID } = useContext(CartContext);
   const data = {
     guid: cartGUID,
     quantity: quantity,
@@ -34,7 +34,11 @@ const AddQuantityToCart: FunctionComponent<AddQuantityToCartProps> = ({ product 
   const { mutate, isLoading, isError } = useMutation(addToCart);
 
   const handleAddToCart = () => {
-    mutate(data);
+    mutate(data, {
+      onSuccess: () => {
+        cartRefresh();
+      },
+    });
   };
   const id = useId();
 

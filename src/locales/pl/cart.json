@@ -6,6 +6,11 @@
       "price": "Cena",
       "subtotal": "Suma",
       "quantityShort": "Ilość"
+    },
+    "cartItemsList": {
+      "item": "Przedmiot",
+      "quantity": "Ilość",
+      "empty": "Koszyk jest pusty"
     }
   }
 }

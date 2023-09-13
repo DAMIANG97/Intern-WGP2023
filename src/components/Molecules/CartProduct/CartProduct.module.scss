@@ -9,15 +9,15 @@
   @include mq.mq($from: tablet) {
     flex-direction: row;
     justify-content: space-between;
-    padding-bottom: 3.25rem;
+    padding-bottom: 0;
   }
 
   &::after {
     content: '';
     position: absolute;
     top: 100%;
-    left: 0;
-    width: 100%;
+    left: 2.5%;
+    width: 95%;
     height: 0.0625rem;
     background-color: var(--color-medium);
 
@@ -33,6 +33,8 @@
   color: var(--color-filter-text);
 
   @include mq.mq($from: tablet) {
+    max-width: 60%;
+    padding: 0 .25rem;
     color: var(--color-dark);
   }
 
@@ -63,6 +65,7 @@
     @include mq.mq($from: tablet) {
       font-size: var(--font-size-m);
       margin-top: 0.5rem;
+
     }
   }
 
@@ -96,10 +99,13 @@
   padding: 0 .625rem;
 
   @include mq.mq($from: tablet) {
+    min-width: 33%;
+    margin-right: .5rem;
     grid-template-columns: repeat(3, auto);
     grid-template-rows: auto 1fr;
     align-items: center;
     padding: 0;
+    justify-content: space-between;
   }
 
   &__description {

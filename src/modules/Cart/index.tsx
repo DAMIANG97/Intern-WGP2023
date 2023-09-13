@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 
 import Container from 'components/Atoms/Container';
+import CartItemsList from 'components/Molecules/CartItemsList';
 import ApplyDiscountSection from 'components/Organisms/ApplyDiscountSection';
 import Hero from 'components/Organisms/Hero';
 
@@ -15,6 +16,7 @@ const Cart: FunctionComponent<CartProps> = ({ heroContent, title }) => {
     <main>
       <Hero heroContent={heroContent} categoryId={title} />
       <Container>
+        <CartItemsList />
         <ApplyDiscountSection />
       </Container>
     </main>
