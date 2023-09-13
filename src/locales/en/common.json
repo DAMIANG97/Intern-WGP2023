@@ -91,6 +91,9 @@
       "confirmPassword": "Confirm Password",
       "submit": "Create Account",
       "error": "Error"
+    },
+    "modal": {
+      "close": "Close"
     }
   },
   "pages": {

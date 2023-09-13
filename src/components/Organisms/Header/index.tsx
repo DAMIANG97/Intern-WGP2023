@@ -9,6 +9,7 @@ import NavIcon from 'components/Atoms/NavIcon';
 import Menu from 'components/Molecules/Menu';
 import SearchBox from 'components/Molecules/SearchBox';
 import Sidemenu from 'components/Molecules/Sidemenu';
+import UserFormModal from 'components/UserFormsModal';
 
 import styles from './Header.module.scss';
 
@@ -20,6 +21,8 @@ interface HeaderProps {
 const Header: FunctionComponent<HeaderProps> = ({ localeOptions, menuContent }) => {
   const [searchVisible, setSearchVisible] = useState(false);
   const [menuVisible, setMenuVisible] = useState(false);
+  //TODO Change it when provider is ready
+  const isLogedIn = false;
   const toggleSearchVisible = () => {
     setSearchVisible((is) => !is);
     setMenuVisible(false);
@@ -27,6 +30,13 @@ const Header: FunctionComponent<HeaderProps> = ({ localeOptions, menuContent }) 
   const toggleMenuVisible = () => {
     setMenuVisible((is) => !is);
     setSearchVisible(false);
+  };
+
+  const [isAccountModalOpen, setIsAccountModalOpen] = useState(false);
+  const handleProfileClick = () => {
+    if (!isLogedIn) {
+      setIsAccountModalOpen(true);
+    }
   };
 
   return (
@@ -52,8 +62,14 @@ const Header: FunctionComponent<HeaderProps> = ({ localeOptions, menuContent }) 
         </AnimateHeight>
 
         <Logo />
-        <Sidemenu clickHandler={toggleSearchVisible} searchVisible={searchVisible} localeOptions={localeOptions} />
+        <Sidemenu
+          clickHandler={toggleSearchVisible}
+          searchVisible={searchVisible}
+          localeOptions={localeOptions}
+          profileClickHandler={handleProfileClick}
+        />
         <Menu content={menuContent} visible={menuVisible} />
+        <UserFormModal isOpen={isAccountModalOpen} onClose={() => setIsAccountModalOpen(false)} />
       </Container>
     </header>
   );

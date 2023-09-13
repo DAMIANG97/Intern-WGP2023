@@ -1,0 +1,66 @@
+@use 'sass-mq/_mq';
+@import '/src/styles/use';
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: var(--color-white);
+  border-radius: 0.5rem;
+  box-shadow: 0rem 0rem 0.625rem rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 100rem;
+  height: auto;
+  margin: 0.5rem;
+
+  @include mq.mq($until: mobile) {
+    max-width: 100%;
+  }
+}
+
+.close {
+  width: 1.875rem;
+  height: 1.875rem;
+  padding: 0;
+}
+
+.content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  @include mq.mq($from: desktop) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.modal-btn {
+  background-color: transparent;
+  border: none;
+}
+
+.form {
+  padding: 0.5rem 0.75rem;
+}
+
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+
+}

@@ -20,12 +20,19 @@ const ThemeSelect = dynamic(() => import('components/Organisms/ThemeSelect'), { 
 
 interface SidemenuProps {
   clickHandler: () => void;
+  profileClickHandler: () => void;
   searchVisible: boolean;
   localeOptions: Hybris.LocaleOptions;
 }
 
-const Sidemenu: FunctionComponent<SidemenuProps> = ({ clickHandler, searchVisible, localeOptions }) => {
+const Sidemenu: FunctionComponent<SidemenuProps> = ({
+  clickHandler,
+  searchVisible,
+  localeOptions,
+  profileClickHandler,
+}) => {
   const { itemsCount, status } = useContext(CartContext);
+
   return (
     <div className={styles.sidemenu}>
       <div className={styles['sidemenu__theme-selector']}>
@@ -51,7 +58,10 @@ const Sidemenu: FunctionComponent<SidemenuProps> = ({ clickHandler, searchVisibl
         <Link href={RoutePaths.home} className={clsx(styles.sidemenu__heart, styles.sidemenu__link)}>
           <HeartIcon />
         </Link>
-        <Link href={RoutePaths.home} className={clsx(styles.sidemenu__profile, styles.sidemenu__link)}>
+        <Link
+          href={RoutePaths.home}
+          className={clsx(styles.sidemenu__profile, styles.sidemenu__link)}
+          onClick={profileClickHandler}>
           <ProfileIcon />
         </Link>
         <Link

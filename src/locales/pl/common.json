@@ -91,6 +91,9 @@
       "confirmPassword": "Potwierdź hasło",
       "submit": "Utwórz konto",
       "error": "Wystąpił Błąd"
+    },
+    "modal": {
+      "close": "Close"
     }
   },
   "pages": {

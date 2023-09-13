@@ -24,34 +24,39 @@ const CreateAccountForm = () => {
   };
 
   return (
-    <form name="Create Account Form" className={styles.form} onSubmit={handleSubmit(onValid)}>
+    <form name={TAG} className={styles.form} onSubmit={handleSubmit(onValid)}>
       <span className={styles.title}>{t('components.createAccountForm.personalInformation')}</span>
       <FormInputText
         name={t('components.createAccountForm.firstName')}
         register={register}
         errors={errors}
-        required={true}></FormInputText>
+        required={true}
+      />
       <FormInputText
         name={t('components.createAccountForm.lastName')}
         register={register}
         errors={errors}
-        required={true}></FormInputText>
+        required={true}
+      />
       <span className={clsx(styles.title, styles['title--last'])}>{t('components.createAccountForm.security')}</span>
       <FormInputText
         name={t('components.createAccountForm.email')}
         register={register}
         errors={errors}
-        required={true}></FormInputText>
+        required={true}
+      />
       <FormInputText
         name={t('components.createAccountForm.password')}
         register={register}
         errors={errors}
-        required={true}></FormInputText>
+        required={true}
+      />
       <FormInputText
         name={t('components.createAccountForm.confirmPassword')}
         register={register}
         errors={errors}
-        required={true}></FormInputText>
+        required={true}
+      />
       <div className={styles['button-background']}>
         <Button disabled={isSubmitting || !isValid} className={styles.button} variant="green" type="submit">
           {t('components.createAccountForm.submit')}
