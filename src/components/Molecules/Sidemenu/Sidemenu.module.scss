@@ -59,7 +59,10 @@
     max-width: 4rem;
   }
 
-  &__profile,
+  &__mobile-content {
+    display: flex;
+  }
+
   &__heart {
     display: none;
 

@@ -82,6 +82,7 @@
       "loadingLabel": "Loading"
     },
     "createAccountForm": {
+      "title": "Create Account",
       "personalInformation": "Personal Information",
       "firstName": "First Name",
       "lastName": "Last Name",
@@ -90,10 +91,20 @@
       "password": "Password",
       "confirmPassword": "Confirm Password",
       "submit": "Create Account",
-      "error": "Error"
+      "error": "Error",
+      "passwordError": "Passwords should match!"
     },
     "modal": {
       "close": "Close"
+    },
+    "loginForm": {
+      "title": "Login",
+      "submit": "Login",
+      "emailError": "Not valid email!"
+    },
+    "form": {
+      "required-alert": "Field is required",
+      "field-error": "error"
     }
   },
   "pages": {

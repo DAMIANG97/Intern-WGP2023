@@ -18,9 +18,7 @@
         "select": "Wybierz",
         "country": "państwo",
         "title": "zwrot"
-      },
-      "required-alert": "Pole jest wymagane",
-      "field-error": "błąd"
+      }
     }
   }
 }

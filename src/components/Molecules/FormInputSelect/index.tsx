@@ -36,7 +36,7 @@ const FormInputSelect: FunctionComponent<FormInputSelectProps> = ({
   optionsArray,
   autoComplete,
 }) => {
-  const { t } = useTranslation('checkout');
+  const { t } = useTranslation();
   function getDefaultOptionText(name: string): string {
     return `${t('components.form.placeholders.select')} ${
       name === t('components.form.fields.country')

@@ -32,7 +32,7 @@ const mock = {
 };
 // TODO, REMOVE ONCE WE GET ACCESS TO THAT ENDPOINT
 const FormInputRadio: FunctionComponent<FormInputRadioProps> = ({ register, errors, required }) => {
-  const { t } = useTranslation('checkout');
+  const { t } = useTranslation();
   return (
     <>
       {mock.deliveryModes.map((mockItem) => (

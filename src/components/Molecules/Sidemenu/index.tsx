@@ -54,7 +54,7 @@ const Sidemenu: FunctionComponent<SidemenuProps> = ({
           {searchVisible === true ? <CloseIcon onClick={clickHandler} /> : <SearchIcon onClick={clickHandler} />}
         </Button>
       </div>
-      <div>
+      <div className={styles['sidemenu__mobile-content']}>
         <Link href={RoutePaths.home} className={clsx(styles.sidemenu__heart, styles.sidemenu__link)}>
           <HeartIcon />
         </Link>

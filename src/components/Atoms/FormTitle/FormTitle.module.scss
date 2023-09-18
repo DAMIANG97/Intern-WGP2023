@@ -1,0 +1,14 @@
+@use 'sass-mq/_mq';
+
+.title {
+  font-size: var(--font-size-l);
+  font-weight: 300;
+  line-height: 2;
+  color: var(--color-dark);
+  margin-bottom: 1rem;
+
+
+  @include mq.mq($from: desktop) {
+    font-size: var(--font-size-xl);
+  }
+}

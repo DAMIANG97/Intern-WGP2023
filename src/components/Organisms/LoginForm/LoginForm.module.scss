@@ -11,11 +11,11 @@
   @include mq.mq($from: tablet) {
     background-color: var(--color-white);
     padding: 3rem;
-
   }
 }
 
 .title {
+
   color: var(--color-filter-text);
   font-size: var(--font-size-xs);
   font-weight: 600;
@@ -27,14 +27,6 @@
     color: var(--color-dark);
     font-size: var(--font-size-m);
     margin-bottom: 2rem;
-  }
-}
-
-.title--last {
-  margin-top: 2rem;
-
-  @include mq.mq($from: tablet) {
-    margin-top: 3rem;
   }
 }
 

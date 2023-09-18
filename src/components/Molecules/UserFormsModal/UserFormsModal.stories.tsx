@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import UserFormsModal from 'components/UserFormsModal';
+import UserFormsModal from 'components/Molecules/UserFormsModal';
 
 const onCloseMock = () => {
   return;

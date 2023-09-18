@@ -18,9 +18,7 @@
         "select": "Select",
         "country": "country",
         "title": "title"
-      },
-      "required-alert": "Field is required",
-      "field-error": "error"
+      }
     }
   }
 }

@@ -14,7 +14,7 @@ interface FormErrorAlertProps {
 const TAG = 'FormErrorAlert';
 
 const FormErrorAlert: FunctionComponent<FormErrorAlertProps> = ({ message, name, className }) => {
-  const { t } = useTranslation('checkout');
+  const { t } = useTranslation();
   return (
     <span
       className={clsx(styles.error, className)}

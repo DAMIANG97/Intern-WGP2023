@@ -10,11 +10,13 @@ import styles from './UserFormsModal.module.scss';
 interface UserFormProps {
   isOpen: boolean;
   onClose: () => void;
+  children?: React.ReactNode;
 }
 
-const UserFormModal: FunctionComponent<UserFormProps> = ({ isOpen, onClose }) => {
+const UserFormModal: FunctionComponent<UserFormProps> = ({ isOpen, onClose, children }) => {
   const modalRef = useRef(null);
   const { t } = useTranslation('common');
+
   useClickOutside(modalRef, onClose);
   if (!isOpen) {
     return null;
@@ -33,10 +35,7 @@ const UserFormModal: FunctionComponent<UserFormProps> = ({ isOpen, onClose }) =>
             <CloseIcon />
           </Button>
         </div>
-        <div className={styles.content}>
-          <div className={styles.form}>Formularz 1</div>
-          <div className={styles.form}>Formularz 2</div>
-        </div>
+        <div className={styles.content}>{children}</div>
       </div>
     </div>
   );

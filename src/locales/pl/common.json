@@ -82,6 +82,7 @@
       "loadingLabel": "Ładowanie"
     },
     "createAccountForm": {
+      "title": "Załóż konto",
       "personalInformation": "Dane użytkownika",
       "firstName": "Imię",
       "lastName": "Nazwisko",
@@ -90,10 +91,20 @@
       "password": "Hasło",
       "confirmPassword": "Potwierdź hasło",
       "submit": "Utwórz konto",
-      "error": "Wystąpił Błąd"
+      "error": "Wystąpił Błąd",
+      "passwordError": "Hasła muszą być takie same!"
     },
     "modal": {
       "close": "Close"
+    },
+    "loginForm": {
+      "title": "Login",
+      "submit": "Login",
+      "emailError": "Niepoprawny email!"
+    },
+    "form": {
+      "required-alert": "Pole jest wymagane",
+      "field-error": "błąd"
     }
   },
   "pages": {

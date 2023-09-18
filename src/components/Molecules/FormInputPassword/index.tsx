@@ -1,47 +1,46 @@
-import React, { FunctionComponent } from 'react';
+import React, { ComponentProps, FunctionComponent } from 'react';
 import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
 import useTranslation from 'next-translate/useTranslation';
 
 import FormErrorAlert from 'components/Atoms/FormErrorAlert';
 import FormInputLabel from 'components/Atoms/FormInputLabel';
 
-import styles from './FormInputText.module.scss';
+import styles from './FormInputPassword.module.scss';
 
-interface FormInputTextProps {
-  name: string;
-  required?: boolean;
+interface FormInputPasswordProps extends ComponentProps<'input'> {
   register: UseFormRegister<FieldValues>;
   errors: FieldErrors<FieldValues>;
-  autoComplete?: string;
-  validate?: (arg0: string) => true | string;
+  validate?: (arg0: FieldValues, arg1: FieldValues) => true | string;
+  name: string;
 }
 
-const TAG = 'FormInputText';
+const TAG = 'FormInputPassword';
 
 const MAX_LENGHT = 200;
 
-const FormInputText: FunctionComponent<FormInputTextProps> = ({
+const FormInputPassword: FunctionComponent<FormInputPasswordProps> = ({
   name,
   required = false,
   errors,
   register,
-  autoComplete,
   validate,
+  ...props
 }) => {
   const { t } = useTranslation();
+
   return (
     <FormInputLabel name={name} required={required}>
       <input
-        autoComplete={autoComplete}
+        {...props}
         className={styles.input}
         aria-describedby={`${name}-${t('components.form.field-error')}`}
-        type="text"
+        type="password"
         aria-invalid={errors[name] ? 'true' : 'false'}
         aria-required={required}
         maxLength={MAX_LENGHT}
         {...register(name, {
           required: required ? t('components.form.required-alert') : required,
-          validate: validate ? validate : () => true,
+          validate: validate ? validate : undefined,
         })}
       />
       {errors[name] && (
@@ -54,6 +53,6 @@ const FormInputText: FunctionComponent<FormInputTextProps> = ({
     </FormInputLabel>
   );
 };
-FormInputText.displayName = TAG;
+FormInputPassword.displayName = TAG;
 
-export default FormInputText;
+export default FormInputPassword;
