@@ -41,11 +41,11 @@ const FormInputRadio: FunctionComponent<FormInputRadioProps> = ({ register, erro
         <label key={mockItem.name} className={styles.label}>
           <input
             className={styles.input}
-            aria-describedby={`${t('components.form.delivery-method')}-${t('components.form.field-error')}`}
+            aria-describedby={`${t('components.form.delivery-method')}-${t('common:components.form.field-error')}`}
             type="radio"
             value={mockItem.code}
             {...register(t('components.form.delivery-method'), {
-              required: required ? t('components.form.required-alert') : required,
+              required: required ? t('common:components.form.required-alert') : required,
             })}
           />
 
@@ -60,7 +60,9 @@ const FormInputRadio: FunctionComponent<FormInputRadioProps> = ({ register, erro
       {errors['Delivery Method'] && (
         <FormErrorAlert
           name={t('components.form.delivery-method')}
-          message={`${errors[t('components.form.delivery-method')]?.message}` ?? t('components.form.required-alert')}
+          message={
+            `${errors[t('components.form.delivery-method')]?.message}` ?? t('common: components.form.required-alert')
+          }
         />
       )}
     </>

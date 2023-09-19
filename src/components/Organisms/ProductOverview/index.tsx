@@ -2,6 +2,7 @@ import React, { FunctionComponent, useMemo } from 'react';
 import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
 
+import FallbackImage from 'components/Atoms/FallbackImage';
 import H1 from 'components/Atoms/H1';
 import ProductPrice from 'components/Atoms/ProductPrice';
 import AddQuantityToCart from 'components/Molecules/AddQuantityToCart';
@@ -32,11 +33,18 @@ const ProductOverview: FunctionComponent<ProductOverviewProps> = ({ product, lin
         return { text: '', dot: '' };
     }
   }, [product.stock.stockLevelStatus, t]);
-  const images = product.images.filter((image) => image.format === 'product');
+  const images = product.images ? product.images.filter((image) => image.format === 'product') : null;
   return (
     <section className={styles['product-overview']}>
       <div className={styles['product-overview__carousel']}>
-        <ProductSlider images={images} />
+        {images ? (
+          <ProductSlider images={images} />
+        ) : (
+          <FallbackImage
+            imgAltText={t('components.fallbackImage.ariaLabel')}
+            className={styles['product-overview__fallback-image']}
+          />
+        )}
       </div>
       <div className={styles['product-overview__informations']}>
         <H1 className={styles['product-overview__name']}>

@@ -30,7 +30,6 @@ const Checkout: React.FC<CheckoutProps> = () => {
       <main className={styles.content}>
         <CheckoutForm />
       </main>
-      <Breadcrumb />
     </Container>
   );
 };

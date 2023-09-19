@@ -36,7 +36,7 @@ const FormInputSelect: FunctionComponent<FormInputSelectProps> = ({
   optionsArray,
   autoComplete,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('checkout');
   function getDefaultOptionText(name: string): string {
     return `${t('components.form.placeholders.select')} ${
       name === t('components.form.fields.country')
@@ -51,11 +51,11 @@ const FormInputSelect: FunctionComponent<FormInputSelectProps> = ({
           autoComplete={autoComplete}
           className={styles.select}
           aria-required={required}
-          aria-describedby={`${name}-${t('components.form.field-error')}`}
+          aria-describedby={`${name}-${t('common:components.form.field-error')}`}
           defaultValue=""
           aria-invalid={errors[name] ? 'true' : 'false'}
           {...register(name, {
-            required: required ? t('components.form.required-alert') : required,
+            required: required ? t('common:components.form.required-alert') : required,
           })}>
           <option className={styles.option} disabled hidden value="">
             {getDefaultOptionText(name)}

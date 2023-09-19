@@ -34,6 +34,9 @@
     },
     "reviewModal": {
       "message": "Your review has been successfully sent"
+    },
+    "fallbackImage": {
+      "ariaLabel": "Fallback Image"
     }
   }
 }
