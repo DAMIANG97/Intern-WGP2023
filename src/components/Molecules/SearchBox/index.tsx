@@ -68,6 +68,7 @@ const SearchBox = () => {
         onChange={inputChangeHandler}
         placeholder={t('components.search.placeholder')}
         className={clsx(styles['search-input'], inputValue.length >= 3 && styles['search-input--no-shadow'])}
+        shouldBeVisible={false}
       />
       <SearchButton />
       <AnimateHeight

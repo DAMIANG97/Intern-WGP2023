@@ -19,12 +19,13 @@ const CheckoutProvider: FunctionComponent<CheckoutProviderProps> = ({ children }
   const curr = getCookie('NEXT_CURRENCY');
   const localeSuffix = `lang=${lang}&curr=${curr}`;
 
+  const openCheckout = () => setIsCheckoutOpen(true);
+
   //TO DO GET PROPER DATA WHEN USER FORM IS DONE
   const countryCode = 'JP';
   const user = 'current';
   const orderNumber = '00002301';
 
-  const openCheckout = () => setIsCheckoutOpen(true);
   const countriesQuery = useQuery({
     queryKey: ['getCountries'],
     queryFn: getCountries,
@@ -58,8 +59,7 @@ const CheckoutProvider: FunctionComponent<CheckoutProviderProps> = ({ children }
   const deliveryModes = deliveryModesQuery.data || null;
 
   const checkoutData = useMemo(
-    () => ({ countries: countries, titles: titles, regions: regions, deliveryModes: deliveryModes, openCheckout }),
-
+    () => ({ countries, titles, regions, deliveryModes, openCheckout }),
     [countries, titles, regions, deliveryModes],
   );
 

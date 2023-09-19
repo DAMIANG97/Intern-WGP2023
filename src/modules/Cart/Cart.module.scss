@@ -1,7 +1,13 @@
+@use 'sass-mq/_mq';
+
 .cartPage {
   &__layout {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    @include mq.mq($until: desktop) {
+      flex-direction: column;
+    }
   }
 }

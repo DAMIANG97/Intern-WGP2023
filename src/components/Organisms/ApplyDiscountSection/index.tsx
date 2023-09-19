@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent, FunctionComponent, useState } from 'react';
+import React, { ChangeEvent, FunctionComponent, useState } from 'react';
 import useTranslation from 'next-translate/useTranslation';
 
 import ApplyDiscountButton from 'components/Atoms/ApplyDiscountButton';
@@ -10,22 +10,27 @@ import styles from './ApplyDiscountSection.module.scss';
 const TAG = 'Apply Discount Section';
 
 const ApplyDiscountSection: FunctionComponent = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('cart');
   const [inputValue, setInputValue] = useState('');
 
   const inputChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
 
-  const submitHandler = (e: FormEvent): void => {
-    e.preventDefault();
-  };
   return (
     <section className={styles.applyDiscount__accordionItemContent}>
-      <AccordionItem name={t('components.cart.accordionItemName')} variant="discount">
-        <form name={t('components.cart.formName')} onSubmit={submitHandler}>
+      <AccordionItem
+        name={t('components.cart.accordionItemName')}
+        variant="discount"
+        modifierClassName={styles.applyDiscount__name}>
+        <form name={t('components.cart.formName')}>
           <div className={styles.applyDiscount__accordionItemContainer}>
-            <Input className={styles.applyDiscount__input} value={inputValue} onChange={inputChangeHandler} />
+            <Input
+              className={styles.applyDiscount__input}
+              value={inputValue}
+              onChange={inputChangeHandler}
+              shouldBeVisible={true}
+            />
             <ApplyDiscountButton />
           </div>
         </form>

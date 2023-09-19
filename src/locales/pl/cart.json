@@ -11,6 +11,20 @@
       "item": "Przedmiot",
       "quantity": "Ilość",
       "empty": "Koszyk jest pusty"
+    },
+    "cart": {
+      "accordionItemName": "Zastosój kod zniżkowy",
+      "applyDiscountButton": "Zastosój zniżkę",
+      "summaryAccordionTitle": "Koszty dostawy i podatek",
+      "summaryTitle": "Podsumowanie",
+      "formName": "Zastosój zniżkę",
+      "countryLabel": "Kraj",
+      "zipCodeLabel": "Kod pocztowy",
+      "proceedToCheckout": "Przejdź do kasy",
+      "subTotal": "Kwota",
+      "orderTotal": "Suma całkowita",
+      "proceedMultipleAddresses": "Przejdź do logowania z wieloma adresami",
+      "deliveryModesLegend": "Sposoby dostawy"
     }
   }
 }

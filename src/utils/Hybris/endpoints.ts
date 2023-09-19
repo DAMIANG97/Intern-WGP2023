@@ -12,6 +12,7 @@ export const CART_ENDPOINT = 'carts';
 export const USERS_ENDPOINT = 'users';
 export const ANONYMOUS_ENDPOINT = 'anonymous';
 export const ENTRIES_ENDPOINT = 'entries';
+export const COUNTRIES_ENDPOINT = 'countries';
 export const CHECKOUT_ENDPOINT = 'cms/pages/Checkout';
 export const CARTPAGE_ENDPOINT = 'cms/pages/cartPage';
 

@@ -16,6 +16,7 @@ interface AccordionItemProps {
   linkStatus?: boolean;
   linkHandler?: (is: boolean) => void;
   variant?: 'filter' | 'productInfo' | 'discount';
+  modifierClassName?: string;
 }
 
 const TAG = 'AccordionItem';
@@ -28,6 +29,7 @@ const AccordionItem: FunctionComponent<AccordionItemProps> = ({
   linkStatus,
   linkHandler,
   variant,
+  modifierClassName,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const clickHandler = () => {
@@ -53,7 +55,7 @@ const AccordionItem: FunctionComponent<AccordionItemProps> = ({
             {name}
           </Link>
         ) : (
-          <span className={styles.accordion__name}>{name}</span>
+          <span className={clsx(styles.accordion__name, modifierClassName)}>{name}</span>
         )}
         <Button
           className={styles['accordion__button']}

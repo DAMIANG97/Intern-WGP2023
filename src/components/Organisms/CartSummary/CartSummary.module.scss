@@ -1,0 +1,71 @@
+@use 'sass-mq/_mq';
+@import '/src/styles/use';
+
+.summary {
+  &__container {
+    background-color: var(--bg-product-details-title);
+    padding: 2rem;
+
+    @include mq.mq($from: desktop) {
+      width: 20rem;
+    }
+  }
+
+  &__title {
+    border-bottom: 1px solid var(--color-summary-heading-border);
+    padding-bottom: 0.75rem;
+    font-weight: 600;
+    font-size: var(--font-size-m);
+  }
+
+  &__inputsContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5rem;
+  }
+
+  &__input {
+    border: 1px solid var(--color-secondary);
+    padding: 0.5rem 0.75rem;
+  }
+
+  &__accordionItem {
+    border-bottom: none;
+    padding: 0;
+    justify-content: flex-start;
+    color: var(--color-medium);
+    border-bottom: none;
+  }
+
+  &__selectButton {
+    max-width: none;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--color-secondary);
+  }
+
+  &__countriesList {
+    overflow: auto;
+  }
+
+  &__link {
+    font-size: var(--font-size-xs);
+    text-decoration: underline;
+    padding-bottom: 0.25rem;
+    text-align: center;
+    border-bottom: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    @include themeDark {
+      color: var(--color-medium)
+    }
+
+    @include themeLight {
+      color: var(--color-medium)
+    }
+
+  }
+}

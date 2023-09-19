@@ -134,5 +134,14 @@
       padding: 0;
       justify-content: flex-start;
     }
+
+    .main-input {
+      width: 100px;
+    }
+
+    .accordion__header--open .accordion__name,
+    .accordion__header .accordion__name {
+      padding: 0;
+    }
   }
 }

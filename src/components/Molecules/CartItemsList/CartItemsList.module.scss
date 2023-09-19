@@ -9,7 +9,7 @@
   width: 100%;
 
   @include mq.mq($from: tablet) {
-    margin-top: 6.4375rem;
+    margin-top: 1rem;
     margin-right: 3.625rem;
     max-width: 51.125rem
   }

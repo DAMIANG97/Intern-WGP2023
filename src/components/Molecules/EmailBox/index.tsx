@@ -47,6 +47,7 @@ const EmailBox = () => {
             required: true,
           })}
           autoComplete="email"
+          shouldBeVisible={false}
         />
         <ArrowButton />
       </form>

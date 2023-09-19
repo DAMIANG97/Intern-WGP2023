@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
 import useTranslation from 'next-translate/useTranslation';
 
+import clsx from 'clsx';
 import FormErrorAlert from 'components/Atoms/FormErrorAlert';
 
 import styles from './FormInputRadio.module.scss';
@@ -10,6 +11,7 @@ interface FormInputRadioProps {
   register: UseFormRegister<FieldValues>;
   errors: FieldErrors<FieldValues>;
   required: boolean;
+  variant?: string;
 }
 
 const TAG = 'FormInputRadio';
@@ -31,8 +33,8 @@ const mock = {
   ],
 };
 // TODO, REMOVE ONCE WE GET ACCESS TO THAT ENDPOINT
-const FormInputRadio: FunctionComponent<FormInputRadioProps> = ({ register, errors, required }) => {
-  const { t } = useTranslation();
+const FormInputRadio: FunctionComponent<FormInputRadioProps> = ({ register, errors, required, variant }) => {
+  const { t } = useTranslation('checkout');
   return (
     <>
       {mock.deliveryModes.map((mockItem) => (
@@ -46,7 +48,8 @@ const FormInputRadio: FunctionComponent<FormInputRadioProps> = ({ register, erro
               required: required ? t('components.form.required-alert') : required,
             })}
           />
-          <p className={styles.description}>
+
+          <p className={clsx(styles.description, styles[`description--${variant}`])}>
             <span>{mockItem.deliveryCost.formattedValue}</span>
             <span>
               {mockItem.name}&nbsp;{mockItem.description}
