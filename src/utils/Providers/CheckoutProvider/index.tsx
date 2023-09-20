@@ -1,20 +1,22 @@
-import React, { FunctionComponent, ReactNode, useMemo, useState } from 'react';
+import React, { FunctionComponent, ReactNode, useContext, useMemo, useState } from 'react';
 
 import { useQuery } from '@tanstack/react-query';
 import { getCookie } from 'cookies-next';
 import getCountries from 'utils/Hybris/Checkout/getCountries';
 import getDeliveryMode from 'utils/Hybris/Checkout/getDeliveryModes';
-import getRegions from 'utils/Hybris/Checkout/getRegions';
 import getTitles from 'utils/Hybris/Checkout/getTitles';
+import { CartContext } from 'utils/Providers/CartProvider/context';
 import { CheckoutContext } from 'utils/Providers/CheckoutProvider/context';
+import { UserContext } from 'utils/Providers/UserProvider/context';
 
 interface CheckoutProviderProps {
   children: ReactNode;
 }
 
 const CheckoutProvider: FunctionComponent<CheckoutProviderProps> = ({ children }) => {
-  //TO DO CHANGE STATE WHEN FORM IS OPEN
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
+  const { token, user } = useContext(UserContext);
+  const { cartGUID } = useContext(CartContext);
   const lang = getCookie('NEXT_LOCALE');
   const curr = getCookie('NEXT_CURRENCY');
   const localeSuffix = `lang=${lang}&curr=${curr}`;
@@ -22,9 +24,6 @@ const CheckoutProvider: FunctionComponent<CheckoutProviderProps> = ({ children }
   const openCheckout = () => setIsCheckoutOpen(true);
 
   //TO DO GET PROPER DATA WHEN USER FORM IS DONE
-  const countryCode = 'JP';
-  const user = 'current';
-  const orderNumber = '00002301';
 
   const countriesQuery = useQuery({
     queryKey: ['getCountries'],
@@ -42,18 +41,21 @@ const CheckoutProvider: FunctionComponent<CheckoutProviderProps> = ({ children }
 
   const titles = titlesQuery.data || null;
 
-  const regionsQuery = useQuery({
-    queryKey: ['getRegions', countryCode, localeSuffix],
-    queryFn: getRegions,
-    enabled: isCheckoutOpen,
-  });
+  // const regionsQuery = useQuery({
+  //   queryKey: ['getRegions', countryCode, localeSuffix],
+  //   queryFn: getRegions,
+  //   enabled: isCheckoutOpen,
+  // });
 
-  const regions = regionsQuery.data || null;
+  //const regions = regionsQuery.data || null;
+  const regions = null;
+
+  //TODO FIX REGIONS
 
   const deliveryModesQuery = useQuery({
-    queryKey: ['getDeliveryModes', localeSuffix, orderNumber, user],
+    queryKey: ['getDeliveryModes', localeSuffix, cartGUID, user, token],
     queryFn: getDeliveryMode,
-    enabled: isCheckoutOpen,
+    enabled: isCheckoutOpen && !!user && !!token && !!cartGUID,
   });
 
   const deliveryModes = deliveryModesQuery.data || null;

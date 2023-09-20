@@ -66,7 +66,7 @@ const FormInputSelect: FunctionComponent<FormInputSelectProps> = ({
           <FormErrorAlert
             className={styles['error-message']}
             name={name}
-            message={`${errors[name]?.message}` ?? t('components.form.required-alert')}
+            message={`${errors[name]?.message}` ?? t('common:components.form.required-alert')}
           />
         )}
       </FormInputLabel>

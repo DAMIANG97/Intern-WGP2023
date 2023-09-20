@@ -54,6 +54,7 @@
     grid-column: span 1;
     justify-self: left;
     transition: all 0.5s;
+    z-index: 10;
 
     @include mq.mq($from: tablet) {
       display: block;

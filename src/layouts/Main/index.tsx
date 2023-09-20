@@ -6,6 +6,7 @@ import Header from 'components/Organisms/Header';
 import CartProvider from 'utils/Providers/CartProvider';
 import CheckoutProvider from 'utils/Providers/CheckoutProvider';
 import ThemeProvider from 'utils/Providers/ThemeProvider';
+import UserProvider from 'utils/Providers/UserProvider';
 
 interface LayoutProps {
   title: string;
@@ -16,14 +17,16 @@ interface LayoutProps {
 
 const LayoutMain: FunctionComponent<LayoutProps> = ({ title, ...pageProps }, page) => (
   <ThemeProvider>
-    <CartProvider>
-      <CheckoutProvider>
-        <Header localeOptions={pageProps.localeOptions} menuContent={pageProps.menuContent} />
-        <Seo title={title} />
-        <Suspense>{page}</Suspense>
-        <Footer footerContent={pageProps.footerContent} localeOptions={pageProps.localeOptions} />
-      </CheckoutProvider>
-    </CartProvider>
+    <UserProvider>
+      <CartProvider>
+        <CheckoutProvider>
+          <Header localeOptions={pageProps.localeOptions} menuContent={pageProps.menuContent} />
+          <Seo title={title} />
+          <Suspense>{page}</Suspense>
+          <Footer footerContent={pageProps.footerContent} localeOptions={pageProps.localeOptions} />
+        </CheckoutProvider>
+      </CartProvider>
+    </UserProvider>
   </ThemeProvider>
 );
 

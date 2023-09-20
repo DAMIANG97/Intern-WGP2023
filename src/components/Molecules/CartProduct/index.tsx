@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useContext } from 'react';
 import Image from 'next/image';
 import useTranslation from 'next-translate/useTranslation';
 
@@ -7,6 +7,7 @@ import ProductPrice from 'components/Atoms/ProductPrice';
 import DeleteEntryButton from 'components/Molecules/DeleteEntryButton';
 import ProductQuantityInput from 'components/Molecules/ProductQuantityInput';
 import { BASE_URL } from 'utils/Hybris/endpoints';
+import { UserContext } from 'utils/Providers/UserProvider/context';
 
 import styles from './CartProduct.module.scss';
 
@@ -17,7 +18,7 @@ interface CartProductProps {
 const TAG = 'CartProduct';
 
 const CartProduct: FunctionComponent<CartProductProps> = ({ entry }) => {
-  const userId = 'anonymous'; //TODO CHANGE WHEN WE GET AUTHENTICATION
+  const { user, token } = useContext(UserContext);
   const { t } = useTranslation('cart');
 
   const cartImage = entry.product.images.find((image) => image.format === 'thumbnail');
@@ -52,14 +53,15 @@ const CartProduct: FunctionComponent<CartProductProps> = ({ entry }) => {
           <span className={styles['product-price__description']}>{t('components.product.price')}</span>
           <ProductPrice variant="cart">{entry.basePrice.formattedValue}</ProductPrice>
         </div>
-        <ProductQuantityInput entry={entry} userId={userId} />
+        <ProductQuantityInput entry={entry} user={user} token={token} />
         <div className={styles['product-price__wrapper']}>
           <span className={styles['product-price__description']}>{t('components.product.subtotal')}</span>
           <ProductPrice variant="cart">{entry.totalPrice.formattedValue}</ProductPrice>
         </div>
         <DeleteEntryButton
-          userId={userId}
+          user={user}
           entryNumber={entry.entryNumber}
+          token={token}
           className={styles['product-price__delete-button']}
         />
       </div>

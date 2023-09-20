@@ -61,7 +61,7 @@ const FormInputRadio: FunctionComponent<FormInputRadioProps> = ({ register, erro
         <FormErrorAlert
           name={t('components.form.delivery-method')}
           message={
-            `${errors[t('components.form.delivery-method')]?.message}` ?? t('common: components.form.required-alert')
+            `${errors[t('components.form.delivery-method')]?.message}` ?? t('common:components.form.required-alert')
           }
         />
       )}

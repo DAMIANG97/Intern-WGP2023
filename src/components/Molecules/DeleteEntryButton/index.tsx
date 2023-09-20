@@ -11,18 +11,27 @@ import { CartContext } from 'utils/Providers/CartProvider/context';
 import styles from './DeleteEntryButton.module.scss';
 
 interface DeleteEntryButtonProps {
-  userId: string;
+  user: string;
   entryNumber: number;
   className?: string;
+  token: string;
 }
 
 const TAG = 'DeleteEntryButton';
 
-const DeleteEntryButton: FunctionComponent<DeleteEntryButtonProps> = ({ userId, entryNumber, className }) => {
+const DeleteEntryButton: FunctionComponent<DeleteEntryButtonProps> = ({ user, entryNumber, className, token }) => {
   const { cartRefresh, cartGUID, isRefetching } = useContext(CartContext);
   const { mutate, isLoading } = useMutation(deleteCartEntry);
   const clickHandler = () => {
-    mutate({ userId: userId, cartId: cartGUID, entryNumber: entryNumber }, { onSuccess: () => cartRefresh() });
+    mutate(
+      {
+        userId: user,
+        cartId: cartGUID,
+        entryNumber: entryNumber,
+        token: token,
+      },
+      { onSuccess: () => cartRefresh() },
+    );
   };
   return (
     <Button

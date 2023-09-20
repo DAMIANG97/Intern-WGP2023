@@ -5,11 +5,13 @@ interface Params {
   userId: string;
   cartId: string;
   entryNumber: number;
+  token: string;
 }
 
-function deleteCartEntry({ userId, cartId, entryNumber }: Params) {
+function deleteCartEntry({ userId, cartId, entryNumber, token }: Params) {
   return apiFetch(`${BASESITE_URL}/${USERS_ENDPOINT}/${userId}/${CART_ENDPOINT}/${cartId}/entries/${entryNumber}`, {
     method: 'DELETE',
+    headers: { Authorization: token },
   });
 }
 

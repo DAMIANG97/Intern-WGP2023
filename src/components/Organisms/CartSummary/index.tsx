@@ -4,6 +4,7 @@ import useTranslation from 'next-translate/useTranslation';
 
 import { useMutation } from '@tanstack/react-query';
 import clsx from 'clsx';
+import Button from 'components/Atoms/Button';
 import Input from 'components/Atoms/Input';
 import LinkComponent from 'components/Atoms/LinkComponent';
 import ProceedToCheckoutButton from 'components/Atoms/ProceedToCheckoutButton';
@@ -14,6 +15,7 @@ import Select from 'components/Molecules/Select';
 import addAddress from 'utils/Hybris/Checkout/addAddress';
 import { CartContext } from 'utils/Providers/CartProvider/context';
 import { CheckoutContext } from 'utils/Providers/CheckoutProvider/context';
+import { UserContext } from 'utils/Providers/UserProvider/context';
 
 import styles from './CartSummary.module.scss';
 
@@ -25,8 +27,9 @@ const CartSummary: FunctionComponent = () => {
   const [inputValue, setInputValue] = useState('');
 
   const [selectedCountryOption, setSelectedCountryOption] = useState<string | null>('Poland');
-  const { cartCode, cartGUID } = useContext(CartContext);
+  const { cartCode } = useContext(CartContext);
   const { countries, openCheckout } = useContext(CheckoutContext);
+  const { user, token } = useContext(UserContext);
   const countriesList = countries?.countries.map((country) => {
     return country.name;
   });
@@ -53,7 +56,7 @@ const CartSummary: FunctionComponent = () => {
 
   const onValid: SubmitHandler<FieldValues> = (e) => {
     const body = JSON.stringify(e);
-    const data = { body: body, params: { userId: cartGUID, cartCode: cartCode } };
+    const data = { body: body, params: { userId: user, cartCode: cartCode, token: token } };
     mutate(data);
   };
 
@@ -86,6 +89,7 @@ const CartSummary: FunctionComponent = () => {
             />
             <FormInputRadio register={register} errors={errors} required variant="summary" />
           </div>
+          <Button type="submit"> Submit</Button>
         </form>
       </AccordionItem>
       <OrderTotalSummary subTotal={mockTotalPrice} total={mockTotalPrice} />

@@ -9,6 +9,7 @@ import FormInputRadio from 'components/Molecules/FormInputRadio';
 import addAddress from 'utils/Hybris/Checkout/addAddress';
 import { CartContext } from 'utils/Providers/CartProvider/context';
 import { CheckoutContext } from 'utils/Providers/CheckoutProvider/context';
+import { UserContext } from 'utils/Providers/UserProvider/context';
 
 import styles from './CheckoutForm.module.scss';
 
@@ -17,8 +18,9 @@ interface CheckoutFormProps {}
 const TAG = 'CheckoutForm';
 
 const CheckoutForm: FunctionComponent<CheckoutFormProps> = () => {
-  const { openCheckout } = useContext(CheckoutContext);
-  const { cartCode, cartGUID } = useContext(CartContext);
+  const { openCheckout, countries, titles } = useContext(CheckoutContext);
+  const { cartCode } = useContext(CartContext);
+  const { user, token } = useContext(UserContext);
   const { t } = useTranslation('checkout');
 
   useEffect(() => {
@@ -33,8 +35,19 @@ const CheckoutForm: FunctionComponent<CheckoutFormProps> = () => {
   const { mutate, status } = useMutation(addAddress);
 
   const onValid: SubmitHandler<FieldValues> = (e) => {
-    const body = JSON.stringify(e);
-    const data = { body: body, params: { userId: cartGUID, cartCode: cartCode } };
+    console.error(e[t('components.form.fields.country')]);
+    const isocode = countries?.countries.find((item) => item.name === e[t('components.form.fields.country')])?.isocode;
+    const body = JSON.stringify({
+      title: e.Title,
+      titleCode: titles?.titles.find((title) => title.name === e[t('components.form.fields.title')]),
+      firstName: e[t('components.form.fields.first-name')],
+      lastName: e[t('components.form.fields.last-name')],
+      line1: e[t('components.form.fields.address1')],
+      postalCode: e[t('components.form.fields.address2')],
+      town: e[t('components.form.fields.city')],
+      country: { isocode: isocode },
+    });
+    const data = { body: body, params: { userId: user, cartCode: cartCode, token: token } };
     mutate(data);
   };
 

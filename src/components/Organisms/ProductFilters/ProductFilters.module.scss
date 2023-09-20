@@ -21,6 +21,7 @@
   @include mq.mq($from: tablet) {
     position: static;
     width: 18rem;
+    z-index: 2;
 
     @include themeDark {
       background-color: var(--color-white);

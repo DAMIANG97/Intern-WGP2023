@@ -6,6 +6,7 @@ interface AddAddressData {
   params: {
     userId: string;
     cartCode: string;
+    token: string;
   };
 }
 
@@ -15,6 +16,10 @@ function addAddress({ body, params }: AddAddressData): Promise<unknown> {
     {
       method: 'POST',
       body: body,
+      headers: {
+        'content-type': 'application/json',
+        authorization: params.token,
+      },
     },
   );
 }

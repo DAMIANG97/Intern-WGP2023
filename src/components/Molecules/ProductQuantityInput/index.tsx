@@ -15,13 +15,14 @@ import styles from './ProductQuantityInput.module.scss';
 
 interface ProductQuantityInputProps {
   entry: Hybris.CartEntry;
-  userId: string;
+  user: string;
+  token: string;
 }
 
 const TAG = 'ProductQuantityInput';
 const maxQuantityWithLowStock = 2;
 
-const ProductQuantityInput: FunctionComponent<ProductQuantityInputProps> = ({ entry, userId }) => {
+const ProductQuantityInput: FunctionComponent<ProductQuantityInputProps> = ({ entry, user, token }) => {
   const [quantity, setQuantity] = useState(entry.quantity);
   const { mutate, isLoading } = useMutation(changeQuantity);
   const { t } = useTranslation('cart');
@@ -36,7 +37,12 @@ const ProductQuantityInput: FunctionComponent<ProductQuantityInputProps> = ({ en
     }
 
     debounce(() => {
-      const params = { userId: userId, cartId: cartGUID, entryNumber: entry.entryNumber };
+      const params = {
+        userId: user,
+        cartId: cartGUID,
+        entryNumber: entry.entryNumber,
+        token: token,
+      };
       const body = { quantity: number };
       mutate(
         { params: params, body: body },

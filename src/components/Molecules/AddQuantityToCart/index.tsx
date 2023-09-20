@@ -5,6 +5,7 @@ import { useMutation } from '@tanstack/react-query';
 import Button from 'components/Atoms/Button';
 import addToCart from 'utils/Hybris/postQuantityToCart';
 import { CartContext } from 'utils/Providers/CartProvider/context';
+import { UserContext } from 'utils/Providers/UserProvider/context';
 
 import styles from 'components/Molecules/AddQuantityToCart/AddQuantityToCart.module.scss';
 
@@ -23,7 +24,10 @@ const AddQuantityToCart: FunctionComponent<AddQuantityToCartProps> = ({ product 
   const disableAddToCart = product.stock.stockLevelStatus === 'outOfStock';
 
   const { cartRefresh, cartGUID } = useContext(CartContext);
+  const { user, token } = useContext(UserContext);
   const data = {
+    user: user,
+    token: token,
     guid: cartGUID,
     quantity: quantity,
     product: {

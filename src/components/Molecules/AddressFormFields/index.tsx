@@ -47,7 +47,7 @@ const AddressFormFields: FunctionComponent<AddressFormFieldsProps> = ({ register
       { name: t('components.form.fields.first-name'), type: 'text', required: true, autoComplete: 'given-name' },
       { name: t('components.form.fields.last-name'), type: 'text', required: true, autoComplete: 'family-name' },
       { name: t('components.form.fields.address1'), type: 'text', required: true, autoComplete: 'address-line1' },
-      { name: t('components.form.fields.address2'), type: 'text', required: false, autoComplete: 'address-line2' },
+      { name: t('components.form.fields.address2'), type: 'text', required: true, autoComplete: 'address-line2' },
       { name: t('components.form.fields.city'), type: 'text', required: true, autoComplete: 'address-level2' },
     ];
 

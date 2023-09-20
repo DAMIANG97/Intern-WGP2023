@@ -18,13 +18,13 @@ function getCurrentCart() {
   return '';
 }
 
-function useNewCart(userId: string) {
+function useNewCart(userId: string, token: string) {
   const [cartGUID, setCartGUID] = useState<string | null>(null);
   useEffect(() => {
     setCartGUID(getCurrentCart);
   }, []);
   useQuery({
-    queryKey: ['getNewCart', userId],
+    queryKey: ['getNewCart', userId, token],
     queryFn: getNewCart,
     enabled: cartGUID === '',
     onSuccess: (data) => {
@@ -33,7 +33,7 @@ function useNewCart(userId: string) {
       setCookie('WGPCART', newCookie, { secure: true, sameSite: 'strict' });
     },
   });
-  return cartGUID;
+  return { cartGUID: cartGUID, setCartGUID };
 }
 
 export default useNewCart;

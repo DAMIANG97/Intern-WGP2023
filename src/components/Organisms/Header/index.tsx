@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent, useContext, useState } from 'react';
 import AnimateHeight from 'react-animate-height';
 
 import clsx from 'clsx';
@@ -13,6 +13,7 @@ import UserFormModal from 'components/Molecules/UserFormsModal';
 import CreateAccountForm from 'components/Organisms/CreateAccountForm';
 import LoginForm from 'components/Organisms/LoginForm';
 import { lockScreen } from 'utils/lockScreen';
+import { UserContext } from 'utils/Providers/UserProvider/context';
 
 import styles from './Header.module.scss';
 
@@ -24,9 +25,8 @@ interface HeaderProps {
 const Header: FunctionComponent<HeaderProps> = ({ localeOptions, menuContent }) => {
   const [searchVisible, setSearchVisible] = useState(false);
   const [menuVisible, setMenuVisible] = useState(false);
-
-  //TODO Change it when provider is ready
-  const isLogedIn = false;
+  const { authStatus } = useContext(UserContext);
+  const { userStatus } = authStatus;
   const toggleSearchVisible = () => {
     setSearchVisible((is) => !is);
     setMenuVisible(false);
@@ -38,7 +38,7 @@ const Header: FunctionComponent<HeaderProps> = ({ localeOptions, menuContent }) 
 
   const [isAccountModalOpen, setIsAccountModalOpen] = useState(false);
   const handleProfileClick = () => {
-    if (!isLogedIn) {
+    if (userStatus !== 'loggedIn') {
       lockScreen.lock();
       setIsAccountModalOpen(true);
     }

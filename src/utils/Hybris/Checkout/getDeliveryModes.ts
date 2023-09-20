@@ -15,16 +15,19 @@ export interface DeliveryModes {
 }
 
 type Arguments = QueryFunctionContext<
-  [queryFnName: 'getDeliveryModes', localeSuffix: string, orderNumber: string, user: string]
+  [queryFnName: 'getDeliveryModes', localeSuffix: string, orderNumber: string, user: string, token: string]
 >;
 
 function getDeliveryModes({
   signal,
-  queryKey: [, localeSuffix, orderNumber, user],
+  queryKey: [, localeSuffix, orderNumber, user, token],
 }: Arguments): Promise<DeliveryModes[]> {
   return apiFetch<DeliveryModes[]>(`${BASESITE_URL}/users/${user}/carts/${orderNumber}/deliverymodes?${localeSuffix}`, {
     signal,
     credentials: 'same-origin',
+    headers: {
+      authorization: token,
+    },
   });
 }
 

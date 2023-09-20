@@ -6,6 +6,7 @@ interface ChangeQuantityParams {
     userId: string;
     cartId: string;
     entryNumber: number;
+    token: string;
   };
   body: {
     quantity: number;
@@ -19,6 +20,7 @@ async function changeQuantity({ params, body }: ChangeQuantityParams) {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: params.token,
       },
       body: JSON.stringify(body),
     },

@@ -6,7 +6,7 @@ const meta: Meta<typeof ProductQuantityInput> = {
   title: 'Components/ProductQuantityInput',
   component: ProductQuantityInput,
   tags: ['autodocs'],
-  args: { entry: cartEntryMock, userId: 'anonymous' },
+  args: { entry: cartEntryMock, user: 'anonymous' },
 };
 
 export default meta;
