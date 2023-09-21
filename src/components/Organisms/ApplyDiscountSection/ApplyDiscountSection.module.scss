@@ -41,4 +41,9 @@
       text-align: center;
     }
   }
+
+  &__error {
+    color: var(--color-danger);
+    margin-top: 0.5rem;
+  }
 }
