@@ -24,7 +24,10 @@
       "subTotal": "Subtotal",
       "orderTotal": "Order Total",
       "proceedMultipleAddresses": "Check Out with Multiple Addresses",
-      "deliveryModesLegend": "Delivery Modes"
+      "deliveryModesLegend": "Delivery Modes",
+      "tax": "Tax",
+      "discounts": "Discount",
+      "delivery": "Delivery Cost"
     }
   }
 }

@@ -4,7 +4,6 @@
   }
 
   &__totalDetails {
-    border-top: 1px solid var(--color-summary-heading-border);
     padding-top: 1rem;
   }
 
@@ -18,7 +17,8 @@
   &__content {
     font-weight: 400;
     font-size: var(--font-size-xs);
-    color: var(--color-filter-text)
+    color: var(--color-filter-text);
+    margin-left: 0;
   }
 
   &__totalSummary {

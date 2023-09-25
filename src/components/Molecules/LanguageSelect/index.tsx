@@ -2,6 +2,7 @@ import { FunctionComponent, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 import Select from 'components/Molecules/Select';
+import { setCookie } from 'cookies-next';
 
 interface LanguageSelectProps {
   defaultLanguage: Hybris.Language;
@@ -17,6 +18,7 @@ const LanguageSelect: FunctionComponent<LanguageSelectProps> = ({ defaultLanguag
     const languageIsocode = languageOptions.find((language) => language.nativeName === languageName)?.isocode;
     const path = router.asPath;
     if (languageIsocode) {
+      setCookie('NEXT_LOCALE', languageIsocode);
       const routerPush = async () => {
         router.push(path, path, { locale: languageIsocode });
       };

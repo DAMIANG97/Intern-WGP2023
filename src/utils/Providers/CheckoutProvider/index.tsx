@@ -1,7 +1,7 @@
 import React, { FunctionComponent, ReactNode, useContext, useMemo, useState } from 'react';
 
 import { useQuery } from '@tanstack/react-query';
-import { getCookie } from 'cookies-next';
+import getLocaleSuffix from 'utils/getLocaleSuffix';
 import getCountries from 'utils/Hybris/Checkout/getCountries';
 import getDeliveryMode from 'utils/Hybris/Checkout/getDeliveryModes';
 import getTitles from 'utils/Hybris/Checkout/getTitles';
@@ -17,13 +17,9 @@ const CheckoutProvider: FunctionComponent<CheckoutProviderProps> = ({ children }
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const { token, user } = useContext(UserContext);
   const { cartGUID } = useContext(CartContext);
-  const lang = getCookie('NEXT_LOCALE');
-  const curr = getCookie('NEXT_CURRENCY');
-  const localeSuffix = `lang=${lang}&curr=${curr}`;
+  const localeSuffix = getLocaleSuffix();
 
   const openCheckout = () => setIsCheckoutOpen(true);
-
-  //TO DO GET PROPER DATA WHEN USER FORM IS DONE
 
   const countriesQuery = useQuery({
     queryKey: ['getCountries'],
@@ -41,17 +37,6 @@ const CheckoutProvider: FunctionComponent<CheckoutProviderProps> = ({ children }
 
   const titles = titlesQuery.data || null;
 
-  // const regionsQuery = useQuery({
-  //   queryKey: ['getRegions', countryCode, localeSuffix],
-  //   queryFn: getRegions,
-  //   enabled: isCheckoutOpen,
-  // });
-
-  //const regions = regionsQuery.data || null;
-  const regions = null;
-
-  //TODO FIX REGIONS
-
   const deliveryModesQuery = useQuery({
     queryKey: ['getDeliveryModes', localeSuffix, cartGUID, user, token],
     queryFn: getDeliveryMode,
@@ -61,8 +46,8 @@ const CheckoutProvider: FunctionComponent<CheckoutProviderProps> = ({ children }
   const deliveryModes = deliveryModesQuery.data || null;
 
   const checkoutData = useMemo(
-    () => ({ countries, titles, regions, deliveryModes, openCheckout }),
-    [countries, titles, regions, deliveryModes],
+    () => ({ countries, titles, deliveryModes, openCheckout }),
+    [countries, titles, deliveryModes],
   );
 
   return <CheckoutContext.Provider value={checkoutData}>{children}</CheckoutContext.Provider>;

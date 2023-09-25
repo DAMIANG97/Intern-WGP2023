@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 
 import Container from 'components/Atoms/Container';
+import H1 from 'components/Atoms/H1';
 import CartItemsList from 'components/Molecules/CartItemsList';
 import ApplyDiscountSection from 'components/Organisms/ApplyDiscountSection';
 import CartSummary from 'components/Organisms/CartSummary';
@@ -18,16 +19,13 @@ const Cart: FunctionComponent<CartProps> = ({ heroContent, title }) => {
   return (
     <main>
       <Hero heroContent={heroContent} categoryId={title} />
-      <Container>
-        <div className={styles.cartPage__layout}>
-          <div>
-            <CartItemsList />
-            <ApplyDiscountSection />
-          </div>
-          <div>
-            <CartSummary />
-          </div>
+      <H1 className={styles['cartPage__mobile-title']}>{title}</H1>
+      <Container className={styles.cartPage__layout}>
+        <div className={styles['cartPage__list-container']}>
+          <CartItemsList />
+          <ApplyDiscountSection />
         </div>
+        <CartSummary />
       </Container>
     </main>
   );

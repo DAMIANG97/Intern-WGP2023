@@ -2,7 +2,6 @@
   "components": {
     "form": {
       "shipping-address": "Shipping Address",
-      "delivery-method": "Delivery method",
       "next": "Next",
       "form-error": "Something went wrong",
       "fields": {

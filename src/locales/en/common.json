@@ -94,7 +94,8 @@
     },
     "form": {
       "required-alert": "Field is required",
-      "field-error": "error"
+      "field-error": "error",
+      "delivery-method": "Delivery method"
     }
   },
   "pages": {

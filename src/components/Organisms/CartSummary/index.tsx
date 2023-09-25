@@ -1,18 +1,13 @@
-import React, { ChangeEvent, FunctionComponent, useContext, useEffect, useState } from 'react';
+import React, { FunctionComponent, useCallback, useContext, useEffect } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import useTranslation from 'next-translate/useTranslation';
 
 import { useMutation } from '@tanstack/react-query';
-import clsx from 'clsx';
-import Button from 'components/Atoms/Button';
-import Input from 'components/Atoms/Input';
-import LinkComponent from 'components/Atoms/LinkComponent';
 import ProceedToCheckoutButton from 'components/Atoms/ProceedToCheckoutButton';
 import AccordionItem from 'components/Molecules/AccordionItem';
 import FormInputRadio from 'components/Molecules/FormInputRadio';
 import OrderTotalSummary from 'components/Molecules/OrderTotalSummary';
-import Select from 'components/Molecules/Select';
-import addAddress from 'utils/Hybris/Checkout/addAddress';
+import postDeliveryMode from 'utils/Hybris/Checkout/postDeliveryMode';
 import { CartContext } from 'utils/Providers/CartProvider/context';
 import { CheckoutContext } from 'utils/Providers/CheckoutProvider/context';
 import { UserContext } from 'utils/Providers/UserProvider/context';
@@ -20,84 +15,81 @@ import { UserContext } from 'utils/Providers/UserProvider/context';
 import styles from './CartSummary.module.scss';
 
 const TAG = 'Cart Summary Section';
-const mockTotalPrice = '$ 5456.66';
 
 const CartSummary: FunctionComponent = () => {
-  const { t } = useTranslation('cart');
-  const [inputValue, setInputValue] = useState('');
-
-  const [selectedCountryOption, setSelectedCountryOption] = useState<string | null>('Poland');
-  const { cartCode } = useContext(CartContext);
-  const { countries, openCheckout } = useContext(CheckoutContext);
+  const { t } = useTranslation();
+  const { cartCode, cart, cartRefresh } = useContext(CartContext);
   const { user, token } = useContext(UserContext);
-  const countriesList = countries?.countries.map((country) => {
-    return country.name;
-  });
-  // TODO: to remove when it will be in the form
-  useEffect(() => {
-    openCheckout();
-  }, [openCheckout]);
-
-  const inputChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-  };
-
-  const countrySelectHandler = (country: string) => {
-    setSelectedCountryOption(country);
-  };
-
+  const { deliveryModes, openCheckout } = useContext(CheckoutContext);
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+    watch,
+    setValue,
+  } = useForm({
+    defaultValues: {
+      [t('components.form.delivery-method')]: cart?.deliveryMode.code,
+    },
+  });
 
-  const { mutate } = useMutation(addAddress);
+  const { mutate } = useMutation(postDeliveryMode, { onSuccess: async () => cartRefresh() });
 
-  const onValid: SubmitHandler<FieldValues> = (e) => {
-    const body = JSON.stringify(e);
-    const data = { body: body, params: { userId: user, cartCode: cartCode, token: token } };
-    mutate(data);
-  };
+  const onValid: SubmitHandler<FieldValues> = useCallback(
+    (e) => {
+      const data = {
+        userId: user,
+        cartCode: cartCode,
+        token: token,
+        selectedValue: e[t('components.form.delivery-method')],
+      };
+      mutate(data);
+    },
+    [cartCode, mutate, token, user, t],
+  );
+  useEffect(() => {
+    setValue(t('components.form.delivery-method'), cart?.deliveryMode.code);
+  }, [cart?.deliveryMode.code, setValue, t]);
+
+  useEffect(() => {
+    openCheckout();
+    const subscription = watch(() => handleSubmit(onValid)(), {
+      [t('components.form.delivery-method')]: cart?.deliveryMode.code,
+    });
+    return () => subscription.unsubscribe();
+  }, [handleSubmit, watch, onValid, openCheckout, cart, t]);
 
   return (
     <section className={styles.summary__container}>
-      <h3 className={styles.summary__title}>{t('components.cart.summaryTitle')}</h3>
-      <AccordionItem
-        name={t('components.cart.summaryAccordionTitle')}
-        variant="discount"
-        modifierClassName={styles.summary__name}>
-        <form onSubmit={handleSubmit(onValid)} name={TAG}>
-          <div className={styles.summary__inputsContainer}>
-            {countriesList && (
-              <Select
-                options={countriesList}
-                selectedOption={selectedCountryOption}
-                submitHandler={countrySelectHandler}
-                label={t('components.cart.countryLabel')}
-                modifierClass={styles.summary__selectButton}
-                listModifierClass={styles.summary__countriesList}
-                name="country-select"
-              />
-            )}
-            <Input
-              className={styles.summary__input}
-              text={t('components.cart.zipCodeLabel')}
-              value={inputValue}
-              onChange={inputChangeHandler}
-              shouldBeVisible={true}
-            />
-            <FormInputRadio register={register} errors={errors} required variant="summary" />
-          </div>
-          <Button type="submit"> Submit</Button>
-        </form>
-      </AccordionItem>
-      <OrderTotalSummary subTotal={mockTotalPrice} total={mockTotalPrice} />
-      <ProceedToCheckoutButton />
+      <h3 className={styles.summary__title}>{t('cart:components.cart.summaryTitle')}</h3>
+      {deliveryModes ? (
+        <AccordionItem
+          name={t('cart:components.cart.summaryAccordionTitle')}
+          variant="discount"
+          modifierClassName={styles.summary__name}>
+          <form onSubmit={handleSubmit(onValid)} name={TAG} className={styles.summary__form}>
+            {deliveryModes.deliveryModes.map((mode) => (
+              <FormInputRadio key={mode.name} register={register} errors={errors} required value={mode.code}>
+                <p className={styles['summary__shipping-description']}>
+                  <span>{mode.deliveryCost.formattedValue}</span>
+                  <span>
+                    {mode.name}&nbsp;{mode.description}
+                  </span>
+                </p>
+              </FormInputRadio>
+            ))}
+          </form>
+        </AccordionItem>
+      ) : null}
 
-      <LinkComponent href="#" className={clsx(styles.summary__link)}>
-        {t('components.cart.proceedMultipleAddresses')}
-      </LinkComponent>
+      <OrderTotalSummary
+        subTotal={cart?.subTotal.formattedValue ?? ''}
+        total={cart?.totalPriceWithTax.formattedValue ?? ''}
+        tax={cart?.totalTax.formattedValue ?? '0'}
+        discounts={cart?.totalDiscounts.formattedValue ?? '0'}
+        delivery={cart?.deliveryCost.formattedValue ?? '0'}
+      />
+      <ProceedToCheckoutButton />
     </section>
   );
 };

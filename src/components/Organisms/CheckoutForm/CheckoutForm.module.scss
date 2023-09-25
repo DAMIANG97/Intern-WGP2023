@@ -81,3 +81,10 @@
 .alert {
   color: var(--color-danger);
 }
+
+.shipping-description {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

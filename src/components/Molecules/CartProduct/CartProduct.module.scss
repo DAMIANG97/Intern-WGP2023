@@ -28,14 +28,17 @@
 }
 
 .product-info {
-  padding: 0 .625rem;
   display: flex;
   color: var(--color-filter-text);
 
   @include mq.mq($from: tablet) {
-    max-width: 60%;
+    width: 55%;
     padding: 0 .25rem;
     color: var(--color-dark);
+  }
+
+  @include mq.mq($from: wide) {
+    width: 60%;
   }
 
   &__image-background {
@@ -96,16 +99,21 @@
   grid-template-columns: repeat(2, auto);
   grid-column-gap: 0.5rem;
   justify-content: space-between;
-  padding: 0 .625rem;
 
   @include mq.mq($from: tablet) {
-    min-width: 33%;
-    margin-right: .5rem;
-    grid-template-columns: repeat(3, auto);
+    width: 45%;
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto 1fr;
     align-items: center;
     padding: 0;
     justify-content: space-between;
+    text-align: center;
+    grid-column-gap: 0;
+
+  }
+
+  @include mq.mq($from: wide) {
+    width: 40%;
   }
 
   &__description {

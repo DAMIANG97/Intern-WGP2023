@@ -24,7 +24,10 @@
       "subTotal": "Kwota",
       "orderTotal": "Suma całkowita",
       "proceedMultipleAddresses": "Przejdź do logowania z wieloma adresami",
-      "deliveryModesLegend": "Sposoby dostawy"
+      "deliveryModesLegend": "Sposoby dostawy",
+      "tax": "Podatek",
+      "discounts": "Rabat",
+      "delivery": "Koszt wysyłki"
     }
   }
 }

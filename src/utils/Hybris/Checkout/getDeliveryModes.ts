@@ -3,15 +3,17 @@ import apiFetch from 'utils/apiFetch';
 import { BASESITE_URL } from 'utils/Hybris/endpoints';
 
 export interface DeliveryModes {
-  code: string;
-  description: string;
-  name: string;
-  deliveryCost: {
-    currencyIso: string;
-    formattedValue: string;
-    priceType: string;
-    value: number;
-  };
+  deliveryModes: {
+    code: string;
+    description: string;
+    name: string;
+    deliveryCost: {
+      currencyIso: string;
+      formattedValue: string;
+      priceType: string;
+      value: number;
+    };
+  }[];
 }
 
 type Arguments = QueryFunctionContext<
@@ -21,8 +23,8 @@ type Arguments = QueryFunctionContext<
 function getDeliveryModes({
   signal,
   queryKey: [, localeSuffix, orderNumber, user, token],
-}: Arguments): Promise<DeliveryModes[]> {
-  return apiFetch<DeliveryModes[]>(`${BASESITE_URL}/users/${user}/carts/${orderNumber}/deliverymodes?${localeSuffix}`, {
+}: Arguments): Promise<DeliveryModes> {
+  return apiFetch<DeliveryModes>(`${BASESITE_URL}/users/${user}/carts/${orderNumber}/deliverymodes?${localeSuffix}`, {
     signal,
     credentials: 'same-origin',
     headers: {

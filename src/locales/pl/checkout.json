@@ -2,7 +2,6 @@
   "components": {
     "form": {
       "shipping-address": "Adres wysyłki",
-      "delivery-method": "Sposób dostawy",
       "next": "Dalej",
       "form-error": "Zepsuło się",
       "fields": {

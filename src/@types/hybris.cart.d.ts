@@ -43,6 +43,7 @@ declare namespace Hybris {
     costCenter: CostCenter;
     paymentType: PaymentType;
     purchaseOrderNumber: string;
+    subTotal: CartPrice;
   }
   interface CartPrice {
     currencyIso: string;

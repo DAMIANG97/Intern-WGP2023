@@ -2,6 +2,7 @@ import { FunctionComponent, ReactNode, useContext, useEffect, useMemo } from 're
 
 import { useQuery } from '@tanstack/react-query';
 import { setCookie } from 'cookies-next';
+import getLocaleSuffix from 'utils/getLocaleSuffix';
 import useNewCart from 'utils/Hooks/useNewCart';
 import getCart from 'utils/Hybris/Cart/getCart';
 import restoreCart from 'utils/Hybris/Cart/restoreCart';
@@ -17,6 +18,7 @@ const CartProvider: FunctionComponent<CartProviderProps> = ({ children }) => {
   const { user, token, authStatus } = useContext(UserContext);
   const { userStatus } = authStatus;
   const { cartGUID, setCartGUID } = useNewCart(user, token);
+  const localeSuffix = getLocaleSuffix();
 
   // delete cart code from cookies when user logs out.
   useEffect(() => {
@@ -28,7 +30,7 @@ const CartProvider: FunctionComponent<CartProviderProps> = ({ children }) => {
 
   //assign anonymous cart to user when user logs in.
   const restoredCart = useQuery({
-    queryKey: ['restoreCart', token, cartGUID],
+    queryKey: ['restoreCart', token, cartGUID, localeSuffix],
     queryFn: restoreCart,
     enabled: !!cartGUID && cartGUID.length > 8 && user !== 'anonymous',
     onSuccess: (data) => {
@@ -39,7 +41,7 @@ const CartProvider: FunctionComponent<CartProviderProps> = ({ children }) => {
   });
   //get cart for logged in user when cart code is present or get cart for anonymous user
   const cart = useQuery({
-    queryKey: ['getCart', user, cartGUID, token],
+    queryKey: ['getCart', user, cartGUID, token, localeSuffix],
     queryFn: getCart,
     enabled:
       (!!cartGUID && cartGUID.length === 8 && user !== 'anonymous') ||
@@ -48,6 +50,7 @@ const CartProvider: FunctionComponent<CartProviderProps> = ({ children }) => {
   const context = useMemo<CartContextValue>(() => {
     if (cart.isSuccess && cartGUID) {
       return {
+        cart: cart.data,
         itemsCount: cart.data.totalItems,
         status: cart.status,
         cartGUID: cartGUID,
@@ -59,6 +62,7 @@ const CartProvider: FunctionComponent<CartProviderProps> = ({ children }) => {
     }
     if (user !== 'anonymous' && restoredCart.isSuccess) {
       return {
+        cart: restoredCart.data,
         itemsCount: restoredCart.data.totalItems,
         status: restoredCart.status,
         cartGUID: restoredCart.data.code,
@@ -76,6 +80,7 @@ const CartProvider: FunctionComponent<CartProviderProps> = ({ children }) => {
       cartRefresh: cart.refetch,
       isRefetching: cart.isRefetching,
       cartCode: initialValue.cartCode,
+      cart: initialValue.cart,
     };
   }, [cart, cartGUID, restoredCart, user]);
 

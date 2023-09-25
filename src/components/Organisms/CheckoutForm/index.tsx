@@ -18,7 +18,7 @@ interface CheckoutFormProps {}
 const TAG = 'CheckoutForm';
 
 const CheckoutForm: FunctionComponent<CheckoutFormProps> = () => {
-  const { openCheckout, countries, titles } = useContext(CheckoutContext);
+  const { openCheckout, countries, titles, deliveryModes } = useContext(CheckoutContext);
   const { cartCode } = useContext(CartContext);
   const { user, token } = useContext(UserContext);
   const { t } = useTranslation('checkout');
@@ -58,8 +58,17 @@ const CheckoutForm: FunctionComponent<CheckoutFormProps> = () => {
         <AddressFormFields register={register} errors={errors} />
       </fieldset>
       <fieldset className={styles.fieldset}>
-        <legend className={styles.title}>{t('components.form.delivery-method')}</legend>
-        <FormInputRadio register={register} errors={errors} required />
+        <legend className={styles.title}>{t('common:components.form.delivery-method')}</legend>
+        {deliveryModes?.deliveryModes.map((mode) => (
+          <FormInputRadio key={mode.name} register={register} errors={errors} required value={mode.code}>
+            <p className={styles['shipping-description']}>
+              <span>{mode.deliveryCost.formattedValue}</span>
+              <span>
+                {mode.name}&nbsp;{mode.description}
+              </span>
+            </p>
+          </FormInputRadio>
+        ))}
       </fieldset>
       <div className={styles['button-background']}>
         <Button disabled={status === 'loading'} className={styles.button} variant="green" type="submit">

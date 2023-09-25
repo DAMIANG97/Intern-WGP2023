@@ -94,7 +94,8 @@
     },
     "form": {
       "required-alert": "Pole jest wymagane",
-      "field-error": "błąd"
+      "field-error": "błąd",
+      "delivery-method": "Sposób dostawy"
     }
   },
   "pages": {
