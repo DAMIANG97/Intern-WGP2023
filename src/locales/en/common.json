@@ -4,7 +4,8 @@
     "productFilters": {
       "label": "Product Filters",
       "heading": "Shoping Options",
-      "button-text": "Shop By"
+      "button-text": "Shop By",
+      "clearAllFilters": "Clear All Filters"
     },
     "menu": {
       "label": "Menu"

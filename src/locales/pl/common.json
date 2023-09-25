@@ -4,7 +4,8 @@
     "productFilters": {
       "label": "Filtry Produktów",
       "heading": "Opcje wyszukiwania",
-      "button-text": "Filtry"
+      "button-text": "Filtry",
+      "clearAllFilters": "Wyczysć filtry"
     },
     "menu": {
       "label": "Menu"
