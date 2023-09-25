@@ -19,7 +19,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ url, name, image, price, rati
           {image ? (
             <Image src={image} className={styles.picture} width={100} height={100} alt={name} />
           ) : (
-            <FallbackImage imgAltText={t('components.fallbackImage.ariaLabel')} className="" />
+            <FallbackImage imgAltText={t('components.fallbackImage.ariaLabel')} />
           )}
         </div>
         <div className={styles.title}> {name} </div>

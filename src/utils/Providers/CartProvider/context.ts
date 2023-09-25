@@ -6,6 +6,8 @@ import noop from 'lodash/noop';
 export type ItemsCount = number;
 
 export interface CartContextValue {
+  totalPrice: Hybris.CartPrice | null;
+  deliveryMode: Hybris.DeliveryMode | null;
   itemsCount: ItemsCount;
   status: QueryStatus;
   cartGUID: string;
@@ -17,6 +19,8 @@ export interface CartContextValue {
 }
 
 export const initialValue: CartContextValue = {
+  totalPrice: null,
+  deliveryMode: null,
   itemsCount: 0,
   status: 'loading',
   cartGUID: '',

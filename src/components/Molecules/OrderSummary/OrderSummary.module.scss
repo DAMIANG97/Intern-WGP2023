@@ -1,0 +1,81 @@
+@use 'sass-mq/_mq';
+
+.background {
+  display: none;
+
+  @include mq.mq($from: tablet) {
+    display: flex;
+    justify-self: right;
+    align-items: start;
+    justify-content: center;
+    width: 24.625rem;
+    height: fit-content;
+    background-color: var(--bg-product-details-title);
+    margin: .5rem;
+    margin-top: 4.5rem;
+
+  }
+
+  .order-summary {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1.3125rem;
+
+    &--price {
+      font-family: Roboto;
+      font-weight: 400;
+    }
+
+    &__header {
+      line-height: 1.5;
+      margin-top: .625rem;
+      margin-bottom: 1.3125rem;
+    }
+
+    &__lane {
+      display: flex;
+      width: 100%;
+      border: 0.5px solid var(--color-nobel);
+      margin: 0;
+    }
+
+    &__shipping {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1.0625rem;
+      font-size: var(--font-size-xs);
+      font-weight: 400;
+      color: var(--color-filter-text);
+    }
+
+    &__shipping-cart,
+    &__shipping-rate {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    &__shipping-cart {
+      line-height: 1.45;
+      margin-top: .8125rem;
+      margin-bottom: 1.0625rem;
+    }
+
+    &__total-price {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      font-size: 1.125rem;
+      line-height: 1.5;
+      margin-top: 1rem;
+      margin-bottom: 1.9375rem;
+    }
+
+    &__item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: .4375rem;
+    }
+  }
+}

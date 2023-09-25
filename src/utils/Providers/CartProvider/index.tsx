@@ -47,10 +47,14 @@ const CartProvider: FunctionComponent<CartProviderProps> = ({ children }) => {
       (!!cartGUID && cartGUID.length === 8 && user !== 'anonymous') ||
       (!!cartGUID && cartGUID.length > 8 && user === 'anonymous'),
   });
+
   const context = useMemo<CartContextValue>(() => {
     if (cart.isSuccess && cartGUID) {
       return {
         cart: cart.data,
+        totalItems: cart.data.totalItems,
+        totalPrice: cart.data.totalPrice,
+        deliveryMode: cart.data.deliveryMode,
         itemsCount: cart.data.totalItems,
         status: cart.status,
         cartGUID: cartGUID,
@@ -63,6 +67,9 @@ const CartProvider: FunctionComponent<CartProviderProps> = ({ children }) => {
     if (user !== 'anonymous' && restoredCart.isSuccess) {
       return {
         cart: restoredCart.data,
+        totalItems: restoredCart.data.totalItems,
+        totalPrice: restoredCart.data.totalPrice,
+        deliveryMode: restoredCart.data.deliveryMode,
         itemsCount: restoredCart.data.totalItems,
         status: restoredCart.status,
         cartGUID: restoredCart.data.code,
@@ -73,6 +80,8 @@ const CartProvider: FunctionComponent<CartProviderProps> = ({ children }) => {
       };
     }
     return {
+      totalPrice: initialValue.totalPrice,
+      deliveryMode: initialValue.deliveryMode,
       itemsCount: initialValue.itemsCount,
       status: initialValue.status,
       cartGUID: initialValue.cartGUID,

@@ -37,6 +37,16 @@
         "country": "państwo",
         "title": "zwrot"
       }
+    },
+    "summary": {
+      "order-summary": "Podsumowanie Zamówienia",
+      "cart-subtotal": "Suma koszyka",
+      "shipping": "Wysyłka",
+      "order-total": "Suma zamówienia",
+      "empty": "Pusty",
+      "items-in-cart": "Produktów w koszyku",
+      "quantity-short": "Ilość: ",
+      "view-details": "Szczegóły"
     }
   }
 }

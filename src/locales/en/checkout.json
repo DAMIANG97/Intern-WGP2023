@@ -37,6 +37,16 @@
         "country": "country",
         "title": "title"
       }
+    },
+    "summary": {
+      "order-summary": "Order Summary",
+      "cart-subtotal": "Cart Subtotal",
+      "shipping": "Shipping",
+      "order-total": "Order Total",
+      "empty": "empty",
+      "items-in-cart": "Items in Cart",
+      "quantity-short": "Qty: ",
+      "view-details": "View Details"
     }
   }
 }

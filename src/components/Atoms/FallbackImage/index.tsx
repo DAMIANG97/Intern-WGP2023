@@ -4,7 +4,7 @@ import LogoIcon from 'assets/icons/logo.svg';
 
 interface FallbackImageProps {
   imgAltText: string;
-  className: string;
+  className?: string;
 }
 
 const FallbackImage: React.FC<FallbackImageProps> = ({ imgAltText, className }) => {

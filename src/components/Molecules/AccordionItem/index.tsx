@@ -15,7 +15,7 @@ interface AccordionItemProps {
   parentOpen?: boolean;
   linkStatus?: boolean;
   linkHandler?: (is: boolean) => void;
-  variant?: 'filter' | 'productInfo' | 'discount';
+  variant?: 'filter' | 'productInfo' | 'discount' | 'summary' | 'product-details';
   modifierClassName?: string;
 }
 

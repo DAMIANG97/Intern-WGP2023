@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { useRouter } from 'next/router';
 import useTranslation from 'next-translate/useTranslation';
 
+import clsx from 'clsx';
 import BreadcrumbItem from 'components/Molecules/BreadcrumbItem';
 
 import styles from './Breadcrumb.module.scss';
@@ -9,9 +10,10 @@ import styles from './Breadcrumb.module.scss';
 type BreadcrumbVariant = 'light' | 'dark';
 export interface BreadcrumbProps {
   variant?: BreadcrumbVariant;
+  hideOnMobile?: boolean;
 }
 
-const Breadcrumb: React.FC<BreadcrumbProps> = ({ variant }) => {
+const Breadcrumb: React.FC<BreadcrumbProps> = ({ variant, hideOnMobile }) => {
   const { t } = useTranslation();
   const router = useRouter();
 
@@ -35,7 +37,11 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ variant }) => {
 
   return (
     <nav aria-label={t('components.breadcrumb.label')}>
-      <ol className={styles.breadcrumbs__container}>
+      <ol
+        className={clsx(
+          styles.breadcrumbs__container,
+          hideOnMobile && styles['breadcrumbs__container--hide-on-mobile'],
+        )}>
         <BreadcrumbItem variant={variant} href="/">
           {t('components.breadcrumb.home')}
         </BreadcrumbItem>

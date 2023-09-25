@@ -144,4 +144,71 @@
       padding: 0;
     }
   }
+
+  &--summary {
+    .accordion__header {
+      @include themeDark {
+        color: var(--color-medium);
+      }
+
+      @include themeLight {
+        color: var(--color-medium);
+      }
+
+      .accordion__name {
+        line-height: 1.5;
+        padding: 0;
+        font-weight: 300;
+        font-size: var(--font-size-m);
+      }
+
+      &--open {
+
+        & .accordion__link,
+        .accordion__name {
+          color: var(--color-medium);
+        }
+      }
+    }
+  }
+
+  &--product-details {
+    .accordion__button {
+      padding: 0.5rem;
+    }
+
+    .accordion__header {
+      width: 100%;
+      justify-content: left;
+      height: fit-content;
+      border-bottom: none;
+
+      .accordion & {
+        padding-left: 0;
+      }
+
+      @include themeDark {
+        color: var(--color-filter-text);
+      }
+
+      @include themeLight {
+        color: var(--color-filter-text);
+      }
+
+      .accordion__name {
+        line-height: 1.5;
+        font-weight: 400;
+        font-size: var(--font-size-xs);
+      }
+
+      &--open {
+
+        & .accordion__link,
+        .accordion__name {
+          color: var(--color-filter-text);
+        }
+      }
+
+    }
+  }
 }
