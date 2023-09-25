@@ -1,0 +1,22 @@
+@use 'sass-mq/_mq';
+
+.form {
+  background-color: var(--color-form-background);
+  width: 100%;
+  padding: 2rem 0.75rem;
+  box-sizing: border-box;
+
+  @include mq.mq($from: tablet) {
+    background-color: var(--color-white);
+  }
+}
+
+.button {
+  margin-top: 2rem;
+  width: 100%;
+
+  @include mq.mq($from: tablet) {
+    width: 11rem;
+    align-self: flex-end;
+  }
+}

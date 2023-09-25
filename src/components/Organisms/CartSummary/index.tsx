@@ -29,7 +29,7 @@ const CartSummary: FunctionComponent = () => {
     setValue,
   } = useForm({
     defaultValues: {
-      [t('components.form.delivery-method')]: cart?.deliveryMode.code,
+      [t('components.form.delivery-method')]: deliveryModes ? cart?.deliveryMode?.code : null,
     },
   });
 
@@ -48,13 +48,13 @@ const CartSummary: FunctionComponent = () => {
     [cartCode, mutate, token, user, t],
   );
   useEffect(() => {
-    setValue(t('components.form.delivery-method'), cart?.deliveryMode.code);
-  }, [cart?.deliveryMode.code, setValue, t]);
+    deliveryModes ? setValue(t('components.form.delivery-method'), cart?.deliveryMode?.code) : '';
+  }, [cart?.deliveryMode?.code, setValue, t, deliveryModes]);
 
   useEffect(() => {
     openCheckout();
     const subscription = watch(() => handleSubmit(onValid)(), {
-      [t('components.form.delivery-method')]: cart?.deliveryMode.code,
+      [t('components.form.delivery-method')]: cart?.deliveryMode?.code,
     });
     return () => subscription.unsubscribe();
   }, [handleSubmit, watch, onValid, openCheckout, cart, t]);
@@ -87,7 +87,7 @@ const CartSummary: FunctionComponent = () => {
         total={cart?.totalPriceWithTax.formattedValue ?? ''}
         tax={cart?.totalTax.formattedValue ?? '0'}
         discounts={cart?.totalDiscounts.formattedValue ?? '0'}
-        delivery={cart?.deliveryCost.formattedValue ?? '0'}
+        delivery={cart?.deliveryCost?.formattedValue ?? '0'}
       />
       <ProceedToCheckoutButton />
     </section>

@@ -20,7 +20,7 @@
 
   @include mq.mq($from: tablet) {
     width: unset;
-    height: unset;
+    height: 3.125rem;
   }
 }
 

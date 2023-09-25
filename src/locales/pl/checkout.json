@@ -1,5 +1,24 @@
 {
   "components": {
+    "payment": {
+      "payment-method": "Sposób płatnosci",
+      "card-type": "Rodzaj karty",
+      "account-holder-name": "Imię i nazwisko własciciela",
+      "card-number": "Numer karty",
+      "expiration-month": "Data waznosci(miesiąc)",
+      "expiration-year": "Data waznosci(rok)",
+      "security-number": "CVV",
+      "card-type-placeholder": "Wybierz Rodzaj",
+      "expiration-month-placeholder": "Wybierz miesiąc",
+      "expiration-year-placeholder": "Wybierz rok",
+      "card-number-alert": "Wpisz 16 cyfrowy numer",
+      "security-number-alert": "Wpisz 3 cyfrowy numer",
+      "date-alert": "Błąd daty",
+      "submit-payment": "Dodaj kartę",
+      "card-title": "Informacje o karcie",
+      "expiration": "Data waznosci karty",
+      "edit": "Zmień"
+    },
     "form": {
       "shipping-address": "Adres wysyłki",
       "next": "Dalej",

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { ComponentProps, FunctionComponent } from 'react';
 import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
 import useTranslation from 'next-translate/useTranslation';
 
@@ -7,13 +7,13 @@ import FormInputLabel from 'components/Atoms/FormInputLabel';
 
 import styles from './FormInputText.module.scss';
 
-interface FormInputTextProps {
+interface FormInputTextProps extends ComponentProps<'input'> {
   name: string;
   required?: boolean;
   register: UseFormRegister<FieldValues>;
   errors: FieldErrors<FieldValues>;
-  autoComplete?: string;
   validate?: (arg0: string) => true | string;
+  formPattern?: { value: RegExp; message: string };
 }
 
 const TAG = 'FormInputText';
@@ -25,14 +25,15 @@ const FormInputText: FunctionComponent<FormInputTextProps> = ({
   required = false,
   errors,
   register,
-  autoComplete,
   validate,
+  formPattern,
+  ...props
 }) => {
   const { t } = useTranslation();
   return (
     <FormInputLabel name={name} required={required}>
       <input
-        autoComplete={autoComplete}
+        {...props}
         className={styles.input}
         aria-describedby={`${name}-${t('components.form.field-error')}`}
         type="text"
@@ -41,7 +42,8 @@ const FormInputText: FunctionComponent<FormInputTextProps> = ({
         maxLength={MAX_LENGHT}
         {...register(name, {
           required: required ? t('components.form.required-alert') : required,
-          validate: validate ? validate : () => true,
+          validate: validate ? validate : undefined,
+          pattern: formPattern ? formPattern : undefined,
         })}
       />
       {errors[name] && (

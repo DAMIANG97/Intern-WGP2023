@@ -16,6 +16,8 @@ interface FormInputSelectProps {
   errors: FieldErrors<FieldValues>;
   optionsArray: Countries['countries'] | TitleProps['titles'];
   autoComplete?: string;
+  defaultOption?: string;
+  validate?: (arg0: FieldValues, arg1: FieldValues) => true | string;
 }
 
 const TAG = 'FormInputSelect';
@@ -35,6 +37,8 @@ const FormInputSelect: FunctionComponent<FormInputSelectProps> = ({
   errors,
   optionsArray,
   autoComplete,
+  defaultOption,
+  validate,
 }) => {
   const { t } = useTranslation('checkout');
   function getDefaultOptionText(name: string): string {
@@ -56,9 +60,10 @@ const FormInputSelect: FunctionComponent<FormInputSelectProps> = ({
           aria-invalid={errors[name] ? 'true' : 'false'}
           {...register(name, {
             required: required ? t('common:components.form.required-alert') : required,
+            validate: validate ? validate : undefined,
           })}>
           <option className={styles.option} disabled hidden value="">
-            {getDefaultOptionText(name)}
+            {defaultOption ? defaultOption : getDefaultOptionText(name)}
           </option>
           {getOptions(optionsArray)}
         </select>

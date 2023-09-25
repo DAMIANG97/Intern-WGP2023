@@ -1,5 +1,24 @@
 {
   "components": {
+    "payment": {
+      "payment-method": "Payment Method",
+      "card-type": "Card type",
+      "account-holder-name": "Account Holder Name",
+      "card-number": "Card number",
+      "expiration-month": "Card expiration month",
+      "expiration-year": "Card expiration year",
+      "security-number": "CVV",
+      "card-type-placeholder": "Select card type",
+      "expiration-month-placeholder": "Select month",
+      "expiration-year-placeholder": "Select year",
+      "card-number-alert": "Please ented a 16 digit number",
+      "security-number-alert": "Please enter a 3 digit number",
+      "date-alert": "Wrong date",
+      "submit-payment": "Submit payment",
+      "card-title": "Card info",
+      "expiration": "Card expire",
+      "edit": "Edit"
+    },
     "form": {
       "shipping-address": "Shipping Address",
       "next": "Next",

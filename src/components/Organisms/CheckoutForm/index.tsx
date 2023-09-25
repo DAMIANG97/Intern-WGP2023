@@ -35,7 +35,6 @@ const CheckoutForm: FunctionComponent<CheckoutFormProps> = () => {
   const { mutate, status } = useMutation(addAddress);
 
   const onValid: SubmitHandler<FieldValues> = (e) => {
-    console.error(e[t('components.form.fields.country')]);
     const isocode = countries?.countries.find((item) => item.name === e[t('components.form.fields.country')])?.isocode;
     const body = JSON.stringify({
       title: e.Title,
