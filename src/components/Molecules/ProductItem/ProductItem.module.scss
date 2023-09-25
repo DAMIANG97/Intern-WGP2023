@@ -28,13 +28,15 @@
 }
 
 .picture {
-  width: auto;
+  width: 8.5rem;
   height: 100%;
   display: block;
 
+  @include mq.mq($until: tablet) {
+    width: auto;
+  }
 
   @include mq.mq($from: tablet) {
-    width: 100%;
     height: auto;
   }
 }

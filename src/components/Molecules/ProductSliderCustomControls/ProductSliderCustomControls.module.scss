@@ -2,6 +2,7 @@
 
 .container {
   display: none;
+  margin-top: 0.5rem;
 
   @include mq.mq($from: tablet) {
     display: flex;

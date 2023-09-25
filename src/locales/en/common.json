@@ -82,7 +82,8 @@
       "confirmPassword": "Confirm Password",
       "submit": "Create Account",
       "error": "Error",
-      "passwordError": "Passwords should match!"
+      "passwordError": "Passwords should match!",
+      "success": "Account created successfully"
     },
     "modal": {
       "close": "Close"
@@ -90,7 +91,8 @@
     "loginForm": {
       "title": "Login",
       "submit": "Login",
-      "emailError": "Not valid email!"
+      "emailError": "Not valid email!",
+      "success": "Login successful"
     },
     "form": {
       "required-alert": "Field is required",

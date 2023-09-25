@@ -1,3 +1,5 @@
+@use 'sass-mq/_mq';
+
 .search-icon {
   width: 12px;
   height: 12px;
@@ -17,5 +19,9 @@
   &:is(:hover, :focus-visible) {
     transform: scale(1.4);
     color: var(--color-primary);
+  }
+
+  @include mq.mq($until: tablet) {
+    top: 1.5rem;
   }
 }

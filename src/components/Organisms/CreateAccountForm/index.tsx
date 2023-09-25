@@ -33,6 +33,7 @@ const CreateAccountForm = () => {
     };
     startRegister(registerData);
   };
+
   return (
     <form name={TAG} className={styles.form} onSubmit={handleSubmit(onValid)}>
       <FormTitle>{t('components.createAccountForm.title')}</FormTitle>
@@ -88,7 +89,14 @@ const CreateAccountForm = () => {
           type="submit">
           {t('components.createAccountForm.submit')}
         </Button>
-        {registerStatus === 'error' && <span className={styles.alert}>{t('components.createAccountForm.error')}</span>}
+        <div>
+          {registerStatus === 'error' && (
+            <span className={styles.alert}>{t('components.createAccountForm.error')}</span>
+          )}
+          {registerStatus === 'success' && (
+            <span className={styles.success}>{t('components.createAccountForm.success')}</span>
+          )}
+        </div>
       </div>
     </form>
   );

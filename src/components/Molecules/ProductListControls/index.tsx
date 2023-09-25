@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import useTranslation from 'next-translate/useTranslation';
 
-import ArrowSort from 'assets/icons/arrowSort.svg';
 import LayoutBig from 'assets/icons/LayoutBig.svg';
 import LayoutSmall from 'assets/icons/LayoutSmall.svg';
 import clsx from 'clsx';
@@ -47,8 +46,6 @@ const ProductsListControls: React.FC<ProductsListControlsProps> = ({
     setActiveLayout(layout);
   };
 
-  const shouldRotate = selectedOption?.includes('descending') || selectedOption?.includes('lowest');
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -79,8 +76,8 @@ const ProductsListControls: React.FC<ProductsListControlsProps> = ({
           selectedOption={selectedOption}
           submitHandler={sortSubmitHandler}
           className={styles['custom-select']}
+          listModifierClass={styles['custom-select-list ']}
         />
-        <ArrowSort className={clsx(styles.arrow, { [styles.rotate]: shouldRotate })} />
       </div>
     </div>
   );

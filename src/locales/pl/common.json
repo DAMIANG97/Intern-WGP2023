@@ -82,7 +82,8 @@
       "confirmPassword": "Potwierdź hasło",
       "submit": "Utwórz konto",
       "error": "Wystąpił Błąd",
-      "passwordError": "Hasła muszą być takie same!"
+      "passwordError": "Hasła muszą być takie same!",
+      "success": "Konto stworzone pomyślnie"
     },
     "modal": {
       "close": "Close"
@@ -90,7 +91,8 @@
     "loginForm": {
       "title": "Login",
       "submit": "Login",
-      "emailError": "Niepoprawny email!"
+      "emailError": "Niepoprawny email!",
+      "success": "Zalogowano pomyślnie"
     },
     "form": {
       "required-alert": "Pole jest wymagane",

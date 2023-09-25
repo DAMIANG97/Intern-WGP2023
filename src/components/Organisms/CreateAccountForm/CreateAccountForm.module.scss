@@ -39,10 +39,18 @@
 }
 
 .button {
-  margin: 4rem 0;
+  margin: 2rem 0;
 
   @include mq.mq($until: tablet) {
     width: 100%;
     margin: 2rem 0;
   }
+}
+
+.success {
+  color: var(--color-primary)
+}
+
+.alert {
+  color: var(--color-danger);
 }

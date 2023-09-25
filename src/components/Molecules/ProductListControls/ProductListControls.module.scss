@@ -59,7 +59,7 @@
 }
 
 .custom-select {
-  width: 9rem;
+  width: 12rem;
   height: fit-content;
   padding: 0;
 
@@ -72,6 +72,7 @@
     width: 100%;
     text-align: center;
     justify-content: center;
+    max-width: 12rem;
 
     @include mq.mq($until: tablet) {
       background-color: var(--color-white);
@@ -120,5 +121,13 @@
 
   @include mq.mq($from: tablet) {
     display: none;
+  }
+}
+
+.custom-select-list {
+  padding-left: 0;
+
+  &--open {
+    padding-left: 0;
   }
 }

@@ -59,7 +59,10 @@ const LoginForm = () => {
           type="submit">
           {t('components.loginForm.submit')}
         </Button>
-        {loginStatus === 'error' && <span className={styles.alert}>{t('components.createAccountForm.error')}</span>}
+        <div>
+          {loginStatus === 'error' && <span className={styles.alert}>{t('components.createAccountForm.error')}</span>}
+          {loginStatus === 'success' && <span className={styles.success}>{t('components.loginForm.success')}</span>}
+        </div>
       </div>
     </form>
   );
