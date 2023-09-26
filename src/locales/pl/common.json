@@ -83,7 +83,8 @@
       "confirmPassword": "Potwierdź hasło",
       "submit": "Utwórz konto",
       "error": "Wystąpił Błąd",
-      "passwordError": "Hasła muszą być takie same!",
+      "passwordError": "Musi zawierać 8 liter, dużą literę, małą literę, cyfrę i znak specjalny",
+      "samePassword": "Hasła muszą być takie same!",
       "success": "Konto stworzone pomyślnie"
     },
     "modal": {

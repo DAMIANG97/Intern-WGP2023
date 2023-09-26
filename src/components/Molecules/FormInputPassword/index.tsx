@@ -10,7 +10,7 @@ import styles from './FormInputPassword.module.scss';
 interface FormInputPasswordProps extends ComponentProps<'input'> {
   register: UseFormRegister<FieldValues>;
   errors: FieldErrors<FieldValues>;
-  validate?: (arg0: FieldValues, arg1: FieldValues) => true | string;
+  validate?: (arg0: string, arg1: FieldValues) => true | string;
   name: string;
 }
 

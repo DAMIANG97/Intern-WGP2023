@@ -52,13 +52,34 @@
     justify-content: space-between;
     font-weight: bold;
 
+
     &:is(:hover, :focus-visible) {
       color: var(--color-primary);
       transform: none;
     }
 
+    @include themeDark {
+      color: var(--color-dark);
+
+      &:is(:hover, :focus-visible) {
+        color: var(--color-primary);
+        transform: none;
+      }
+    }
+
     @include mq.mq($until: tablet) {
       padding: 0.5rem 1.2rem;
+
+      @include themeDark {
+        background-color: var(--color-dark);
+        color: var(--color-white);
+
+        &:is(:hover, :focus-visible) {
+          color: var(--color-primary);
+          transform: none;
+        }
+
+      }
     }
   }
 }

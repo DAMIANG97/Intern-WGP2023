@@ -100,21 +100,6 @@
   }
 }
 
-.arrow {
-  margin-left: 0.5rem;
-  color: var(--color-medium);
-
-  @include mq.mq($from: tablet) {
-    flex-direction: row;
-    color: var(--color-black);
-
-  }
-}
-
-.rotate {
-  transform: rotate(180deg);
-}
-
 .filter-open-button {
   font-size: var(--font-size-xxs);
   padding: .25rem 0.5rem;

@@ -7,6 +7,7 @@ import TitleAndDescription from 'components/Molecules/TitleAndDescription';
 import Carousel from 'nuka-carousel';
 import useIsDesktop from 'utils/Hooks/useIsDesktop';
 import { BASE_URL } from 'utils/Hybris/endpoints';
+import { RoutePaths } from 'utils/routes';
 
 import styles from './Slider.module.scss';
 
@@ -30,30 +31,41 @@ const CAROUSEL_OPTIONS = {
   autoplayInterval: 5000,
   speed: 1000,
 };
+const PRODUCT_NUMBER_REGEX = /\/p\/(\d+)/;
 const Slider: React.FC<SliderProps> = ({ heroContent, footerContent }) => {
   const isDesktop = useIsDesktop();
   return (
     <Carousel {...CAROUSEL_OPTIONS} autoplay={isDesktop}>
-      {heroContent.map((content, index) => (
-        <div className={styles.slider__container} key={index}>
-          <Container className={styles.slider__banner}>
-            <div className={styles.slider__socialBar}>
-              <SocialLinks vertical socialLinks={footerContent.socialLinks} socialText={footerContent.socialText} />
-            </div>
-            <div className={styles.slider__textContainer}>
-              <TitleAndDescription title={content.headline} description={content.content} />
-            </div>
-          </Container>
-          <Image
-            className={styles.slider__background}
-            src={`${BASE_URL}${content.media.url}`}
-            alt={content.media.altText}
-            width={1920}
-            height={694}
-            priority={true}
-          />
-        </div>
-      ))}
+      {heroContent.map((content, index) => {
+        const URL_LINK = content.urlLink;
+        const MATCH = URL_LINK.match(PRODUCT_NUMBER_REGEX);
+        const PRODUCT_NUMBER = MATCH ? MATCH[1] : '';
+
+        return (
+          <div className={styles.slider__container} key={index}>
+            <Container className={styles.slider__banner}>
+              <div className={styles.slider__socialBar}>
+                <SocialLinks vertical socialLinks={footerContent.socialLinks} socialText={footerContent.socialText} />
+              </div>
+              <div className={styles.slider__textContainer}>
+                <TitleAndDescription
+                  link={`${RoutePaths.product}/${PRODUCT_NUMBER}`}
+                  title={content.headline}
+                  description={content.content}
+                />
+              </div>
+            </Container>
+            <Image
+              className={styles.slider__background}
+              src={`${BASE_URL}${content.media.url}`}
+              alt={content.media.altText}
+              width={1920}
+              height={694}
+              priority={true}
+            />
+          </div>
+        );
+      })}
     </Carousel>
   );
 };

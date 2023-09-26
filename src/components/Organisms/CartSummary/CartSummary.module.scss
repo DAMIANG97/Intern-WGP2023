@@ -45,6 +45,11 @@
     border-bottom: none;
   }
 
+  &__selectCountry {
+    display: flex;
+    margin: 1rem 0 1rem 0;
+  }
+
   &__selectButton {
     max-width: none;
     width: 100%;

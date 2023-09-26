@@ -7,7 +7,7 @@ import Button from 'components/Atoms/Button';
 import FormTitle from 'components/Atoms/FormTitle';
 import FormInputPassword from 'components/Molecules/FormInputPassword';
 import FormInputText from 'components/Molecules/FormInputText';
-import { EMAIL_REGEX } from 'config/consts';
+import { EMAIL_REGEX, PASSWORD_REGEX } from 'config/consts';
 import { UserContext } from 'utils/Providers/UserProvider/context';
 
 import styles from './CreateAccountForm.module.scss';
@@ -69,6 +69,9 @@ const CreateAccountForm = () => {
         errors={errors}
         required={true}
         autoComplete="new-password"
+        validate={(password) => {
+          return PASSWORD_REGEX.test(password) || t('components.createAccountForm.passwordError');
+        }}
       />
       <FormInputPassword
         name={t('components.createAccountForm.confirmPassword')}
@@ -78,12 +81,12 @@ const CreateAccountForm = () => {
         autoComplete="new-password"
         validate={(value, formValues) => {
           const password = formValues[t('components.createAccountForm.password')];
-          return value === password || t('components.createAccountForm.passwordError');
+          return value === password || t('components.createAccountForm.samePassword');
         }}
       />
       <div className={styles['button-background']}>
         <Button
-          disabled={isSubmitting || (isSubmitted && !isValid)}
+          disabled={isSubmitting || (isSubmitted && !isValid) || !isValid}
           className={styles.button}
           variant="green"
           type="submit">

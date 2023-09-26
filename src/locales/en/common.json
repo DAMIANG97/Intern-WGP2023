@@ -83,7 +83,8 @@
       "confirmPassword": "Confirm Password",
       "submit": "Create Account",
       "error": "Error",
-      "passwordError": "Passwords should match!",
+      "passwordError": "Must contain 8 characters, one uppercase, one lowercase, one number and one special case character",
+      "samePassword": "Passwords should match!",
       "success": "Account created successfully"
     },
     "modal": {
