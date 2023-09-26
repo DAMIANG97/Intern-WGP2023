@@ -1,0 +1,10 @@
+{
+  "components": {
+    "confirmation": {
+      "order-success": "Zamówienie złożone pomyślnie",
+      "order-number": "Numer zamówienia",
+      "proceed-to-home-page": "Wróć na stronę główną",
+      "place-order-button": "Złóż zamówienie"
+    }
+  }
+}

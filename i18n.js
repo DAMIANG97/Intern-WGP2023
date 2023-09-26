@@ -26,6 +26,7 @@ const CONFIG = {
     '/product/[productId]/index.page': ['product'],
     'rgx:^\\/cart\\/': ['cart'],
     'rgx:^\\/checkout\\/': ['checkout'],
+    'rgx:^\\/confirmation\\/': ['confirmation'],
   },
   // To make layouts work:
   staticsHoc: hoistNonReactStatics,

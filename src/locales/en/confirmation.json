@@ -1,0 +1,10 @@
+{
+  "components": {
+    "confirmation": {
+      "order-success": "Order placed successfully",
+      "order-number": "Order Number",
+      "proceed-to-home-page": "Proceed to Home Page",
+      "place-order-button": "Place Order"
+    }
+  }
+}
