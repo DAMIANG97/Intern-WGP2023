@@ -47,6 +47,10 @@
       "items-in-cart": "Produktów w koszyku",
       "quantity-short": "Ilość: ",
       "view-details": "Szczegóły"
+    },
+    "shippingSummary": {
+      "shipTo": "Wyslij do",
+      "shippingMethod": "Sposób wysyłki"
     }
   }
 }

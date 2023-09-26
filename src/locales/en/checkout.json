@@ -47,6 +47,10 @@
       "items-in-cart": "Items in Cart",
       "quantity-short": "Qty: ",
       "view-details": "View Details"
+    },
+    "shippingSummary": {
+      "shipTo": "Ship To",
+      "shippingMethod": "Shipping Method"
     }
   }
 }

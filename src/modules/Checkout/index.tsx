@@ -5,6 +5,7 @@ import CheckoutNavigation from 'components/Molecules/CheckoutNavigation';
 import OrderSummary from 'components/Molecules/OrderSummary';
 import Breadcrumb from 'components/Organisms/Breadcrumb';
 import CheckoutForm from 'components/Organisms/CheckoutForm';
+import CheckoutPlaceOrder from 'components/Organisms/CheckoutPlaceOrder';
 
 import styles from './Checkout.module.scss';
 
@@ -31,6 +32,7 @@ const Checkout: React.FC<CheckoutProps> = () => {
       <main className={styles.content}>
         <CheckoutForm />
         <OrderSummary />
+        <CheckoutPlaceOrder />
       </main>
     </Container>
   );
