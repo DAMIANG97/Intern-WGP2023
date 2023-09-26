@@ -12,6 +12,8 @@ interface ProductItemProps extends Hybris.FilteredProduct {}
 
 const ProductItem: React.FC<ProductItemProps> = ({ url, name, image, price, rating }) => {
   const { t } = useTranslation();
+  const titleMarkup = { __html: name };
+
   return (
     <div className={styles.content}>
       <Link href={url} className={styles.link} aria-label={name}>
@@ -22,7 +24,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ url, name, image, price, rati
             <FallbackImage imgAltText={t('components.fallbackImage.ariaLabel')} />
           )}
         </div>
-        <div className={styles.title}> {name} </div>
+        <div className={styles.title} dangerouslySetInnerHTML={titleMarkup}></div>
 
         <ProductPrice>{price}</ProductPrice>
         <div className={styles.stars}>{rating && <StarsRating rating={rating} className={styles.price} />}</div>

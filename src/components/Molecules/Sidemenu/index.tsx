@@ -4,7 +4,6 @@ import Link from 'next/link';
 
 import CartIcon from 'assets/icons/cart.svg';
 import CloseIcon from 'assets/icons/close.svg';
-import HeartIcon from 'assets/icons/heart.svg';
 import ProfileIcon from 'assets/icons/profile.svg';
 import SearchIcon from 'assets/icons/search.svg';
 import clsx from 'clsx';
@@ -55,9 +54,6 @@ const Sidemenu: FunctionComponent<SidemenuProps> = ({
         </Button>
       </div>
       <div className={styles['sidemenu__mobile-content']}>
-        <Link href={RoutePaths.home} className={clsx(styles.sidemenu__heart, styles.sidemenu__link)}>
-          <HeartIcon />
-        </Link>
         <Link
           href={RoutePaths.home}
           className={clsx(styles.sidemenu__profile, styles.sidemenu__link)}
