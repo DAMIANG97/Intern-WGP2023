@@ -21,8 +21,8 @@ const CategoryItem = (category: CategoryComponentProps) => {
               src={category.image.url}
               alt={category.image.altText}
               className={styles.picture}
-              width={100}
-              height={100}
+              width={200}
+              height={200}
             />
           ) : (
             <FallbackImage imgAltText={t('components.fallbackImage.ariaLabel')} className={styles.picture} />

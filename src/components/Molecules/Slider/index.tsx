@@ -39,8 +39,9 @@ const Slider: React.FC<SliderProps> = ({ heroContent, footerContent }) => {
       {heroContent.map((content, index) => {
         const URL_LINK = content.urlLink;
         const MATCH = URL_LINK.match(PRODUCT_NUMBER_REGEX);
-        const PRODUCT_NUMBER = MATCH ? MATCH[1] : '';
-
+        let productNumber = MATCH ? MATCH[1] : '';
+        productNumber = productNumber === '1978440' ? '1990255' : productNumber;
+        //TODO delete hardcode after changes in hybris
         return (
           <div className={styles.slider__container} key={index}>
             <Container className={styles.slider__banner}>
@@ -49,7 +50,7 @@ const Slider: React.FC<SliderProps> = ({ heroContent, footerContent }) => {
               </div>
               <div className={styles.slider__textContainer}>
                 <TitleAndDescription
-                  link={`${RoutePaths.product}/${PRODUCT_NUMBER}`}
+                  link={`${RoutePaths.product}/${productNumber}`}
                   title={content.headline}
                   description={content.content}
                 />
