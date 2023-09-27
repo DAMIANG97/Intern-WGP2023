@@ -19,7 +19,7 @@
   &__input {
     @include mq.mq($until: tablet) {
       padding: 0.5rem;
-      font-size: var(--font-size-xxs);
+      font-size: var(--font-size-s);
     }
   }
 

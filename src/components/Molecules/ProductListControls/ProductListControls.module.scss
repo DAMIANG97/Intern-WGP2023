@@ -46,6 +46,18 @@
 
 }
 
+.container-switch-layout {
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  @include mq.mq($from: tablet) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
 .wrapper {
   display: flex;
   justify-content: space-between;
@@ -64,9 +76,9 @@
   padding: 0;
 
   @include mq.mq($until: tablet) {
+    width: 10rem;
     background-color: var(--color-white);
   }
-
 
   & button {
     width: 100%;
@@ -78,6 +90,14 @@
       background-color: var(--color-white);
       border: 1px solid var(--color-black);
       border-radius: 0.25rem;
+    }
+  }
+
+  & div {
+    padding: 0;
+
+    & button {
+      border: none;
     }
   }
 

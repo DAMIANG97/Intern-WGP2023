@@ -48,7 +48,7 @@ const ProductsListControls: React.FC<ProductsListControlsProps> = ({
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.container}>
+      <div className={styles['container-switch-layout']}>
         <button
           className={clsx(styles['icon-container'], activeLayout === 'big' ? styles.dark : styles.light)}
           onClick={() => layoutButtonClickHandler('big')}
