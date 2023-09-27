@@ -16,6 +16,7 @@ export interface CartContextValue {
   isRefetching: boolean;
   cartCode: string;
   cart: Hybris.Cart | null;
+  clearCart: () => void;
 }
 
 export const initialValue: CartContextValue = {
@@ -29,6 +30,7 @@ export const initialValue: CartContextValue = {
   isRefetching: false,
   cartCode: '',
   cart: null,
+  clearCart: noop,
 };
 
 export const CartContext = createContext<CartContextValue>(initialValue);

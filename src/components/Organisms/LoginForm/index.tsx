@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { FunctionComponent, useContext } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import useTranslation from 'next-translate/useTranslation';
 
@@ -7,13 +7,18 @@ import FormTitle from 'components/Atoms/FormTitle';
 import FormInputPassword from 'components/Molecules/FormInputPassword';
 import FormInputText from 'components/Molecules/FormInputText';
 import { EMAIL_REGEX } from 'config/consts';
+import { StepIndexes } from 'modules/Checkout';
 import { UserContext } from 'utils/Providers/UserProvider/context';
 
 import styles from './LoginForm.module.scss';
 
+interface LoginFormProps {
+  handleStepChange?: (step: StepIndexes) => void;
+}
+
 const TAG = 'LoginForm';
 
-const LoginForm = () => {
+const LoginForm: FunctionComponent<LoginFormProps> = ({ handleStepChange }) => {
   const { t } = useTranslation('common');
   const { login, authStatus } = useContext(UserContext);
   const { loginStatus } = authStatus;
@@ -28,6 +33,9 @@ const LoginForm = () => {
       username: e[t('components.createAccountForm.email')],
       password: e[t('components.createAccountForm.password')],
     });
+    if (loginStatus === 'success' && handleStepChange !== undefined) {
+      handleStepChange(StepIndexes.DELIVERY);
+    }
   };
 
   return (

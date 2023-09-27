@@ -13,7 +13,7 @@ interface OrderConfirmationProps {
 }
 
 const OrderConfirmation: FunctionComponent<OrderConfirmationProps> = ({ onClose }) => {
-  const { t } = useTranslation('confirmation');
+  const { t } = useTranslation();
 
   return (
     <div className={styles['confirmation-container']}>

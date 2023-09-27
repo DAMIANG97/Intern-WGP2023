@@ -14,7 +14,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(props, ref
   return (
     <div className={styles.input__container}>
       {props.shouldBeVisible ? (
-        <label htmlFor={props.id} className={clsx(styles['main-label--hidde-text'], styles['main-label'])}>
+        <label htmlFor={props.id} className={clsx(styles['main-label--hidden-text'], styles['main-label'])}>
           {props.text}
         </label>
       ) : (

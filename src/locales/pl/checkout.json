@@ -17,12 +17,14 @@
       "submit-payment": "Dodaj kartę",
       "card-title": "Informacje o karcie",
       "expiration": "Data waznosci karty",
-      "edit": "Zmień"
+      "edit": "Zmień",
+      "placeOrder": "Zamów"
     },
     "form": {
       "shipping-address": "Adres wysyłki",
       "next": "Dalej",
       "form-error": "Zepsuło się",
+      "submitAddress": "Dodaj adres",
       "fields": {
         "country": "Kraj",
         "title": "Zwrot",
@@ -46,7 +48,8 @@
       "empty": "Pusty",
       "items-in-cart": "Produktów w koszyku",
       "quantity-short": "Ilość: ",
-      "view-details": "Szczegóły"
+      "view-details": "Szczegóły",
+      "discount": "Rabat"
     },
     "shippingSummary": {
       "shipTo": "Wyslij do",

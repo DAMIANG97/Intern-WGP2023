@@ -11,7 +11,7 @@ interface RedirectToHomePageProps {
   onClose: () => void;
 }
 const RedirectToHomePageButton: FunctionComponent<RedirectToHomePageProps> = ({ onClose }) => {
-  const { t } = useTranslation('confirmation');
+  const { t } = useTranslation();
   return (
     <LinkComponent href={RoutePaths.home} onClick={onClose} className={styles.proceedToHomePage__button}>
       {t('components.confirmation.proceed-to-home-page')}

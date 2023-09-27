@@ -100,6 +100,17 @@
       "required-alert": "Field is required",
       "field-error": "error",
       "delivery-method": "Delivery method"
+    },
+    "discount": {
+      "accordionItemName": "Apply Discount Code",
+      "formName": "Apply Discount",
+      "applyDiscountButton": "Apply Discount"
+    },
+    "confirmation": {
+      "order-success": "Order placed successfully",
+      "order-number": "Order Number",
+      "proceed-to-home-page": "Proceed to Home Page",
+      "place-order-button": "Place Order"
     }
   },
   "pages": {

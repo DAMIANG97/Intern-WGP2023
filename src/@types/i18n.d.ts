@@ -21,7 +21,6 @@ interface TranslationKeys {
   product: Paths<typeof import('locales/pl/product.json')>;
   cart: Paths<typeof import('locales/pl/cart.json')>;
   checkout: Paths<typeof import('locals/pl/checkout')>;
-  confirmation: Paths<typeof import('locals/pl/confirmation')>;
 }
 /**
  * For hook: `useTranslation`

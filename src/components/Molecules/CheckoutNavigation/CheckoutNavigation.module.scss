@@ -1,11 +1,7 @@
 @use 'sass-mq/_mq';
 
 .wrapper {
-  display: none;
-
-  @include mq.mq($from: tablet) {
-    display: flex;
-    margin-bottom: 2rem;
-    justify-content: center;
-  }
+  display: flex;
+  margin-bottom: 2rem;
+  justify-content: center;
 }

@@ -7,16 +7,11 @@
     justify-content: flex-start;
   }
 
-  &__accordionItemContent {
-    margin: 2rem 0;
-
-    @include mq.mq($until: tablet) {
-      margin: 0.625rem;
-      margin-top: 3rem;
-    }
-  }
-
   &__accordionItemContainer {
+    display: flex;
+    justify-content: flex-start;
+    max-width: 360px;
+
     @include mq.mq($until: tablet) {
       display: flex;
       justify-content: center;
@@ -29,6 +24,7 @@
     border: 1px solid var(--color-secondary);
     font-size: var(--font-size-xs);
     width: 16.75rem;
+    box-sizing: border-box;
 
     @include mq.mq($until: tablet) {
       margin-bottom: 0.625rem;

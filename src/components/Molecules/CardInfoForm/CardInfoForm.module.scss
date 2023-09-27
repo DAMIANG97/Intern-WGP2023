@@ -8,6 +8,7 @@
 
   @include mq.mq($from: tablet) {
     background-color: var(--color-white);
+    padding: 0;
   }
 }
 

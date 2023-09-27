@@ -10,6 +10,8 @@ interface CheckoutNavigationStepProps {
   stepName: string;
   isActive: boolean;
   isDone: boolean;
+  index: number;
+  disabled: boolean;
   setActive: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -19,12 +21,16 @@ const CheckoutNavigationStep: React.FC<CheckoutNavigationStepProps> = ({
   isActive,
   isDone,
   setActive,
+  index,
+  disabled,
 }) => {
   return (
     <button
       className={clsx(styles.container, (isActive || isDone) && styles['container--active'])}
       onClick={setActive}
-      type="button">
+      type="button"
+      data-step={index}
+      disabled={disabled}>
       <div className={styles.circle}>{isDone ? <CheckMark /> : stepNumber}</div>
       <div className={styles.name}>{stepName}</div>
     </button>

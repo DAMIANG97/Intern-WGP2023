@@ -11,6 +11,7 @@
   @include mq.mq($from: desktop) {
     margin-top: 1rem;
     max-width: 51.125rem;
+    margin-bottom: 2rem;
   }
 
   &__product-item {

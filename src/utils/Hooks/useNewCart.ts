@@ -23,6 +23,9 @@ function useNewCart(userId: string, token: string) {
   useEffect(() => {
     setCartGUID(getCurrentCart);
   }, []);
+  function clearCart() {
+    setCartGUID('');
+  }
   useQuery({
     queryKey: ['getNewCart', userId, token],
     queryFn: getNewCart,
@@ -33,7 +36,7 @@ function useNewCart(userId: string, token: string) {
       setCookie('WGPCART', newCookie, { secure: true, sameSite: 'strict' });
     },
   });
-  return { cartGUID: cartGUID, setCartGUID };
+  return { cartGUID: cartGUID, setCartGUID, clearCart };
 }
 
 export default useNewCart;

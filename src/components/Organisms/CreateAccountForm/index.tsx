@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { FunctionComponent, useContext, useEffect } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import useTranslation from 'next-translate/useTranslation';
 
@@ -8,13 +8,17 @@ import FormTitle from 'components/Atoms/FormTitle';
 import FormInputPassword from 'components/Molecules/FormInputPassword';
 import FormInputText from 'components/Molecules/FormInputText';
 import { EMAIL_REGEX, PASSWORD_REGEX } from 'config/consts';
+import { StepIndexes } from 'modules/Checkout';
 import { UserContext } from 'utils/Providers/UserProvider/context';
 
 import styles from './CreateAccountForm.module.scss';
 
+interface CreateAccountFormProps {
+  handleStepChange?: (step: StepIndexes) => void;
+}
 const TAG = 'CreateAccountForm';
 
-const CreateAccountForm = () => {
+const CreateAccountForm: FunctionComponent<CreateAccountFormProps> = ({ handleStepChange }) => {
   const { authStatus, startRegister } = useContext(UserContext);
   const { registerStatus } = authStatus;
   const { t } = useTranslation('common');
@@ -33,6 +37,12 @@ const CreateAccountForm = () => {
     };
     startRegister(registerData);
   };
+
+  useEffect(() => {
+    if (registerStatus === 'success' && handleStepChange !== undefined) {
+      handleStepChange(StepIndexes.DELIVERY);
+    }
+  }, [handleStepChange, registerStatus]);
 
   return (
     <form name={TAG} className={styles.form} onSubmit={handleSubmit(onValid)}>

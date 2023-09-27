@@ -1,3 +1,5 @@
+@use 'sass-mq/_mq';
+
 .checkout-product {
   margin-top: 1.25rem;
 }
@@ -17,8 +19,11 @@
     display: flex;
     align-items: center;
     background-color: var(--color-white);
-    padding: .9375rem;
     margin-right: 1rem;
+
+    @include mq.mq($from: tablet) {
+      padding: .9375rem;
+    }
   }
 
   &__text {

@@ -7,10 +7,10 @@ import styles from './ApplyDiscountButton.module.scss';
 
 const TAG = 'Apply Discount Button';
 const ApplyDiscountButton: FunctionComponent = () => {
-  const { t } = useTranslation('cart');
+  const { t } = useTranslation();
   return (
     <Button type="submit" className={styles.applyDiscount__button}>
-      {t('components.cart.applyDiscountButton')}
+      {t('components.discount.applyDiscountButton')}
     </Button>
   );
 };

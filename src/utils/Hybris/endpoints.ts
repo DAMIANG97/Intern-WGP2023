@@ -31,6 +31,6 @@ export const LINK_PREFIX = {
   category: '/search-result/search/?currentPage=0&fields=FULL&pageSize=20&query=:relevance:category:',
 };
 
-export function getCartGuidEndpoint(user: string) {
-  return `${BASESITE_URL}/${USERS_ENDPOINT}/${user}/${CART_ENDPOINT}?fields=guid`;
+export function getCartGuidEndpoint(user: string, fields: string) {
+  return `${BASESITE_URL}/${USERS_ENDPOINT}/${user}/${CART_ENDPOINT}?fields=${fields}`;
 }

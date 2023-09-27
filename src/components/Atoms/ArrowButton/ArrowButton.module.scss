@@ -7,7 +7,6 @@
   position: absolute;
   right: 1rem;
   color: var(--color-primary);
-  bottom: 0.4rem;
 
   &:is(:hover, :focus-visible) {
     transform: scale(1.4);

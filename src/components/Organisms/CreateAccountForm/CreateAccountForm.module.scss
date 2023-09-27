@@ -7,6 +7,7 @@
   margin-bottom: 2rem;
   padding: 1rem;
   background-color: var(--color-form-background);
+  box-sizing: border-box;
 
   @include mq.mq($from: tablet) {
     background-color: var(--color-white);

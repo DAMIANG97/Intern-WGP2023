@@ -21,7 +21,15 @@ const active = () => {
 export const Primary: Story = {
   render: () => (
     <div style={{ width: '194px', display: 'flex' }}>
-      <CheckoutNavigationStep stepNumber={0} stepName="Login" isActive={true} isDone={true} setActive={active} />
+      <CheckoutNavigationStep
+        stepNumber={0}
+        stepName="Login"
+        isActive={true}
+        isDone={true}
+        setActive={active}
+        index={0}
+        disabled={false}
+      />
     </div>
   ),
 };

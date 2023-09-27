@@ -1,10 +1,26 @@
 @use 'sass-mq/_mq';
 
 .content {
-  display: grid;
+  @include mq.mq($from: tablet) {
+    margin: 0 0.75rem 6rem;
+  }
+}
+
+.wrapper {
+  width: 100%;
 
   @include mq.mq($from: tablet) {
+    display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: 0 0.75rem;
+  }
+
+  &--hide-on-mobile {
+    display: none;
+
+    @include mq.mq($from: tablet) {
+      display: block;
+      display: flex;
+      justify-content: flex-end;
+    }
   }
 }

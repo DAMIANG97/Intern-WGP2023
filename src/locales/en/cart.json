@@ -13,11 +13,8 @@
       "empty": "Cart is empty"
     },
     "cart": {
-      "accordionItemName": "Apply Discount Code",
-      "applyDiscountButton": "Apply Discount",
       "summaryAccordionTitle": "Estimate shipping and tax",
       "summaryTitle": "Summary",
-      "formName": "Apply Discount",
       "countryLabel": "Country",
       "zipCodeLabel": "Zip/Postal Code",
       "proceedToCheckout": "Proceed to Checkout",

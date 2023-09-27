@@ -1,12 +1,14 @@
 @use 'sass-mq/_mq';
 
 .background {
-  display: none;
+  width: 100%;
+  display: flex;
+  margin-bottom: 3rem;
 
   @include mq.mq($from: tablet) {
     display: flex;
     justify-self: right;
-    align-items: start;
+    align-items: flex-start;
     justify-content: center;
     width: 24.625rem;
     height: fit-content;
@@ -20,7 +22,10 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 1.3125rem;
+
+    @include mq.mq($from: tablet) {
+      padding: 1.3125rem;
+    }
 
     &--price {
       font-weight: 400;
@@ -30,6 +35,11 @@
       line-height: 1.5;
       margin-top: .625rem;
       margin-bottom: 1.3125rem;
+
+      @include mq.mq($until: tablet) {
+        font-size: var(--font-size-s);
+
+      }
     }
 
     &__lane {
@@ -43,9 +53,14 @@
       display: flex;
       flex-direction: column;
       margin-bottom: 1.0625rem;
-      font-size: var(--font-size-xs);
+      font-size: var(--font-size-xxs);
       font-weight: 400;
       color: var(--color-filter-text);
+
+      @include mq.mq($from: tablet) {
+        font-size: var(--font-size-xs);
+
+      }
     }
 
     &__shipping-cart,
@@ -65,10 +80,14 @@
       display: flex;
       width: 100%;
       justify-content: space-between;
-      font-size: 1.125rem;
+      font-size: var(--font-size-s);
       line-height: 1.5;
       margin-top: 1rem;
       margin-bottom: 1.9375rem;
+
+      @include mq.mq($from: tablet) {
+        font-size: var(--font-size-m)
+      }
     }
 
     &__item {

@@ -17,7 +17,7 @@ interface CartProviderProps {
 const CartProvider: FunctionComponent<CartProviderProps> = ({ children }) => {
   const { user, token, authStatus } = useContext(UserContext);
   const { userStatus } = authStatus;
-  const { cartGUID, setCartGUID } = useNewCart(user, token);
+  const { cartGUID, setCartGUID, clearCart } = useNewCart(user, token);
   const localeSuffix = getLocaleSuffix();
 
   // delete cart code from cookies when user logs out.
@@ -62,6 +62,7 @@ const CartProvider: FunctionComponent<CartProviderProps> = ({ children }) => {
         cartRefresh: cart.refetch,
         isRefetching: cart.isRefetching,
         cartCode: cart.data.code,
+        clearCart: clearCart,
       };
     }
     if (user !== 'anonymous' && restoredCart.isSuccess) {
@@ -77,6 +78,7 @@ const CartProvider: FunctionComponent<CartProviderProps> = ({ children }) => {
         cartRefresh: restoredCart.refetch,
         isRefetching: restoredCart.isRefetching,
         cartCode: restoredCart.data.code,
+        clearCart: clearCart,
       };
     }
     return {
@@ -90,8 +92,9 @@ const CartProvider: FunctionComponent<CartProviderProps> = ({ children }) => {
       isRefetching: cart.isRefetching,
       cartCode: initialValue.cartCode,
       cart: initialValue.cart,
+      clearCart: clearCart,
     };
-  }, [cart, cartGUID, restoredCart, user]);
+  }, [cart, cartGUID, restoredCart, user, clearCart]);
 
   return <CartContext.Provider value={context}>{children}</CartContext.Provider>;
 };

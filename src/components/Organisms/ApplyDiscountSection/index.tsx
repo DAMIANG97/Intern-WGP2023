@@ -15,7 +15,7 @@ import styles from './ApplyDiscountSection.module.scss';
 const TAG = 'Apply Discount Section';
 
 const ApplyDiscountSection: FunctionComponent = () => {
-  const { t } = useTranslation('cart');
+  const { t } = useTranslation();
   const [inputValue, setInputValue] = useState('');
   const { user, token } = useContext(UserContext);
   const inputChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -35,10 +35,10 @@ const ApplyDiscountSection: FunctionComponent = () => {
   return (
     <section className={styles.applyDiscount__accordionItemContent}>
       <AccordionItem
-        name={t('components.cart.accordionItemName')}
+        name={t('components.discount.accordionItemName')}
         variant="discount"
         modifierClassName={styles.applyDiscount__name}>
-        <form name={t('components.cart.formName')} onSubmit={handleSubmit(onValid)}>
+        <form name={t('components.discount.formName')} onSubmit={handleSubmit(onValid)}>
           <div className={styles.applyDiscount__accordionItemContainer}>
             <Input
               className={styles.applyDiscount__input}

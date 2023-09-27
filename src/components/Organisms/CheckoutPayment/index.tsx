@@ -4,6 +4,7 @@ import useTranslation from 'next-translate/useTranslation';
 import Button from 'components/Atoms/Button';
 import H1 from 'components/Atoms/H1';
 import CardInfoForm from 'components/Molecules/CardInfoForm';
+import { HIDE_CARD_REGEX } from 'config/consts';
 import { CheckoutContext } from 'utils/Providers/CheckoutProvider/context';
 
 import styles from './CheckoutPayment.module.scss';
@@ -18,9 +19,11 @@ const CheckoutPayment: FunctionComponent = () => {
   const cardInfo = [
     { label: t('components.payment.card-type'), value: payment?.cardType },
     { label: t('components.payment.account-holder-name'), value: payment?.name },
-    { label: t('components.payment.card-number'), value: payment?.cardNumber },
+    {
+      label: t('components.payment.card-number'),
+      value: payment?.cardNumber.replace(HIDE_CARD_REGEX, '**** **** **** '),
+    },
     { label: t('components.payment.expiration'), value: `${payment?.cardExpMonth}/${payment?.cardExpYear}` },
-    { label: t('components.payment.security-number'), value: payment?.cvv },
   ];
 
   return (
@@ -32,7 +35,7 @@ const CheckoutPayment: FunctionComponent = () => {
             {cardInfo.map((item) => (
               <Fragment key={item.label}>
                 <dt className={styles.payment__info}>{item.label}</dt>
-                <dd>{item.value}</dd>
+                <dd className={styles.payment__details}>{item.value}</dd>
               </Fragment>
             ))}
           </dl>

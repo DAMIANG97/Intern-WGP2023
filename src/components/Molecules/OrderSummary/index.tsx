@@ -11,7 +11,7 @@ const TAG = 'OrderSummary';
 
 const OrderSummary: FunctionComponent = () => {
   const { t } = useTranslation('checkout');
-  const { entries, itemsCount, deliveryMode, totalPrice } = useContext(CartContext);
+  const { entries, itemsCount, deliveryMode, totalPrice, cart } = useContext(CartContext);
   return (
     <div className={styles['background']}>
       <div className={styles['order-summary']}>
@@ -20,7 +20,11 @@ const OrderSummary: FunctionComponent = () => {
         <div className={styles['order-summary__shipping']}>
           <div className={styles['order-summary__shipping-cart']}>
             <span>{t('components.summary.cart-subtotal')}</span>
-            <span className={styles['order-summary--price']}>{totalPrice?.formattedValue}</span>
+            <span className={styles['order-summary--price']}>{cart?.subTotal.formattedValue}</span>
+          </div>
+          <div className={styles['order-summary__shipping-cart']}>
+            <span>{t('components.summary.discount')}</span>
+            <span className={styles['order-summary--price']}>{cart?.totalDiscounts.formattedValue}</span>
           </div>
           {deliveryMode && deliveryMode.deliveryCost && (
             <div className={styles['order-summary__shipping-rate']}>
@@ -34,9 +38,7 @@ const OrderSummary: FunctionComponent = () => {
         <div className={styles['order-summary__total-price']}>
           <span>{t('components.summary.order-total')}</span>
           {deliveryMode && totalPrice ? (
-            <span className={styles['order-summary--price']}>
-              ${totalPrice?.value + deliveryMode.deliveryCost.value}
-            </span>
+            <span className={styles['order-summary--price']}>{cart?.totalPrice.formattedValue}</span>
           ) : (
             <span className={styles['order-summary--price']}>${totalPrice?.value}</span>
           )}

@@ -17,12 +17,14 @@
       "submit-payment": "Submit payment",
       "card-title": "Card info",
       "expiration": "Card expire",
-      "edit": "Edit"
+      "edit": "Edit",
+      "placeOrder": "Place Order"
     },
     "form": {
       "shipping-address": "Shipping Address",
       "next": "Next",
       "form-error": "Something went wrong",
+      "submitAddress": "Submit Address",
       "fields": {
         "country": "Country",
         "title": "Title",
@@ -46,7 +48,8 @@
       "empty": "empty",
       "items-in-cart": "Items in Cart",
       "quantity-short": "Qty: ",
-      "view-details": "View Details"
+      "view-details": "View Details",
+      "discount": "Discount"
     },
     "shippingSummary": {
       "shipTo": "Ship To",

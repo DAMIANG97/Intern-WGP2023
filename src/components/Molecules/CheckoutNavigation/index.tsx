@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 
 import CheckoutNavigationStep from 'components/Atoms/ChceckoutNavigationStep';
+import { StepIndexes } from 'modules/Checkout';
+import { CartContext } from 'utils/Providers/CartProvider/context';
 
 import styles from './CheckoutNavigation.module.scss';
 
@@ -8,26 +10,21 @@ interface CheckoutNavigationProps {
   steps: ReadonlyArray<{
     title: string;
   }>;
+  onStepChange: (step: number) => void;
+  activeStepIndex: StepIndexes;
+  isLoggedIn: boolean;
 }
-const CheckoutNavigation: React.FC<CheckoutNavigationProps> = ({ steps }) => {
-  const [activeStepIndex, setActiveStepIndex] = useState(0);
 
+const CheckoutNavigation: React.FC<CheckoutNavigationProps> = ({
+  steps,
+  onStepChange,
+  activeStepIndex,
+  isLoggedIn,
+}) => {
   const handleStepClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    const target = event.target as HTMLButtonElement | null;
-
-    if (target !== null) {
-      const stepAttribute = target.getAttribute('data-step');
-
-      if (stepAttribute !== null) {
-        const step = +stepAttribute;
-
-        if (!isNaN(step)) {
-          setActiveStepIndex(step);
-        }
-      }
-    }
+    onStepChange(Number(event.currentTarget.dataset.step));
   };
-
+  const { cart } = useContext(CartContext);
   return (
     <div className={styles.wrapper}>
       {steps.map((step, index) => (
@@ -38,7 +35,10 @@ const CheckoutNavigation: React.FC<CheckoutNavigationProps> = ({ steps }) => {
           isDone={index < activeStepIndex}
           stepName={step.title}
           setActive={handleStepClick}
-          data-step={index}
+          index={index}
+          disabled={
+            (index === 1 && isLoggedIn === false) || (index === 2 && !(cart?.deliveryAddress && cart?.deliveryMode))
+          }
         />
       ))}
     </div>
